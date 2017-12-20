@@ -60,6 +60,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DomainObject\Customer.vb" />
+    <Compile Include="DomainObject\Employee.vb" />
+    <Compile Include="DomainObject\PaymentCondition.vb" />
     <Compile Include="Repository\CustomerRepository.vb" />
   </ItemGroup>
   <ItemGroup>

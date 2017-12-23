@@ -4,7 +4,7 @@ Option Infer On
 ''' <summary>
 ''' 顧客情報永続化のための機能表現
 ''' </summary>
-Public Interface CustomerRepository
+Public Interface ICustomerRepository
 
     ''' <summary>
     ''' 引数のcustomerを永続化する

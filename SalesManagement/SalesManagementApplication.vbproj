@@ -132,6 +132,10 @@
       <Project>{acc284ce-470b-4530-b481-a954b585d603}</Project>
       <Name>SalesManagementDomain</Name>
     </ProjectReference>
+    <ProjectReference Include="..\SalesManagementInfra\SalesManagementInfra.vbproj">
+      <Project>{dc4929b8-9675-4449-82ca-7bf21a36f8d7}</Project>
+      <Name>SalesManagementInfra</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

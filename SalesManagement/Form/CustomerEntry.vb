@@ -39,10 +39,12 @@ Public Class CustomerEntry
     Private Sub EntryButton_Click(sender As Object, e As EventArgs) Handles EntryButton.Click
         'ドメインオブジェクトの正当性を確認
         If _customer.Validate() = False Then
-            MessageBox.Show("OK")
+            'エラー情報を更新
+            CustomerInfoErrorProvider.UpdateBinding()
         End If
-        'エラー情報を更新
-        CustomerInfoErrorProvider.UpdateBinding()
+        '登録
+        Dim customerRepo = New SalesManagementInfra.CustomerRepositoryImpl()
+        customerRepo.Save(_customer)
     End Sub
 
 #End Region

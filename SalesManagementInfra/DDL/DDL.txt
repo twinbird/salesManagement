@@ -1,0 +1,108 @@
+﻿-- 自社情報
+CREATE TABLE company_information (
+	id INTEGER PRIMARY KEY AUTOINCREMENT,           -- ID
+	apply_start_date DATE NOT NULL,                 -- 適用開始日
+	postal_code VARCHAR(10) NOT NULL,               -- 郵便番号
+	address1 VARCHAR(50) NOT NULL,                  -- 住所1
+	address2 VARCHAR(50) NOT NULL,                  -- 住所2
+	tel VARCHAR(15) NOT NULL,                       -- 電話番号
+	fax VARCHAR(15) NOT NULL,                       -- FAX番号
+	created_at TIMESTAMP NOT NULL,                  -- 登録日時
+	updated_at TIMESTAMP                            -- 更新日時
+
+	UNIQUE KEY uk_company_information_apply_start_date (apply_start_date)
+);
+
+-- 消費税
+CREATE TABLE sales_taxes (
+	id INTEGER PRIMARY KEY AUTOINCREMENT,           -- ID
+	apply_start_date DATE NOT NULL,                 -- 適用開始日
+	rate NOT NULL,                                  -- 税率
+	created_at TIMESTAMP NOT NULL,                  -- 登録日時
+	updated_at TIMESTAMP                            -- 更新日時
+
+	UNIQUE KEY uk_sales_taxes_apply_start_date (apply_start_date)
+);
+
+-- 従業員
+CREATE TABLE employees (
+	id INTEGER PRIMARY KEY AUTOINCREMENT,           -- ID
+	employee_number INTEGER NOT NULL,               -- 従業員番号
+	first_name VARCHAR(20) NOT NULL,                -- 名
+	last_name VARCHAR(20) NOT NULL,                 -- 姓
+	first_name_kana VARCHAR(20) NOT NULL,           -- 名(かな)
+	last_name_kana VARCHAR(20) NOT NULL,            -- 姓(かな)
+	created_at TIMESTAMP NOT NULL,                  -- 登録日時
+	updated_at TIMESTAMP                            -- 更新日時
+
+	UNIQUE KEY uk_employees_employee_number (employee_number)
+);
+
+-- 支払条件
+CREATE TABLE payment_conditions (
+	id INTEGER PRIMARY KEY AUTOINCREMENT,           -- ID
+	name VARCHAR(20) NOT NULL,                      -- 名前
+	cut_off DATE NOT NULL,                          -- 締日
+	paytment_date DATE NOT NULL,                    -- 支払日
+	payment_offset INTEGER NOT NULL,                -- 支払月(0:当月,1:翌月)
+	created_at TIMESTAMP NOT NULL,                  -- 登録日時
+	updated_at TIMESTAMP                            -- 更新日時
+
+	UNIQUE KEY uk_payment_conditions (name)
+);
+
+-- 顧客
+CREATE TABLE customers (
+	id INTEGER PRIMARY KEY AUTOINCREMENT,           -- ID
+	name VARCHAR(100) NOT NULL,                     -- 名前
+	name_kana VARCHAR(100) NOT NULL,                -- 名前(かな)
+	sales_employee_id INTEGER NOT NULL,             -- 営業担当者ID
+	payment_id INTEGER NOT NULL,                    -- 支払条件ID
+	postal_code VARCHAR(10) NOT NULL,               -- 郵便番号
+	address1 VARCHAR(50) NOT NULL,                  -- 住所1
+	address2 VARCHAR(50) NOT NULL,                  -- 住所2
+	created_at TIMESTAMP NOT NULL,                  -- 登録日時
+	updated_at TIMESTAMP                            -- 更新日時
+
+	UNIQUE KEY uk_customers_name_and_address (name, address1, address2)
+);
+ALTER TABLE customers ADD CONSTRAINT sales_employee_id_to_employees FOREIGN KEY (sales_employee_id) REFERENCES employees(id);
+ALTER TABLE customers ADD CONSTRAINT payment_id_to_payment_conditions FOREIGN KEY (payment_id) REFERENCES payment_conditions(id);
+
+-- 見積
+CREATE TABLE estimates (
+	id INTEGER PRIMARY KEY AUTOINCREMENT,           -- ID
+	estimate_number INTEGER NOT NULL,               -- 見積番号
+	customer_id INTEGER NOT NULL,                   -- 顧客ID
+	title VARCHAR(50) NOT NULL,                     -- 件名
+	due_date DATE NOT NULL,                         -- 納期
+	payment_id INTEGER NOT NULL,                    -- 支払条件ID
+	pic_employee_id INTEGER NOT NULL,               -- 発行担当者ID
+	apply_tax_id INTEGER NOT NULL,                  -- 適用消費税ID
+	apply_company_id INTEGER NOT NULL,              -- 適用会社情報ID
+	print_date DATE NOT NULL,                       -- 発行日
+	effective_date DATE NOT NULL,                   -- 見積有効期限
+	remarks VARCHAR(500) NOT NULL,                  -- 備考
+	created_at TIMESTAMP NOT NULL,                  -- 登録日時
+	updated_at TIMESTAMP                            -- 更新日時
+);
+ALTER TABLE estimates ADD CONSTRAINT customer_id_to_customers FOREIGN KEY (customer_id) REFERENCES customers(id);
+ALTER TABLE estimates ADD CONSTRAINT payment_id_to_payment_conditions FOREIGN KEY (payment_id) REFERENCES payment_conditions(id);
+ALTER TABLE estimates ADD CONSTRAINT pic_employee_id_to_employees FOREIGN KEY (pic_employee_id) REFERENCES employees(id);
+ALTER TABLE estimates ADD CONSTRAINT apply_tax_id_to_sales_taxes FOREIGN KEY (apply_tax_id) REFERENCES sales_taxes(id);
+ALTER TABLE estimates ADD CONSTRAINT apply_company_id_to_company_information FOREIGN KEY (apply_company_id) REFERENCES company_information(id);
+
+-- 見積明細
+CREATE TABLE estimate_details (
+	id INTEGER PRIMARY KEY AUTOINCREMENT,           -- ID
+	estimate_id INTEGER NOT NULL,                   -- 見積ID
+	display_order INTEGER NOT NULL,                 -- 明細表示順
+	item_name VARCHAR(50) NOT NULL,                 -- 品名
+	quantity INTEGER NOT NULL,                      -- 数量
+	unit_price INTEGER NOT NULL,                    -- 単価
+	created_at TIMESTAMP NOT NULL,                  -- 登録日時
+	updated_at TIMESTAMP                            -- 更新日時
+
+	UNIQUE KEY uk_estimate_details_estimate_id_and_display_order (estimate_id, display_order)
+);
+ALTER TABLE estimate_details ADD CONSTRAINT estimate_id_to_estimates FOREIGN KEY (estimate_id) REFERENCES estimates(id);

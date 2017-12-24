@@ -90,6 +90,12 @@
       <DependentUpon>CustomerEntry.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Form\EmployeeEntry.Designer.vb">
+      <DependentUpon>EmployeeEntry.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\EmployeeEntry.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Form\SalesRateEntry.Designer.vb">
       <DependentUpon>SalesRateEntry.vb</DependentUpon>
     </Compile>
@@ -121,6 +127,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Form\CompanyInformationEntry.resx">
       <DependentUpon>CompanyInformationEntry.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\EmployeeEntry.resx">
+      <DependentUpon>EmployeeEntry.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form\SalesRateEntry.resx">
       <DependentUpon>SalesRateEntry.vb</DependentUpon>

@@ -77,6 +77,12 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Form\CompanyInformation.Designer.vb">
+      <DependentUpon>CompanyInformation.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\CompanyInformation.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Form\CustomerEntry.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -107,6 +113,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Form\CompanyInformation.resx">
+      <DependentUpon>CompanyInformation.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>

@@ -1,4 +1,8 @@
-﻿-- 自社情報
+﻿-- 外部キーを有効化
+PRAGMA foreign_keys = ON;
+
+DROP TABLE IF EXISTS company_information;
+-- 自社情報
 CREATE TABLE company_information (
 	id INTEGER PRIMARY KEY AUTOINCREMENT,           -- ID
 	apply_start_date DATE NOT NULL,                 -- 適用開始日
@@ -8,22 +12,25 @@ CREATE TABLE company_information (
 	tel VARCHAR(15) NOT NULL,                       -- 電話番号
 	fax VARCHAR(15) NOT NULL,                       -- FAX番号
 	created_at TIMESTAMP NOT NULL,                  -- 登録日時
-	updated_at TIMESTAMP                            -- 更新日時
+	updated_at TIMESTAMP,                           -- 更新日時
 
-	UNIQUE KEY uk_company_information_apply_start_date (apply_start_date)
+	UNIQUE (apply_start_date)
 );
 
+DROP TABLE IF EXISTS sales_taxes;
 -- 消費税
 CREATE TABLE sales_taxes (
 	id INTEGER PRIMARY KEY AUTOINCREMENT,           -- ID
 	apply_start_date DATE NOT NULL,                 -- 適用開始日
 	rate NOT NULL,                                  -- 税率
 	created_at TIMESTAMP NOT NULL,                  -- 登録日時
-	updated_at TIMESTAMP                            -- 更新日時
+	updated_at TIMESTAMP,                           -- 更新日時
 
-	UNIQUE KEY uk_sales_taxes_apply_start_date (apply_start_date)
+	UNIQUE (apply_start_date)
 );
 
+
+DROP TABLE IF EXISTS employees;
 -- 従業員
 CREATE TABLE employees (
 	id INTEGER PRIMARY KEY AUTOINCREMENT,           -- ID
@@ -33,11 +40,12 @@ CREATE TABLE employees (
 	first_name_kana VARCHAR(20) NOT NULL,           -- 名(かな)
 	last_name_kana VARCHAR(20) NOT NULL,            -- 姓(かな)
 	created_at TIMESTAMP NOT NULL,                  -- 登録日時
-	updated_at TIMESTAMP                            -- 更新日時
+	updated_at TIMESTAMP,                           -- 更新日時
 
-	UNIQUE KEY uk_employees_employee_number (employee_number)
+	UNIQUE (employee_number)
 );
 
+DROP TABLE IF EXISTS payment_conditions;
 -- 支払条件
 CREATE TABLE payment_conditions (
 	id INTEGER PRIMARY KEY AUTOINCREMENT,           -- ID
@@ -46,11 +54,12 @@ CREATE TABLE payment_conditions (
 	paytment_date DATE NOT NULL,                    -- 支払日
 	payment_offset INTEGER NOT NULL,                -- 支払月(0:当月,1:翌月)
 	created_at TIMESTAMP NOT NULL,                  -- 登録日時
-	updated_at TIMESTAMP                            -- 更新日時
+	updated_at TIMESTAMP,                           -- 更新日時
 
-	UNIQUE KEY uk_payment_conditions (name)
+	UNIQUE (name)
 );
 
+DROP TABLE IF EXISTS customers;
 -- 顧客
 CREATE TABLE customers (
 	id INTEGER PRIMARY KEY AUTOINCREMENT,           -- ID
@@ -62,13 +71,14 @@ CREATE TABLE customers (
 	address1 VARCHAR(50) NOT NULL,                  -- 住所1
 	address2 VARCHAR(50) NOT NULL,                  -- 住所2
 	created_at TIMESTAMP NOT NULL,                  -- 登録日時
-	updated_at TIMESTAMP                            -- 更新日時
+	updated_at TIMESTAMP,                           -- 更新日時
 
-	UNIQUE KEY uk_customers_name_and_address (name, address1, address2)
+	UNIQUE (name, address1, address2),
+	FOREIGN KEY (sales_employee_id) REFERENCES employees(id),
+	FOREIGN KEY (payment_id) REFERENCES payment_conditions(id)
 );
-ALTER TABLE customers ADD CONSTRAINT sales_employee_id_to_employees FOREIGN KEY (sales_employee_id) REFERENCES employees(id);
-ALTER TABLE customers ADD CONSTRAINT payment_id_to_payment_conditions FOREIGN KEY (payment_id) REFERENCES payment_conditions(id);
 
+DROP TABLE IF EXISTS estimates;
 -- 見積
 CREATE TABLE estimates (
 	id INTEGER PRIMARY KEY AUTOINCREMENT,           -- ID
@@ -84,14 +94,17 @@ CREATE TABLE estimates (
 	effective_date DATE NOT NULL,                   -- 見積有効期限
 	remarks VARCHAR(500) NOT NULL,                  -- 備考
 	created_at TIMESTAMP NOT NULL,                  -- 登録日時
-	updated_at TIMESTAMP                            -- 更新日時
-);
-ALTER TABLE estimates ADD CONSTRAINT customer_id_to_customers FOREIGN KEY (customer_id) REFERENCES customers(id);
-ALTER TABLE estimates ADD CONSTRAINT payment_id_to_payment_conditions FOREIGN KEY (payment_id) REFERENCES payment_conditions(id);
-ALTER TABLE estimates ADD CONSTRAINT pic_employee_id_to_employees FOREIGN KEY (pic_employee_id) REFERENCES employees(id);
-ALTER TABLE estimates ADD CONSTRAINT apply_tax_id_to_sales_taxes FOREIGN KEY (apply_tax_id) REFERENCES sales_taxes(id);
-ALTER TABLE estimates ADD CONSTRAINT apply_company_id_to_company_information FOREIGN KEY (apply_company_id) REFERENCES company_information(id);
+	updated_at TIMESTAMP,                           -- 更新日時
 
+	UNIQUE (estimate_number),
+	FOREIGN KEY (customer_id) REFERENCES customers(id),
+	FOREIGN KEY (payment_id) REFERENCES payment_conditions(id),
+	FOREIGN KEY (pic_employee_id) REFERENCES employees(id),
+	FOREIGN KEY (apply_tax_id) REFERENCES sales_taxes(id),
+	FOREIGN KEY (apply_company_id) REFERENCES company_information(id)
+);
+
+DROP TABLE IF EXISTS estimate_details;
 -- 見積明細
 CREATE TABLE estimate_details (
 	id INTEGER PRIMARY KEY AUTOINCREMENT,           -- ID
@@ -101,8 +114,8 @@ CREATE TABLE estimate_details (
 	quantity INTEGER NOT NULL,                      -- 数量
 	unit_price INTEGER NOT NULL,                    -- 単価
 	created_at TIMESTAMP NOT NULL,                  -- 登録日時
-	updated_at TIMESTAMP                            -- 更新日時
+	updated_at TIMESTAMP,                           -- 更新日時
 
-	UNIQUE KEY uk_estimate_details_estimate_id_and_display_order (estimate_id, display_order)
+	UNIQUE (estimate_id, display_order),
+	FOREIGN KEY (estimate_id) REFERENCES estimates(id)
 );
-ALTER TABLE estimate_details ADD CONSTRAINT estimate_id_to_estimates FOREIGN KEY (estimate_id) REFERENCES estimates(id);

@@ -5,6 +5,7 @@ DROP TABLE IF EXISTS company_information;
 -- 自社情報
 CREATE TABLE company_information (
 	id INTEGER PRIMARY KEY AUTOINCREMENT,           -- ID
+	name VARCHAR(50) NOT NULL,                      -- 会社名
 	apply_start_date DATE NOT NULL,                 -- 適用開始日
 	postal_code VARCHAR(10) NOT NULL,               -- 郵便番号
 	address1 VARCHAR(50) NOT NULL,                  -- 住所1

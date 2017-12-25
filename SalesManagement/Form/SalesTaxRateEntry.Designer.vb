@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class SalesRateEntry
+Partial Class SalesTaxRateEntry
     Inherits System.Windows.Forms.Form
 
     'フォームがコンポーネントの一覧をクリーンアップするために dispose をオーバーライドします。
@@ -23,9 +23,10 @@ Partial Class SalesRateEntry
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
-        Me.EntryButton = New System.Windows.Forms.Button()
         Me.ApplyDate = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Rate = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.EntryButton = New System.Windows.Forms.Button()
+        Me.FormTitleLabel = New System.Windows.Forms.Label()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -33,20 +34,11 @@ Partial Class SalesRateEntry
         '
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.ApplyDate, Me.Rate})
-        Me.DataGridView1.Location = New System.Drawing.Point(12, 12)
+        Me.DataGridView1.Location = New System.Drawing.Point(12, 46)
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.RowTemplate.Height = 21
-        Me.DataGridView1.Size = New System.Drawing.Size(265, 150)
+        Me.DataGridView1.Size = New System.Drawing.Size(265, 298)
         Me.DataGridView1.TabIndex = 0
-        '
-        'EntryButton
-        '
-        Me.EntryButton.Location = New System.Drawing.Point(190, 179)
-        Me.EntryButton.Name = "EntryButton"
-        Me.EntryButton.Size = New System.Drawing.Size(87, 26)
-        Me.EntryButton.TabIndex = 1
-        Me.EntryButton.Text = "登録"
-        Me.EntryButton.UseVisualStyleBackColor = True
         '
         'ApplyDate
         '
@@ -58,17 +50,38 @@ Partial Class SalesRateEntry
         Me.Rate.HeaderText = "税率"
         Me.Rate.Name = "Rate"
         '
-        'SalesRateEntry
+        'EntryButton
+        '
+        Me.EntryButton.Location = New System.Drawing.Point(190, 350)
+        Me.EntryButton.Name = "EntryButton"
+        Me.EntryButton.Size = New System.Drawing.Size(87, 26)
+        Me.EntryButton.TabIndex = 1
+        Me.EntryButton.Text = "登録"
+        Me.EntryButton.UseVisualStyleBackColor = True
+        '
+        'FormTitleLabel
+        '
+        Me.FormTitleLabel.AutoSize = True
+        Me.FormTitleLabel.Font = New System.Drawing.Font("MS UI Gothic", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.FormTitleLabel.Location = New System.Drawing.Point(12, 9)
+        Me.FormTitleLabel.Name = "FormTitleLabel"
+        Me.FormTitleLabel.Size = New System.Drawing.Size(156, 24)
+        Me.FormTitleLabel.TabIndex = 2
+        Me.FormTitleLabel.Text = "消費税の設定"
+        '
+        'SalesTaxRateEntry
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(289, 218)
+        Me.ClientSize = New System.Drawing.Size(289, 388)
+        Me.Controls.Add(Me.FormTitleLabel)
         Me.Controls.Add(Me.EntryButton)
         Me.Controls.Add(Me.DataGridView1)
-        Me.Name = "SalesRateEntry"
-        Me.Text = "消費税管理"
+        Me.Name = "SalesTaxRateEntry"
+        Me.Text = "消費税の設定"
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
 
@@ -76,4 +89,5 @@ Partial Class SalesRateEntry
     Friend WithEvents ApplyDate As DataGridViewTextBoxColumn
     Friend WithEvents Rate As DataGridViewTextBoxColumn
     Friend WithEvents EntryButton As Button
+    Friend WithEvents FormTitleLabel As Label
 End Class

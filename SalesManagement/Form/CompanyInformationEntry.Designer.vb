@@ -39,10 +39,11 @@ Partial Class CompanyInformationEntry
         Me.FaxTextBox = New System.Windows.Forms.TextBox()
         Me.FaxLabel = New System.Windows.Forms.Label()
         Me.HistoryDataGridView = New System.Windows.Forms.DataGridView()
+        Me.applyDate = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.HistoryLabel = New System.Windows.Forms.Label()
         Me.CompanyInformationBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.CompanyInformationErrorProvider = New System.Windows.Forms.ErrorProvider(Me.components)
-        Me.applyDate = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.FormTitleLabel = New System.Windows.Forms.Label()
         CType(Me.HistoryDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CompanyInformationBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CompanyInformationErrorProvider, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -59,7 +60,7 @@ Partial Class CompanyInformationEntry
         '
         'NameTextBox
         '
-        Me.NameTextBox.Location = New System.Drawing.Point(108, 58)
+        Me.NameTextBox.Location = New System.Drawing.Point(108, 76)
         Me.NameTextBox.MaxLength = 50
         Me.NameTextBox.Name = "NameTextBox"
         Me.NameTextBox.Size = New System.Drawing.Size(314, 19)
@@ -68,7 +69,7 @@ Partial Class CompanyInformationEntry
         'NameLabel
         '
         Me.NameLabel.AutoSize = True
-        Me.NameLabel.Location = New System.Drawing.Point(37, 61)
+        Me.NameLabel.Location = New System.Drawing.Point(37, 79)
         Me.NameLabel.Name = "NameLabel"
         Me.NameLabel.Size = New System.Drawing.Size(41, 12)
         Me.NameLabel.TabIndex = 2
@@ -76,7 +77,7 @@ Partial Class CompanyInformationEntry
         '
         'PostalCodeTextBox
         '
-        Me.PostalCodeTextBox.Location = New System.Drawing.Point(108, 86)
+        Me.PostalCodeTextBox.Location = New System.Drawing.Point(108, 104)
         Me.PostalCodeTextBox.MaxLength = 10
         Me.PostalCodeTextBox.Name = "PostalCodeTextBox"
         Me.PostalCodeTextBox.Size = New System.Drawing.Size(314, 19)
@@ -85,7 +86,7 @@ Partial Class CompanyInformationEntry
         'PostalCodeLabel
         '
         Me.PostalCodeLabel.AutoSize = True
-        Me.PostalCodeLabel.Location = New System.Drawing.Point(37, 90)
+        Me.PostalCodeLabel.Location = New System.Drawing.Point(37, 108)
         Me.PostalCodeLabel.Name = "PostalCodeLabel"
         Me.PostalCodeLabel.Size = New System.Drawing.Size(53, 12)
         Me.PostalCodeLabel.TabIndex = 2
@@ -93,7 +94,7 @@ Partial Class CompanyInformationEntry
         '
         'Address1TextBox
         '
-        Me.Address1TextBox.Location = New System.Drawing.Point(108, 111)
+        Me.Address1TextBox.Location = New System.Drawing.Point(108, 129)
         Me.Address1TextBox.MaxLength = 50
         Me.Address1TextBox.Name = "Address1TextBox"
         Me.Address1TextBox.Size = New System.Drawing.Size(314, 19)
@@ -102,7 +103,7 @@ Partial Class CompanyInformationEntry
         'Address1Label
         '
         Me.Address1Label.AutoSize = True
-        Me.Address1Label.Location = New System.Drawing.Point(37, 114)
+        Me.Address1Label.Location = New System.Drawing.Point(37, 132)
         Me.Address1Label.Name = "Address1Label"
         Me.Address1Label.Size = New System.Drawing.Size(35, 12)
         Me.Address1Label.TabIndex = 2
@@ -110,7 +111,7 @@ Partial Class CompanyInformationEntry
         '
         'TelTextBox
         '
-        Me.TelTextBox.Location = New System.Drawing.Point(108, 162)
+        Me.TelTextBox.Location = New System.Drawing.Point(108, 180)
         Me.TelTextBox.MaxLength = 15
         Me.TelTextBox.Name = "TelTextBox"
         Me.TelTextBox.Size = New System.Drawing.Size(314, 19)
@@ -119,7 +120,7 @@ Partial Class CompanyInformationEntry
         'TelLabel
         '
         Me.TelLabel.AutoSize = True
-        Me.TelLabel.Location = New System.Drawing.Point(37, 165)
+        Me.TelLabel.Location = New System.Drawing.Point(37, 183)
         Me.TelLabel.Name = "TelLabel"
         Me.TelLabel.Size = New System.Drawing.Size(53, 12)
         Me.TelLabel.TabIndex = 2
@@ -127,7 +128,7 @@ Partial Class CompanyInformationEntry
         '
         'ApplyDateDateTimePicker
         '
-        Me.ApplyDateDateTimePicker.Location = New System.Drawing.Point(108, 32)
+        Me.ApplyDateDateTimePicker.Location = New System.Drawing.Point(108, 50)
         Me.ApplyDateDateTimePicker.Name = "ApplyDateDateTimePicker"
         Me.ApplyDateDateTimePicker.Size = New System.Drawing.Size(129, 19)
         Me.ApplyDateDateTimePicker.TabIndex = 0
@@ -135,7 +136,7 @@ Partial Class CompanyInformationEntry
         'ApplyDateLabel
         '
         Me.ApplyDateLabel.AutoSize = True
-        Me.ApplyDateLabel.Location = New System.Drawing.Point(37, 37)
+        Me.ApplyDateLabel.Location = New System.Drawing.Point(37, 55)
         Me.ApplyDateLabel.Name = "ApplyDateLabel"
         Me.ApplyDateLabel.Size = New System.Drawing.Size(65, 12)
         Me.ApplyDateLabel.TabIndex = 2
@@ -143,7 +144,7 @@ Partial Class CompanyInformationEntry
         '
         'Address2TextBox
         '
-        Me.Address2TextBox.Location = New System.Drawing.Point(108, 136)
+        Me.Address2TextBox.Location = New System.Drawing.Point(108, 154)
         Me.Address2TextBox.MaxLength = 50
         Me.Address2TextBox.Name = "Address2TextBox"
         Me.Address2TextBox.Size = New System.Drawing.Size(314, 19)
@@ -152,7 +153,7 @@ Partial Class CompanyInformationEntry
         'Address2Label
         '
         Me.Address2Label.AutoSize = True
-        Me.Address2Label.Location = New System.Drawing.Point(37, 139)
+        Me.Address2Label.Location = New System.Drawing.Point(37, 157)
         Me.Address2Label.Name = "Address2Label"
         Me.Address2Label.Size = New System.Drawing.Size(35, 12)
         Me.Address2Label.TabIndex = 2
@@ -160,7 +161,7 @@ Partial Class CompanyInformationEntry
         '
         'FaxTextBox
         '
-        Me.FaxTextBox.Location = New System.Drawing.Point(108, 187)
+        Me.FaxTextBox.Location = New System.Drawing.Point(108, 205)
         Me.FaxTextBox.MaxLength = 15
         Me.FaxTextBox.Name = "FaxTextBox"
         Me.FaxTextBox.Size = New System.Drawing.Size(314, 19)
@@ -169,7 +170,7 @@ Partial Class CompanyInformationEntry
         'FaxLabel
         '
         Me.FaxLabel.AutoSize = True
-        Me.FaxLabel.Location = New System.Drawing.Point(37, 190)
+        Me.FaxLabel.Location = New System.Drawing.Point(37, 208)
         Me.FaxLabel.Name = "FaxLabel"
         Me.FaxLabel.Size = New System.Drawing.Size(51, 12)
         Me.FaxLabel.TabIndex = 2
@@ -179,16 +180,22 @@ Partial Class CompanyInformationEntry
         '
         Me.HistoryDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.HistoryDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.applyDate})
-        Me.HistoryDataGridView.Location = New System.Drawing.Point(447, 52)
+        Me.HistoryDataGridView.Location = New System.Drawing.Point(447, 70)
         Me.HistoryDataGridView.Name = "HistoryDataGridView"
         Me.HistoryDataGridView.RowTemplate.Height = 21
         Me.HistoryDataGridView.Size = New System.Drawing.Size(160, 150)
         Me.HistoryDataGridView.TabIndex = 7
         '
+        'applyDate
+        '
+        Me.applyDate.HeaderText = "適用開始日"
+        Me.applyDate.Name = "applyDate"
+        Me.applyDate.ReadOnly = True
+        '
         'HistoryLabel
         '
         Me.HistoryLabel.AutoSize = True
-        Me.HistoryLabel.Location = New System.Drawing.Point(445, 37)
+        Me.HistoryLabel.Location = New System.Drawing.Point(445, 55)
         Me.HistoryLabel.Name = "HistoryLabel"
         Me.HistoryLabel.Size = New System.Drawing.Size(29, 12)
         Me.HistoryLabel.TabIndex = 5
@@ -198,17 +205,22 @@ Partial Class CompanyInformationEntry
         '
         Me.CompanyInformationErrorProvider.ContainerControl = Me
         '
-        'applyDate
+        'FormTitleLabel
         '
-        Me.applyDate.HeaderText = "適用開始日"
-        Me.applyDate.Name = "applyDate"
-        Me.applyDate.ReadOnly = True
+        Me.FormTitleLabel.AutoSize = True
+        Me.FormTitleLabel.Font = New System.Drawing.Font("MS UI Gothic", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.FormTitleLabel.Location = New System.Drawing.Point(12, 9)
+        Me.FormTitleLabel.Name = "FormTitleLabel"
+        Me.FormTitleLabel.Size = New System.Drawing.Size(181, 24)
+        Me.FormTitleLabel.TabIndex = 9
+        Me.FormTitleLabel.Text = "自社情報の設定"
         '
-        'CompanyInformation
+        'CompanyInformationEntry
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(621, 263)
+        Me.Controls.Add(Me.FormTitleLabel)
         Me.Controls.Add(Me.HistoryLabel)
         Me.Controls.Add(Me.HistoryDataGridView)
         Me.Controls.Add(Me.ApplyDateDateTimePicker)
@@ -226,8 +238,8 @@ Partial Class CompanyInformationEntry
         Me.Controls.Add(Me.NameLabel)
         Me.Controls.Add(Me.NameTextBox)
         Me.Controls.Add(Me.EntryButton)
-        Me.Name = "CompanyInformation"
-        Me.Text = "自社情報設定"
+        Me.Name = "CompanyInformationEntry"
+        Me.Text = "自社情報の設定"
         CType(Me.HistoryDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.CompanyInformationBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.CompanyInformationErrorProvider, System.ComponentModel.ISupportInitialize).EndInit()
@@ -256,4 +268,5 @@ Partial Class CompanyInformationEntry
     Friend WithEvents CompanyInformationBindingSource As BindingSource
     Friend WithEvents CompanyInformationErrorProvider As ErrorProvider
     Friend WithEvents applyDate As DataGridViewTextBoxColumn
+    Friend WithEvents FormTitleLabel As Label
 End Class

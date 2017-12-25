@@ -108,6 +108,18 @@
     <Compile Include="Form\EmployeeList.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Form\EstimateEntry.Designer.vb">
+      <DependentUpon>EstimateEntry.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\EstimateEntry.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\EstimateList.Designer.vb">
+      <DependentUpon>EstimateList.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\EstimateList.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Form\PaymentConditionEntry.Designer.vb">
       <DependentUpon>PaymentConditionEntry.vb</DependentUpon>
     </Compile>
@@ -160,6 +172,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form\EmployeeList.resx">
       <DependentUpon>EmployeeList.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\EstimateEntry.resx">
+      <DependentUpon>EstimateEntry.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\EstimateList.resx">
+      <DependentUpon>EstimateList.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form\PaymentConditionEntry.resx">
       <DependentUpon>PaymentConditionEntry.vb</DependentUpon>

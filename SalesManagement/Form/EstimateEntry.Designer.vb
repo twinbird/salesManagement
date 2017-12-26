@@ -42,6 +42,11 @@ Partial Class EstimateEntry
         Me.DateTimePicker2 = New System.Windows.Forms.DateTimePicker()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.TextBox2 = New System.Windows.Forms.TextBox()
+        Me.Indent = New System.Windows.Forms.DataGridViewButtonColumn()
+        Me.No = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Item = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Quantity = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Price = New System.Windows.Forms.DataGridViewTextBoxColumn()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -127,6 +132,7 @@ Partial Class EstimateEntry
         'DataGridView1
         '
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Indent, Me.No, Me.Item, Me.Quantity, Me.Price})
         Me.DataGridView1.Location = New System.Drawing.Point(12, 125)
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.RowTemplate.Height = 21
@@ -216,6 +222,31 @@ Partial Class EstimateEntry
         Me.TextBox2.Size = New System.Drawing.Size(735, 98)
         Me.TextBox2.TabIndex = 8
         '
+        'Indent
+        '
+        Me.Indent.HeaderText = ""
+        Me.Indent.Name = "Indent"
+        '
+        'No
+        '
+        Me.No.HeaderText = "No"
+        Me.No.Name = "No"
+        '
+        'Item
+        '
+        Me.Item.HeaderText = "品名"
+        Me.Item.Name = "Item"
+        '
+        'Quantity
+        '
+        Me.Quantity.HeaderText = "数量"
+        Me.Quantity.Name = "Quantity"
+        '
+        'Price
+        '
+        Me.Price.HeaderText = "単価"
+        Me.Price.Name = "Price"
+        '
         'EstimateEntry
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
@@ -269,4 +300,9 @@ Partial Class EstimateEntry
     Friend WithEvents DateTimePicker2 As DateTimePicker
     Friend WithEvents Label10 As Label
     Friend WithEvents TextBox2 As TextBox
+    Friend WithEvents Indent As DataGridViewButtonColumn
+    Friend WithEvents No As DataGridViewTextBoxColumn
+    Friend WithEvents Item As DataGridViewTextBoxColumn
+    Friend WithEvents Quantity As DataGridViewTextBoxColumn
+    Friend WithEvents Price As DataGridViewTextBoxColumn
 End Class

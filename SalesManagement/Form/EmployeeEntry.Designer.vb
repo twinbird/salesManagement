@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class EmployeeEntry
     Inherits System.Windows.Forms.Form
 
     'フォームがコンポーネントの一覧をクリーンアップするために dispose をオーバーライドします。
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class EmployeeEntry
     'メモ: 以下のプロシージャは Windows フォーム デザイナーで必要です。
     'Windows フォーム デザイナーを使用して変更できます。  
     'コード エディターを使って変更しないでください。
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.EntryButton = New System.Windows.Forms.Button()
         Me.EmployeeNumberLabel = New System.Windows.Forms.Label()
@@ -33,12 +33,11 @@ Partial Class EmployeeEntry
         Me.KanaLastNameTextBox = New System.Windows.Forms.TextBox()
         Me.KanaFirstNameLabel = New System.Windows.Forms.Label()
         Me.KanaFirstNameTextBox = New System.Windows.Forms.TextBox()
-        Me.FormTitleLabel = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
         'EntryButton
         '
-        Me.EntryButton.Location = New System.Drawing.Point(307, 180)
+        Me.EntryButton.Location = New System.Drawing.Point(307, 159)
         Me.EntryButton.Name = "EntryButton"
         Me.EntryButton.Size = New System.Drawing.Size(75, 23)
         Me.EntryButton.TabIndex = 0
@@ -48,15 +47,15 @@ Partial Class EmployeeEntry
         'EmployeeNumberLabel
         '
         Me.EmployeeNumberLabel.AutoSize = True
-        Me.EmployeeNumberLabel.Location = New System.Drawing.Point(33, 46)
+        Me.EmployeeNumberLabel.Location = New System.Drawing.Point(33, 19)
         Me.EmployeeNumberLabel.Name = "EmployeeNumberLabel"
-        Me.EmployeeNumberLabel.Size = New System.Drawing.Size(65, 12)
+        Me.EmployeeNumberLabel.Size = New System.Drawing.Size(55, 12)
         Me.EmployeeNumberLabel.TabIndex = 1
-        Me.EmployeeNumberLabel.Text = "従業員番号"
+        Me.EmployeeNumberLabel.Text = "従業員No"
         '
         'EmployeeNumberTextBox
         '
-        Me.EmployeeNumberTextBox.Location = New System.Drawing.Point(104, 43)
+        Me.EmployeeNumberTextBox.Location = New System.Drawing.Point(104, 16)
         Me.EmployeeNumberTextBox.Name = "EmployeeNumberTextBox"
         Me.EmployeeNumberTextBox.Size = New System.Drawing.Size(100, 19)
         Me.EmployeeNumberTextBox.TabIndex = 2
@@ -64,7 +63,7 @@ Partial Class EmployeeEntry
         'LastNameLabel
         '
         Me.LastNameLabel.AutoSize = True
-        Me.LastNameLabel.Location = New System.Drawing.Point(33, 72)
+        Me.LastNameLabel.Location = New System.Drawing.Point(33, 45)
         Me.LastNameLabel.Name = "LastNameLabel"
         Me.LastNameLabel.Size = New System.Drawing.Size(49, 12)
         Me.LastNameLabel.TabIndex = 3
@@ -72,7 +71,7 @@ Partial Class EmployeeEntry
         '
         'LastNameTextBox
         '
-        Me.LastNameTextBox.Location = New System.Drawing.Point(104, 69)
+        Me.LastNameTextBox.Location = New System.Drawing.Point(104, 42)
         Me.LastNameTextBox.MaxLength = 20
         Me.LastNameTextBox.Name = "LastNameTextBox"
         Me.LastNameTextBox.Size = New System.Drawing.Size(278, 19)
@@ -81,7 +80,7 @@ Partial Class EmployeeEntry
         'FirstNameLabel
         '
         Me.FirstNameLabel.AutoSize = True
-        Me.FirstNameLabel.Location = New System.Drawing.Point(33, 98)
+        Me.FirstNameLabel.Location = New System.Drawing.Point(33, 71)
         Me.FirstNameLabel.Name = "FirstNameLabel"
         Me.FirstNameLabel.Size = New System.Drawing.Size(49, 12)
         Me.FirstNameLabel.TabIndex = 3
@@ -89,7 +88,7 @@ Partial Class EmployeeEntry
         '
         'FirstNameTextBox
         '
-        Me.FirstNameTextBox.Location = New System.Drawing.Point(104, 95)
+        Me.FirstNameTextBox.Location = New System.Drawing.Point(104, 68)
         Me.FirstNameTextBox.MaxLength = 20
         Me.FirstNameTextBox.Name = "FirstNameTextBox"
         Me.FirstNameTextBox.Size = New System.Drawing.Size(278, 19)
@@ -98,7 +97,7 @@ Partial Class EmployeeEntry
         'KanaLastNameLabel
         '
         Me.KanaLastNameLabel.AutoSize = True
-        Me.KanaLastNameLabel.Location = New System.Drawing.Point(33, 126)
+        Me.KanaLastNameLabel.Location = New System.Drawing.Point(33, 99)
         Me.KanaLastNameLabel.Name = "KanaLastNameLabel"
         Me.KanaLastNameLabel.Size = New System.Drawing.Size(57, 12)
         Me.KanaLastNameLabel.TabIndex = 3
@@ -106,7 +105,7 @@ Partial Class EmployeeEntry
         '
         'KanaLastNameTextBox
         '
-        Me.KanaLastNameTextBox.Location = New System.Drawing.Point(104, 123)
+        Me.KanaLastNameTextBox.Location = New System.Drawing.Point(104, 96)
         Me.KanaLastNameTextBox.MaxLength = 20
         Me.KanaLastNameTextBox.Name = "KanaLastNameTextBox"
         Me.KanaLastNameTextBox.Size = New System.Drawing.Size(278, 19)
@@ -115,7 +114,7 @@ Partial Class EmployeeEntry
         'KanaFirstNameLabel
         '
         Me.KanaFirstNameLabel.AutoSize = True
-        Me.KanaFirstNameLabel.Location = New System.Drawing.Point(33, 152)
+        Me.KanaFirstNameLabel.Location = New System.Drawing.Point(33, 125)
         Me.KanaFirstNameLabel.Name = "KanaFirstNameLabel"
         Me.KanaFirstNameLabel.Size = New System.Drawing.Size(57, 12)
         Me.KanaFirstNameLabel.TabIndex = 3
@@ -123,28 +122,17 @@ Partial Class EmployeeEntry
         '
         'KanaFirstNameTextBox
         '
-        Me.KanaFirstNameTextBox.Location = New System.Drawing.Point(104, 149)
+        Me.KanaFirstNameTextBox.Location = New System.Drawing.Point(104, 122)
         Me.KanaFirstNameTextBox.MaxLength = 20
         Me.KanaFirstNameTextBox.Name = "KanaFirstNameTextBox"
         Me.KanaFirstNameTextBox.Size = New System.Drawing.Size(278, 19)
         Me.KanaFirstNameTextBox.TabIndex = 4
         '
-        'FormTitleLabel
-        '
-        Me.FormTitleLabel.AutoSize = True
-        Me.FormTitleLabel.Font = New System.Drawing.Font("MS UI Gothic", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.FormTitleLabel.Location = New System.Drawing.Point(12, 9)
-        Me.FormTitleLabel.Name = "FormTitleLabel"
-        Me.FormTitleLabel.Size = New System.Drawing.Size(206, 24)
-        Me.FormTitleLabel.TabIndex = 10
-        Me.FormTitleLabel.Text = "従業員情報の管理"
-        '
         'EmployeeEntry
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(405, 219)
-        Me.Controls.Add(Me.FormTitleLabel)
+        Me.ClientSize = New System.Drawing.Size(405, 190)
         Me.Controls.Add(Me.KanaFirstNameTextBox)
         Me.Controls.Add(Me.KanaLastNameTextBox)
         Me.Controls.Add(Me.FirstNameTextBox)
@@ -174,5 +162,4 @@ Partial Class EmployeeEntry
     Friend WithEvents KanaLastNameTextBox As TextBox
     Friend WithEvents KanaFirstNameLabel As Label
     Friend WithEvents KanaFirstNameTextBox As TextBox
-    Friend WithEvents FormTitleLabel As Label
 End Class

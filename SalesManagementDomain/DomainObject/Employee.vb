@@ -10,6 +10,21 @@ Imports System.ComponentModel
 Public Class Employee
     Implements IDataErrorInfo
 
+#Region "定数"
+
+    Const EmployeeNoIsTooLong As String = "従業員Noは5文字以内で指定してください"
+    Const EmployeeNoIsNotNullOrEmpty As String = "従業員Noは必ず入力してください"
+
+#End Region
+
+#Region "コンストラクタ"
+
+    Public Sub New()
+        _EmployeeNo = String.Empty
+    End Sub
+
+#End Region
+
 #Region "インスタンス変数"
 
     ''' <summary>
@@ -19,6 +34,24 @@ Public Class Employee
 
 #End Region
 
+#Region "プロパティ"
+
+    Private _EmployeeNo As String
+    ''' <summary>
+    ''' 従業員No
+    ''' </summary>
+    ''' <returns></returns>
+    Public Property EmployeeNo As String
+        Get
+            Return _EmployeeNo
+        End Get
+        Set(value As String)
+            _EmployeeNo = value
+            ValidateEmployeeNo()
+        End Set
+    End Property
+
+#End Region
 
 #Region "エラープロパティ"
 
@@ -53,6 +86,28 @@ Public Class Employee
             Return String.Empty
         End Get
     End Property
+
+#End Region
+
+#Region "検証メソッド"
+
+    ''' <summary>
+    ''' 従業員Noを検証
+    ''' </summary>
+    Private Sub ValidateEmployeeNo()
+        '一度エラーをクリア
+        _errors.Remove(NameOf(EmployeeNo))
+
+        '従業員Noは必ず指定しなければならない
+        If _EmployeeNo Is Nothing OrElse _EmployeeNo.Length = 0 Then
+            _errors(NameOf(EmployeeNo)) = EmployeeNoIsNotNullOrEmpty
+        End If
+
+        '従業員Noは5文字以内でなければならない
+        If _EmployeeNo.Length > 5 Then
+            _errors(NameOf(EmployeeNo)) = EmployeeNoIsTooLong
+        End If
+    End Sub
 
 #End Region
 

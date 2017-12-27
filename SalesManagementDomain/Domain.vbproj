@@ -59,6 +59,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DomainObject\CompanyInformation.vb" />
     <Compile Include="DomainObject\Customer.vb" />
     <Compile Include="DomainObject\Employee.vb" />
     <Compile Include="DomainObject\PaymentCondition.vb" />
@@ -70,6 +71,9 @@
   <ItemGroup>
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

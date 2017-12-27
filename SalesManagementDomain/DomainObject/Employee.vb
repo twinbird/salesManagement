@@ -10,10 +10,13 @@ Imports System.ComponentModel
 Public Class Employee
     Implements IDataErrorInfo
 
-#Region "定数"
+#Region "メッセージ定数"
 
     Const EmployeeNoIsTooLong As String = "従業員Noは5文字以内で指定してください"
     Const EmployeeNoIsNotNullOrEmpty As String = "従業員Noは必ず入力してください"
+    Const EmployeeNameIsNotNullOrEmpty As String = "従業員名は必ず入力してください"
+    Const EmployeeNameIsTooLong As String = "従業員名は20文字以内で指定してください"
+    Const EmployeeNameKanaIsTooLong As String = "従業員名(かな)は20文字以内で指定してください"
 
 #End Region
 
@@ -21,16 +24,9 @@ Public Class Employee
 
     Public Sub New()
         _EmployeeNo = String.Empty
+        _Name = String.Empty
+        _NameKana = String.Empty
     End Sub
-
-#End Region
-
-#Region "インスタンス変数"
-
-    ''' <summary>
-    ''' エラー保持変数
-    ''' </summary>
-    Private _errors As New Dictionary(Of String, String)
 
 #End Region
 
@@ -51,9 +47,43 @@ Public Class Employee
         End Set
     End Property
 
+    Private _Name As String
+    ''' <summary>
+    ''' 従業員名
+    ''' </summary>
+    ''' <returns></returns>
+    Public Property Name As String
+        Get
+            Return _Name
+        End Get
+        Set(value As String)
+            _Name = value
+        End Set
+    End Property
+
+    Private _NameKana As String
+    ''' <summary>
+    ''' 従業員名(かな)
+    ''' </summary>
+    ''' <returns></returns>
+    Public Property NameKana As String
+        Get
+            Return _NameKana
+        End Get
+        Set(value As String)
+            _NameKana = value
+            ValidaNameKana()
+        End Set
+    End Property
+
 #End Region
 
 #Region "エラープロパティ"
+
+    ''' <summary>
+    ''' エラー保持変数
+    ''' </summary>
+    Private _errors As New Dictionary(Of String, String)
 
     ''' <summary>
     ''' このオブジェクトの状態にエラーがあればTrue
@@ -106,6 +136,36 @@ Public Class Employee
         '従業員Noは5文字以内でなければならない
         If _EmployeeNo.Length > 5 Then
             _errors(NameOf(EmployeeNo)) = EmployeeNoIsTooLong
+        End If
+    End Sub
+
+    ''' <summary>
+    ''' 従業員名を検証
+    ''' </summary>
+    Private Sub ValidateName()
+        '一度エラーをクリア
+        _errors.Remove(NameOf(EmployeeNo))
+
+        '従業員名は必ず指定しなければならない
+        If _Name Is Nothing OrElse _Name.Length = 0 Then
+            _errors(NameOf(Name)) = EmployeeNameIsNotNullOrEmpty
+        End If
+        '従業員名は20文字以内でなければならない
+        If _Name.Length <= 20 Then
+            _errors(NameOf(Name)) = EmployeeNameIsTooLong
+        End If
+    End Sub
+
+    ''' <summary>
+    ''' 従業員名(かな)を検証
+    ''' </summary>
+    Private Sub ValidaNameKana()
+        '一度エラーをクリア
+        _errors.Remove(NameOf(NameKana))
+
+        '従業員名(かな)は20文字以内でなければならない
+        If _NameKana.Length <= 20 Then
+            _errors(NameOf(NameKana)) = EmployeeNameKanaIsTooLong
         End If
     End Sub
 

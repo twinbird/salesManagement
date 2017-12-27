@@ -36,10 +36,8 @@ DROP TABLE IF EXISTS employees;
 CREATE TABLE employees (
 	id INTEGER PRIMARY KEY AUTOINCREMENT,           -- ID
 	employee_number VARCHAR(5) NOT NULL,            -- 従業員番号
-	first_name VARCHAR(20) NOT NULL,                -- 名
-	last_name VARCHAR(20) NOT NULL,                 -- 姓
-	first_name_kana VARCHAR(20) NOT NULL,           -- 名(かな)
-	last_name_kana VARCHAR(20) NOT NULL,            -- 姓(かな)
+	name VARCHAR(20) NOT NULL,                      -- 従業員名
+	name_kana VARCHAR(20) NOT NULL,                 -- 従業員名(かな)
 	created_at TIMESTAMP NOT NULL,                  -- 登録日時
 	updated_at TIMESTAMP,                           -- 更新日時
 

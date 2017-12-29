@@ -61,6 +61,7 @@
     <Compile Include="DomainObject\Employee.vb" />
     <Compile Include="DomainObject\PaymentCondition.vb" />
     <Compile Include="Repository\ICustomerRepository.vb" />
+    <Compile Include="Repository\IEmployeeRepository.vb" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="My Project\" />

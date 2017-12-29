@@ -4,6 +4,7 @@ Option Infer On
 Imports System
 Imports System.Collections.Generic
 Imports System.Data
+Imports ADOWrapper
 
 ''' <summary>
 ''' SQLite3用のパラメータラッパー
@@ -54,6 +55,19 @@ Public Class SQLite3ADOWrapperParameters
         End If
         m_paramDictionary.Add(key, value)
     End Sub
+
+    ''' <summary>
+    ''' SQL実行時に利用するパラメータを設定します
+    ''' </summary>
+    ''' <param name="key">名前付けパラメータの名前</param>
+    ''' <param name="value">名前付けパラメータに与える値</param>
+    Public Sub Add(key As String, value As DateTime) Implements IADOWrapperParameters.Add
+        If m_paramDictionary.ContainsKey(key) = True Then
+            Throw New Exception(key & " is already added")
+        End If
+        m_paramDictionary.Add(key, value.ToString)
+    End Sub
+
 
 #End Region
 

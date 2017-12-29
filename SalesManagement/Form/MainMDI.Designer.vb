@@ -65,6 +65,8 @@ Partial Class MainMDI
         Me.SearchToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator8 = New System.Windows.Forms.ToolStripSeparator()
         Me.AboutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.マスタToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.顧客マスタToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStrip = New System.Windows.Forms.ToolStrip()
         Me.NewToolStripButton = New System.Windows.Forms.ToolStripButton()
         Me.OpenToolStripButton = New System.Windows.Forms.ToolStripButton()
@@ -77,8 +79,7 @@ Partial Class MainMDI
         Me.StatusStrip = New System.Windows.Forms.StatusStrip()
         Me.ToolStripStatusLabel = New System.Windows.Forms.ToolStripStatusLabel()
         Me.ToolTip = New System.Windows.Forms.ToolTip(Me.components)
-        Me.マスタToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.顧客マスタToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.従業員ToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip.SuspendLayout()
         Me.ToolStrip.SuspendLayout()
         Me.StatusStrip.SuspendLayout()
@@ -283,7 +284,7 @@ Partial Class MainMDI
         'OptionsToolStripMenuItem
         '
         Me.OptionsToolStripMenuItem.Name = "OptionsToolStripMenuItem"
-        Me.OptionsToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.OptionsToolStripMenuItem.Size = New System.Drawing.Size(135, 22)
         Me.OptionsToolStripMenuItem.Text = "オプション(&O)"
         '
         'WindowsMenu
@@ -369,6 +370,19 @@ Partial Class MainMDI
         Me.AboutToolStripMenuItem.Name = "AboutToolStripMenuItem"
         Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(167, 22)
         Me.AboutToolStripMenuItem.Text = "バージョン情報(&A)..."
+        '
+        'マスタToolStripMenuItem
+        '
+        Me.マスタToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.顧客マスタToolStripMenuItem, Me.従業員ToolStripMenuItem})
+        Me.マスタToolStripMenuItem.Name = "マスタToolStripMenuItem"
+        Me.マスタToolStripMenuItem.Size = New System.Drawing.Size(46, 20)
+        Me.マスタToolStripMenuItem.Text = "マスタ"
+        '
+        '顧客マスタToolStripMenuItem
+        '
+        Me.顧客マスタToolStripMenuItem.Name = "顧客マスタToolStripMenuItem"
+        Me.顧客マスタToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.顧客マスタToolStripMenuItem.Text = "顧客マスタ"
         '
         'ToolStrip
         '
@@ -458,18 +472,11 @@ Partial Class MainMDI
         Me.ToolStripStatusLabel.Size = New System.Drawing.Size(31, 17)
         Me.ToolStripStatusLabel.Text = "状態"
         '
-        'マスタToolStripMenuItem
+        '従業員ToolStripMenuItem
         '
-        Me.マスタToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.顧客マスタToolStripMenuItem})
-        Me.マスタToolStripMenuItem.Name = "マスタToolStripMenuItem"
-        Me.マスタToolStripMenuItem.Size = New System.Drawing.Size(46, 20)
-        Me.マスタToolStripMenuItem.Text = "マスタ"
-        '
-        '顧客マスタToolStripMenuItem
-        '
-        Me.顧客マスタToolStripMenuItem.Name = "顧客マスタToolStripMenuItem"
-        Me.顧客マスタToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
-        Me.顧客マスタToolStripMenuItem.Text = "顧客マスタ"
+        Me.従業員ToolStripMenuItem.Name = "従業員ToolStripMenuItem"
+        Me.従業員ToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.従業員ToolStripMenuItem.Text = "従業員"
         '
         'MainMDI
         '
@@ -547,4 +554,5 @@ Partial Class MainMDI
     Friend WithEvents ToolsMenu As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents マスタToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents 顧客マスタToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents 従業員ToolStripMenuItem As ToolStripMenuItem
 End Class

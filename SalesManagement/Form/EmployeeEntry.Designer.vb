@@ -22,22 +22,23 @@ Partial Class EmployeeEntry
     'コード エディターを使って変更しないでください。
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.EntryButton = New System.Windows.Forms.Button()
         Me.EmployeeNumberLabel = New System.Windows.Forms.Label()
         Me.EmployeeNumberTextBox = New System.Windows.Forms.TextBox()
-        Me.LastNameLabel = New System.Windows.Forms.Label()
-        Me.LastNameTextBox = New System.Windows.Forms.TextBox()
-        Me.FirstNameLabel = New System.Windows.Forms.Label()
-        Me.FirstNameTextBox = New System.Windows.Forms.TextBox()
-        Me.KanaLastNameLabel = New System.Windows.Forms.Label()
-        Me.KanaLastNameTextBox = New System.Windows.Forms.TextBox()
-        Me.KanaFirstNameLabel = New System.Windows.Forms.Label()
-        Me.KanaFirstNameTextBox = New System.Windows.Forms.TextBox()
+        Me.NameLabel = New System.Windows.Forms.Label()
+        Me.NameTextBox = New System.Windows.Forms.TextBox()
+        Me.KanaNameLabel = New System.Windows.Forms.Label()
+        Me.KanaNameTextBox = New System.Windows.Forms.TextBox()
+        Me.BindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.ErrorProvider = New System.Windows.Forms.ErrorProvider(Me.components)
+        CType(Me.BindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ErrorProvider, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'EntryButton
         '
-        Me.EntryButton.Location = New System.Drawing.Point(307, 159)
+        Me.EntryButton.Location = New System.Drawing.Point(307, 101)
         Me.EntryButton.Name = "EntryButton"
         Me.EntryButton.Size = New System.Drawing.Size(75, 23)
         Me.EntryButton.TabIndex = 0
@@ -60,92 +61,60 @@ Partial Class EmployeeEntry
         Me.EmployeeNumberTextBox.Size = New System.Drawing.Size(100, 19)
         Me.EmployeeNumberTextBox.TabIndex = 2
         '
-        'LastNameLabel
+        'NameLabel
         '
-        Me.LastNameLabel.AutoSize = True
-        Me.LastNameLabel.Location = New System.Drawing.Point(33, 45)
-        Me.LastNameLabel.Name = "LastNameLabel"
-        Me.LastNameLabel.Size = New System.Drawing.Size(49, 12)
-        Me.LastNameLabel.TabIndex = 3
-        Me.LastNameLabel.Text = "名前(姓)"
+        Me.NameLabel.AutoSize = True
+        Me.NameLabel.Location = New System.Drawing.Point(33, 45)
+        Me.NameLabel.Name = "NameLabel"
+        Me.NameLabel.Size = New System.Drawing.Size(29, 12)
+        Me.NameLabel.TabIndex = 3
+        Me.NameLabel.Text = "名前"
         '
-        'LastNameTextBox
+        'NameTextBox
         '
-        Me.LastNameTextBox.Location = New System.Drawing.Point(104, 42)
-        Me.LastNameTextBox.MaxLength = 20
-        Me.LastNameTextBox.Name = "LastNameTextBox"
-        Me.LastNameTextBox.Size = New System.Drawing.Size(278, 19)
-        Me.LastNameTextBox.TabIndex = 4
+        Me.NameTextBox.Location = New System.Drawing.Point(104, 42)
+        Me.NameTextBox.MaxLength = 20
+        Me.NameTextBox.Name = "NameTextBox"
+        Me.NameTextBox.Size = New System.Drawing.Size(278, 19)
+        Me.NameTextBox.TabIndex = 4
         '
-        'FirstNameLabel
+        'KanaNameLabel
         '
-        Me.FirstNameLabel.AutoSize = True
-        Me.FirstNameLabel.Location = New System.Drawing.Point(33, 71)
-        Me.FirstNameLabel.Name = "FirstNameLabel"
-        Me.FirstNameLabel.Size = New System.Drawing.Size(49, 12)
-        Me.FirstNameLabel.TabIndex = 3
-        Me.FirstNameLabel.Text = "名前(名)"
+        Me.KanaNameLabel.AutoSize = True
+        Me.KanaNameLabel.Location = New System.Drawing.Point(33, 70)
+        Me.KanaNameLabel.Name = "KanaNameLabel"
+        Me.KanaNameLabel.Size = New System.Drawing.Size(37, 12)
+        Me.KanaNameLabel.TabIndex = 3
+        Me.KanaNameLabel.Text = "かな名"
         '
-        'FirstNameTextBox
+        'KanaNameTextBox
         '
-        Me.FirstNameTextBox.Location = New System.Drawing.Point(104, 68)
-        Me.FirstNameTextBox.MaxLength = 20
-        Me.FirstNameTextBox.Name = "FirstNameTextBox"
-        Me.FirstNameTextBox.Size = New System.Drawing.Size(278, 19)
-        Me.FirstNameTextBox.TabIndex = 4
+        Me.KanaNameTextBox.Location = New System.Drawing.Point(104, 67)
+        Me.KanaNameTextBox.MaxLength = 20
+        Me.KanaNameTextBox.Name = "KanaNameTextBox"
+        Me.KanaNameTextBox.Size = New System.Drawing.Size(278, 19)
+        Me.KanaNameTextBox.TabIndex = 4
         '
-        'KanaLastNameLabel
+        'ErrorProvider
         '
-        Me.KanaLastNameLabel.AutoSize = True
-        Me.KanaLastNameLabel.Location = New System.Drawing.Point(33, 99)
-        Me.KanaLastNameLabel.Name = "KanaLastNameLabel"
-        Me.KanaLastNameLabel.Size = New System.Drawing.Size(57, 12)
-        Me.KanaLastNameLabel.TabIndex = 3
-        Me.KanaLastNameLabel.Text = "かな名(姓)"
-        '
-        'KanaLastNameTextBox
-        '
-        Me.KanaLastNameTextBox.Location = New System.Drawing.Point(104, 96)
-        Me.KanaLastNameTextBox.MaxLength = 20
-        Me.KanaLastNameTextBox.Name = "KanaLastNameTextBox"
-        Me.KanaLastNameTextBox.Size = New System.Drawing.Size(278, 19)
-        Me.KanaLastNameTextBox.TabIndex = 4
-        '
-        'KanaFirstNameLabel
-        '
-        Me.KanaFirstNameLabel.AutoSize = True
-        Me.KanaFirstNameLabel.Location = New System.Drawing.Point(33, 125)
-        Me.KanaFirstNameLabel.Name = "KanaFirstNameLabel"
-        Me.KanaFirstNameLabel.Size = New System.Drawing.Size(57, 12)
-        Me.KanaFirstNameLabel.TabIndex = 3
-        Me.KanaFirstNameLabel.Text = "かな名(名)"
-        '
-        'KanaFirstNameTextBox
-        '
-        Me.KanaFirstNameTextBox.Location = New System.Drawing.Point(104, 122)
-        Me.KanaFirstNameTextBox.MaxLength = 20
-        Me.KanaFirstNameTextBox.Name = "KanaFirstNameTextBox"
-        Me.KanaFirstNameTextBox.Size = New System.Drawing.Size(278, 19)
-        Me.KanaFirstNameTextBox.TabIndex = 4
+        Me.ErrorProvider.ContainerControl = Me
         '
         'EmployeeEntry
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(405, 190)
-        Me.Controls.Add(Me.KanaFirstNameTextBox)
-        Me.Controls.Add(Me.KanaLastNameTextBox)
-        Me.Controls.Add(Me.FirstNameTextBox)
-        Me.Controls.Add(Me.LastNameTextBox)
-        Me.Controls.Add(Me.KanaFirstNameLabel)
-        Me.Controls.Add(Me.KanaLastNameLabel)
-        Me.Controls.Add(Me.FirstNameLabel)
-        Me.Controls.Add(Me.LastNameLabel)
+        Me.ClientSize = New System.Drawing.Size(405, 137)
+        Me.Controls.Add(Me.KanaNameTextBox)
+        Me.Controls.Add(Me.NameTextBox)
+        Me.Controls.Add(Me.KanaNameLabel)
+        Me.Controls.Add(Me.NameLabel)
         Me.Controls.Add(Me.EmployeeNumberTextBox)
         Me.Controls.Add(Me.EmployeeNumberLabel)
         Me.Controls.Add(Me.EntryButton)
         Me.Name = "EmployeeEntry"
-        Me.Text = "従業員情報の管理"
+        Me.Text = "従業員情報の編集"
+        CType(Me.BindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ErrorProvider, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -154,12 +123,10 @@ Partial Class EmployeeEntry
     Friend WithEvents EntryButton As Button
     Friend WithEvents EmployeeNumberLabel As Label
     Friend WithEvents EmployeeNumberTextBox As TextBox
-    Friend WithEvents LastNameLabel As Label
-    Friend WithEvents LastNameTextBox As TextBox
-    Friend WithEvents FirstNameLabel As Label
-    Friend WithEvents FirstNameTextBox As TextBox
-    Friend WithEvents KanaLastNameLabel As Label
-    Friend WithEvents KanaLastNameTextBox As TextBox
-    Friend WithEvents KanaFirstNameLabel As Label
-    Friend WithEvents KanaFirstNameTextBox As TextBox
+    Friend WithEvents NameLabel As Label
+    Friend WithEvents NameTextBox As TextBox
+    Friend WithEvents KanaNameLabel As Label
+    Friend WithEvents KanaNameTextBox As TextBox
+    Friend WithEvents BindingSource As BindingSource
+    Friend WithEvents ErrorProvider As ErrorProvider
 End Class

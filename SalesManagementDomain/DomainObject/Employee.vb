@@ -20,17 +20,35 @@ Public Class Employee
 
 #End Region
 
+#Region "リポジトリへのポインタ"
+
+    Private _EmployeeRepo As IEmployeeRepository
+
+#End Region
+
 #Region "コンストラクタ"
 
-    Public Sub New()
+    Public Sub New(ByVal employeeRepo As IEmployeeRepository)
         _EmployeeNo = String.Empty
         _Name = String.Empty
         _NameKana = String.Empty
+        _EmployeeRepo = employeeRepo
     End Sub
 
 #End Region
 
 #Region "プロパティ"
+
+    Private _ID As Integer
+    ''' <summary>
+    ''' オブジェクトを一意に特定するID(永続化が行われていないものは-1)
+    ''' </summary>
+    ''' <returns></returns>
+    Public ReadOnly Property ID As Integer
+        Get
+            Return _ID
+        End Get
+    End Property
 
     Private _EmployeeNo As String
     ''' <summary>
@@ -122,6 +140,18 @@ Public Class Employee
 #Region "検証メソッド"
 
     ''' <summary>
+    ''' オブジェクトの整合性チェックを実施
+    ''' </summary>
+    ''' <returns>不整合:False</returns>
+    Public Function Validate() As Boolean
+        ValidateEmployeeNo()
+        ValidateName()
+        ValidaNameKana()
+
+        Return Me.HasError = False
+    End Function
+
+    ''' <summary>
     ''' 従業員Noを検証
     ''' </summary>
     Private Sub ValidateEmployeeNo()
@@ -144,14 +174,14 @@ Public Class Employee
     ''' </summary>
     Private Sub ValidateName()
         '一度エラーをクリア
-        _errors.Remove(NameOf(EmployeeNo))
+        _errors.Remove(NameOf(Name))
 
         '従業員名は必ず指定しなければならない
         If _Name Is Nothing OrElse _Name.Length = 0 Then
             _errors(NameOf(Name)) = EmployeeNameIsNotNullOrEmpty
         End If
         '従業員名は20文字以内でなければならない
-        If _Name.Length <= 20 Then
+        If _Name.Length > 20 Then
             _errors(NameOf(Name)) = EmployeeNameIsTooLong
         End If
     End Sub
@@ -164,10 +194,26 @@ Public Class Employee
         _errors.Remove(NameOf(NameKana))
 
         '従業員名(かな)は20文字以内でなければならない
-        If _NameKana.Length <= 20 Then
+        If _NameKana.Length > 20 Then
             _errors(NameOf(NameKana)) = EmployeeNameKanaIsTooLong
         End If
     End Sub
+
+#End Region
+
+#Region "CRUD"
+
+    ''' <summary>
+    ''' このオブジェクトを永続化する
+    ''' </summary>
+    ''' <returns>登録成功:True 登録失敗:False</returns>
+    Public Function Save() As Boolean
+        If _EmployeeRepo.Save(Me) = False Then
+            Return False
+        End If
+        Me._ID = _EmployeeRepo.LastInsertID
+        Return True
+    End Function
 
 #End Region
 

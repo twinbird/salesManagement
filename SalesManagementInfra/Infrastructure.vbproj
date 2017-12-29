@@ -72,6 +72,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="RepositoryImpl\CustomerRepositoryImpl.vb" />
+    <Compile Include="RepositoryImpl\EmployeeRepositoryImpl.vb" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System.Data" />

@@ -32,7 +32,7 @@ Namespace My
         
         <Global.System.Diagnostics.DebuggerStepThroughAttribute()>  _
         Protected Overrides Sub OnCreateMainForm()
-            Me.MainForm = Global.SalesManagement.MainMDI
+            Me.MainForm = Global.Application.MainMDI
         End Sub
     End Class
 End Namespace

@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{DC4929B8-9675-4449-82CA-7BF21A36F8D7}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace>SalesManagementInfra</RootNamespace>
-    <AssemblyName>SalesManagementInfra</AssemblyName>
+    <RootNamespace>Infrastructure</RootNamespace>
+    <AssemblyName>Infrastructure</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <MyType>Empty</MyType>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>

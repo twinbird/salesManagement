@@ -31,6 +31,46 @@ Public Class EmployeeRepositoryImpl
         Return _LastInsertId
     End Function
 
+    ''' <summary>
+    ''' 従業員番号からモデルオブジェクトを取得
+    ''' </summary>
+    ''' <returns></returns>
+    Public Function FindByEmployeeNo(ByVal empNo As String) As Domain.Employee Implements IEmployeeRepository.FindByEmployeeNo
+        Using accessor As New ADOWrapper.DBAccessor
+            Dim q = accessor.CreateQuery
+            With q.Query
+                .AppendLine("SELECT")
+                .AppendLine("    id AS id")
+                .AppendLine("   ,employee_number AS employee_number")
+                .AppendLine("   ,name AS name")
+                .AppendLine("   ,name_kana AS name_kana")
+                .AppendLine("FROM")
+                .AppendLine("   employees")
+                .AppendLine("WHERE")
+                .AppendLine("   employee_number = @employee_number")
+            End With
+
+            With q.Parameters
+                .Add("@employee_number", empNo)
+            End With
+
+            Dim dt = q.ExecQuery
+            If dt Is Nothing OrElse dt.Rows.Count = 0 Then
+                Return Nothing
+            End If
+
+            Debug.Assert(dt.Rows.Count = 1)
+
+            'データをモデルに設定して返す
+            Dim e = New Domain.Employee(CInt(dt.Rows(0)("id").ToString), Me)
+            e.EmployeeNo = dt.Rows(0)("employee_number").ToString
+            e.Name = dt.Rows(0)("name").ToString
+            e.NameKana = dt.Rows(0)("name_kana").ToString
+
+            Return e
+        End Using
+    End Function
+
 #Region "インスタンス変数"
 
     ''' <summary>

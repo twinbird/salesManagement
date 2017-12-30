@@ -19,4 +19,10 @@ Public Interface IEmployeeRepository
     ''' <returns></returns>
     Function LastInsertID() As Integer
 
+    ''' <summary>
+    ''' 従業員番号からモデルオブジェクトを取得
+    ''' </summary>
+    ''' <returns></returns>
+    Function FindByEmployeeNo(ByVal empNo As String) As Domain.Employee
+
 End Interface

@@ -13,6 +13,7 @@ Public Class Employee
 #Region "メッセージ定数"
 
     Const EmployeeNoIsTooLong As String = "従業員Noは5文字以内で指定してください"
+    Const EmployeeNoIsUsing As String = "従業員Noは既に他の従業員に利用されています"
     Const EmployeeNoIsNotNullOrEmpty As String = "従業員Noは必ず入力してください"
     Const EmployeeNameIsNotNullOrEmpty As String = "従業員名は必ず入力してください"
     Const EmployeeNameIsTooLong As String = "従業員名は20文字以内で指定してください"
@@ -30,6 +31,14 @@ Public Class Employee
 
     Public Sub New(ByVal employeeRepo As IEmployeeRepository)
         _ID = -1
+        _EmployeeNo = String.Empty
+        _Name = String.Empty
+        _NameKana = String.Empty
+        _EmployeeRepo = employeeRepo
+    End Sub
+
+    Public Sub New(ByVal id As Integer, ByVal employeeRepo As IEmployeeRepository)
+        _ID = id
         _EmployeeNo = String.Empty
         _Name = String.Empty
         _NameKana = String.Empty
@@ -145,12 +154,28 @@ Public Class Employee
     ''' </summary>
     ''' <returns>不整合:False</returns>
     Public Function Validate() As Boolean
+        '各項目個別のチェックを実施
         ValidateEmployeeNo()
         ValidateName()
         ValidaNameKana()
 
+        '永続化も含めた項目全体の整合性チェックを実施
+        'エラーリストのクリアのため他の要素の後に実施しないとならない
+        ValidateTotalItems()
+
         Return Me.HasError = False
     End Function
+
+    ''' <summary>
+    ''' 永続化も含めた要素全体の整合性チェックを実施
+    ''' </summary>
+    Private Sub ValidateTotalItems()
+        '従業員番号は登録済みのものは使えない
+        Dim emp = _EmployeeRepo.FindByEmployeeNo(_EmployeeNo)
+        If emp IsNot Nothing AndAlso emp.ID <> Me.ID Then
+            _errors(NameOf(EmployeeNo)) = EmployeeNoIsUsing
+        End If
+    End Sub
 
     ''' <summary>
     ''' 従業員Noを検証

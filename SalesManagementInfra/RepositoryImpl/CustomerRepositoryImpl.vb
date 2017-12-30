@@ -1,12 +1,12 @@
 ﻿Option Strict On
 Option Infer On
-Imports SalesManagementDomain
+Imports Domain
 
 ''' <summary>
 ''' 顧客情報永続化のための機能
 ''' </summary>
 Public Class CustomerRepositoryImpl
-    Implements SalesManagementDomain.ICustomerRepository
+    Implements ICustomerRepository
 
 #Region "インターフェース"
 

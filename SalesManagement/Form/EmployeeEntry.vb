@@ -14,7 +14,7 @@ Public Class EmployeeEntry
 
 #Region "インスタンス変数"
 
-    Private _Employee As SalesManagementDomain.Employee
+    Private _Employee As Domain.Employee
 
 #End Region
 
@@ -53,9 +53,9 @@ Public Class EmployeeEntry
         'ドメインオブジェクトをインスタンス化してフォームコントロールにバインディング
         '=============================================================================
         '永続化用リポジトリのインスタンスを用意
-        Dim employeeRepo = New SalesManagementInfra.EmployeeRepositoryImpl()
+        Dim employeeRepo = New Infrastructure.EmployeeRepositoryImpl()
         'ドメインオブジェクトを生成
-        _Employee = New SalesManagementDomain.Employee(employeeRepo)
+        _Employee = New Domain.Employee(employeeRepo)
         'バインディング
         Me.BindingSource.DataSource = _Employee
 

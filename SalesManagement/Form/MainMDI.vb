@@ -108,4 +108,21 @@ Public Class MainMDI
 
         ChildForm.Show()
     End Sub
+
+    Private _InfrastructureSetting As Infrastructure.InfrastructureSetting
+
+    ''' <summary>
+    ''' 親MDIウィンドウのロードイベント
+    ''' </summary>
+    ''' <param name="sender"></param>
+    ''' <param name="e"></param>
+    Private Sub MainMDI_Load(sender As Object, e As EventArgs) Handles Me.Load
+        Dim conStr = Configuration.ConfigurationManager.AppSettings("ConnectionString")
+        _InfrastructureSetting = New Infrastructure.InfrastructureSetting(conStr)
+        If _InfrastructureSetting.InitializeDB() = False Then
+            MessageBox.Show("アプリケーションの初期化でエラーが発生しました。")
+            Me.Close()
+        End If
+    End Sub
+
 End Class

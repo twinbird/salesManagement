@@ -1,7 +1,7 @@
 ﻿Option Strict On
 Option Infer On
 Imports System.Diagnostics
-Imports SalesManagementDomain
+Imports Domain
 
 ''' <summary>
 ''' 従業員情報永続化のための機能

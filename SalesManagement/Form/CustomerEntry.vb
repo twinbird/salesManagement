@@ -8,7 +8,7 @@ Public Class CustomerEntry
 
 #Region "インスタンス変数"
 
-    Private _customer As SalesManagementDomain.Customer
+    Private _customer As Domain.Customer
 
 #End Region
 
@@ -21,7 +21,7 @@ Public Class CustomerEntry
     ''' <param name="e"></param>
     Private Sub CustomerEntry_Load(sender As Object, e As EventArgs) Handles Me.Load
         'ドメインオブジェクトをインスタンス化してフォームコントロールにバインディング
-        _customer = New SalesManagementDomain.Customer
+        _customer = New Domain.Customer
         CustomerInfoBindingSource.DataSource = _customer
 
         '各コントロールとバインディングオブジェクトを紐づけ
@@ -43,7 +43,7 @@ Public Class CustomerEntry
             CustomerInfoErrorProvider.UpdateBinding()
         End If
         '登録
-        Dim customerRepo = New SalesManagementInfra.CustomerRepositoryImpl()
+        Dim customerRepo = New Infrastructure.CustomerRepositoryImpl()
         customerRepo.Save(_customer)
     End Sub
 

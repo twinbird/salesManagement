@@ -28,14 +28,23 @@ Public Class InfrastructureSetting
     ''' DDLを実行
     ''' </summary>
     Private Sub execDDL()
+        'DDLを読み込み
+        Dim ddl = IO.File.ReadAllText("../../../Infrastructure/DDL/DDL.txt")
 
+        'DDLを実行
+        Using accessor As New ADOWrapper.DBAccessor
+            Dim q = accessor.CreateQuery
+            q.Query.AppendLine(ddl)
+            q.ExecNonQuery()
+        End Using
     End Sub
 
     ''' <summary>
     ''' デバッグ用にデータベースを初期化する
     ''' </summary>
     Private Sub initializeDebugDB()
-
+        'SQLiteファイルを削除
+        System.IO.File.Delete("myDb.db")
     End Sub
 
 End Class

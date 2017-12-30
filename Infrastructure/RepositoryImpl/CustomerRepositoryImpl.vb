@@ -6,7 +6,7 @@ Imports Domain
 ''' 顧客情報永続化のための機能
 ''' </summary>
 Public Class CustomerRepositoryImpl
-    Implements ICustomerRepository
+    Implements Domain.ICustomerRepository
 
 #Region "インターフェース"
 

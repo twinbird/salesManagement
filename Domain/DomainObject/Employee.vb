@@ -29,6 +29,7 @@ Public Class Employee
 #Region "コンストラクタ"
 
     Public Sub New(ByVal employeeRepo As IEmployeeRepository)
+        _ID = -1
         _EmployeeNo = String.Empty
         _Name = String.Empty
         _NameKana = String.Empty

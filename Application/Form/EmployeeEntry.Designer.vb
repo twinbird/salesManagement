@@ -41,7 +41,7 @@ Partial Class EmployeeEntry
         Me.EntryButton.Location = New System.Drawing.Point(307, 101)
         Me.EntryButton.Name = "EntryButton"
         Me.EntryButton.Size = New System.Drawing.Size(75, 23)
-        Me.EntryButton.TabIndex = 0
+        Me.EntryButton.TabIndex = 3
         Me.EntryButton.Text = "登録"
         Me.EntryButton.UseVisualStyleBackColor = True
         '
@@ -59,7 +59,7 @@ Partial Class EmployeeEntry
         Me.EmployeeNumberTextBox.Location = New System.Drawing.Point(104, 16)
         Me.EmployeeNumberTextBox.Name = "EmployeeNumberTextBox"
         Me.EmployeeNumberTextBox.Size = New System.Drawing.Size(100, 19)
-        Me.EmployeeNumberTextBox.TabIndex = 2
+        Me.EmployeeNumberTextBox.TabIndex = 0
         '
         'NameLabel
         '
@@ -76,7 +76,7 @@ Partial Class EmployeeEntry
         Me.NameTextBox.MaxLength = 20
         Me.NameTextBox.Name = "NameTextBox"
         Me.NameTextBox.Size = New System.Drawing.Size(278, 19)
-        Me.NameTextBox.TabIndex = 4
+        Me.NameTextBox.TabIndex = 1
         '
         'KanaNameLabel
         '
@@ -93,10 +93,11 @@ Partial Class EmployeeEntry
         Me.KanaNameTextBox.MaxLength = 20
         Me.KanaNameTextBox.Name = "KanaNameTextBox"
         Me.KanaNameTextBox.Size = New System.Drawing.Size(278, 19)
-        Me.KanaNameTextBox.TabIndex = 4
+        Me.KanaNameTextBox.TabIndex = 2
         '
         'ErrorProvider
         '
+        Me.ErrorProvider.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink
         Me.ErrorProvider.ContainerControl = Me
         '
         'EmployeeEntry

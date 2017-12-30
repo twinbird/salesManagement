@@ -84,13 +84,15 @@ Public Class EmployeeRepositoryImpl
             End If
 
             Dim check_q = accessor.CreateQuery
-            With q.Query
+            With check_q.Query
                 .AppendLine("SELECT")
                 .AppendLine("   last_insert_rowid()")
             End With
 
-            Dim check_ret = q.ExecScalar
-            _LastInsertId = DirectCast(check_ret, Integer)
+            Dim check_ret = check_q.ExecScalar
+            _LastInsertId = CType(check_ret, Integer)
+
+            accessor.Commit()
 
             Return True
         End Using

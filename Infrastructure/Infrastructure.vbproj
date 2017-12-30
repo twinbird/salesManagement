@@ -65,7 +65,7 @@
       <Project>{2d71eb0c-cbd9-474d-8084-82a5db06eedc}</Project>
       <Name>ADOWrapper</Name>
     </ProjectReference>
-    <ProjectReference Include="..\SalesManagementDomain\Domain.vbproj">
+    <ProjectReference Include="..\Domain\Domain.vbproj">
       <Project>{acc284ce-470b-4530-b481-a954b585d603}</Project>
       <Name>Domain</Name>
     </ProjectReference>

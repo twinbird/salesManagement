@@ -216,11 +216,11 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\SalesManagementDomain\Domain.vbproj">
+    <ProjectReference Include="..\Domain\Domain.vbproj">
       <Project>{acc284ce-470b-4530-b481-a954b585d603}</Project>
       <Name>Domain</Name>
     </ProjectReference>
-    <ProjectReference Include="..\SalesManagementInfra\Infrastructure.vbproj">
+    <ProjectReference Include="..\Infrastructure\Infrastructure.vbproj">
       <Project>{dc4929b8-9675-4449-82ca-7bf21a36f8d7}</Project>
       <Name>Infrastructure</Name>
     </ProjectReference>

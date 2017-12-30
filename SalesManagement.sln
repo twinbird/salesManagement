@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27130.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "Application", "SalesManagement\Application.vbproj", "{4E15C995-93BA-4B47-90B2-68FF3A8D5C52}"
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "Application", "Application\Application.vbproj", "{4E15C995-93BA-4B47-90B2-68FF3A8D5C52}"
 EndProject
-Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "Domain", "SalesManagementDomain\Domain.vbproj", "{ACC284CE-470B-4530-B481-A954B585D603}"
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "Domain", "Domain\Domain.vbproj", "{ACC284CE-470B-4530-B481-A954B585D603}"
 EndProject
-Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "Infrastructure", "SalesManagementInfra\Infrastructure.vbproj", "{DC4929B8-9675-4449-82CA-7BF21A36F8D7}"
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "Infrastructure", "Infrastructure\Infrastructure.vbproj", "{DC4929B8-9675-4449-82CA-7BF21A36F8D7}"
 EndProject
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "ADOWrapper", "ADOWrapper\ADOWrapper.vbproj", "{2D71EB0C-CBD9-474D-8084-82A5DB06EEDC}"
 EndProject

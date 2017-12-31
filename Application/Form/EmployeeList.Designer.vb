@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class EmployeeList
     Inherits System.Windows.Forms.Form
 
     'フォームがコンポーネントの一覧をクリーンアップするために dispose をオーバーライドします。
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,99 +20,86 @@ Partial Class EmployeeList
     'メモ: 以下のプロシージャは Windows フォーム デザイナーで必要です。
     'Windows フォーム デザイナーを使用して変更できます。  
     'コード エディターを使って変更しないでください。
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Me.Button1 = New System.Windows.Forms.Button()
-        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
-        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
-        Me.EditButton = New System.Windows.Forms.DataGridViewButtonColumn()
-        Me.EmployeeNo = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.LastName = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.FirstName = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.GroupBox1.SuspendLayout()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.components = New System.ComponentModel.Container()
+        Me.NewEmployeeEntryButton = New System.Windows.Forms.Button()
+        Me.FilterGroupBox = New System.Windows.Forms.GroupBox()
+        Me.FilterTextBox = New System.Windows.Forms.TextBox()
+        Me.EmployeeDataGridView = New System.Windows.Forms.DataGridView()
+        Me.EmployeeGridViewBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.FilterGroupBox.SuspendLayout()
+        CType(Me.EmployeeDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.EmployeeGridViewBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
-        'Button1
+        'NewEmployeeEntryButton
         '
-        Me.Button1.Location = New System.Drawing.Point(353, 27)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(136, 23)
-        Me.Button1.TabIndex = 0
-        Me.Button1.Text = "新しい従業員を登録"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.NewEmployeeEntryButton.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.NewEmployeeEntryButton.Location = New System.Drawing.Point(353, 27)
+        Me.NewEmployeeEntryButton.Name = "NewEmployeeEntryButton"
+        Me.NewEmployeeEntryButton.Size = New System.Drawing.Size(136, 23)
+        Me.NewEmployeeEntryButton.TabIndex = 0
+        Me.NewEmployeeEntryButton.Text = "新しい従業員を登録"
+        Me.NewEmployeeEntryButton.UseVisualStyleBackColor = True
         '
-        'GroupBox1
+        'FilterGroupBox
         '
-        Me.GroupBox1.Controls.Add(Me.TextBox1)
-        Me.GroupBox1.Location = New System.Drawing.Point(31, 12)
-        Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(305, 45)
-        Me.GroupBox1.TabIndex = 1
-        Me.GroupBox1.TabStop = False
-        Me.GroupBox1.Text = "フィルタ"
+        Me.FilterGroupBox.Controls.Add(Me.FilterTextBox)
+        Me.FilterGroupBox.Location = New System.Drawing.Point(31, 12)
+        Me.FilterGroupBox.Name = "FilterGroupBox"
+        Me.FilterGroupBox.Size = New System.Drawing.Size(305, 45)
+        Me.FilterGroupBox.TabIndex = 1
+        Me.FilterGroupBox.TabStop = False
+        Me.FilterGroupBox.Text = "フィルタ"
         '
-        'TextBox1
+        'FilterTextBox
         '
-        Me.TextBox1.Location = New System.Drawing.Point(16, 17)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(278, 19)
-        Me.TextBox1.TabIndex = 2
+        Me.FilterTextBox.Location = New System.Drawing.Point(16, 17)
+        Me.FilterTextBox.Name = "FilterTextBox"
+        Me.FilterTextBox.Size = New System.Drawing.Size(278, 19)
+        Me.FilterTextBox.TabIndex = 2
         '
-        'DataGridView1
+        'EmployeeDataGridView
         '
-        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.EditButton, Me.EmployeeNo, Me.LastName, Me.FirstName})
-        Me.DataGridView1.Location = New System.Drawing.Point(12, 63)
-        Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.RowTemplate.Height = 21
-        Me.DataGridView1.Size = New System.Drawing.Size(477, 186)
-        Me.DataGridView1.TabIndex = 2
+        Me.EmployeeDataGridView.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.EmployeeDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+        Me.EmployeeDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.EmployeeDataGridView.Location = New System.Drawing.Point(12, 63)
+        Me.EmployeeDataGridView.MultiSelect = False
+        Me.EmployeeDataGridView.Name = "EmployeeDataGridView"
+        Me.EmployeeDataGridView.RowHeadersVisible = False
+        Me.EmployeeDataGridView.RowTemplate.Height = 21
+        Me.EmployeeDataGridView.Size = New System.Drawing.Size(477, 186)
+        Me.EmployeeDataGridView.TabIndex = 2
         '
-        'EditButton
+        'EmployeeGridViewBindingSource
         '
-        Me.EditButton.HeaderText = ""
-        Me.EditButton.Name = "EditButton"
-        '
-        'EmployeeNo
-        '
-        Me.EmployeeNo.HeaderText = "従業員番号"
-        Me.EmployeeNo.Name = "EmployeeNo"
-        '
-        'LastName
-        '
-        Me.LastName.HeaderText = "姓"
-        Me.LastName.Name = "LastName"
-        '
-        'FirstName
-        '
-        Me.FirstName.HeaderText = "名"
-        Me.FirstName.Name = "FirstName"
+        Me.EmployeeGridViewBindingSource.AllowNew = False
         '
         'EmployeeList
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(501, 261)
-        Me.Controls.Add(Me.DataGridView1)
-        Me.Controls.Add(Me.GroupBox1)
-        Me.Controls.Add(Me.Button1)
+        Me.Controls.Add(Me.EmployeeDataGridView)
+        Me.Controls.Add(Me.FilterGroupBox)
+        Me.Controls.Add(Me.NewEmployeeEntryButton)
         Me.Name = "EmployeeList"
-        Me.Text = "従業員情報の管理"
-        Me.GroupBox1.ResumeLayout(False)
-        Me.GroupBox1.PerformLayout()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Text = "従業員台帳"
+        Me.FilterGroupBox.ResumeLayout(False)
+        Me.FilterGroupBox.PerformLayout()
+        CType(Me.EmployeeDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.EmployeeGridViewBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
 
-    Friend WithEvents Button1 As Button
-    Friend WithEvents GroupBox1 As GroupBox
-    Friend WithEvents TextBox1 As TextBox
-    Friend WithEvents DataGridView1 As DataGridView
-    Friend WithEvents EditButton As DataGridViewButtonColumn
-    Friend WithEvents EmployeeNo As DataGridViewTextBoxColumn
-    Friend WithEvents LastName As DataGridViewTextBoxColumn
-    Friend WithEvents FirstName As DataGridViewTextBoxColumn
+    Friend WithEvents NewEmployeeEntryButton As Button
+    Friend WithEvents FilterGroupBox As GroupBox
+    Friend WithEvents FilterTextBox As TextBox
+    Friend WithEvents EmployeeDataGridView As DataGridView
+    Friend WithEvents EmployeeGridViewBindingSource As BindingSource
 End Class

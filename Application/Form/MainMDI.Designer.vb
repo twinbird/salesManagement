@@ -67,6 +67,7 @@ Partial Class MainMDI
         Me.AboutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.マスタToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.顧客マスタToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.従業員ToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStrip = New System.Windows.Forms.ToolStrip()
         Me.NewToolStripButton = New System.Windows.Forms.ToolStripButton()
         Me.OpenToolStripButton = New System.Windows.Forms.ToolStripButton()
@@ -79,7 +80,6 @@ Partial Class MainMDI
         Me.StatusStrip = New System.Windows.Forms.StatusStrip()
         Me.ToolStripStatusLabel = New System.Windows.Forms.ToolStripStatusLabel()
         Me.ToolTip = New System.Windows.Forms.ToolTip(Me.components)
-        Me.従業員ToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip.SuspendLayout()
         Me.ToolStrip.SuspendLayout()
         Me.StatusStrip.SuspendLayout()
@@ -384,6 +384,12 @@ Partial Class MainMDI
         Me.顧客マスタToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.顧客マスタToolStripMenuItem.Text = "顧客マスタ"
         '
+        '従業員ToolStripMenuItem
+        '
+        Me.従業員ToolStripMenuItem.Name = "従業員ToolStripMenuItem"
+        Me.従業員ToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.従業員ToolStripMenuItem.Text = "従業員台帳"
+        '
         'ToolStrip
         '
         Me.ToolStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NewToolStripButton, Me.OpenToolStripButton, Me.SaveToolStripButton, Me.ToolStripSeparator1, Me.PrintToolStripButton, Me.PrintPreviewToolStripButton, Me.ToolStripSeparator2, Me.HelpToolStripButton})
@@ -471,12 +477,6 @@ Partial Class MainMDI
         Me.ToolStripStatusLabel.Name = "ToolStripStatusLabel"
         Me.ToolStripStatusLabel.Size = New System.Drawing.Size(31, 17)
         Me.ToolStripStatusLabel.Text = "状態"
-        '
-        '従業員ToolStripMenuItem
-        '
-        Me.従業員ToolStripMenuItem.Name = "従業員ToolStripMenuItem"
-        Me.従業員ToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
-        Me.従業員ToolStripMenuItem.Text = "従業員"
         '
         'MainMDI
         '

@@ -1,5 +1,7 @@
 ﻿Option Strict On
 Option Infer On
+
+Imports System.Collections.Generic
 Imports System.Diagnostics
 Imports Domain
 
@@ -70,6 +72,46 @@ Public Class EmployeeRepositoryImpl
             Return e
         End Using
     End Function
+
+    ''' <summary>
+    ''' 登録済みの従業員のすべてのモデルオブジェクトを取得
+    ''' </summary>
+    ''' <returns></returns>
+    Public Function FindAllEmployee() As List(Of Employee) Implements IEmployeeRepository.FindAllEmployee
+        Using accessor As New ADOWrapper.DBAccessor
+            Dim q = accessor.CreateQuery
+            With q.Query
+                .AppendLine("SELECT")
+                .AppendLine("    id AS id")
+                .AppendLine("   ,employee_number AS employee_number")
+                .AppendLine("   ,name AS name")
+                .AppendLine("   ,name_kana AS name_kana")
+                .AppendLine("FROM")
+                .AppendLine("   employees")
+            End With
+
+            Dim dt = q.ExecQuery
+            If dt Is Nothing Then
+                Return Nothing
+            End If
+
+            'データをモデルに設定して返す
+            Dim ret As New List(Of Employee)
+
+            For Each r As Data.DataRow In dt.Rows
+                Dim e = New Domain.Employee(CInt(r("id").ToString), Me)
+                e.EmployeeNo = r("employee_number").ToString
+                e.Name = r("name").ToString
+                e.NameKana = r("name_kana").ToString
+
+                ret.Add(e)
+            Next
+
+            Return ret
+        End Using
+
+    End Function
+
 
 #Region "インスタンス変数"
 

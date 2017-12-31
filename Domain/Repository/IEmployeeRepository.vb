@@ -1,6 +1,8 @@
 ﻿Option Strict On
 Option Infer On
 
+Imports System.Collections.Generic
+
 ''' <summary>
 ''' 従業員永続化のための機能表現
 ''' </summary>
@@ -23,6 +25,12 @@ Public Interface IEmployeeRepository
     ''' 従業員番号からモデルオブジェクトを取得
     ''' </summary>
     ''' <returns></returns>
-    Function FindByEmployeeNo(ByVal empNo As String) As Domain.Employee
+    Function FindByEmployeeNo(ByVal empNo As String) As Employee
+
+    ''' <summary>
+    ''' 登録済みの従業員のすべてのモデルオブジェクトを取得
+    ''' </summary>
+    ''' <returns></returns>
+    Function FindAllEmployee() As List(Of Employee)
 
 End Interface

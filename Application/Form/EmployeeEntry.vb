@@ -6,15 +6,23 @@ Option Infer On
 ''' </summary>
 Public Class EmployeeEntry
 
-#Region "メッセージ定数"
+#Region "プロパティ"
 
-    Private Const SaveErrorMessage As String = "保存に失敗しました。時間をおいてもう一度お試しください。"
+    Private _Employee As Domain.Employee
+    ''' <summary>
+    ''' 編集登録に利用する場合は編集するEmployeeのモデルオブジェクトを設定して呼び出しを行う
+    ''' </summary>
+    Public WriteOnly Property EditEmployee As Domain.Employee
+        Set(value As Domain.Employee)
+            _Employee = value
+        End Set
+    End Property
 
 #End Region
 
-#Region "インスタンス変数"
+#Region "メッセージ定数"
 
-    Private _Employee As Domain.Employee
+    Private Const SaveErrorMessage As String = "保存に失敗しました。時間をおいてもう一度お試しください。"
 
 #End Region
 
@@ -52,10 +60,14 @@ Public Class EmployeeEntry
         '=============================================================================
         'ドメインオブジェクトをインスタンス化してフォームコントロールにバインディング
         '=============================================================================
-        '永続化用リポジトリのインスタンスを用意
-        Dim employeeRepo = New Infrastructure.EmployeeRepositoryImpl()
-        'ドメインオブジェクトを生成
-        _Employee = New Domain.Employee(employeeRepo)
+
+        '編集用にオブジェクトが引き渡されている呼び出しでは引き渡されたインスタンスを利用する
+        If _Employee Is Nothing Then
+            '永続化用リポジトリのインスタンスを用意
+            Dim employeeRepo = New Infrastructure.EmployeeRepositoryImpl()
+            'ドメインオブジェクトを生成
+            _Employee = New Domain.Employee(employeeRepo)
+        End If
         'バインディング
         Me.BindingSource.DataSource = _Employee
 

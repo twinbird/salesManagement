@@ -99,7 +99,7 @@ Public Class MainMDI
 
     Private Sub 従業員ToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles 従業員ToolStripMenuItem.Click
         ' 子フォームの新しいインスタンスを作成します
-        Dim ChildForm As New EmployeeEntry
+        Dim ChildForm As New EmployeeList
         ' 表示する前に、この MDI フォームの子に設定します
         ChildForm.MdiParent = Me
 

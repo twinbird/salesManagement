@@ -1,5 +1,6 @@
 ﻿Option Strict On
 Option Infer On
+Imports System.ComponentModel
 
 ''' <summary>
 ''' 従業員台帳を管理する画面
@@ -32,16 +33,6 @@ Public Class EmployeeList
     End Sub
 
     ''' <summary>
-    ''' フィルタのテキストチェンジイベント
-    ''' </summary>
-    ''' <param name="sender"></param>
-    ''' <param name="e"></param>
-    Private Sub FilterTextBox_TextChanged(sender As Object, e As EventArgs) Handles FilterTextBox.TextChanged
-        'bindingSourceのフィルタ設定
-        EmployeeGridViewBindingSource.Filter = FilterTextBox.Text
-    End Sub
-
-    ''' <summary>
     ''' DataGridViewのコンテンツをクリックしたイベント
     ''' </summary>
     ''' <param name="sender"></param>
@@ -62,7 +53,7 @@ Public Class EmployeeList
     ''' <param name="e"></param>
     Friend Sub UpdateEmployeeListGridView(sender As Object, e As FormClosedEventArgs)
         'データ表示を更新
-        updateBindingSource()
+        UpdateBindingSource()
     End Sub
 
     ''' <summary>
@@ -92,19 +83,19 @@ Public Class EmployeeList
     ''' </summary>
     Private Sub setupControls()
         'GridViewの設定
-        setupDataGridView()
+        SetupDataGridView()
         'データを読み込んでGridViewへ設定
-        updateBindingSource()
+        UpdateBindingSource()
     End Sub
 
 #End Region
 
-#Region "従業員のDataGridView"
+#Region "DataGridView"
 
     ''' <summary>
     ''' 従業員のDataGridViewのコントロール設定
     ''' </summary>
-    Private Sub setupDataGridView()
+    Private Sub SetupDataGridView()
         '一度列全体をクリア
         EmployeeDataGridView.Columns.Clear()
         '列の自動生成を行わない
@@ -147,15 +138,12 @@ Public Class EmployeeList
             .DataPropertyName = "EmployeeNameKana"
         End With
         EmployeeDataGridView.Columns.Add(empNameKanaCol)
-
-        'データソースにバインディングソースを指定
-        EmployeeDataGridView.DataSource = EmployeeGridViewBindingSource
     End Sub
 
     ''' <summary>
     ''' 従業員のDataGridView用のbindingSourceのデータを更新する
     ''' </summary>
-    Private Sub updateBindingSource()
+    Private Sub UpdateBindingSource()
         'データ取得用のリポジトリを作成
         Dim repo = New Infrastructure.EmployeeRepositoryImpl
         'リポジトリから従業員情報を取得してデータバインディング用オブジェクトへ変換
@@ -165,7 +153,8 @@ Public Class EmployeeList
             dtos.Add(New EmployeeGridViewDTO(emp))
         Next
         'GridViewへデータを設定
-        EmployeeGridViewBindingSource.DataSource = dtos
+        Dim bindList = New SortableBindingList(Of EmployeeGridViewDTO)(dtos)
+        EmployeeDataGridView.DataSource = bindList
     End Sub
 
     ''' <summary>

@@ -22,15 +22,13 @@ Partial Class EmployeeList
     'コード エディターを使って変更しないでください。
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Me.components = New System.ComponentModel.Container()
         Me.NewEmployeeEntryButton = New System.Windows.Forms.Button()
         Me.FilterGroupBox = New System.Windows.Forms.GroupBox()
         Me.FilterTextBox = New System.Windows.Forms.TextBox()
         Me.EmployeeDataGridView = New System.Windows.Forms.DataGridView()
-        Me.EmployeeGridViewBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.FilterButton = New System.Windows.Forms.Button()
         Me.FilterGroupBox.SuspendLayout()
         CType(Me.EmployeeDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.EmployeeGridViewBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'NewEmployeeEntryButton
@@ -45,6 +43,7 @@ Partial Class EmployeeList
         '
         'FilterGroupBox
         '
+        Me.FilterGroupBox.Controls.Add(Me.FilterButton)
         Me.FilterGroupBox.Controls.Add(Me.FilterTextBox)
         Me.FilterGroupBox.Location = New System.Drawing.Point(31, 12)
         Me.FilterGroupBox.Name = "FilterGroupBox"
@@ -57,7 +56,7 @@ Partial Class EmployeeList
         '
         Me.FilterTextBox.Location = New System.Drawing.Point(16, 17)
         Me.FilterTextBox.Name = "FilterTextBox"
-        Me.FilterTextBox.Size = New System.Drawing.Size(278, 19)
+        Me.FilterTextBox.Size = New System.Drawing.Size(202, 19)
         Me.FilterTextBox.TabIndex = 2
         '
         'EmployeeDataGridView
@@ -75,9 +74,14 @@ Partial Class EmployeeList
         Me.EmployeeDataGridView.Size = New System.Drawing.Size(477, 186)
         Me.EmployeeDataGridView.TabIndex = 2
         '
-        'EmployeeGridViewBindingSource
+        'FilterButton
         '
-        Me.EmployeeGridViewBindingSource.AllowNew = False
+        Me.FilterButton.Location = New System.Drawing.Point(225, 14)
+        Me.FilterButton.Name = "FilterButton"
+        Me.FilterButton.Size = New System.Drawing.Size(75, 23)
+        Me.FilterButton.TabIndex = 3
+        Me.FilterButton.Text = "絞り込み"
+        Me.FilterButton.UseVisualStyleBackColor = True
         '
         'EmployeeList
         '
@@ -92,7 +96,6 @@ Partial Class EmployeeList
         Me.FilterGroupBox.ResumeLayout(False)
         Me.FilterGroupBox.PerformLayout()
         CType(Me.EmployeeDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.EmployeeGridViewBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -101,5 +104,5 @@ Partial Class EmployeeList
     Friend WithEvents FilterGroupBox As GroupBox
     Friend WithEvents FilterTextBox As TextBox
     Friend WithEvents EmployeeDataGridView As DataGridView
-    Friend WithEvents EmployeeGridViewBindingSource As BindingSource
+    Friend WithEvents FilterButton As Button
 End Class

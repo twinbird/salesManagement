@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class PaymentConditionEntry
     Inherits System.Windows.Forms.Form
 
     'フォームがコンポーネントの一覧をクリーンアップするために dispose をオーバーライドします。
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,136 +20,137 @@ Partial Class PaymentConditionEntry
     'メモ: 以下のプロシージャは Windows フォーム デザイナーで必要です。
     'Windows フォーム デザイナーを使用して変更できます。  
     'コード エディターを使って変更しないでください。
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Me.Button1 = New System.Windows.Forms.Button()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
-        Me.Label4 = New System.Windows.Forms.Label()
-        Me.ComboBox2 = New System.Windows.Forms.ComboBox()
-        Me.Label5 = New System.Windows.Forms.Label()
-        Me.ComboBox3 = New System.Windows.Forms.ComboBox()
-        Me.FormTitleLabel = New System.Windows.Forms.Label()
+        Me.components = New System.ComponentModel.Container()
+        Me.EntryButton = New System.Windows.Forms.Button()
+        Me.PaymentConditionNameLabel = New System.Windows.Forms.Label()
+        Me.PaymentConditionNameTextBox = New System.Windows.Forms.TextBox()
+        Me.ClosingDateLabel = New System.Windows.Forms.Label()
+        Me.ClosingDateComboBox = New System.Windows.Forms.ComboBox()
+        Me.PaymentOffsetMonthLabel = New System.Windows.Forms.Label()
+        Me.PaymentOffsetMonthComboBox = New System.Windows.Forms.ComboBox()
+        Me.PaymentDayLabel = New System.Windows.Forms.Label()
+        Me.PaymentDayComboBox = New System.Windows.Forms.ComboBox()
+        Me.ErrorProvider = New System.Windows.Forms.ErrorProvider(Me.components)
+        Me.BindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        CType(Me.ErrorProvider, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.BindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
-        'Button1
+        'EntryButton
         '
-        Me.Button1.Location = New System.Drawing.Point(197, 173)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(75, 23)
-        Me.Button1.TabIndex = 0
-        Me.Button1.Text = "登録"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.EntryButton.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.EntryButton.Location = New System.Drawing.Point(204, 122)
+        Me.EntryButton.Name = "EntryButton"
+        Me.EntryButton.Size = New System.Drawing.Size(75, 23)
+        Me.EntryButton.TabIndex = 0
+        Me.EntryButton.Text = "登録"
+        Me.EntryButton.UseVisualStyleBackColor = True
         '
-        'Label1
+        'PaymentConditionNameLabel
         '
-        Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(12, 60)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(65, 12)
-        Me.Label1.TabIndex = 2
-        Me.Label1.Text = "支払条件名"
+        Me.PaymentConditionNameLabel.AutoSize = True
+        Me.PaymentConditionNameLabel.Location = New System.Drawing.Point(12, 17)
+        Me.PaymentConditionNameLabel.Name = "PaymentConditionNameLabel"
+        Me.PaymentConditionNameLabel.Size = New System.Drawing.Size(65, 12)
+        Me.PaymentConditionNameLabel.TabIndex = 2
+        Me.PaymentConditionNameLabel.Text = "支払条件名"
         '
-        'TextBox1
+        'PaymentConditionNameTextBox
         '
-        Me.TextBox1.Location = New System.Drawing.Point(83, 57)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(189, 19)
-        Me.TextBox1.TabIndex = 3
+        Me.PaymentConditionNameTextBox.Location = New System.Drawing.Point(83, 14)
+        Me.PaymentConditionNameTextBox.Name = "PaymentConditionNameTextBox"
+        Me.PaymentConditionNameTextBox.Size = New System.Drawing.Size(189, 19)
+        Me.PaymentConditionNameTextBox.TabIndex = 3
         '
-        'Label3
+        'ClosingDateLabel
         '
-        Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(12, 85)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(29, 12)
-        Me.Label3.TabIndex = 5
-        Me.Label3.Text = "締日"
+        Me.ClosingDateLabel.AutoSize = True
+        Me.ClosingDateLabel.Location = New System.Drawing.Point(12, 42)
+        Me.ClosingDateLabel.Name = "ClosingDateLabel"
+        Me.ClosingDateLabel.Size = New System.Drawing.Size(29, 12)
+        Me.ClosingDateLabel.TabIndex = 5
+        Me.ClosingDateLabel.Text = "締日"
         '
-        'ComboBox1
+        'ClosingDateComboBox
         '
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Location = New System.Drawing.Point(83, 82)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(121, 20)
-        Me.ComboBox1.TabIndex = 6
+        Me.ClosingDateComboBox.FormattingEnabled = True
+        Me.ClosingDateComboBox.Location = New System.Drawing.Point(83, 39)
+        Me.ClosingDateComboBox.Name = "ClosingDateComboBox"
+        Me.ClosingDateComboBox.Size = New System.Drawing.Size(65, 20)
+        Me.ClosingDateComboBox.TabIndex = 6
         '
-        'Label4
+        'PaymentOffsetMonthLabel
         '
-        Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(12, 112)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(41, 12)
-        Me.Label4.TabIndex = 5
-        Me.Label4.Text = "支払月"
+        Me.PaymentOffsetMonthLabel.AutoSize = True
+        Me.PaymentOffsetMonthLabel.Location = New System.Drawing.Point(12, 69)
+        Me.PaymentOffsetMonthLabel.Name = "PaymentOffsetMonthLabel"
+        Me.PaymentOffsetMonthLabel.Size = New System.Drawing.Size(41, 12)
+        Me.PaymentOffsetMonthLabel.TabIndex = 5
+        Me.PaymentOffsetMonthLabel.Text = "支払月"
         '
-        'ComboBox2
+        'PaymentOffsetMonthComboBox
         '
-        Me.ComboBox2.FormattingEnabled = True
-        Me.ComboBox2.Location = New System.Drawing.Point(83, 109)
-        Me.ComboBox2.Name = "ComboBox2"
-        Me.ComboBox2.Size = New System.Drawing.Size(121, 20)
-        Me.ComboBox2.TabIndex = 6
+        Me.PaymentOffsetMonthComboBox.FormattingEnabled = True
+        Me.PaymentOffsetMonthComboBox.Location = New System.Drawing.Point(83, 66)
+        Me.PaymentOffsetMonthComboBox.Name = "PaymentOffsetMonthComboBox"
+        Me.PaymentOffsetMonthComboBox.Size = New System.Drawing.Size(65, 20)
+        Me.PaymentOffsetMonthComboBox.TabIndex = 6
         '
-        'Label5
+        'PaymentDayLabel
         '
-        Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(12, 139)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(41, 12)
-        Me.Label5.TabIndex = 5
-        Me.Label5.Text = "支払日"
+        Me.PaymentDayLabel.AutoSize = True
+        Me.PaymentDayLabel.Location = New System.Drawing.Point(12, 96)
+        Me.PaymentDayLabel.Name = "PaymentDayLabel"
+        Me.PaymentDayLabel.Size = New System.Drawing.Size(41, 12)
+        Me.PaymentDayLabel.TabIndex = 5
+        Me.PaymentDayLabel.Text = "支払日"
         '
-        'ComboBox3
+        'PaymentDayComboBox
         '
-        Me.ComboBox3.FormattingEnabled = True
-        Me.ComboBox3.Location = New System.Drawing.Point(83, 136)
-        Me.ComboBox3.Name = "ComboBox3"
-        Me.ComboBox3.Size = New System.Drawing.Size(121, 20)
-        Me.ComboBox3.TabIndex = 6
+        Me.PaymentDayComboBox.FormattingEnabled = True
+        Me.PaymentDayComboBox.Location = New System.Drawing.Point(83, 93)
+        Me.PaymentDayComboBox.Name = "PaymentDayComboBox"
+        Me.PaymentDayComboBox.Size = New System.Drawing.Size(65, 20)
+        Me.PaymentDayComboBox.TabIndex = 6
         '
-        'FormTitleLabel
+        'ErrorProvider
         '
-        Me.FormTitleLabel.AutoSize = True
-        Me.FormTitleLabel.Font = New System.Drawing.Font("MS UI Gothic", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.FormTitleLabel.Location = New System.Drawing.Point(10, 6)
-        Me.FormTitleLabel.Name = "FormTitleLabel"
-        Me.FormTitleLabel.Size = New System.Drawing.Size(181, 24)
-        Me.FormTitleLabel.TabIndex = 7
-        Me.FormTitleLabel.Text = "支払条件の管理"
+        Me.ErrorProvider.ContainerControl = Me
         '
         'PaymentConditionEntry
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(291, 207)
-        Me.Controls.Add(Me.FormTitleLabel)
-        Me.Controls.Add(Me.ComboBox3)
-        Me.Controls.Add(Me.ComboBox2)
-        Me.Controls.Add(Me.ComboBox1)
-        Me.Controls.Add(Me.Label5)
-        Me.Controls.Add(Me.Label4)
-        Me.Controls.Add(Me.Label3)
-        Me.Controls.Add(Me.TextBox1)
-        Me.Controls.Add(Me.Label1)
-        Me.Controls.Add(Me.Button1)
+        Me.ClientSize = New System.Drawing.Size(291, 157)
+        Me.Controls.Add(Me.PaymentDayComboBox)
+        Me.Controls.Add(Me.PaymentOffsetMonthComboBox)
+        Me.Controls.Add(Me.ClosingDateComboBox)
+        Me.Controls.Add(Me.PaymentDayLabel)
+        Me.Controls.Add(Me.PaymentOffsetMonthLabel)
+        Me.Controls.Add(Me.ClosingDateLabel)
+        Me.Controls.Add(Me.PaymentConditionNameTextBox)
+        Me.Controls.Add(Me.PaymentConditionNameLabel)
+        Me.Controls.Add(Me.EntryButton)
         Me.Name = "PaymentConditionEntry"
-        Me.Text = "支払条件の管理"
+        Me.Text = "支払条件の編集"
+        CType(Me.ErrorProvider, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.BindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
 
-    Friend WithEvents Button1 As Button
-    Friend WithEvents Label1 As Label
-    Friend WithEvents TextBox1 As TextBox
-    Friend WithEvents Label3 As Label
-    Friend WithEvents ComboBox1 As ComboBox
-    Friend WithEvents Label4 As Label
-    Friend WithEvents ComboBox2 As ComboBox
-    Friend WithEvents Label5 As Label
-    Friend WithEvents ComboBox3 As ComboBox
-    Friend WithEvents FormTitleLabel As Label
+    Friend WithEvents EntryButton As Button
+    Friend WithEvents PaymentConditionNameLabel As Label
+    Friend WithEvents PaymentConditionNameTextBox As TextBox
+    Friend WithEvents ClosingDateLabel As Label
+    Friend WithEvents ClosingDateComboBox As ComboBox
+    Friend WithEvents PaymentOffsetMonthLabel As Label
+    Friend WithEvents PaymentOffsetMonthComboBox As ComboBox
+    Friend WithEvents PaymentDayLabel As Label
+    Friend WithEvents PaymentDayComboBox As ComboBox
+    Friend WithEvents ErrorProvider As ErrorProvider
+    Friend WithEvents BindingSource As BindingSource
 End Class

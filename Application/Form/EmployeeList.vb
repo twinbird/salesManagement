@@ -54,6 +54,8 @@ Public Class EmployeeList
     Friend Sub UpdateEmployeeListGridView(sender As Object, e As FormClosedEventArgs)
         'データ表示を更新
         UpdateBindingSource()
+        'ステータスラベルの更新
+        UpdateToolStripStatusLabel()
     End Sub
 
     ''' <summary>
@@ -80,7 +82,10 @@ Public Class EmployeeList
     ''' <param name="sender"></param>
     ''' <param name="e"></param>
     Private Sub SearchButton_Click(sender As Object, e As EventArgs) Handles SearchButton.Click
+        '明細データの更新
         UpdateBindingSource()
+        'ステータスラベルの更新
+        UpdateToolStripStatusLabel()
     End Sub
 
     ''' <summary>
@@ -102,6 +107,8 @@ Public Class EmployeeList
     Private Sub SetupControls()
         'GridViewの設定
         SetupDataGridView()
+        'ToolStripStatusLabelの表示内容を更新
+        UpdateToolStripStatusLabel()
     End Sub
 
     ''' <summary>
@@ -113,9 +120,19 @@ Public Class EmployeeList
         Me.SearchEmployeeNameKanaTextBox.Clear()
     End Sub
 
+    ''' <summary>
+    ''' ToolStripStatusLabelの表示内容を更新
+    ''' </summary>
+    Private Sub UpdateToolStripStatusLabel()
+        Dim repo = New Infrastructure.EmployeeRepositoryImpl
+        Dim allCount = repo.CountAllEmployee()
+        Dim str = String.Format("{0}件中{1}件を表示中", allCount, EmployeeDataGridView.Rows.Count)
+        Me.ToolStripStatusLabel.Text = str
+    End Sub
+
 #End Region
 
-#Region "DataGridView"
+#Region "DataGridView制御"
 
     ''' <summary>
     ''' 従業員のDataGridViewのコントロール設定
@@ -125,6 +142,8 @@ Public Class EmployeeList
         EmployeeDataGridView.Columns.Clear()
         '列の自動生成を行わない
         EmployeeDataGridView.AutoGenerateColumns = False
+        'GridView内での新規行追加不可
+        EmployeeDataGridView.AllowUserToAddRows = False
 
         '編集ボタン列を作成
         Dim buttonCol = New DataGridViewButtonColumn
@@ -163,6 +182,9 @@ Public Class EmployeeList
             .DataPropertyName = "EmployeeNameKana"
         End With
         EmployeeDataGridView.Columns.Add(empNameKanaCol)
+
+        '明細をクリア
+        EmployeeDataGridView.DataSource = Nothing
     End Sub
 
     ''' <summary>

@@ -102,10 +102,6 @@ Public Class MainMDI
         Dim ChildForm As New EmployeeList
         ' 表示する前に、この MDI フォームの子に設定します
         ChildForm.MdiParent = Me
-
-        m_ChildFormNumber += 1
-        ChildForm.Text = "ウィンドウ " & m_ChildFormNumber
-
         ChildForm.Show()
     End Sub
 

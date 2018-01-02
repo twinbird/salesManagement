@@ -33,7 +33,7 @@ Partial Class EmployeeList
         Me.SearchEmployeeNoTextBox = New System.Windows.Forms.TextBox()
         Me.EmployeeDataGridView = New System.Windows.Forms.DataGridView()
         Me.StatusStrip1 = New System.Windows.Forms.StatusStrip()
-        Me.ToolStripStatusLabel1 = New System.Windows.Forms.ToolStripStatusLabel()
+        Me.ToolStripStatusLabel = New System.Windows.Forms.ToolStripStatusLabel()
         Me.ClearSearchConditionButton = New System.Windows.Forms.Button()
         Me.SearchGroupBox.SuspendLayout()
         CType(Me.EmployeeDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -126,6 +126,8 @@ Partial Class EmployeeList
         '
         'EmployeeDataGridView
         '
+        Me.EmployeeDataGridView.AllowUserToAddRows = False
+        Me.EmployeeDataGridView.AllowUserToDeleteRows = False
         Me.EmployeeDataGridView.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
@@ -141,18 +143,18 @@ Partial Class EmployeeList
         '
         'StatusStrip1
         '
-        Me.StatusStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripStatusLabel1})
+        Me.StatusStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripStatusLabel})
         Me.StatusStrip1.Location = New System.Drawing.Point(0, 387)
         Me.StatusStrip1.Name = "StatusStrip1"
         Me.StatusStrip1.Size = New System.Drawing.Size(449, 22)
         Me.StatusStrip1.TabIndex = 3
         Me.StatusStrip1.Text = "StatusStrip1"
         '
-        'ToolStripStatusLabel1
+        'ToolStripStatusLabel
         '
-        Me.ToolStripStatusLabel1.Name = "ToolStripStatusLabel1"
-        Me.ToolStripStatusLabel1.Size = New System.Drawing.Size(113, 17)
-        Me.ToolStripStatusLabel1.Text = "ToolStripStatusLabel"
+        Me.ToolStripStatusLabel.Name = "ToolStripStatusLabel"
+        Me.ToolStripStatusLabel.Size = New System.Drawing.Size(113, 17)
+        Me.ToolStripStatusLabel.Text = "ToolStripStatusLabel"
         '
         'ClearSearchConditionButton
         '
@@ -190,7 +192,7 @@ Partial Class EmployeeList
     Friend WithEvents EmployeeDataGridView As DataGridView
     Friend WithEvents SearchButton As Button
     Friend WithEvents StatusStrip1 As StatusStrip
-    Friend WithEvents ToolStripStatusLabel1 As ToolStripStatusLabel
+    Friend WithEvents ToolStripStatusLabel As ToolStripStatusLabel
     Friend WithEvents SearchEmployeeNoLabel As Label
     Friend WithEvents SearchEmployeeNameLabel As Label
     Friend WithEvents SearchEmployeeNameTextBox As TextBox

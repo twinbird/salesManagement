@@ -39,4 +39,10 @@ Public Interface IEmployeeRepository
     ''' <returns></returns>
     Function FindEmployeeByCondition(ByVal cond As EmployeeRepositorySearchCondition) As List(Of Employee)
 
+    ''' <summary>
+    ''' 登録されている従業員数を取得する
+    ''' </summary>
+    ''' <returns></returns>
+    Function CountAllEmployee() As Integer
+
 End Interface

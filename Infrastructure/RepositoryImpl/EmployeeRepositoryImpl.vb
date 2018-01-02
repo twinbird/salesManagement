@@ -194,6 +194,29 @@ Public Class EmployeeRepositoryImpl
         End Using
     End Function
 
+    ''' <summary>
+    ''' 登録されている従業員数を取得する
+    ''' </summary>
+    ''' <returns></returns>
+    Public Function CountAllEmployee() As Integer Implements Domain.IEmployeeRepository.CountAllEmployee
+        Using accessor As New ADOWrapper.DBAccessor
+            Dim q = accessor.CreateQuery
+            With q.Query
+                .AppendLine("SELECT")
+                .AppendLine("    COUNT(id) AS employee_count")
+                .AppendLine("FROM")
+                .AppendLine("   employees")
+            End With
+
+            Dim count = q.ExecScalar
+            If count Is Nothing Then
+                Return 0
+            End If
+
+            Return CType(count, Integer)
+        End Using
+
+    End Function
 
 #Region "インスタンス変数"
 

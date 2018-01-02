@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class MainMDI
     Inherits System.Windows.Forms.Form
 
     'フォームがコンポーネントの一覧をクリーンアップするために dispose をオーバーライドします。
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -21,22 +21,13 @@ Partial Class MainMDI
     'メモ: 以下のプロシージャは Windows フォーム デザイナーで必要です。
     'Windows フォーム デザイナーを使用して変更できます。  
     'コード エディターを使って変更しないでください。
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(MainMDI))
         Me.MenuStrip = New System.Windows.Forms.MenuStrip()
         Me.FileMenu = New System.Windows.Forms.ToolStripMenuItem()
-        Me.NewToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.OpenToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ToolStripSeparator3 = New System.Windows.Forms.ToolStripSeparator()
-        Me.SaveToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.SaveAsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator4 = New System.Windows.Forms.ToolStripSeparator()
-        Me.PrintToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.PrintPreviewToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.PrintSetupToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ToolStripSeparator5 = New System.Windows.Forms.ToolStripSeparator()
         Me.ExitToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.EditMenu = New System.Windows.Forms.ToolStripMenuItem()
         Me.UndoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -47,11 +38,6 @@ Partial Class MainMDI
         Me.PasteToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator7 = New System.Windows.Forms.ToolStripSeparator()
         Me.SelectAllToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ViewMenu = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ToolBarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.StatusBarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ToolsMenu = New System.Windows.Forms.ToolStripMenuItem()
-        Me.OptionsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.WindowsMenu = New System.Windows.Forms.ToolStripMenuItem()
         Me.NewWindowToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CascadeToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -80,6 +66,20 @@ Partial Class MainMDI
         Me.StatusStrip = New System.Windows.Forms.StatusStrip()
         Me.ToolStripStatusLabel = New System.Windows.Forms.ToolStripStatusLabel()
         Me.ToolTip = New System.Windows.Forms.ToolTip(Me.components)
+        Me.日常業務ToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.月次業務ToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.バックアップの作成ToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.バックアップのインポートToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.見積台帳EToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.受注台帳OToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.売上台帳SToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.入金台帳AToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.締め処理CToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.請求処理IToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.支払条件の設定PToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.消費税の設定TToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.自社情報の設定SToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.保守契約の管理SToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip.SuspendLayout()
         Me.ToolStrip.SuspendLayout()
         Me.StatusStrip.SuspendLayout()
@@ -87,92 +87,26 @@ Partial Class MainMDI
         '
         'MenuStrip
         '
-        Me.MenuStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FileMenu, Me.EditMenu, Me.ViewMenu, Me.ToolsMenu, Me.WindowsMenu, Me.HelpMenu, Me.マスタToolStripMenuItem})
+        Me.MenuStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FileMenu, Me.EditMenu, Me.日常業務ToolStripMenuItem, Me.月次業務ToolStripMenuItem, Me.マスタToolStripMenuItem, Me.WindowsMenu, Me.HelpMenu})
         Me.MenuStrip.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip.MdiWindowListItem = Me.WindowsMenu
         Me.MenuStrip.Name = "MenuStrip"
-        Me.MenuStrip.Size = New System.Drawing.Size(632, 24)
+        Me.MenuStrip.Size = New System.Drawing.Size(790, 24)
         Me.MenuStrip.TabIndex = 5
         Me.MenuStrip.Text = "MenuStrip"
         '
         'FileMenu
         '
-        Me.FileMenu.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NewToolStripMenuItem, Me.OpenToolStripMenuItem, Me.ToolStripSeparator3, Me.SaveToolStripMenuItem, Me.SaveAsToolStripMenuItem, Me.ToolStripSeparator4, Me.PrintToolStripMenuItem, Me.PrintPreviewToolStripMenuItem, Me.PrintSetupToolStripMenuItem, Me.ToolStripSeparator5, Me.ExitToolStripMenuItem})
+        Me.FileMenu.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.バックアップの作成ToolStripMenuItem, Me.バックアップのインポートToolStripMenuItem, Me.ToolStripSeparator4, Me.ExitToolStripMenuItem})
         Me.FileMenu.ImageTransparentColor = System.Drawing.SystemColors.ActiveBorder
         Me.FileMenu.Name = "FileMenu"
         Me.FileMenu.Size = New System.Drawing.Size(67, 20)
         Me.FileMenu.Text = "ファイル(&F)"
         '
-        'NewToolStripMenuItem
-        '
-        Me.NewToolStripMenuItem.Image = CType(resources.GetObject("NewToolStripMenuItem.Image"), System.Drawing.Image)
-        Me.NewToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Black
-        Me.NewToolStripMenuItem.Name = "NewToolStripMenuItem"
-        Me.NewToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.N), System.Windows.Forms.Keys)
-        Me.NewToolStripMenuItem.Size = New System.Drawing.Size(192, 22)
-        Me.NewToolStripMenuItem.Text = "新規作成(&N)"
-        '
-        'OpenToolStripMenuItem
-        '
-        Me.OpenToolStripMenuItem.Image = CType(resources.GetObject("OpenToolStripMenuItem.Image"), System.Drawing.Image)
-        Me.OpenToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Black
-        Me.OpenToolStripMenuItem.Name = "OpenToolStripMenuItem"
-        Me.OpenToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.O), System.Windows.Forms.Keys)
-        Me.OpenToolStripMenuItem.Size = New System.Drawing.Size(192, 22)
-        Me.OpenToolStripMenuItem.Text = "開く(&O)"
-        '
-        'ToolStripSeparator3
-        '
-        Me.ToolStripSeparator3.Name = "ToolStripSeparator3"
-        Me.ToolStripSeparator3.Size = New System.Drawing.Size(189, 6)
-        '
-        'SaveToolStripMenuItem
-        '
-        Me.SaveToolStripMenuItem.Image = CType(resources.GetObject("SaveToolStripMenuItem.Image"), System.Drawing.Image)
-        Me.SaveToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Black
-        Me.SaveToolStripMenuItem.Name = "SaveToolStripMenuItem"
-        Me.SaveToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.S), System.Windows.Forms.Keys)
-        Me.SaveToolStripMenuItem.Size = New System.Drawing.Size(192, 22)
-        Me.SaveToolStripMenuItem.Text = "保存(&S)"
-        '
-        'SaveAsToolStripMenuItem
-        '
-        Me.SaveAsToolStripMenuItem.Name = "SaveAsToolStripMenuItem"
-        Me.SaveAsToolStripMenuItem.Size = New System.Drawing.Size(192, 22)
-        Me.SaveAsToolStripMenuItem.Text = "名前を付けて保存(&A)"
-        '
         'ToolStripSeparator4
         '
         Me.ToolStripSeparator4.Name = "ToolStripSeparator4"
         Me.ToolStripSeparator4.Size = New System.Drawing.Size(189, 6)
-        '
-        'PrintToolStripMenuItem
-        '
-        Me.PrintToolStripMenuItem.Image = CType(resources.GetObject("PrintToolStripMenuItem.Image"), System.Drawing.Image)
-        Me.PrintToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Black
-        Me.PrintToolStripMenuItem.Name = "PrintToolStripMenuItem"
-        Me.PrintToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.P), System.Windows.Forms.Keys)
-        Me.PrintToolStripMenuItem.Size = New System.Drawing.Size(192, 22)
-        Me.PrintToolStripMenuItem.Text = "印刷(&P)"
-        '
-        'PrintPreviewToolStripMenuItem
-        '
-        Me.PrintPreviewToolStripMenuItem.Image = CType(resources.GetObject("PrintPreviewToolStripMenuItem.Image"), System.Drawing.Image)
-        Me.PrintPreviewToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Black
-        Me.PrintPreviewToolStripMenuItem.Name = "PrintPreviewToolStripMenuItem"
-        Me.PrintPreviewToolStripMenuItem.Size = New System.Drawing.Size(192, 22)
-        Me.PrintPreviewToolStripMenuItem.Text = "印刷プレビュー(&V)"
-        '
-        'PrintSetupToolStripMenuItem
-        '
-        Me.PrintSetupToolStripMenuItem.Name = "PrintSetupToolStripMenuItem"
-        Me.PrintSetupToolStripMenuItem.Size = New System.Drawing.Size(192, 22)
-        Me.PrintSetupToolStripMenuItem.Text = "印刷設定"
-        '
-        'ToolStripSeparator5
-        '
-        Me.ToolStripSeparator5.Name = "ToolStripSeparator5"
-        Me.ToolStripSeparator5.Size = New System.Drawing.Size(189, 6)
         '
         'ExitToolStripMenuItem
         '
@@ -248,44 +182,6 @@ Partial Class MainMDI
         Me.SelectAllToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.A), System.Windows.Forms.Keys)
         Me.SelectAllToolStripMenuItem.Size = New System.Drawing.Size(184, 22)
         Me.SelectAllToolStripMenuItem.Text = "すべて選択(&A)"
-        '
-        'ViewMenu
-        '
-        Me.ViewMenu.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolBarToolStripMenuItem, Me.StatusBarToolStripMenuItem})
-        Me.ViewMenu.Name = "ViewMenu"
-        Me.ViewMenu.Size = New System.Drawing.Size(58, 20)
-        Me.ViewMenu.Text = "表示(&V)"
-        '
-        'ToolBarToolStripMenuItem
-        '
-        Me.ToolBarToolStripMenuItem.Checked = True
-        Me.ToolBarToolStripMenuItem.CheckOnClick = True
-        Me.ToolBarToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked
-        Me.ToolBarToolStripMenuItem.Name = "ToolBarToolStripMenuItem"
-        Me.ToolBarToolStripMenuItem.Size = New System.Drawing.Size(153, 22)
-        Me.ToolBarToolStripMenuItem.Text = "ツール バー(&T)"
-        '
-        'StatusBarToolStripMenuItem
-        '
-        Me.StatusBarToolStripMenuItem.Checked = True
-        Me.StatusBarToolStripMenuItem.CheckOnClick = True
-        Me.StatusBarToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked
-        Me.StatusBarToolStripMenuItem.Name = "StatusBarToolStripMenuItem"
-        Me.StatusBarToolStripMenuItem.Size = New System.Drawing.Size(153, 22)
-        Me.StatusBarToolStripMenuItem.Text = "ステータス バー(&S)"
-        '
-        'ToolsMenu
-        '
-        Me.ToolsMenu.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.OptionsToolStripMenuItem})
-        Me.ToolsMenu.Name = "ToolsMenu"
-        Me.ToolsMenu.Size = New System.Drawing.Size(60, 20)
-        Me.ToolsMenu.Text = "ツール(&T)"
-        '
-        'OptionsToolStripMenuItem
-        '
-        Me.OptionsToolStripMenuItem.Name = "OptionsToolStripMenuItem"
-        Me.OptionsToolStripMenuItem.Size = New System.Drawing.Size(135, 22)
-        Me.OptionsToolStripMenuItem.Text = "オプション(&O)"
         '
         'WindowsMenu
         '
@@ -373,29 +269,29 @@ Partial Class MainMDI
         '
         'マスタToolStripMenuItem
         '
-        Me.マスタToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.顧客マスタToolStripMenuItem, Me.従業員ToolStripMenuItem})
+        Me.マスタToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.顧客マスタToolStripMenuItem, Me.従業員ToolStripMenuItem, Me.支払条件の設定PToolStripMenuItem, Me.消費税の設定TToolStripMenuItem, Me.自社情報の設定SToolStripMenuItem, Me.保守契約の管理SToolStripMenuItem})
         Me.マスタToolStripMenuItem.Name = "マスタToolStripMenuItem"
-        Me.マスタToolStripMenuItem.Size = New System.Drawing.Size(46, 20)
-        Me.マスタToolStripMenuItem.Text = "マスタ"
+        Me.マスタToolStripMenuItem.Size = New System.Drawing.Size(58, 20)
+        Me.マスタToolStripMenuItem.Text = "設定(&C)"
         '
         '顧客マスタToolStripMenuItem
         '
         Me.顧客マスタToolStripMenuItem.Name = "顧客マスタToolStripMenuItem"
         Me.顧客マスタToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
-        Me.顧客マスタToolStripMenuItem.Text = "顧客マスタ"
+        Me.顧客マスタToolStripMenuItem.Text = "顧客台帳(&C)"
         '
         '従業員ToolStripMenuItem
         '
         Me.従業員ToolStripMenuItem.Name = "従業員ToolStripMenuItem"
         Me.従業員ToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
-        Me.従業員ToolStripMenuItem.Text = "従業員台帳"
+        Me.従業員ToolStripMenuItem.Text = "従業員台帳(&E)"
         '
         'ToolStrip
         '
         Me.ToolStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NewToolStripButton, Me.OpenToolStripButton, Me.SaveToolStripButton, Me.ToolStripSeparator1, Me.PrintToolStripButton, Me.PrintPreviewToolStripButton, Me.ToolStripSeparator2, Me.HelpToolStripButton})
         Me.ToolStrip.Location = New System.Drawing.Point(0, 24)
         Me.ToolStrip.Name = "ToolStrip"
-        Me.ToolStrip.Size = New System.Drawing.Size(632, 25)
+        Me.ToolStrip.Size = New System.Drawing.Size(790, 25)
         Me.ToolStrip.TabIndex = 6
         Me.ToolStrip.Text = "ToolStrip"
         '
@@ -466,9 +362,9 @@ Partial Class MainMDI
         'StatusStrip
         '
         Me.StatusStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripStatusLabel})
-        Me.StatusStrip.Location = New System.Drawing.Point(0, 396)
+        Me.StatusStrip.Location = New System.Drawing.Point(0, 442)
         Me.StatusStrip.Name = "StatusStrip"
-        Me.StatusStrip.Size = New System.Drawing.Size(632, 22)
+        Me.StatusStrip.Size = New System.Drawing.Size(790, 22)
         Me.StatusStrip.TabIndex = 7
         Me.StatusStrip.Text = "StatusStrip"
         '
@@ -478,18 +374,104 @@ Partial Class MainMDI
         Me.ToolStripStatusLabel.Size = New System.Drawing.Size(31, 17)
         Me.ToolStripStatusLabel.Text = "状態"
         '
+        '日常業務ToolStripMenuItem
+        '
+        Me.日常業務ToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.見積台帳EToolStripMenuItem, Me.受注台帳OToolStripMenuItem, Me.売上台帳SToolStripMenuItem, Me.入金台帳AToolStripMenuItem})
+        Me.日常業務ToolStripMenuItem.Name = "日常業務ToolStripMenuItem"
+        Me.日常業務ToolStripMenuItem.Size = New System.Drawing.Size(83, 20)
+        Me.日常業務ToolStripMenuItem.Text = "日常業務(&D)"
+        '
+        '月次業務ToolStripMenuItem
+        '
+        Me.月次業務ToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.締め処理CToolStripMenuItem, Me.請求処理IToolStripMenuItem})
+        Me.月次業務ToolStripMenuItem.Name = "月次業務ToolStripMenuItem"
+        Me.月次業務ToolStripMenuItem.Size = New System.Drawing.Size(86, 20)
+        Me.月次業務ToolStripMenuItem.Text = "月次業務(&M)"
+        '
+        'バックアップの作成ToolStripMenuItem
+        '
+        Me.バックアップの作成ToolStripMenuItem.Name = "バックアップの作成ToolStripMenuItem"
+        Me.バックアップの作成ToolStripMenuItem.Size = New System.Drawing.Size(192, 22)
+        Me.バックアップの作成ToolStripMenuItem.Text = "バックアップの作成(&B)"
+        '
+        'バックアップのインポートToolStripMenuItem
+        '
+        Me.バックアップのインポートToolStripMenuItem.Name = "バックアップのインポートToolStripMenuItem"
+        Me.バックアップのインポートToolStripMenuItem.Size = New System.Drawing.Size(192, 22)
+        Me.バックアップのインポートToolStripMenuItem.Text = "バックアップのインポート(&I)"
+        '
+        '見積台帳EToolStripMenuItem
+        '
+        Me.見積台帳EToolStripMenuItem.Name = "見積台帳EToolStripMenuItem"
+        Me.見積台帳EToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.見積台帳EToolStripMenuItem.Text = "見積管理(&E)"
+        '
+        '受注台帳OToolStripMenuItem
+        '
+        Me.受注台帳OToolStripMenuItem.Name = "受注台帳OToolStripMenuItem"
+        Me.受注台帳OToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.受注台帳OToolStripMenuItem.Text = "受注管理(&O)"
+        '
+        '売上台帳SToolStripMenuItem
+        '
+        Me.売上台帳SToolStripMenuItem.Name = "売上台帳SToolStripMenuItem"
+        Me.売上台帳SToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.売上台帳SToolStripMenuItem.Text = "売上管理(&S)"
+        '
+        '入金台帳AToolStripMenuItem
+        '
+        Me.入金台帳AToolStripMenuItem.Name = "入金台帳AToolStripMenuItem"
+        Me.入金台帳AToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.入金台帳AToolStripMenuItem.Text = "入金管理(&A)"
+        '
+        '締め処理CToolStripMenuItem
+        '
+        Me.締め処理CToolStripMenuItem.Name = "締め処理CToolStripMenuItem"
+        Me.締め処理CToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.締め処理CToolStripMenuItem.Text = "締め処理(&C)"
+        '
+        '請求処理IToolStripMenuItem
+        '
+        Me.請求処理IToolStripMenuItem.Name = "請求処理IToolStripMenuItem"
+        Me.請求処理IToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.請求処理IToolStripMenuItem.Text = "請求管理(&I)"
+        '
+        '支払条件の設定PToolStripMenuItem
+        '
+        Me.支払条件の設定PToolStripMenuItem.Name = "支払条件の設定PToolStripMenuItem"
+        Me.支払条件の設定PToolStripMenuItem.Size = New System.Drawing.Size(171, 22)
+        Me.支払条件の設定PToolStripMenuItem.Text = "支払条件の設定(&P)"
+        '
+        '消費税の設定TToolStripMenuItem
+        '
+        Me.消費税の設定TToolStripMenuItem.Name = "消費税の設定TToolStripMenuItem"
+        Me.消費税の設定TToolStripMenuItem.Size = New System.Drawing.Size(171, 22)
+        Me.消費税の設定TToolStripMenuItem.Text = "消費税の設定(&T)"
+        '
+        '自社情報の設定SToolStripMenuItem
+        '
+        Me.自社情報の設定SToolStripMenuItem.Name = "自社情報の設定SToolStripMenuItem"
+        Me.自社情報の設定SToolStripMenuItem.Size = New System.Drawing.Size(175, 22)
+        Me.自社情報の設定SToolStripMenuItem.Text = "自社情報の設定(&M)"
+        '
+        '保守契約の管理SToolStripMenuItem
+        '
+        Me.保守契約の管理SToolStripMenuItem.Name = "保守契約の管理SToolStripMenuItem"
+        Me.保守契約の管理SToolStripMenuItem.Size = New System.Drawing.Size(175, 22)
+        Me.保守契約の管理SToolStripMenuItem.Text = "保守契約の管理(&S)"
+        '
         'MainMDI
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(632, 418)
+        Me.ClientSize = New System.Drawing.Size(790, 464)
         Me.Controls.Add(Me.ToolStrip)
         Me.Controls.Add(Me.MenuStrip)
         Me.Controls.Add(Me.StatusStrip)
         Me.IsMdiContainer = True
         Me.MainMenuStrip = Me.MenuStrip
         Me.Name = "MainMDI"
-        Me.Text = "MainMDI"
+        Me.Text = "販売管理システム"
         Me.MenuStrip.ResumeLayout(False)
         Me.MenuStrip.PerformLayout()
         Me.ToolStrip.ResumeLayout(False)
@@ -513,7 +495,6 @@ Partial Class MainMDI
     Friend WithEvents CascadeToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents TileVerticalToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents TileHorizontalToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents OptionsToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents HelpToolStripButton As System.Windows.Forms.ToolStripButton
     Friend WithEvents ToolStripSeparator2 As System.Windows.Forms.ToolStripSeparator
     Friend WithEvents PrintPreviewToolStripButton As System.Windows.Forms.ToolStripButton
@@ -526,18 +507,9 @@ Partial Class MainMDI
     Friend WithEvents OpenToolStripButton As System.Windows.Forms.ToolStripButton
     Friend WithEvents SaveToolStripButton As System.Windows.Forms.ToolStripButton
     Friend WithEvents ToolStripSeparator1 As System.Windows.Forms.ToolStripSeparator
-    Friend WithEvents PrintPreviewToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents PrintToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ToolStripSeparator4 As System.Windows.Forms.ToolStripSeparator
     Friend WithEvents ExitToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents ToolStripSeparator5 As System.Windows.Forms.ToolStripSeparator
-    Friend WithEvents PrintSetupToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents SaveAsToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents NewToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents FileMenu As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents OpenToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents ToolStripSeparator3 As System.Windows.Forms.ToolStripSeparator
-    Friend WithEvents SaveToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents MenuStrip As System.Windows.Forms.MenuStrip
     Friend WithEvents EditMenu As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents UndoToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
@@ -548,11 +520,21 @@ Partial Class MainMDI
     Friend WithEvents PasteToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ToolStripSeparator7 As System.Windows.Forms.ToolStripSeparator
     Friend WithEvents SelectAllToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents ViewMenu As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents ToolBarToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents StatusBarToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents ToolsMenu As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents マスタToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents 顧客マスタToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents 従業員ToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents 日常業務ToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents 月次業務ToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents バックアップの作成ToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents バックアップのインポートToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents 見積台帳EToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents 受注台帳OToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents 売上台帳SToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents 入金台帳AToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents 締め処理CToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents 請求処理IToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents 支払条件の設定PToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents 消費税の設定TToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents 自社情報の設定SToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents 保守契約の管理SToolStripMenuItem As ToolStripMenuItem
 End Class

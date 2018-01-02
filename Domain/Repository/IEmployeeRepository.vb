@@ -33,4 +33,10 @@ Public Interface IEmployeeRepository
     ''' <returns></returns>
     Function FindAllEmployee() As List(Of Employee)
 
+    ''' <summary>
+    ''' 引数の条件を満たしたすべての従業員を取得
+    ''' </summary>
+    ''' <returns></returns>
+    Function FindEmployeeByCondition(ByVal cond As EmployeeRepositorySearchCondition) As List(Of Employee)
+
 End Interface

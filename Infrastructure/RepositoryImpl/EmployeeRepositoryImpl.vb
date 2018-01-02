@@ -112,6 +112,88 @@ Public Class EmployeeRepositoryImpl
 
     End Function
 
+    ''' <summary>
+    ''' 引数の条件を満たしたすべての従業員を取得
+    ''' </summary>
+    ''' <returns></returns>
+    Public Function FindEmployeeByCondition(ByVal cond As EmployeeRepositorySearchCondition) As List(Of Employee) Implements IEmployeeRepository.FindEmployeeByCondition
+        Using accessor As New ADOWrapper.DBAccessor
+            '===============================================
+            'クエリの作成
+            '===============================================
+            Dim q = accessor.CreateQuery
+            With q.Query
+                .AppendLine("SELECT")
+                .AppendLine("    id AS id")
+                .AppendLine("   ,employee_number AS employee_number")
+                .AppendLine("   ,name AS name")
+                .AppendLine("   ,name_kana AS name_kana")
+                .AppendLine("FROM")
+                .AppendLine("   employees")
+                .AppendLine("WHERE")
+                .AppendLine("   1 = 1")
+
+                '従業員番号(前方一致)
+                If cond.EmployeeNoForwardMatch <> String.Empty Then
+                    .AppendLine("AND")
+                    .AppendLine("   employee_number LIKE @employee_number")
+                End If
+                '従業員名(前方一致)
+                If cond.EmployeeNameForwardMatch <> String.Empty Then
+                    .AppendLine("AND")
+                    .AppendLine("   name LIKE @name")
+                End If
+                '従業員名かな(前方一致)
+                If cond.EmployeeNameKanaForwardMatch <> String.Empty Then
+                    .AppendLine("AND")
+                    .AppendLine("   name_kana LIKE @name_kana")
+                End If
+            End With
+
+            '===============================================
+            'パラメータ設定
+            '===============================================
+            With q.Parameters
+                '従業員番号(前方一致)
+                If cond.EmployeeNoForwardMatch <> String.Empty Then
+                    .Add("@employee_number", "%" & cond.EmployeeNoForwardMatch)
+                End If
+                '従業員名(前方一致)
+                If cond.EmployeeNameForwardMatch <> String.Empty Then
+                    .Add("@name", "%" & cond.EmployeeNameForwardMatch)
+                End If
+                '従業員名かな(前方一致)
+                If cond.EmployeeNameKanaForwardMatch <> String.Empty Then
+                    .Add("@name_kana", "%" & cond.EmployeeNameKanaForwardMatch)
+                End If
+            End With
+
+            '===============================================
+            'クエリ発行
+            '===============================================
+            Dim dt = q.ExecQuery
+            If dt Is Nothing Then
+                Return Nothing
+            End If
+
+            '===============================================
+            'データをモデルに設定して返す
+            '===============================================
+            Dim ret As New List(Of Employee)
+
+            For Each r As Data.DataRow In dt.Rows
+                Dim e = New Domain.Employee(CInt(r("id").ToString), Me)
+                e.EmployeeNo = r("employee_number").ToString
+                e.Name = r("name").ToString
+                e.NameKana = r("name_kana").ToString
+
+                ret.Add(e)
+            Next
+
+            Return ret
+        End Using
+    End Function
+
 
 #Region "インスタンス変数"
 
@@ -263,3 +345,4 @@ Public Class EmployeeRepositoryImpl
 #End Region
 
 End Class
+

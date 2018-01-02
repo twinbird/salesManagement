@@ -15,7 +15,7 @@ Public Class EmployeeList
     ''' <param name="e"></param>
     Private Sub EmployeeList_Load(sender As Object, e As EventArgs) Handles Me.Load
         'フォームコントロールの設定
-        setupControls()
+        SetupControls()
     End Sub
 
     ''' <summary>
@@ -40,6 +40,7 @@ Public Class EmployeeList
 
         Select Case e.ColumnIndex
             Case 0
+                '編集ボタンクリック時
                 EmployeeDataGridView_EditButtonClick(sender, e)
         End Select
 
@@ -73,6 +74,24 @@ Public Class EmployeeList
         form.Show()
     End Sub
 
+    ''' <summary>
+    ''' 検索ボタンをクリック
+    ''' </summary>
+    ''' <param name="sender"></param>
+    ''' <param name="e"></param>
+    Private Sub SearchButton_Click(sender As Object, e As EventArgs) Handles SearchButton.Click
+        UpdateBindingSource()
+    End Sub
+
+    ''' <summary>
+    ''' 検索条件クリアボタンをクリック
+    ''' </summary>
+    ''' <param name="sender"></param>
+    ''' <param name="e"></param>
+    Private Sub ClearSearchConditionButton_Click(sender As Object, e As EventArgs) Handles ClearSearchConditionButton.Click
+        ClearFormSearchCondition()
+    End Sub
+
 #End Region
 
 #Region "コントロール制御"
@@ -80,11 +99,18 @@ Public Class EmployeeList
     ''' <summary>
     ''' フォームコントロールの設定を行う
     ''' </summary>
-    Private Sub setupControls()
+    Private Sub SetupControls()
         'GridViewの設定
         SetupDataGridView()
-        'データを読み込んでGridViewへ設定
-        UpdateBindingSource()
+    End Sub
+
+    ''' <summary>
+    ''' 検索のグループボックスの内容をクリア
+    ''' </summary>
+    Private Sub ClearFormSearchCondition()
+        Me.SearchEmployeeNoTextBox.Clear()
+        Me.SearchEmployeeNameTextBox.Clear()
+        Me.SearchEmployeeNameKanaTextBox.Clear()
     End Sub
 
 #End Region
@@ -145,8 +171,17 @@ Public Class EmployeeList
     Private Sub UpdateBindingSource()
         'データ取得用のリポジトリを作成
         Dim repo = New Infrastructure.EmployeeRepositoryImpl
-        'リポジトリから従業員情報を取得してデータバインディング用オブジェクトへ変換
-        Dim emps = repo.FindAllEmployee
+
+        'リポジトリから従業員情報を取得
+        Dim cond = New Domain.EmployeeRepositorySearchCondition
+        With cond
+            .EmployeeNoForwardMatch = Me.SearchEmployeeNoTextBox.Text
+            .EmployeeNameForwardMatch = Me.SearchEmployeeNameTextBox.Text
+            .EmployeeNameKanaForwardMatch = Me.SearchEmployeeNameKanaTextBox.Text
+        End With
+        Dim emps = repo.FindEmployeeByCondition(cond)
+
+        'データバインディング用オブジェクトへ変換
         Dim dtos = New List(Of EmployeeGridViewDTO)
         For Each emp As Domain.Employee In emps
             dtos.Add(New EmployeeGridViewDTO(emp))

@@ -22,8 +22,10 @@ Partial Class EmployeeList
     'コード エディターを使って変更しないでください。
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.NewEmployeeEntryButton = New System.Windows.Forms.Button()
         Me.SearchGroupBox = New System.Windows.Forms.GroupBox()
+        Me.ClearSearchConditionButton = New System.Windows.Forms.Button()
         Me.SearchEmployeeNameKanaLabel = New System.Windows.Forms.Label()
         Me.SearchEmployeeNameLabel = New System.Windows.Forms.Label()
         Me.SearchEmployeeNoLabel = New System.Windows.Forms.Label()
@@ -34,7 +36,7 @@ Partial Class EmployeeList
         Me.EmployeeDataGridView = New System.Windows.Forms.DataGridView()
         Me.StatusStrip1 = New System.Windows.Forms.StatusStrip()
         Me.ToolStripStatusLabel = New System.Windows.Forms.ToolStripStatusLabel()
-        Me.ClearSearchConditionButton = New System.Windows.Forms.Button()
+        Me.ToolTip = New System.Windows.Forms.ToolTip(Me.components)
         Me.SearchGroupBox.SuspendLayout()
         CType(Me.EmployeeDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.StatusStrip1.SuspendLayout()
@@ -66,6 +68,15 @@ Partial Class EmployeeList
         Me.SearchGroupBox.TabIndex = 1
         Me.SearchGroupBox.TabStop = False
         Me.SearchGroupBox.Text = "検索"
+        '
+        'ClearSearchConditionButton
+        '
+        Me.ClearSearchConditionButton.Location = New System.Drawing.Point(198, 37)
+        Me.ClearSearchConditionButton.Name = "ClearSearchConditionButton"
+        Me.ClearSearchConditionButton.Size = New System.Drawing.Size(75, 23)
+        Me.ClearSearchConditionButton.TabIndex = 3
+        Me.ClearSearchConditionButton.Text = "クリア"
+        Me.ClearSearchConditionButton.UseVisualStyleBackColor = True
         '
         'SearchEmployeeNameKanaLabel
         '
@@ -99,7 +110,7 @@ Partial Class EmployeeList
         Me.SearchButton.Location = New System.Drawing.Point(198, 62)
         Me.SearchButton.Name = "SearchButton"
         Me.SearchButton.Size = New System.Drawing.Size(75, 23)
-        Me.SearchButton.TabIndex = 3
+        Me.SearchButton.TabIndex = 4
         Me.SearchButton.Text = "検索"
         Me.SearchButton.UseVisualStyleBackColor = True
         '
@@ -109,20 +120,23 @@ Partial Class EmployeeList
         Me.SearchEmployeeNameKanaTextBox.Name = "SearchEmployeeNameKanaTextBox"
         Me.SearchEmployeeNameKanaTextBox.Size = New System.Drawing.Size(118, 19)
         Me.SearchEmployeeNameKanaTextBox.TabIndex = 2
+        Me.ToolTip.SetToolTip(Me.SearchEmployeeNameKanaTextBox, "従業員のひらがなの名前を検索条件に指定します。" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "この条件は前方一致です。")
         '
         'SearchEmployeeNameTextBox
         '
         Me.SearchEmployeeNameTextBox.Location = New System.Drawing.Point(74, 41)
         Me.SearchEmployeeNameTextBox.Name = "SearchEmployeeNameTextBox"
         Me.SearchEmployeeNameTextBox.Size = New System.Drawing.Size(118, 19)
-        Me.SearchEmployeeNameTextBox.TabIndex = 2
+        Me.SearchEmployeeNameTextBox.TabIndex = 1
+        Me.ToolTip.SetToolTip(Me.SearchEmployeeNameTextBox, "従業員の名前を検索条件に指定します。" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "この条件は前方一致です。")
         '
         'SearchEmployeeNoTextBox
         '
         Me.SearchEmployeeNoTextBox.Location = New System.Drawing.Point(74, 17)
         Me.SearchEmployeeNoTextBox.Name = "SearchEmployeeNoTextBox"
         Me.SearchEmployeeNoTextBox.Size = New System.Drawing.Size(118, 19)
-        Me.SearchEmployeeNoTextBox.TabIndex = 2
+        Me.SearchEmployeeNoTextBox.TabIndex = 0
+        Me.ToolTip.SetToolTip(Me.SearchEmployeeNoTextBox, "従業員番号を検索条件に指定します。" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "この条件は前方一致です。")
         '
         'EmployeeDataGridView
         '
@@ -155,15 +169,6 @@ Partial Class EmployeeList
         Me.ToolStripStatusLabel.Name = "ToolStripStatusLabel"
         Me.ToolStripStatusLabel.Size = New System.Drawing.Size(113, 17)
         Me.ToolStripStatusLabel.Text = "ToolStripStatusLabel"
-        '
-        'ClearSearchConditionButton
-        '
-        Me.ClearSearchConditionButton.Location = New System.Drawing.Point(198, 37)
-        Me.ClearSearchConditionButton.Name = "ClearSearchConditionButton"
-        Me.ClearSearchConditionButton.Size = New System.Drawing.Size(75, 23)
-        Me.ClearSearchConditionButton.TabIndex = 4
-        Me.ClearSearchConditionButton.Text = "クリア"
-        Me.ClearSearchConditionButton.UseVisualStyleBackColor = True
         '
         'EmployeeList
         '
@@ -199,4 +204,5 @@ Partial Class EmployeeList
     Friend WithEvents SearchEmployeeNameKanaLabel As Label
     Friend WithEvents SearchEmployeeNameKanaTextBox As TextBox
     Friend WithEvents ClearSearchConditionButton As Button
+    Friend WithEvents ToolTip As ToolTip
 End Class

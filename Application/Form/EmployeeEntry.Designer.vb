@@ -32,6 +32,7 @@ Partial Class EmployeeEntry
         Me.KanaNameTextBox = New System.Windows.Forms.TextBox()
         Me.BindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.ErrorProvider = New System.Windows.Forms.ErrorProvider(Me.components)
+        Me.ToolTip = New System.Windows.Forms.ToolTip(Me.components)
         CType(Me.BindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ErrorProvider, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -50,9 +51,10 @@ Partial Class EmployeeEntry
         Me.EmployeeNumberLabel.AutoSize = True
         Me.EmployeeNumberLabel.Location = New System.Drawing.Point(33, 19)
         Me.EmployeeNumberLabel.Name = "EmployeeNumberLabel"
-        Me.EmployeeNumberLabel.Size = New System.Drawing.Size(55, 12)
+        Me.EmployeeNumberLabel.Size = New System.Drawing.Size(65, 12)
         Me.EmployeeNumberLabel.TabIndex = 1
-        Me.EmployeeNumberLabel.Text = "従業員No"
+        Me.EmployeeNumberLabel.Text = "従業員番号"
+        Me.ToolTip.SetToolTip(Me.EmployeeNumberLabel, "従業員に割り当てる番号です。" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "この番号は各従業員に一意でなければなりません。" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "1～5文字で自由な文字で指定できます。")
         '
         'EmployeeNumberTextBox
         '
@@ -60,6 +62,7 @@ Partial Class EmployeeEntry
         Me.EmployeeNumberTextBox.Name = "EmployeeNumberTextBox"
         Me.EmployeeNumberTextBox.Size = New System.Drawing.Size(100, 19)
         Me.EmployeeNumberTextBox.TabIndex = 0
+        Me.ToolTip.SetToolTip(Me.EmployeeNumberTextBox, "従業員に割り当てる番号です。" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "この番号は他の従業員と重複してはいけません。" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "1～5文字で指定できます。")
         '
         'NameLabel
         '
@@ -77,6 +80,7 @@ Partial Class EmployeeEntry
         Me.NameTextBox.Name = "NameTextBox"
         Me.NameTextBox.Size = New System.Drawing.Size(278, 19)
         Me.NameTextBox.TabIndex = 1
+        Me.ToolTip.SetToolTip(Me.NameTextBox, "従業員の名前です。" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "1～20文字で指定してください。")
         '
         'KanaNameLabel
         '
@@ -94,6 +98,7 @@ Partial Class EmployeeEntry
         Me.KanaNameTextBox.Name = "KanaNameTextBox"
         Me.KanaNameTextBox.Size = New System.Drawing.Size(278, 19)
         Me.KanaNameTextBox.TabIndex = 2
+        Me.ToolTip.SetToolTip(Me.KanaNameTextBox, "従業員のひらがなでの名前です。" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "1～20文字で指定してください。")
         '
         'ErrorProvider
         '
@@ -130,4 +135,5 @@ Partial Class EmployeeEntry
     Friend WithEvents KanaNameTextBox As TextBox
     Friend WithEvents BindingSource As BindingSource
     Friend WithEvents ErrorProvider As ErrorProvider
+    Friend WithEvents ToolTip As ToolTip
 End Class

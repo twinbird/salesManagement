@@ -1,6 +1,5 @@
 ﻿Option Strict On
 Option Infer On
-Imports System.ComponentModel
 
 ''' <summary>
 ''' 従業員台帳を管理する画面

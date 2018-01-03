@@ -50,8 +50,8 @@ CREATE TABLE payment_conditions (
 	id INTEGER PRIMARY KEY AUTOINCREMENT,           -- ID
 	name VARCHAR(20) NOT NULL,                      -- 名前
 	cut_off DATE NOT NULL,                          -- 締日
-	paytment_date DATE NOT NULL,                    -- 支払日
-	payment_offset INTEGER NOT NULL,                -- 支払月(0:当月,1:翌月)
+	due_date DATE NOT NULL,                         -- 支払日
+	month_offset INTEGER NOT NULL,                  -- 支払月(0:当月,1:翌月)
 	created_at TIMESTAMP NOT NULL,                  -- 登録日時
 	updated_at TIMESTAMP,                           -- 更新日時
 

@@ -63,6 +63,8 @@
     <Compile Include="Repository\EmployeeRepositorySearchCondition.vb" />
     <Compile Include="Repository\ICustomerRepository.vb" />
     <Compile Include="Repository\IEmployeeRepository.vb" />
+    <Compile Include="Repository\IPaymentConditionRepository.vb" />
+    <Compile Include="Repository\PaymentConditionRepositorySearchCondition.vb" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="My Project\" />

@@ -34,7 +34,7 @@ Public Class EmployeeEntry
     ''' <param name="sender"></param>
     ''' <param name="e"></param>
     Private Sub EmployeeEntry_Load(sender As Object, e As EventArgs) Handles Me.Load
-        setupControls()
+        SetupControls()
     End Sub
 
     ''' <summary>
@@ -56,7 +56,7 @@ Public Class EmployeeEntry
     ''' <summary>
     ''' フォーム内のコントロールの初期設定を実行
     ''' </summary>
-    Private Sub setupControls()
+    Private Sub SetupControls()
         '=============================================================================
         'ドメインオブジェクトをインスタンス化してフォームコントロールにバインディング
         '=============================================================================

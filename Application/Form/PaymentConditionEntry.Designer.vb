@@ -26,12 +26,12 @@ Partial Class PaymentConditionEntry
         Me.EntryButton = New System.Windows.Forms.Button()
         Me.PaymentConditionNameLabel = New System.Windows.Forms.Label()
         Me.PaymentConditionNameTextBox = New System.Windows.Forms.TextBox()
-        Me.ClosingDateLabel = New System.Windows.Forms.Label()
-        Me.ClosingDateComboBox = New System.Windows.Forms.ComboBox()
-        Me.PaymentOffsetMonthLabel = New System.Windows.Forms.Label()
-        Me.PaymentOffsetMonthComboBox = New System.Windows.Forms.ComboBox()
-        Me.PaymentDayLabel = New System.Windows.Forms.Label()
-        Me.PaymentDayComboBox = New System.Windows.Forms.ComboBox()
+        Me.CutOffLabel = New System.Windows.Forms.Label()
+        Me.CutOffComboBox = New System.Windows.Forms.ComboBox()
+        Me.MonthOffsetLabel = New System.Windows.Forms.Label()
+        Me.MonthOffsetComboBox = New System.Windows.Forms.ComboBox()
+        Me.DueDateLabel = New System.Windows.Forms.Label()
+        Me.DueDateComboBox = New System.Windows.Forms.ComboBox()
         Me.ErrorProvider = New System.Windows.Forms.ErrorProvider(Me.components)
         Me.BindingSource = New System.Windows.Forms.BindingSource(Me.components)
         CType(Me.ErrorProvider, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -64,56 +64,56 @@ Partial Class PaymentConditionEntry
         Me.PaymentConditionNameTextBox.Size = New System.Drawing.Size(189, 19)
         Me.PaymentConditionNameTextBox.TabIndex = 3
         '
-        'ClosingDateLabel
+        'CutOffLabel
         '
-        Me.ClosingDateLabel.AutoSize = True
-        Me.ClosingDateLabel.Location = New System.Drawing.Point(12, 42)
-        Me.ClosingDateLabel.Name = "ClosingDateLabel"
-        Me.ClosingDateLabel.Size = New System.Drawing.Size(29, 12)
-        Me.ClosingDateLabel.TabIndex = 5
-        Me.ClosingDateLabel.Text = "締日"
+        Me.CutOffLabel.AutoSize = True
+        Me.CutOffLabel.Location = New System.Drawing.Point(12, 42)
+        Me.CutOffLabel.Name = "CutOffLabel"
+        Me.CutOffLabel.Size = New System.Drawing.Size(29, 12)
+        Me.CutOffLabel.TabIndex = 5
+        Me.CutOffLabel.Text = "締日"
         '
-        'ClosingDateComboBox
+        'CutOffComboBox
         '
-        Me.ClosingDateComboBox.FormattingEnabled = True
-        Me.ClosingDateComboBox.Location = New System.Drawing.Point(83, 39)
-        Me.ClosingDateComboBox.Name = "ClosingDateComboBox"
-        Me.ClosingDateComboBox.Size = New System.Drawing.Size(65, 20)
-        Me.ClosingDateComboBox.TabIndex = 6
+        Me.CutOffComboBox.FormattingEnabled = True
+        Me.CutOffComboBox.Location = New System.Drawing.Point(83, 39)
+        Me.CutOffComboBox.Name = "CutOffComboBox"
+        Me.CutOffComboBox.Size = New System.Drawing.Size(65, 20)
+        Me.CutOffComboBox.TabIndex = 6
         '
-        'PaymentOffsetMonthLabel
+        'MonthOffsetLabel
         '
-        Me.PaymentOffsetMonthLabel.AutoSize = True
-        Me.PaymentOffsetMonthLabel.Location = New System.Drawing.Point(12, 69)
-        Me.PaymentOffsetMonthLabel.Name = "PaymentOffsetMonthLabel"
-        Me.PaymentOffsetMonthLabel.Size = New System.Drawing.Size(41, 12)
-        Me.PaymentOffsetMonthLabel.TabIndex = 5
-        Me.PaymentOffsetMonthLabel.Text = "支払月"
+        Me.MonthOffsetLabel.AutoSize = True
+        Me.MonthOffsetLabel.Location = New System.Drawing.Point(12, 69)
+        Me.MonthOffsetLabel.Name = "MonthOffsetLabel"
+        Me.MonthOffsetLabel.Size = New System.Drawing.Size(41, 12)
+        Me.MonthOffsetLabel.TabIndex = 5
+        Me.MonthOffsetLabel.Text = "支払月"
         '
-        'PaymentOffsetMonthComboBox
+        'MonthOffsetComboBox
         '
-        Me.PaymentOffsetMonthComboBox.FormattingEnabled = True
-        Me.PaymentOffsetMonthComboBox.Location = New System.Drawing.Point(83, 66)
-        Me.PaymentOffsetMonthComboBox.Name = "PaymentOffsetMonthComboBox"
-        Me.PaymentOffsetMonthComboBox.Size = New System.Drawing.Size(65, 20)
-        Me.PaymentOffsetMonthComboBox.TabIndex = 6
+        Me.MonthOffsetComboBox.FormattingEnabled = True
+        Me.MonthOffsetComboBox.Location = New System.Drawing.Point(83, 66)
+        Me.MonthOffsetComboBox.Name = "MonthOffsetComboBox"
+        Me.MonthOffsetComboBox.Size = New System.Drawing.Size(65, 20)
+        Me.MonthOffsetComboBox.TabIndex = 6
         '
-        'PaymentDayLabel
+        'DueDateLabel
         '
-        Me.PaymentDayLabel.AutoSize = True
-        Me.PaymentDayLabel.Location = New System.Drawing.Point(12, 96)
-        Me.PaymentDayLabel.Name = "PaymentDayLabel"
-        Me.PaymentDayLabel.Size = New System.Drawing.Size(41, 12)
-        Me.PaymentDayLabel.TabIndex = 5
-        Me.PaymentDayLabel.Text = "支払日"
+        Me.DueDateLabel.AutoSize = True
+        Me.DueDateLabel.Location = New System.Drawing.Point(12, 96)
+        Me.DueDateLabel.Name = "DueDateLabel"
+        Me.DueDateLabel.Size = New System.Drawing.Size(41, 12)
+        Me.DueDateLabel.TabIndex = 5
+        Me.DueDateLabel.Text = "支払日"
         '
-        'PaymentDayComboBox
+        'DueDateComboBox
         '
-        Me.PaymentDayComboBox.FormattingEnabled = True
-        Me.PaymentDayComboBox.Location = New System.Drawing.Point(83, 93)
-        Me.PaymentDayComboBox.Name = "PaymentDayComboBox"
-        Me.PaymentDayComboBox.Size = New System.Drawing.Size(65, 20)
-        Me.PaymentDayComboBox.TabIndex = 6
+        Me.DueDateComboBox.FormattingEnabled = True
+        Me.DueDateComboBox.Location = New System.Drawing.Point(83, 93)
+        Me.DueDateComboBox.Name = "DueDateComboBox"
+        Me.DueDateComboBox.Size = New System.Drawing.Size(65, 20)
+        Me.DueDateComboBox.TabIndex = 6
         '
         'ErrorProvider
         '
@@ -124,12 +124,12 @@ Partial Class PaymentConditionEntry
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(291, 157)
-        Me.Controls.Add(Me.PaymentDayComboBox)
-        Me.Controls.Add(Me.PaymentOffsetMonthComboBox)
-        Me.Controls.Add(Me.ClosingDateComboBox)
-        Me.Controls.Add(Me.PaymentDayLabel)
-        Me.Controls.Add(Me.PaymentOffsetMonthLabel)
-        Me.Controls.Add(Me.ClosingDateLabel)
+        Me.Controls.Add(Me.DueDateComboBox)
+        Me.Controls.Add(Me.MonthOffsetComboBox)
+        Me.Controls.Add(Me.CutOffComboBox)
+        Me.Controls.Add(Me.DueDateLabel)
+        Me.Controls.Add(Me.MonthOffsetLabel)
+        Me.Controls.Add(Me.CutOffLabel)
         Me.Controls.Add(Me.PaymentConditionNameTextBox)
         Me.Controls.Add(Me.PaymentConditionNameLabel)
         Me.Controls.Add(Me.EntryButton)
@@ -145,12 +145,12 @@ Partial Class PaymentConditionEntry
     Friend WithEvents EntryButton As Button
     Friend WithEvents PaymentConditionNameLabel As Label
     Friend WithEvents PaymentConditionNameTextBox As TextBox
-    Friend WithEvents ClosingDateLabel As Label
-    Friend WithEvents ClosingDateComboBox As ComboBox
-    Friend WithEvents PaymentOffsetMonthLabel As Label
-    Friend WithEvents PaymentOffsetMonthComboBox As ComboBox
-    Friend WithEvents PaymentDayLabel As Label
-    Friend WithEvents PaymentDayComboBox As ComboBox
+    Friend WithEvents CutOffLabel As Label
+    Friend WithEvents CutOffComboBox As ComboBox
+    Friend WithEvents MonthOffsetLabel As Label
+    Friend WithEvents MonthOffsetComboBox As ComboBox
+    Friend WithEvents DueDateLabel As Label
+    Friend WithEvents DueDateComboBox As ComboBox
     Friend WithEvents ErrorProvider As ErrorProvider
     Friend WithEvents BindingSource As BindingSource
 End Class

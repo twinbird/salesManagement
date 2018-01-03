@@ -74,6 +74,7 @@
     <Compile Include="InfrastructureSetting.vb" />
     <Compile Include="RepositoryImpl\CustomerRepositoryImpl.vb" />
     <Compile Include="RepositoryImpl\EmployeeRepositoryImpl.vb" />
+    <Compile Include="RepositoryImpl\PaymentConditionRepositoryImpl.vb" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System.Data" />

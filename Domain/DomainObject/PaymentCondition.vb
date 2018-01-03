@@ -17,21 +17,45 @@ Public Class PaymentCondition
     Const DueDateIsOutOfRange As String = "支払日は1～28以内でなければなりません"
     Const MonthOffsetIsOutOfRange As String = "支払月は1～12以内でなければなりません"
     Const CutOffIsOutOfRange As String = "締日は1～28以内でなければなりません"
+    Const NameIsAlreadyUsing As String = "この支払条件名は既に登録されています"
+
+#End Region
+
+#Region "リポジトリへのポインタ"
+
+    Private _PaymentConditionRepo As IPaymentConditionRepository
 
 #End Region
 
 #Region "コンストラクタ"
 
-    Public Sub New()
+    Public Sub New(ByVal repo As IPaymentConditionRepository)
+        _ID = -1
         _Name = String.Empty
         _DueDate = 0
         _CutOff = 0
         _MonthOffset = 0
+        _PaymentConditionRepo = repo
+    End Sub
+
+    Public Sub New(ByVal id As Integer, ByVal repo As IPaymentConditionRepository)
+        _ID = id
+        _Name = String.Empty
+        _DueDate = 0
+        _CutOff = 0
+        _MonthOffset = 0
+        _PaymentConditionRepo = repo
     End Sub
 
 #End Region
 
 #Region "プロパティ"
+
+    ''' <summary>
+    ''' オブジェクトを一意に特定するID(永続化が行われていないものは-1)
+    ''' </summary>
+    ''' <returns></returns>
+    Public ReadOnly Property ID As Integer
 
     Private _Name As String
     ''' <summary>
@@ -138,6 +162,36 @@ Public Class PaymentCondition
 #Region "検証メソッド"
 
     ''' <summary>
+    ''' オブジェクトの整合性チェックを実施
+    ''' </summary>
+    ''' <returns>不整合:False</returns>
+    Public Function Validate() As Boolean
+        '各項目個別のチェックを実施
+        ValidateName()
+        ValidateDueDate()
+        ValidateMonthOffset()
+        ValidateCutOff()
+
+        '永続化も含めた項目全体の整合性チェックを実施
+        'エラーリストのクリアのため他の要素の後に実施しないとならない
+        ValidateTotalItems()
+
+        Return Me.HasError = False
+    End Function
+
+    ''' <summary>
+    ''' 永続化も含めた要素全体の整合性チェックを実施
+    ''' </summary>
+    Private Sub ValidateTotalItems()
+        '支払条件名は登録済みのものは使えない
+        Dim emp = _PaymentConditionRepo.FindByName(_Name)
+        If emp IsNot Nothing AndAlso emp.ID <> Me.ID Then
+            _errors(NameOf(Name)) = NameIsAlreadyUsing
+        End If
+    End Sub
+
+
+    ''' <summary>
     ''' 支払条件名の検証
     ''' </summary>
     Private Sub ValidateName()
@@ -193,6 +247,22 @@ Public Class PaymentCondition
             _errors(NameOf(CutOff)) = CutOffIsOutOfRange
         End If
     End Sub
+
+#End Region
+
+#Region "CRUD"
+
+    ''' <summary>
+    ''' このオブジェクトを永続化する
+    ''' </summary>
+    ''' <returns>登録成功:True 登録失敗:False</returns>
+    Public Function Save() As Boolean
+        If _PaymentConditionRepo.Save(Me) = False Then
+            Return False
+        End If
+        Me._ID = _PaymentConditionRepo.LastInsertID
+        Return True
+    End Function
 
 #End Region
 

@@ -12,7 +12,7 @@ Public Class PaymentConditionEntry
     ''' <summary>
     ''' 編集登録に利用する場合は編集するPaymentConditionのモデルオブジェクトを設定して呼び出しを行う
     ''' </summary>
-    Public WriteOnly Property EditEmployee As Domain.PaymentCondition
+    Public WriteOnly Property EditPaymentCondition As Domain.PaymentCondition
         Set(value As Domain.PaymentCondition)
             _PaymentCondition = value
         End Set
@@ -44,7 +44,7 @@ Public Class PaymentConditionEntry
     ''' <param name="e"></param>
     Private Sub EntryButton_Click(sender As Object, e As EventArgs) Handles EntryButton.Click
         '登録に成功したら画面を閉じる
-        If save() = True Then
+        If Save() = True Then
             Me.Close()
         End If
     End Sub
@@ -58,6 +58,16 @@ Public Class PaymentConditionEntry
     ''' </summary>
     Private Sub SetupControls()
         '=============================================================================
+        '各コントロールの表示設定
+        '=============================================================================
+        '締日
+        SetupCutOffComboBox()
+        '支払月
+        SetupMonthOffsetComboBox()
+        '支払日
+        SetupDueDateComboBox()
+
+        '=============================================================================
         'ドメインオブジェクトをインスタンス化してフォームコントロールにバインディング
         '=============================================================================
 
@@ -67,6 +77,8 @@ Public Class PaymentConditionEntry
             Dim paymentRepo = New Infrastructure.PaymentConditionRepositoryImpl()
             'ドメインオブジェクトを生成
             _PaymentCondition = New Domain.PaymentCondition(paymentRepo)
+            'ドメインオブジェクトを初期化
+            InitializePaymentCondition(_PaymentCondition)
         End If
         'バインディング
         Me.BindingSource.DataSource = _PaymentCondition
@@ -75,18 +87,83 @@ Public Class PaymentConditionEntry
         '各コントロールとバインディングオブジェクトを紐づけ
         '=============================================================================
         '支払条件名
-        PaymentConditionNameTextBox.DataBindings.Add(NameOf(Text), BindingSource, NameOf(_PaymentCondition.Name))
+        PaymentConditionNameTextBox.DataBindings.Add(NameOf(PaymentConditionNameTextBox.Text), BindingSource, NameOf(_PaymentCondition.Name))
         '締日
-        CutOffComboBox.DataBindings.Add(NameOf(Text), BindingSource, NameOf(_PaymentCondition.CutOff))
+        CutOffComboBox.DataBindings.Add(NameOf(CutOffComboBox.SelectedValue), BindingSource, NameOf(_PaymentCondition.CutOff))
         '支払月
-        MonthOffsetComboBox.DataBindings.Add(NameOf(Text), BindingSource, NameOf(_PaymentCondition.MonthOffset))
+        MonthOffsetComboBox.DataBindings.Add(NameOf(MonthOffsetComboBox.SelectedValue), BindingSource, NameOf(_PaymentCondition.MonthOffset))
         '支払日
-        DueDateComboBox.DataBindings.Add(NameOf(Text), BindingSource, NameOf(_PaymentCondition.DueDate))
+        DueDateComboBox.DataBindings.Add(NameOf(DueDateComboBox.SelectedValue), BindingSource, NameOf(_PaymentCondition.DueDate))
 
         '=============================================================================
         'エラープロバイダのデータソースにフォームを紐づけたバインディングソースを割り当て
         '=============================================================================
         ErrorProvider.DataSource = BindingSource
+    End Sub
+
+    ''' <summary>
+    ''' 締日のコンボボックスを設定
+    ''' </summary>
+    Private Sub SetupCutOffComboBox()
+        Dim displayValues As New List(Of KeyValuePair(Of String, Integer))
+
+        '1日から月末の前の日まで追加
+        For i As Integer = 1 To Domain.PaymentCondition.CutOffEndOfMonth - 1
+            Dim kvp = New KeyValuePair(Of String, Integer)(i.ToString & "日", i)
+            displayValues.Add(kvp)
+        Next
+        '月末も追加
+        displayValues.Add(New KeyValuePair(Of String, Integer)("月末", Domain.PaymentCondition.CutOffEndOfMonth))
+
+        'ComboBoxの設定
+        CutOffComboBox.ValueMember = "Value"
+        CutOffComboBox.DisplayMember = "Key"
+        CutOffComboBox.DataSource = displayValues
+    End Sub
+
+    ''' <summary>
+    ''' 支払月のコンボボックスを設定
+    ''' </summary>
+    Private Sub SetupMonthOffsetComboBox()
+        Dim displayValues As New List(Of KeyValuePair(Of String, Integer))
+
+        '当月
+        displayValues.Add(New KeyValuePair(Of String, Integer)("当月", 0))
+        '翌月
+        displayValues.Add(New KeyValuePair(Of String, Integer)("翌月", 1))
+        '翌々月
+        displayValues.Add(New KeyValuePair(Of String, Integer)("翌々月", 2))
+        'nか月後
+        For i As Integer = 3 To 11
+            displayValues.Add(New KeyValuePair(Of String, Integer)(i.ToString & "か月後", i))
+        Next
+        '翌年
+        displayValues.Add(New KeyValuePair(Of String, Integer)("翌年", 12))
+
+        'ComboBoxの設定
+        MonthOffsetComboBox.ValueMember = "Value"
+        MonthOffsetComboBox.DisplayMember = "Key"
+        MonthOffsetComboBox.DataSource = displayValues
+    End Sub
+
+    ''' <summary>
+    ''' 支払日のコンボボックスを設定
+    ''' </summary>
+    Private Sub SetupDueDateComboBox()
+        Dim displayValues As New List(Of KeyValuePair(Of String, Integer))
+
+        '1日から月末の前の日まで追加
+        For i As Integer = 1 To Domain.PaymentCondition.DueDateEndOfMonth - 1
+            Dim kvp = New KeyValuePair(Of String, Integer)(i.ToString & "日", i)
+            displayValues.Add(kvp)
+        Next
+        '月末も追加
+        displayValues.Add(New KeyValuePair(Of String, Integer)("月末", Domain.PaymentCondition.DueDateEndOfMonth))
+
+        'ComboBoxの設定
+        DueDateComboBox.ValueMember = "Value"
+        DueDateComboBox.DisplayMember = "Key"
+        DueDateComboBox.DataSource = displayValues
     End Sub
 
 #End Region
@@ -97,7 +174,7 @@ Public Class PaymentConditionEntry
     ''' フォームの入力内容で登録処理を実行
     ''' </summary>
     ''' <returns>登録成功:True 登録失敗:False</returns>
-    Private Function save() As Boolean
+    Private Function Save() As Boolean
         'ドメインオブジェクトの正当性を確認
         If _PaymentCondition.Validate() = False Then
             'エラー情報を更新
@@ -110,6 +187,20 @@ Public Class PaymentConditionEntry
         End If
         Return True
     End Function
+
+    ''' <summary>
+    ''' 新規登録を行う画面の状態に引数の支払条件オブジェクトを初期化
+    ''' </summary>
+    Private Sub InitializePaymentCondition(ByVal pay As Domain.PaymentCondition)
+        '支払条件名
+        pay.Name = String.Empty
+        '締日
+        pay.CutOff = 1
+        '支払日
+        pay.DueDate = 1
+        '支払月
+        pay.MonthOffset = 0
+    End Sub
 
 #End Region
 

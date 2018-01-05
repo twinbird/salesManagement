@@ -10,12 +10,26 @@ Imports System.ComponentModel
 Public Class PaymentCondition
     Implements IDataErrorInfo
 
+#Region "定数"
+
+    ''' <summary>
+    ''' 締日の月末(この日以降は指定できない)
+    ''' </summary>
+    Public Const CutOffEndOfMonth As Integer = 28
+
+    ''' <summary>
+    ''' 支払日の月末(この日以降は指定できない)
+    ''' </summary>
+    Public Const DueDateEndOfMonth As Integer = 28
+
+#End Region
+
 #Region "メッセージ定数"
 
     Const NameIsNotNullOrEmpty As String = "支払条件名は必ず入力しなければなりません"
     Const NameIsTooLong As String = "支払条件名は20文字以内でなければなりません"
     Const DueDateIsOutOfRange As String = "支払日は1～28以内でなければなりません"
-    Const MonthOffsetIsOutOfRange As String = "支払月は1～12以内でなければなりません"
+    Const MonthOffsetIsOutOfRange As String = "支払月は0～12以内でなければなりません"
     Const CutOffIsOutOfRange As String = "締日は1～28以内でなければなりません"
     Const NameIsAlreadyUsing As String = "この支払条件名は既に登録されています"
 
@@ -90,10 +104,10 @@ Public Class PaymentCondition
     ''' 月末支払ならTrue
     ''' </summary>
     ''' <returns></returns>
-    Public ReadOnly Property DueDateByEndOfMonth As Boolean
+    Public ReadOnly Property PayEndOfMonth As Boolean
         Get
             '28日なら月末扱い
-            If _DueDate = 28 Then
+            If _DueDate = DueDateEndOfMonth Then
                 Return True
             End If
             'その他は日付通り
@@ -138,7 +152,7 @@ Public Class PaymentCondition
     Public ReadOnly Property CutOffByEndOfMonth As Boolean
         Get
             '28日なら月末扱い
-            If _CutOff = 28 Then
+            If _CutOff = CutOffEndOfMonth Then
                 Return True
             End If
             'その他は日付通り
@@ -246,8 +260,8 @@ Public Class PaymentCondition
         'エラーを一度全てクリア
         _errors.Remove(NameOf(DueDate))
 
-        '支払日は1～28の数値でなければならない
-        If _DueDate < 1 OrElse 28 < _DueDate Then
+        '支払日は1～支払の月末日の数値でなければならない
+        If _DueDate < 1 OrElse DueDateEndOfMonth < _DueDate Then
             _errors(NameOf(DueDate)) = DueDateIsOutOfRange
         End If
     End Sub
@@ -259,8 +273,8 @@ Public Class PaymentCondition
         'エラーを一度全てクリア
         _errors.Remove(NameOf(MonthOffset))
 
-        '支払月は1～28以内でなければならない
-        If _MonthOffset < 1 OrElse 12 < _MonthOffset Then
+        '支払月は0～12以内でなければならない
+        If _MonthOffset < 0 OrElse 12 < _MonthOffset Then
             _errors(NameOf(MonthOffset)) = MonthOffsetIsOutOfRange
         End If
     End Sub
@@ -273,7 +287,7 @@ Public Class PaymentCondition
         _errors.Remove(NameOf(CutOff))
 
         '締日は1～28以内でなければならない
-        If _CutOff < 1 OrElse 28 < _CutOff Then
+        If _CutOff < 1 OrElse CutOffEndOfMonth < _CutOff Then
             _errors(NameOf(CutOff)) = CutOffIsOutOfRange
         End If
     End Sub

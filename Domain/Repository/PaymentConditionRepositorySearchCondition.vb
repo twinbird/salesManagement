@@ -10,6 +10,6 @@ Public Class PaymentConditionRepositorySearchCondition
     ''' 支払条件名
     ''' </summary>
     ''' <returns></returns>
-    Public Property Name As String
+    Public Property PaymentConditionNameForwardMatch As String
 
 End Class

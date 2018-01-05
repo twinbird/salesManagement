@@ -117,6 +117,7 @@ Partial Class PaymentConditionEntry
         '
         'ErrorProvider
         '
+        Me.ErrorProvider.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink
         Me.ErrorProvider.ContainerControl = Me
         '
         'PaymentConditionEntry

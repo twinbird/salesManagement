@@ -138,7 +138,7 @@ Public Class PaymentConditionRepositoryImpl
                 .AppendLine("   1 = 1")
 
                 '支払条件名(前方一致)
-                If cond.Name <> String.Empty Then
+                If cond.PaymentConditionNameForwardMatch <> String.Empty Then
                     .AppendLine("AND")
                     .AppendLine("   name LIKE @name")
                 End If
@@ -149,8 +149,8 @@ Public Class PaymentConditionRepositoryImpl
             '===============================================
             With q.Parameters
                 '支払条件名(前方一致)
-                If cond.Name <> String.Empty Then
-                    .Add("@name", cond.Name & "%")
+                If cond.PaymentConditionNameForwardMatch <> String.Empty Then
+                    .Add("@name", cond.PaymentConditionNameForwardMatch & "%")
                 End If
             End With
 

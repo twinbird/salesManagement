@@ -75,11 +75,11 @@ Public Class EmployeeEntry
         '各コントロールとバインディングオブジェクトを紐づけ
         '=============================================================================
         '従業員No
-        EmployeeNumberTextBox.DataBindings.Add(NameOf(Text), BindingSource, NameOf(_Employee.EmployeeNo))
+        EmployeeNumberTextBox.DataBindings.Add(NameOf(EmployeeNumberTextBox.Text), BindingSource, NameOf(_Employee.EmployeeNo))
         '名前
-        NameTextBox.DataBindings.Add(NameOf(Text), BindingSource, NameOf(_Employee.Name))
+        NameTextBox.DataBindings.Add(NameOf(NameTextBox.Text), BindingSource, NameOf(_Employee.Name))
         'かな名
-        KanaNameTextBox.DataBindings.Add(NameOf(Text), BindingSource, NameOf(_Employee.NameKana))
+        KanaNameTextBox.DataBindings.Add(NameOf(KanaNameTextBox.Text), BindingSource, NameOf(_Employee.NameKana))
 
         '=============================================================================
         'エラープロバイダのデータソースにフォームを紐づけたバインディングソースを割り当て

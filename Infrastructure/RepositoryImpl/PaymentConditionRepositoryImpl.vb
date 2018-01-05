@@ -75,16 +75,127 @@ Public Class PaymentConditionRepositoryImpl
         End Using
     End Function
 
+    ''' <summary>
+    ''' 登録済みの支払条件を全て取得します
+    ''' </summary>
+    ''' <returns></returns>
     Public Function FindAllPaymentCondition() As List(Of PaymentCondition) Implements IPaymentConditionRepository.FindAllPaymentCondition
-        Throw New NotImplementedException()
+        Using accessor As New ADOWrapper.DBAccessor
+            Dim q = accessor.CreateQuery
+            With q.Query
+                .AppendLine("SELECT")
+                .AppendLine("    id AS id")
+                .AppendLine("   ,name AS name")
+                .AppendLine("   ,cut_off AS cut_off")
+                .AppendLine("   ,due_date AS due_date")
+                .AppendLine("   ,month_offset AS month_offset")
+                .AppendLine("FROM")
+                .AppendLine("   payment_conditions")
+            End With
+
+            Dim dt = q.ExecQuery
+            If dt Is Nothing Then
+                Return Nothing
+            End If
+
+            'データをモデルに設定して返す
+            Dim ret As New List(Of PaymentCondition)
+
+            For Each r As Data.DataRow In dt.Rows
+                Dim pc = New PaymentCondition(CInt(r("id").ToString), Me)
+                pc.Name = r("name").ToString
+                pc.CutOff = CInt(r("cut_off"))
+                pc.DueDate = CInt(r("due_date"))
+                pc.MonthOffset = CInt(r("month_offset"))
+                ret.Add(pc)
+            Next
+
+            Return ret
+        End Using
     End Function
 
+    ''' <summary>
+    ''' 引数の条件を満たした支払条件を取得する
+    ''' </summary>
+    ''' <param name="cond"></param>
+    ''' <returns></returns>
     Public Function FindPaymentConditionByCondition(cond As PaymentConditionRepositorySearchCondition) As List(Of PaymentCondition) Implements IPaymentConditionRepository.FindPaymentConditionByCondition
-        Throw New NotImplementedException()
+        Using accessor As New ADOWrapper.DBAccessor
+            '===============================================
+            'クエリの作成
+            '===============================================
+            Dim q = accessor.CreateQuery
+            With q.Query
+                .AppendLine("SELECT")
+                .AppendLine("    id AS id")
+                .AppendLine("   ,name AS name")
+                .AppendLine("   ,cut_off AS cut_off")
+                .AppendLine("   ,due_date AS due_date")
+                .AppendLine("   ,month_offset AS month_offset")
+                .AppendLine("FROM")
+                .AppendLine("   payment_conditions")
+                .AppendLine("WHERE")
+                .AppendLine("   1 = 1")
+
+                '支払条件名(前方一致)
+                If cond.Name <> String.Empty Then
+                    .AppendLine("AND")
+                    .AppendLine("   name LIKE @name")
+                End If
+            End With
+
+            '===============================================
+            'パラメータ設定
+            '===============================================
+            With q.Parameters
+                '支払条件名(前方一致)
+                If cond.Name <> String.Empty Then
+                    .Add("@name", cond.Name & "%")
+                End If
+            End With
+
+            Dim dt = q.ExecQuery
+            If dt Is Nothing Then
+                Return Nothing
+            End If
+
+            'データをモデルに設定して返す
+            Dim ret As New List(Of PaymentCondition)
+
+            For Each r As Data.DataRow In dt.Rows
+                Dim pc = New PaymentCondition(CInt(r("id").ToString), Me)
+                pc.Name = r("name").ToString
+                pc.CutOff = CInt(r("cut_off"))
+                pc.DueDate = CInt(r("due_date"))
+                pc.MonthOffset = CInt(r("month_offset"))
+                ret.Add(pc)
+            Next
+
+            Return ret
+        End Using
     End Function
 
+    ''' <summary>
+    ''' 登録されている支払条件数を取得する
+    ''' </summary>
+    ''' <returns></returns>
     Public Function CountAllPaymentCondition() As Integer Implements IPaymentConditionRepository.CountAllPaymentCondition
-        Throw New NotImplementedException()
+        Using accessor As New ADOWrapper.DBAccessor
+            Dim q = accessor.CreateQuery
+            With q.Query
+                .AppendLine("SELECT")
+                .AppendLine("    COUNT(id) AS payment_condition_count")
+                .AppendLine("FROM")
+                .AppendLine("   payment_conditions")
+            End With
+
+            Dim count = q.ExecScalar
+            If count Is Nothing Then
+                Return 0
+            End If
+
+            Return CType(count, Integer)
+        End Using
     End Function
 
 #Region "インスタンス変数"

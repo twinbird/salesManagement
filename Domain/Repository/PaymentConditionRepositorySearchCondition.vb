@@ -6,4 +6,10 @@ Option Infer On
 ''' </summary>
 Public Class PaymentConditionRepositorySearchCondition
 
+    ''' <summary>
+    ''' 支払条件名
+    ''' </summary>
+    ''' <returns></returns>
+    Public Property Name As String
+
 End Class

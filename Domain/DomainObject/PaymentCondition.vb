@@ -116,6 +116,21 @@ Public Class PaymentCondition
         End Set
     End Property
 
+    ''' <summary>
+    ''' 月末締めならTrue
+    ''' </summary>
+    ''' <returns></returns>
+    Public ReadOnly Property CutOffByEndOfMonth As Boolean
+        Get
+            '28日なら月末扱い
+            'その他は日付通り
+            If _CutOff = 28 Then
+                Return True
+            End If
+            Return False
+        End Get
+    End Property
+
 #End Region
 
 #Region "エラープロパティ"

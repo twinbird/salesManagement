@@ -156,15 +156,15 @@ Public Class EmployeeRepositoryImpl
             With q.Parameters
                 '従業員番号(前方一致)
                 If cond.EmployeeNoForwardMatch <> String.Empty Then
-                    .Add("@employee_number", "%" & cond.EmployeeNoForwardMatch)
+                    .Add("@employee_number", cond.EmployeeNoForwardMatch & "%")
                 End If
                 '従業員名(前方一致)
                 If cond.EmployeeNameForwardMatch <> String.Empty Then
-                    .Add("@name", "%" & cond.EmployeeNameForwardMatch)
+                    .Add("@name", cond.EmployeeNameForwardMatch & "%")
                 End If
                 '従業員名かな(前方一致)
                 If cond.EmployeeNameKanaForwardMatch <> String.Empty Then
-                    .Add("@name_kana", "%" & cond.EmployeeNameKanaForwardMatch)
+                    .Add("@name_kana", cond.EmployeeNameKanaForwardMatch & "%")
                 End If
             End With
 

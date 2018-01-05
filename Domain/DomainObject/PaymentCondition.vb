@@ -86,6 +86,21 @@ Public Class PaymentCondition
         End Set
     End Property
 
+    ''' <summary>
+    ''' 月末支払ならTrue
+    ''' </summary>
+    ''' <returns></returns>
+    Public ReadOnly Property DueDateByEndOfMonth As Boolean
+        Get
+            '28日なら月末扱い
+            If _DueDate = 28 Then
+                Return True
+            End If
+            'その他は日付通り
+            Return False
+        End Get
+    End Property
+
     Private _MonthOffset As Integer
     ''' <summary>
     ''' 支払月(オフセット)
@@ -123,10 +138,10 @@ Public Class PaymentCondition
     Public ReadOnly Property CutOffByEndOfMonth As Boolean
         Get
             '28日なら月末扱い
-            'その他は日付通り
             If _CutOff = 28 Then
                 Return True
             End If
+            'その他は日付通り
             Return False
         End Get
     End Property

@@ -46,8 +46,8 @@ Public Class PaymentCondition
     Public Sub New(ByVal repo As IPaymentConditionRepository)
         _ID = -1
         _Name = String.Empty
-        _DueDate = 0
-        _CutOff = 0
+        _DueDate = 1
+        _CutOff = 1
         _MonthOffset = 0
         _PaymentConditionRepo = repo
     End Sub
@@ -55,8 +55,8 @@ Public Class PaymentCondition
     Public Sub New(ByVal id As Integer, ByVal repo As IPaymentConditionRepository)
         _ID = id
         _Name = String.Empty
-        _DueDate = 0
-        _CutOff = 0
+        _DueDate = 1
+        _CutOff = 1
         _MonthOffset = 0
         _PaymentConditionRepo = repo
     End Sub

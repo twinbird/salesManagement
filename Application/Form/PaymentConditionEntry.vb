@@ -77,8 +77,6 @@ Public Class PaymentConditionEntry
             Dim paymentRepo = New Infrastructure.PaymentConditionRepositoryImpl()
             'ドメインオブジェクトを生成
             _PaymentCondition = New Domain.PaymentCondition(paymentRepo)
-            'ドメインオブジェクトを初期化
-            InitializePaymentCondition(_PaymentCondition)
         End If
         'バインディング
         Me.BindingSource.DataSource = _PaymentCondition
@@ -187,20 +185,6 @@ Public Class PaymentConditionEntry
         End If
         Return True
     End Function
-
-    ''' <summary>
-    ''' 新規登録を行う画面の状態に引数の支払条件オブジェクトを初期化
-    ''' </summary>
-    Private Sub InitializePaymentCondition(ByVal pay As Domain.PaymentCondition)
-        '支払条件名
-        pay.Name = String.Empty
-        '締日
-        pay.CutOff = 1
-        '支払日
-        pay.DueDate = 1
-        '支払月
-        pay.MonthOffset = 0
-    End Sub
 
 #End Region
 

@@ -21,6 +21,13 @@ Public Interface IPaymentConditionRepository
     Function LastInsertID() As Integer
 
     ''' <summary>
+    ''' IDから支払条件モデルオブジェクトを取得
+    ''' </summary>
+    ''' <param name="id"></param>
+    ''' <returns></returns>
+    Function FindByID(ByVal id As Integer) As PaymentCondition
+
+    ''' <summary>
     ''' 支払条件名からモデルオブジェクトを取得
     ''' </summary>
     ''' <returns></returns>

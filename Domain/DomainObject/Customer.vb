@@ -13,32 +13,53 @@ Public Class Customer
 #Region "定数"
 
     Const NameDoNotEmpty As String = "顧客名は必ず入力が必要です"
+    Const NameIsAlreadyExist As String = "この顧客名は既に登録済みです"
     Const NameIsTooLong As String = "顧客名は50文字以内での入力が必要です"
-    Const PICIsTooLong As String = "窓口担当者名は50文字以内での入力が必要です"
-    Const PaymentConditionIsTooLong As String = "支払条件は50文字以内での入力が必要です"
+    Const PICDoNotEmpty As String = "営業担当者は必ず指定してください"
+    Const PICIsNotFound As String = "未登録の従業員は利用できません"
+    Const PaymentConditionDoNotEmpty As String = "支払条件は必ず指定してください"
+    Const PaymentConditionIsNotFound As String = "未登録の支払条件は利用できません"
 
 #End Region
 
-#Region "インスタンス変数"
+#Region "リポジトリへのポインタ"
 
-    ''' <summary>
-    ''' エラー保持変数
-    ''' </summary>
-    Private _errors As New Dictionary(Of String, String)
+    Private _CustomerRepo As ICustomerRepository
+    Private _PaymentConditionRepo As IPaymentConditionRepository
+    Private _EmployeeRepo As IEmployeeRepository
 
 #End Region
 
 #Region "コンストラクタ"
 
-    Public Sub New()
-        Me._Name = String.Empty
-        Me._PIC = String.Empty
-        Me._PaymentCondition = String.Empty
+    Public Sub New(ByVal custRepo As ICustomerRepository, ByVal payRepo As IPaymentConditionRepository, ByVal empRepo As IEmployeeRepository)
+        _ID = -1
+        _CustomerRepo = custRepo
+        _PaymentConditionRepo = payRepo
+        _EmployeeRepo = empRepo
+        _Name = String.Empty
+        _PIC = Nothing
+        _PaymentCondition = Nothing
+    End Sub
+
+    Public Sub New(ByVal id As Integer, ByVal custRepo As ICustomerRepository, ByVal payRepo As IPaymentConditionRepository, ByVal empRepo As IEmployeeRepository)
+        _ID = id
+        _CustomerRepo = custRepo
+        _PaymentConditionRepo = payRepo
+        _EmployeeRepo = empRepo
+        _Name = String.Empty
+        _PIC = Nothing
+        _PaymentCondition = Nothing
     End Sub
 
 #End Region
 
 #Region "値プロパティ"
+
+    ''' <summary>
+    ''' ID(オブジェクトの永続化がされていないものは-1)
+    ''' </summary>
+    Public ReadOnly _ID As Integer
 
     Private _Name As String
     ''' <summary>
@@ -55,31 +76,31 @@ Public Class Customer
         End Get
     End Property
 
-    Private _PIC As String
+    Private _PIC As Employee
     ''' <summary>
     ''' 窓口担当者名
     ''' </summary>
     ''' <returns></returns>
-    Public Property PIC As String
+    Public Property PIC As Employee
         Get
             Return _PIC
         End Get
-        Set(value As String)
+        Set(value As Employee)
             _PIC = value
             ValidatePIC()
         End Set
     End Property
 
-    Private _PaymentCondition As String
+    Private _PaymentCondition As PaymentCondition
     ''' <summary>
     ''' 支払条件
     ''' </summary>
     ''' <returns></returns>
-    Public Property PaymentCondition As String
+    Public Property PaymentCondition As PaymentCondition
         Get
             Return _PaymentCondition
         End Get
-        Set(value As String)
+        Set(value As PaymentCondition)
             _PaymentCondition = value
             ValidatePaymentCondition()
         End Set
@@ -88,6 +109,11 @@ Public Class Customer
 #End Region
 
 #Region "エラープロパティ"
+
+    ''' <summary>
+    ''' エラー保持変数
+    ''' </summary>
+    Private _errors As New Dictionary(Of String, String)
 
     ''' <summary>
     ''' このオブジェクトの状態にエラーがあればTrue
@@ -143,7 +169,7 @@ Public Class Customer
         '一度エラーをクリア
         _errors.Remove(NameOf(Name))
 
-        '名前は空白ではいけない
+        '名前は未指定ではいけない
         If _Name = String.Empty Then
             _errors(NameOf(Name)) = NameDoNotEmpty
         End If
@@ -151,18 +177,26 @@ Public Class Customer
         If _Name.Length > 50 Then
             _errors(NameOf(Name)) = NameIsTooLong
         End If
+        '登録済みの名前は利用できない
+        If _CustomerRepo.FindByCustomerName(_Name) IsNot Nothing Then
+            _errors(NameOf(Name)) = NameIsAlreadyExist
+        End If
     End Sub
 
     ''' <summary>
-    ''' 窓口担当者名を検証
+    ''' 営業担当者名を検証
     ''' </summary>
     Private Sub ValidatePIC()
         '一度エラーをクリア
         _errors.Remove(NameOf(PIC))
 
-        '窓口担当者名は50文字以内でなければならない
-        If _PIC.Length > 50 Then
-            _errors(NameOf(PIC)) = PICIsTooLong
+        '営業担当者名は必ず入力しなければならない
+        If _PIC Is Nothing Then
+            _errors(NameOf(PIC)) = PICDoNotEmpty
+        End If
+        '未登録の従業員は指定できない
+        If _EmployeeRepo.FindByID(_PIC.ID) Is Nothing Then
+            _errors(NameOf(PIC)) = PICIsNotFound
         End If
     End Sub
 
@@ -173,9 +207,13 @@ Public Class Customer
         '一度エラーをクリア
         _errors.Remove(NameOf(PaymentCondition))
 
-        '支払条件は50文字以内でなければならない
-        If _PaymentCondition.Length > 50 Then
-            _errors(NameOf(PaymentCondition)) = PaymentConditionIsTooLong
+        '支払条件は未指定ではならない
+        If _PaymentCondition Is Nothing Then
+            _errors(NameOf(PaymentCondition)) = PaymentConditionDoNotEmpty
+        End If
+        '登録されていない支払条件は利用できない
+        If _PaymentConditionRepo.FindByID(_PaymentCondition.ID) Is Nothing Then
+            _errors(NameOf(PaymentCondition)) = PaymentConditionIsNotFound
         End If
     End Sub
 

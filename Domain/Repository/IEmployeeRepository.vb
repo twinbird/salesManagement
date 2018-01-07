@@ -22,6 +22,13 @@ Public Interface IEmployeeRepository
     Function LastInsertID() As Integer
 
     ''' <summary>
+    ''' IDからモデルオブジェクトを取得
+    ''' </summary>
+    ''' <param name="id"></param>
+    ''' <returns></returns>
+    Function FindByID(ByVal id As Integer) As Employee
+
+    ''' <summary>
     ''' 従業員番号からモデルオブジェクトを取得
     ''' </summary>
     ''' <returns></returns>

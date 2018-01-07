@@ -8,7 +8,7 @@ Imports Domain
 ''' 支払条件永続化のための機能
 ''' </summary>
 Public Class PaymentConditionRepositoryImpl
-    Implements Domain.IPaymentConditionRepository
+    Implements IPaymentConditionRepository
 
     ''' <summary>
     ''' 引数の支払条件を永続化します
@@ -30,6 +30,49 @@ Public Class PaymentConditionRepositoryImpl
     ''' <returns></returns>
     Public Function LastInsertID() As Integer Implements IPaymentConditionRepository.LastInsertID
         Return _LastInsertId
+    End Function
+
+    ''' <summary>
+    ''' IDから支払条件モデルオブジェクトを取得
+    ''' </summary>
+    ''' <param name="id"></param>
+    ''' <returns></returns>
+    Public Function FindByID(id As Integer) As PaymentCondition Implements IPaymentConditionRepository.FindByID
+        Using accessor As New ADOWrapper.DBAccessor
+            Dim q = accessor.CreateQuery
+            With q.Query
+                .AppendLine("SELECT")
+                .AppendLine("    id AS id")
+                .AppendLine("   ,name AS name")
+                .AppendLine("   ,cut_off AS cut_off")
+                .AppendLine("   ,due_date AS due_date")
+                .AppendLine("   ,month_offset AS month_offset")
+                .AppendLine("FROM")
+                .AppendLine("   payment_conditions")
+                .AppendLine("WHERE")
+                .AppendLine("   id = @id")
+            End With
+
+            With q.Parameters
+                .Add("@id", id)
+            End With
+
+            Dim dt = q.ExecQuery
+            If dt Is Nothing OrElse dt.Rows.Count = 0 Then
+                Return Nothing
+            End If
+
+            Debug.Assert(dt.Rows.Count = 1)
+
+            'データをモデルに設定して返す
+            Dim pc = New PaymentCondition(CInt(dt.Rows(0)("id").ToString), Me)
+            pc.Name = dt.Rows(0)("name").ToString
+            pc.CutOff = CInt(dt.Rows(0)("cut_off"))
+            pc.DueDate = CInt(dt.Rows(0)("due_date"))
+            pc.MonthOffset = CInt(dt.Rows(0)("month_offset"))
+
+            Return pc
+        End Using
     End Function
 
     ''' <summary>

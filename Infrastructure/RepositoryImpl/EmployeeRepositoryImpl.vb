@@ -34,6 +34,47 @@ Public Class EmployeeRepositoryImpl
     End Function
 
     ''' <summary>
+    ''' IDからモデルオブジェクトを取得
+    ''' </summary>
+    ''' <param name="id"></param>
+    ''' <returns></returns>
+    Public Function FindByID(id As Integer) As Employee Implements IEmployeeRepository.FindByID
+        Using accessor As New ADOWrapper.DBAccessor
+            Dim q = accessor.CreateQuery
+            With q.Query
+                .AppendLine("SELECT")
+                .AppendLine("    id AS id")
+                .AppendLine("   ,employee_number AS employee_number")
+                .AppendLine("   ,name AS name")
+                .AppendLine("   ,name_kana AS name_kana")
+                .AppendLine("FROM")
+                .AppendLine("   employees")
+                .AppendLine("WHERE")
+                .AppendLine("   id = @id")
+            End With
+
+            With q.Parameters
+                .Add("@id", id)
+            End With
+
+            Dim dt = q.ExecQuery
+            If dt Is Nothing OrElse dt.Rows.Count = 0 Then
+                Return Nothing
+            End If
+
+            Debug.Assert(dt.Rows.Count = 1)
+
+            'データをモデルに設定して返す
+            Dim e = New Employee(CInt(dt.Rows(0)("id").ToString), Me)
+            e.EmployeeNo = dt.Rows(0)("employee_number").ToString
+            e.Name = dt.Rows(0)("name").ToString
+            e.NameKana = dt.Rows(0)("name_kana").ToString
+
+            Return e
+        End Using
+    End Function
+
+    ''' <summary>
     ''' 従業員番号からモデルオブジェクトを取得
     ''' </summary>
     ''' <returns></returns>

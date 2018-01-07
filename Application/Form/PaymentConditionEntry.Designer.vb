@@ -34,6 +34,7 @@ Partial Class PaymentConditionEntry
         Me.DueDateComboBox = New System.Windows.Forms.ComboBox()
         Me.ErrorProvider = New System.Windows.Forms.ErrorProvider(Me.components)
         Me.BindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.ToolTip = New System.Windows.Forms.ToolTip(Me.components)
         CType(Me.ErrorProvider, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -63,6 +64,7 @@ Partial Class PaymentConditionEntry
         Me.PaymentConditionNameTextBox.Name = "PaymentConditionNameTextBox"
         Me.PaymentConditionNameTextBox.Size = New System.Drawing.Size(189, 19)
         Me.PaymentConditionNameTextBox.TabIndex = 3
+        Me.ToolTip.SetToolTip(Me.PaymentConditionNameTextBox, "「月末締め翌月現金払い」の様に見積書などに表示する支払条件を入力します。")
         '
         'CutOffLabel
         '
@@ -80,6 +82,7 @@ Partial Class PaymentConditionEntry
         Me.CutOffComboBox.Name = "CutOffComboBox"
         Me.CutOffComboBox.Size = New System.Drawing.Size(65, 20)
         Me.CutOffComboBox.TabIndex = 6
+        Me.ToolTip.SetToolTip(Me.CutOffComboBox, "この支払条件の締め日を入力します。" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "28日以降は「月末」を指定してください。")
         '
         'MonthOffsetLabel
         '
@@ -97,6 +100,7 @@ Partial Class PaymentConditionEntry
         Me.MonthOffsetComboBox.Name = "MonthOffsetComboBox"
         Me.MonthOffsetComboBox.Size = New System.Drawing.Size(65, 20)
         Me.MonthOffsetComboBox.TabIndex = 6
+        Me.ToolTip.SetToolTip(Me.MonthOffsetComboBox, "この支払条件の支払月を入力します。")
         '
         'DueDateLabel
         '
@@ -114,6 +118,7 @@ Partial Class PaymentConditionEntry
         Me.DueDateComboBox.Name = "DueDateComboBox"
         Me.DueDateComboBox.Size = New System.Drawing.Size(65, 20)
         Me.DueDateComboBox.TabIndex = 6
+        Me.ToolTip.SetToolTip(Me.DueDateComboBox, "この支払条件の支払日を入力します。" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "28日以降の場合は月末を指定してください。")
         '
         'ErrorProvider
         '
@@ -154,4 +159,5 @@ Partial Class PaymentConditionEntry
     Friend WithEvents DueDateComboBox As ComboBox
     Friend WithEvents ErrorProvider As ErrorProvider
     Friend WithEvents BindingSource As BindingSource
+    Friend WithEvents ToolTip As ToolTip
 End Class

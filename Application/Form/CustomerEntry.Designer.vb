@@ -113,7 +113,7 @@ Partial Class CustomerEntry
         Me.ComboBox1.FormattingEnabled = True
         Me.ComboBox1.Location = New System.Drawing.Point(106, 57)
         Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(261, 20)
+        Me.ComboBox1.Size = New System.Drawing.Size(112, 20)
         Me.ComboBox1.TabIndex = 4
         '
         'ComboBox2
@@ -146,7 +146,7 @@ Partial Class CustomerEntry
         '
         Me.TextBox2.Location = New System.Drawing.Point(106, 106)
         Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(261, 19)
+        Me.TextBox2.Size = New System.Drawing.Size(77, 19)
         Me.TextBox2.TabIndex = 2
         '
         'TextBox3

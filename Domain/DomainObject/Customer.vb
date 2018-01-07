@@ -15,10 +15,18 @@ Public Class Customer
     Const NameDoNotEmpty As String = "顧客名は必ず入力が必要です"
     Const NameIsAlreadyExist As String = "この顧客名は既に登録済みです"
     Const NameIsTooLong As String = "顧客名は50文字以内での入力が必要です"
+    Const KanaNameDoNotEmpty As String = "顧客名かなは必ず入力が必要です"
+    Const KanaNameIsTooLong As String = "顧客名かなは50文字以内での入力が必要です"
     Const PICDoNotEmpty As String = "営業担当者は必ず指定してください"
     Const PICIsNotFound As String = "未登録の従業員は利用できません"
     Const PaymentConditionDoNotEmpty As String = "支払条件は必ず指定してください"
     Const PaymentConditionIsNotFound As String = "未登録の支払条件は利用できません"
+    Const PostalCodeDoNotNothing As String = "郵便番号の入力内容が不正です"
+    Const PostalCodeLengthMustBeSeven As String = "郵便番号は7桁で入力してください"
+    Const Address1IsTooLong As String = "住所1は50文字以内で入力してください"
+    Const Address1DoNotEmpty As String = "住所1は必ず入力してください"
+    Const Address2DoNotNothing As String = "住所2の入力内容が不正です"
+    Const Address2IsTooLong As String = "住所2は50文字以内で入力してください"
 
 #End Region
 
@@ -76,9 +84,24 @@ Public Class Customer
         End Get
     End Property
 
+    Private _KanaName As String
+    ''' <summary>
+    ''' 顧客名かな
+    ''' </summary>
+    ''' <returns></returns>
+    Public Property KanaName As String
+        Get
+            Return _KanaName
+        End Get
+        Set(value As String)
+            _KanaName = value
+            ValidateKanaName()
+        End Set
+    End Property
+
     Private _PIC As Employee
     ''' <summary>
-    ''' 窓口担当者名
+    ''' 営業担当者
     ''' </summary>
     ''' <returns></returns>
     Public Property PIC As Employee
@@ -105,6 +128,52 @@ Public Class Customer
             ValidatePaymentCondition()
         End Set
     End Property
+
+    Private _PostalCode As String
+    ''' <summary>
+    ''' 郵便番号
+    ''' </summary>
+    ''' <returns></returns>
+    Public Property PostalCode As String
+        Get
+            Return _PostalCode
+        End Get
+        Set(value As String)
+            _PostalCode = value
+            ValidatePostalCode()
+        End Set
+    End Property
+
+    Private _Address1 As String
+    ''' <summary>
+    ''' 住所1
+    ''' </summary>
+    ''' <returns></returns>
+    Public Property Address1 As String
+        Get
+            Return _Address1
+        End Get
+        Set(value As String)
+            _Address1 = value
+            ValidateAddress1()
+        End Set
+    End Property
+
+    Private _Address2 As String
+    ''' <summary>
+    ''' 住所2
+    ''' </summary>
+    ''' <returns></returns>
+    Public Property Address2 As String
+        Get
+            Return _Address2
+        End Get
+        Set(value As String)
+            _Address2 = value
+            ValidateAddress2()
+        End Set
+    End Property
+
 
 #End Region
 
@@ -157,8 +226,12 @@ Public Class Customer
     ''' <returns></returns>
     Public Function Validate() As Boolean
         ValidateName()
+        ValidateKanaName()
         ValidatePIC()
         ValidatePaymentCondition()
+        ValidatePostalCode()
+        ValidateAddress1()
+        ValidateAddress2()
         Return Me.HasError
     End Function
 
@@ -180,6 +253,23 @@ Public Class Customer
         '登録済みの名前は利用できない
         If _CustomerRepo.FindByCustomerName(_Name) IsNot Nothing Then
             _errors(NameOf(Name)) = NameIsAlreadyExist
+        End If
+    End Sub
+
+    ''' <summary>
+    ''' 顧客名かなを検証
+    ''' </summary>
+    Private Sub ValidateKanaName()
+        '一度エラーをクリア
+        _errors.Remove(NameOf(KanaName))
+
+        'かな名は未指定ではいけない
+        If _KanaName = String.Empty Then
+            _errors(NameOf(KanaName)) = KanaNameDoNotEmpty
+        End If
+        'かな名は50文字以内でなければならない
+        If _KanaName.Length > 50 Then
+            _errors(NameOf(KanaName)) = KanaNameIsTooLong
         End If
     End Sub
 
@@ -214,6 +304,65 @@ Public Class Customer
         '登録されていない支払条件は利用できない
         If _PaymentConditionRepo.FindByID(_PaymentCondition.ID) Is Nothing Then
             _errors(NameOf(PaymentCondition)) = PaymentConditionIsNotFound
+        End If
+    End Sub
+
+    ''' <summary>
+    ''' 郵便番号を検証
+    ''' </summary>
+    Private Sub ValidatePostalCode()
+        '一度エラーをクリア
+        _errors.Remove(NameOf(PostalCode))
+
+        'Nothingは許可しない
+        If _PostalCode Is Nothing Then
+            _errors(NameOf(PostalCode)) = PostalCodeDoNotNothing
+        End If
+
+        '郵便番号は未入力可
+        If _PostalCode = String.Empty Then
+            Return
+        End If
+
+        '郵便番号は必ず7桁
+        If _PostalCode.Length <> 7 Then
+            _errors(NameOf(PostalCode)) = PostalCodeLengthMustBeSeven
+        End If
+    End Sub
+
+    ''' <summary>
+    ''' 住所1を検証
+    ''' </summary>
+    Private Sub ValidateAddress1()
+        '一度エラーをクリア
+        _errors.Remove(NameOf(Address1))
+
+        '住所1は必ず入力
+        If _Address1 Is Nothing OrElse _Address1.Length = 0 Then
+            _errors(NameOf(Address1)) = Address1DoNotEmpty
+        End If
+
+        '住所1は必ず50文字以内
+        If _Address1.Length > 50 Then
+            _errors(NameOf(_Address1)) = Address1IsTooLong
+        End If
+    End Sub
+
+    ''' <summary>
+    ''' 住所2を検証
+    ''' </summary>
+    Private Sub ValidateAddress2()
+        '一度エラーをクリア
+        _errors.Remove(NameOf(Address2))
+
+        'Nothingは許可しない
+        If _Address2 Is Nothing Then
+            _errors(NameOf(Address2)) = Address2DoNotNothing
+        End If
+
+        '住所2は必ず50文字以内
+        If _Address2.Length > 50 Then
+            _errors(NameOf(_Address2)) = Address2IsTooLong
         End If
     End Sub
 

@@ -127,6 +127,7 @@ Partial Class PaymentConditionList
         Me.SearchPaymentConditionNameTextBox.Name = "SearchPaymentConditionNameTextBox"
         Me.SearchPaymentConditionNameTextBox.Size = New System.Drawing.Size(227, 19)
         Me.SearchPaymentConditionNameTextBox.TabIndex = 2
+        Me.ToolTip.SetToolTip(Me.SearchPaymentConditionNameTextBox, "支払条件名を検索条件に指定します。" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "この条件は前方一致です。")
         '
         'NewPaymentConditionEntryButton
         '

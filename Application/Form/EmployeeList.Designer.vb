@@ -34,12 +34,12 @@ Partial Class EmployeeList
         Me.SearchEmployeeNameTextBox = New System.Windows.Forms.TextBox()
         Me.SearchEmployeeNoTextBox = New System.Windows.Forms.TextBox()
         Me.EmployeeDataGridView = New System.Windows.Forms.DataGridView()
-        Me.StatusStrip1 = New System.Windows.Forms.StatusStrip()
+        Me.StatusStrip = New System.Windows.Forms.StatusStrip()
         Me.ToolStripStatusLabel = New System.Windows.Forms.ToolStripStatusLabel()
         Me.ToolTip = New System.Windows.Forms.ToolTip(Me.components)
         Me.SearchGroupBox.SuspendLayout()
         CType(Me.EmployeeDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.StatusStrip1.SuspendLayout()
+        Me.StatusStrip.SuspendLayout()
         Me.SuspendLayout()
         '
         'NewEmployeeEntryButton
@@ -155,14 +155,14 @@ Partial Class EmployeeList
         Me.EmployeeDataGridView.Size = New System.Drawing.Size(425, 285)
         Me.EmployeeDataGridView.TabIndex = 2
         '
-        'StatusStrip1
+        'StatusStrip
         '
-        Me.StatusStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripStatusLabel})
-        Me.StatusStrip1.Location = New System.Drawing.Point(0, 387)
-        Me.StatusStrip1.Name = "StatusStrip1"
-        Me.StatusStrip1.Size = New System.Drawing.Size(449, 22)
-        Me.StatusStrip1.TabIndex = 3
-        Me.StatusStrip1.Text = "StatusStrip1"
+        Me.StatusStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripStatusLabel})
+        Me.StatusStrip.Location = New System.Drawing.Point(0, 387)
+        Me.StatusStrip.Name = "StatusStrip"
+        Me.StatusStrip.Size = New System.Drawing.Size(449, 22)
+        Me.StatusStrip.TabIndex = 3
+        Me.StatusStrip.Text = "StatusStrip1"
         '
         'ToolStripStatusLabel
         '
@@ -175,7 +175,7 @@ Partial Class EmployeeList
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(449, 409)
-        Me.Controls.Add(Me.StatusStrip1)
+        Me.Controls.Add(Me.StatusStrip)
         Me.Controls.Add(Me.EmployeeDataGridView)
         Me.Controls.Add(Me.SearchGroupBox)
         Me.Controls.Add(Me.NewEmployeeEntryButton)
@@ -184,8 +184,8 @@ Partial Class EmployeeList
         Me.SearchGroupBox.ResumeLayout(False)
         Me.SearchGroupBox.PerformLayout()
         CType(Me.EmployeeDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.StatusStrip1.ResumeLayout(False)
-        Me.StatusStrip1.PerformLayout()
+        Me.StatusStrip.ResumeLayout(False)
+        Me.StatusStrip.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -196,7 +196,7 @@ Partial Class EmployeeList
     Friend WithEvents SearchEmployeeNoTextBox As TextBox
     Friend WithEvents EmployeeDataGridView As DataGridView
     Friend WithEvents SearchButton As Button
-    Friend WithEvents StatusStrip1 As StatusStrip
+    Friend WithEvents StatusStrip As StatusStrip
     Friend WithEvents ToolStripStatusLabel As ToolStripStatusLabel
     Friend WithEvents SearchEmployeeNoLabel As Label
     Friend WithEvents SearchEmployeeNameLabel As Label

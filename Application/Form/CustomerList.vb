@@ -97,6 +97,16 @@ Public Class CustomerList
         ClearFormSearchCondition()
     End Sub
 
+    ''' <summary>
+    ''' フォームのアクティベイトイベント
+    ''' </summary>
+    ''' <param name="sender"></param>
+    ''' <param name="e"></param>
+    Private Sub CustomerList_Activated(sender As Object, e As EventArgs) Handles Me.Activated
+        'コンボボックスの設定
+        UpdateControlDataSource()
+    End Sub
+
 #End Region
 
 #Region "コントロール制御"
@@ -105,6 +115,8 @@ Public Class CustomerList
     ''' フォームコントロールの設定を行う
     ''' </summary>
     Private Sub SetupControls()
+        'コンボボックスの設定
+        UpdateControlDataSource()
         'GridViewの設定
         SetupDataGridView()
         'ToolStripStatusLabelの表示内容を更新
@@ -129,6 +141,37 @@ Public Class CustomerList
         Dim allCount = repo.CountAllCustomer()
         Dim str = String.Format("{0}件中{1}件を表示中", allCount, CustomerDataGridView.Rows.Count)
         Me.ToolStripStatusLabel.Text = str
+    End Sub
+
+    ''' <summary>
+    ''' 営業担当者のコンボボックスを設定
+    ''' </summary>
+    Private Sub SetupPICComboBox()
+        Dim displayValues As New List(Of KeyValuePair(Of String, Domain.Employee))
+
+        '未選択の値を追加
+        Dim emptyRow = New KeyValuePair(Of String, Domain.Employee)(String.Empty, Nothing)
+        displayValues.Add(emptyRow)
+
+        '従業員情報を取得してコンボボックスメンバに利用
+        Dim repo = New Infrastructure.EmployeeRepositoryImpl
+        Dim emps = repo.FindAllEmployee
+        For Each e In emps
+            Dim kvp = New KeyValuePair(Of String, Domain.Employee)(e.Name, e)
+            displayValues.Add(kvp)
+        Next
+
+        'ComboBoxの設定
+        SearchPICComboBox.ValueMember = "Value"
+        SearchPICComboBox.DisplayMember = "Key"
+        SearchPICComboBox.DataSource = displayValues
+    End Sub
+
+    ''' <summary>
+    ''' コントロールのデータソースを更新
+    ''' </summary>
+    Private Sub UpdateControlDataSource()
+        SetupPICComboBox()
     End Sub
 
 #End Region

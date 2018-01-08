@@ -46,8 +46,12 @@ Public Class Customer
         _PaymentConditionRepo = payRepo
         _EmployeeRepo = empRepo
         _Name = String.Empty
+        _KanaName = String.Empty
         _PIC = Nothing
         _PaymentCondition = Nothing
+        _PostalCode = String.Empty
+        _Address1 = String.Empty
+        _Address2 = String.Empty
     End Sub
 
     Public Sub New(ByVal id As Integer, ByVal custRepo As ICustomerRepository, ByVal payRepo As IPaymentConditionRepository, ByVal empRepo As IEmployeeRepository)
@@ -56,8 +60,12 @@ Public Class Customer
         _PaymentConditionRepo = payRepo
         _EmployeeRepo = empRepo
         _Name = String.Empty
+        _KanaName = String.Empty
         _PIC = Nothing
         _PaymentCondition = Nothing
+        _PostalCode = String.Empty
+        _Address1 = String.Empty
+        _Address2 = String.Empty
     End Sub
 
 #End Region
@@ -232,7 +240,7 @@ Public Class Customer
         ValidatePostalCode()
         ValidateAddress1()
         ValidateAddress2()
-        Return Me.HasError
+        Return Me.HasError = False
     End Function
 
     ''' <summary>
@@ -241,6 +249,16 @@ Public Class Customer
     Private Sub ValidateName()
         '一度エラーをクリア
         _errors.Remove(NameOf(Name))
+
+        '名前と住所1,2はnothing不可
+        If _Name Is Nothing Then
+            _errors(NameOf(Name)) = NameDoNotEmpty
+            Return
+        End If
+        If _Address1 Is Nothing OrElse _Address2 Is Nothing Then
+            'このエラーに対するメッセージは住所1,2に対する検証で対応
+            Return
+        End If
 
         '名前は未指定ではいけない
         If _Name = String.Empty Then
@@ -264,6 +282,12 @@ Public Class Customer
         _errors.Remove(NameOf(KanaName))
 
         'かな名は未指定ではいけない
+        If _KanaName Is Nothing Then
+            _errors(NameOf(KanaName)) = KanaNameDoNotEmpty
+            Return
+        End If
+
+        'かな名は未指定ではいけない
         If _KanaName = String.Empty Then
             _errors(NameOf(KanaName)) = KanaNameDoNotEmpty
         End If
@@ -283,6 +307,7 @@ Public Class Customer
         '営業担当者名は必ず入力しなければならない
         If _PIC Is Nothing Then
             _errors(NameOf(PIC)) = PICDoNotEmpty
+            Return
         End If
         '未登録の従業員は指定できない
         If _EmployeeRepo.FindByID(_PIC.ID) Is Nothing Then
@@ -300,6 +325,7 @@ Public Class Customer
         '支払条件は未指定ではならない
         If _PaymentCondition Is Nothing Then
             _errors(NameOf(PaymentCondition)) = PaymentConditionDoNotEmpty
+            Return
         End If
         '登録されていない支払条件は利用できない
         If _PaymentConditionRepo.FindByID(_PaymentCondition.ID) Is Nothing Then
@@ -317,6 +343,7 @@ Public Class Customer
         'Nothingは許可しない
         If _PostalCode Is Nothing Then
             _errors(NameOf(PostalCode)) = PostalCodeDoNotNothing
+            Return
         End If
 
         '郵便番号は未入力可
@@ -337,8 +364,14 @@ Public Class Customer
         '一度エラーをクリア
         _errors.Remove(NameOf(Address1))
 
+        'Nothingは許可しない
+        If _Address1 Is Nothing Then
+            _errors(NameOf(Address1)) = Address1DoNotEmpty
+            Return
+        End If
+
         '住所1は必ず入力
-        If _Address1 Is Nothing OrElse _Address1.Length = 0 Then
+        If _Address1.Length = 0 Then
             _errors(NameOf(Address1)) = Address1DoNotEmpty
         End If
 
@@ -364,6 +397,7 @@ Public Class Customer
         'Nothingは許可しない
         If _Address2 Is Nothing Then
             _errors(NameOf(Address2)) = Address2DoNotNothing
+            Return
         End If
 
         '住所2は必ず50文字以内

@@ -44,7 +44,7 @@ Public Class EmployeeEntry
     ''' <param name="e"></param>
     Private Sub EntryButton_Click(sender As Object, e As EventArgs) Handles EntryButton.Click
         '登録に成功したら画面を閉じる
-        If save() = True Then
+        If Save() = True Then
             Me.Close()
         End If
     End Sub
@@ -95,7 +95,7 @@ Public Class EmployeeEntry
     ''' フォームの入力内容で登録処理を実行
     ''' </summary>
     ''' <returns>登録成功:True 登録失敗:False</returns>
-    Private Function save() As Boolean
+    Private Function Save() As Boolean
         'ドメインオブジェクトの正当性を確認
         If _Employee.Validate() = False Then
             'エラー情報を更新

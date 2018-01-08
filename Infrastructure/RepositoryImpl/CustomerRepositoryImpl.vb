@@ -73,7 +73,7 @@ Public Class CustomerRepositoryImpl
             'クエリ発行
             '===============================================
             Dim dt = q.ExecQuery
-            If dt Is Nothing Then
+            If dt Is Nothing OrElse dt.Rows.Count = 0 Then
                 Return Nothing
             End If
 

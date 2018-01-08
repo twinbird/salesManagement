@@ -79,7 +79,7 @@ Public Class MainMDI
 
     Private Sub 顧客マスタToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles 顧客マスタToolStripMenuItem.Click
         ' 子フォームの新しいインスタンスを作成します
-        Dim ChildForm As New CustomerEntry
+        Dim ChildForm As New CustomerList
         ' 表示する前に、この MDI フォームの子に設定します
         ChildForm.MdiParent = Me
         ChildForm.Show()

@@ -349,7 +349,9 @@ Public Class CustomerRepositoryImpl
                 .AppendLine("   ,postal_code = @postal_code")
                 .AppendLine("   ,address1 = @address1")
                 .AppendLine("   ,address2 = @address2")
-                .AppendLine("   ,created_at = @created_at")
+                .AppendLine("   ,updated_at = @updated_at")
+                .AppendLine("WHERE")
+                .AppendLine("   id = @id")
             End With
 
             With q.Parameters
@@ -360,7 +362,8 @@ Public Class CustomerRepositoryImpl
                 .Add("@postal_code", c.PostalCode)
                 .Add("@address1", c.Address1)
                 .Add("@address2", c.Address2)
-                .Add("@created_at", DateTime.Now)
+                .Add("@updated_at", DateTime.Now)
+                .Add("@id", c.ID)
             End With
 
             Dim ret = q.ExecNonQuery

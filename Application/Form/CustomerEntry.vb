@@ -49,6 +49,16 @@ Public Class CustomerEntry
         End If
     End Sub
 
+    ''' <summary>
+    ''' フォームをアクティベイト
+    ''' </summary>
+    ''' <param name="sender"></param>
+    ''' <param name="e"></param>
+    Private Sub CustomerEntry_Activated(sender As Object, e As EventArgs) Handles Me.Activated
+        'コントロールのデータソースを更新
+        UpdateControlDataSource()
+    End Sub
+
 #End Region
 
 #Region "コントロール制御"
@@ -143,6 +153,14 @@ Public Class CustomerEntry
         PaymentConditionComboBox.ValueMember = "Value"
         PaymentConditionComboBox.DisplayMember = "Key"
         PaymentConditionComboBox.DataSource = displayValues
+    End Sub
+
+    ''' <summary>
+    ''' コントロールのデータソースを更新
+    ''' </summary>
+    Private Sub UpdateControlDataSource()
+        SetupPICComboBox()
+        SetupPaymentConditionComboBox()
     End Sub
 
 #End Region

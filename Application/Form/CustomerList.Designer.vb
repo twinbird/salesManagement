@@ -50,6 +50,7 @@ Partial Class CustomerList
         Me.CustomerDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.CustomerDataGridView.Location = New System.Drawing.Point(12, 127)
         Me.CustomerDataGridView.Name = "CustomerDataGridView"
+        Me.CustomerDataGridView.RowHeadersVisible = False
         Me.CustomerDataGridView.RowTemplate.Height = 21
         Me.CustomerDataGridView.Size = New System.Drawing.Size(611, 257)
         Me.CustomerDataGridView.TabIndex = 0

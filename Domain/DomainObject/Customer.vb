@@ -240,8 +240,38 @@ Public Class Customer
         ValidatePostalCode()
         ValidateAddress1()
         ValidateAddress2()
+
+        '永続化も含めた項目全体の整合性チェックを実施
+        'エラーリストのクリアのため他の要素の後に実施しないとならない
+        ValidateTotalItems()
+
         Return Me.HasError = False
     End Function
+
+    ''' <summary>
+    ''' 永続化も含めた要素全体の整合性チェックを実施
+    ''' </summary>
+    Private Sub ValidateTotalItems()
+        'ほかのチェックに引っかかってたらDBアクセス前に例外発生があり得るので戻してやる
+        If Me.HasError = True Then
+            Return
+        End If
+
+        '未登録の従業員は指定できない
+        If _EmployeeRepo.FindByID(_PIC.ID) Is Nothing Then
+            _errors(NameOf(PIC)) = PICIsNotFound
+        End If
+        '登録されていない支払条件は利用できない
+        If _PaymentConditionRepo.FindByID(_PaymentCondition.ID) Is Nothing Then
+            _errors(NameOf(PaymentCondition)) = PaymentConditionIsNotFound
+        End If
+        '同一社名が同じ住所で登録済みの場合は利用できない
+        '(更新の場合は問題ないのでID比較で異なる場合だけエラーにする)
+        Dim cust = _CustomerRepo.FindByCustomerNameAndAddress(_Name, _Address1, _Address2)
+        If cust IsNot Nothing AndAlso cust.ID <> Me.ID Then
+            _errors(NameOf(Name)) = NameIsAlreadyExist
+        End If
+    End Sub
 
     ''' <summary>
     ''' 顧客名を検証
@@ -250,13 +280,9 @@ Public Class Customer
         '一度エラーをクリア
         _errors.Remove(NameOf(Name))
 
-        '名前と住所1,2はnothing不可
+        '名前はNothing不可
         If _Name Is Nothing Then
             _errors(NameOf(Name)) = NameDoNotEmpty
-            Return
-        End If
-        If _Address1 Is Nothing OrElse _Address2 Is Nothing Then
-            'このエラーに対するメッセージは住所1,2に対する検証で対応
             Return
         End If
 
@@ -267,10 +293,6 @@ Public Class Customer
         '名前は50文字以内でなければならない
         If _Name.Length > 50 Then
             _errors(NameOf(Name)) = NameIsTooLong
-        End If
-        '同一社名が同じ住所で登録済みの場合は利用できない
-        If _CustomerRepo.FindByCustomerNameAndAddress(_Name, _Address1, _Address2) IsNot Nothing Then
-            _errors(NameOf(Name)) = NameIsAlreadyExist
         End If
     End Sub
 
@@ -309,10 +331,6 @@ Public Class Customer
             _errors(NameOf(PIC)) = PICDoNotEmpty
             Return
         End If
-        '未登録の従業員は指定できない
-        If _EmployeeRepo.FindByID(_PIC.ID) Is Nothing Then
-            _errors(NameOf(PIC)) = PICIsNotFound
-        End If
     End Sub
 
     ''' <summary>
@@ -326,10 +344,6 @@ Public Class Customer
         If _PaymentCondition Is Nothing Then
             _errors(NameOf(PaymentCondition)) = PaymentConditionDoNotEmpty
             Return
-        End If
-        '登録されていない支払条件は利用できない
-        If _PaymentConditionRepo.FindByID(_PaymentCondition.ID) Is Nothing Then
-            _errors(NameOf(PaymentCondition)) = PaymentConditionIsNotFound
         End If
     End Sub
 
@@ -379,12 +393,6 @@ Public Class Customer
         If _Address1.Length > 50 Then
             _errors(NameOf(_Address1)) = Address1IsTooLong
         End If
-
-        '同一社名が同じ住所で登録済みの場合は利用できない
-        If _CustomerRepo.FindByCustomerNameAndAddress(_Name, _Address1, _Address2) IsNot Nothing Then
-            _errors(NameOf(Name)) = NameIsAlreadyExist
-        End If
-
     End Sub
 
     ''' <summary>
@@ -404,12 +412,6 @@ Public Class Customer
         If _Address2.Length > 50 Then
             _errors(NameOf(_Address2)) = Address2IsTooLong
         End If
-
-        '同一社名が同じ住所で登録済みの場合は利用できない
-        If _CustomerRepo.FindByCustomerNameAndAddress(_Name, _Address1, _Address2) IsNot Nothing Then
-            _errors(NameOf(Name)) = NameIsAlreadyExist
-        End If
-
     End Sub
 
 #End Region

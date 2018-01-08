@@ -170,6 +170,11 @@ Public Class Employee
     ''' 永続化も含めた要素全体の整合性チェックを実施
     ''' </summary>
     Private Sub ValidateTotalItems()
+        'ほかのチェックに引っかかってたらDBアクセス前に例外発生があり得るので戻してやる
+        If Me.HasError = True Then
+            Return
+        End If
+
         '従業員番号は登録済みのものは使えない
         Dim emp = _EmployeeRepo.FindByEmployeeNo(_EmployeeNo)
         If emp IsNot Nothing AndAlso emp.ID <> Me.ID Then

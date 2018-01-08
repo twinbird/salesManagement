@@ -92,6 +92,7 @@ Partial Class CustomerEntry
         '
         'ErrorProvider
         '
+        Me.ErrorProvider.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink
         Me.ErrorProvider.ContainerControl = Me
         Me.ErrorProvider.DataSource = Me.BindingSource
         '

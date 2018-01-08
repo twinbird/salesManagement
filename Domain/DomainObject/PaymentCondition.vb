@@ -227,6 +227,11 @@ Public Class PaymentCondition
     ''' 永続化も含めた要素全体の整合性チェックを実施
     ''' </summary>
     Private Sub ValidateTotalItems()
+        'ほかのチェックに引っかかってたらDBアクセス前に例外発生があり得るので戻してやる
+        If Me.HasError = True Then
+            Return
+        End If
+
         '支払条件名は登録済みのものは使えない
         Dim emp = _PaymentConditionRepo.FindByName(_Name)
         If emp IsNot Nothing AndAlso emp.ID <> Me.ID Then

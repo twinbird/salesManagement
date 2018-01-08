@@ -28,20 +28,20 @@ Partial Class CustomerEntry
         Me.PICLabel = New System.Windows.Forms.Label()
         Me.PaymentConditionLabel = New System.Windows.Forms.Label()
         Me.EntryButton = New System.Windows.Forms.Button()
-        Me.CustomerInfoErrorProvider = New System.Windows.Forms.ErrorProvider(Me.components)
-        Me.CustomerInfoBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.ErrorProvider = New System.Windows.Forms.ErrorProvider(Me.components)
+        Me.BindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
-        Me.ComboBox2 = New System.Windows.Forms.ComboBox()
+        Me.CustomerKanaNameTextBox = New System.Windows.Forms.TextBox()
+        Me.PICComboBox = New System.Windows.Forms.ComboBox()
+        Me.PaymentConditionComboBox = New System.Windows.Forms.ComboBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
-        Me.TextBox2 = New System.Windows.Forms.TextBox()
-        Me.TextBox3 = New System.Windows.Forms.TextBox()
+        Me.Address1TextBox = New System.Windows.Forms.TextBox()
         Me.Label4 = New System.Windows.Forms.Label()
-        Me.TextBox4 = New System.Windows.Forms.TextBox()
-        CType(Me.CustomerInfoErrorProvider, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.CustomerInfoBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Address2TextBox = New System.Windows.Forms.TextBox()
+        Me.PostalCodeMaskedTextBox = New System.Windows.Forms.MaskedTextBox()
+        CType(Me.ErrorProvider, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.BindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'CompanyNameLabel
@@ -55,10 +55,12 @@ Partial Class CustomerEntry
         '
         'CustomerNameTextBox
         '
+        Me.CustomerNameTextBox.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.CustomerNameTextBox.Location = New System.Drawing.Point(106, 13)
         Me.CustomerNameTextBox.Name = "CustomerNameTextBox"
         Me.CustomerNameTextBox.Size = New System.Drawing.Size(261, 19)
-        Me.CustomerNameTextBox.TabIndex = 2
+        Me.CustomerNameTextBox.TabIndex = 0
         '
         'PICLabel
         '
@@ -80,17 +82,18 @@ Partial Class CustomerEntry
         '
         'EntryButton
         '
-        Me.EntryButton.Location = New System.Drawing.Point(292, 205)
+        Me.EntryButton.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.EntryButton.Location = New System.Drawing.Point(292, 185)
         Me.EntryButton.Name = "EntryButton"
         Me.EntryButton.Size = New System.Drawing.Size(75, 23)
-        Me.EntryButton.TabIndex = 3
+        Me.EntryButton.TabIndex = 7
         Me.EntryButton.Text = "登録"
         Me.EntryButton.UseVisualStyleBackColor = True
         '
-        'CustomerInfoErrorProvider
+        'ErrorProvider
         '
-        Me.CustomerInfoErrorProvider.ContainerControl = Me
-        Me.CustomerInfoErrorProvider.DataSource = Me.CustomerInfoBindingSource
+        Me.ErrorProvider.ContainerControl = Me
+        Me.ErrorProvider.DataSource = Me.BindingSource
         '
         'Label1
         '
@@ -101,28 +104,34 @@ Partial Class CustomerEntry
         Me.Label1.TabIndex = 1
         Me.Label1.Text = "会社名(かな)"
         '
-        'TextBox1
+        'CustomerKanaNameTextBox
         '
-        Me.TextBox1.Location = New System.Drawing.Point(106, 35)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(261, 19)
-        Me.TextBox1.TabIndex = 2
+        Me.CustomerKanaNameTextBox.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.CustomerKanaNameTextBox.Location = New System.Drawing.Point(106, 35)
+        Me.CustomerKanaNameTextBox.Name = "CustomerKanaNameTextBox"
+        Me.CustomerKanaNameTextBox.Size = New System.Drawing.Size(261, 19)
+        Me.CustomerKanaNameTextBox.TabIndex = 1
         '
-        'ComboBox1
+        'PICComboBox
         '
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Location = New System.Drawing.Point(106, 57)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(112, 20)
-        Me.ComboBox1.TabIndex = 4
+        Me.PICComboBox.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.PICComboBox.FormattingEnabled = True
+        Me.PICComboBox.Location = New System.Drawing.Point(106, 57)
+        Me.PICComboBox.Name = "PICComboBox"
+        Me.PICComboBox.Size = New System.Drawing.Size(112, 20)
+        Me.PICComboBox.TabIndex = 2
         '
-        'ComboBox2
+        'PaymentConditionComboBox
         '
-        Me.ComboBox2.FormattingEnabled = True
-        Me.ComboBox2.Location = New System.Drawing.Point(106, 81)
-        Me.ComboBox2.Name = "ComboBox2"
-        Me.ComboBox2.Size = New System.Drawing.Size(261, 20)
-        Me.ComboBox2.TabIndex = 4
+        Me.PaymentConditionComboBox.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.PaymentConditionComboBox.FormattingEnabled = True
+        Me.PaymentConditionComboBox.Location = New System.Drawing.Point(106, 81)
+        Me.PaymentConditionComboBox.Name = "PaymentConditionComboBox"
+        Me.PaymentConditionComboBox.Size = New System.Drawing.Size(261, 20)
+        Me.PaymentConditionComboBox.TabIndex = 3
         '
         'Label2
         '
@@ -142,19 +151,14 @@ Partial Class CustomerEntry
         Me.Label3.TabIndex = 1
         Me.Label3.Text = "住所1"
         '
-        'TextBox2
+        'Address1TextBox
         '
-        Me.TextBox2.Location = New System.Drawing.Point(106, 106)
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(77, 19)
-        Me.TextBox2.TabIndex = 2
-        '
-        'TextBox3
-        '
-        Me.TextBox3.Location = New System.Drawing.Point(106, 128)
-        Me.TextBox3.Name = "TextBox3"
-        Me.TextBox3.Size = New System.Drawing.Size(261, 19)
-        Me.TextBox3.TabIndex = 2
+        Me.Address1TextBox.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Address1TextBox.Location = New System.Drawing.Point(106, 128)
+        Me.Address1TextBox.Name = "Address1TextBox"
+        Me.Address1TextBox.Size = New System.Drawing.Size(261, 19)
+        Me.Address1TextBox.TabIndex = 5
         '
         'Label4
         '
@@ -165,25 +169,37 @@ Partial Class CustomerEntry
         Me.Label4.TabIndex = 1
         Me.Label4.Text = "住所2"
         '
-        'TextBox4
+        'Address2TextBox
         '
-        Me.TextBox4.Location = New System.Drawing.Point(106, 151)
-        Me.TextBox4.Name = "TextBox4"
-        Me.TextBox4.Size = New System.Drawing.Size(261, 19)
-        Me.TextBox4.TabIndex = 2
+        Me.Address2TextBox.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Address2TextBox.Location = New System.Drawing.Point(106, 151)
+        Me.Address2TextBox.Name = "Address2TextBox"
+        Me.Address2TextBox.Size = New System.Drawing.Size(261, 19)
+        Me.Address2TextBox.TabIndex = 6
+        '
+        'PostalCodeMaskedTextBox
+        '
+        Me.PostalCodeMaskedTextBox.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.PostalCodeMaskedTextBox.Location = New System.Drawing.Point(106, 105)
+        Me.PostalCodeMaskedTextBox.Mask = "000-0000"
+        Me.PostalCodeMaskedTextBox.Name = "PostalCodeMaskedTextBox"
+        Me.PostalCodeMaskedTextBox.Size = New System.Drawing.Size(100, 19)
+        Me.PostalCodeMaskedTextBox.TabIndex = 4
         '
         'CustomerEntry
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(409, 240)
-        Me.Controls.Add(Me.ComboBox2)
-        Me.Controls.Add(Me.ComboBox1)
+        Me.ClientSize = New System.Drawing.Size(393, 222)
+        Me.Controls.Add(Me.PostalCodeMaskedTextBox)
+        Me.Controls.Add(Me.PaymentConditionComboBox)
+        Me.Controls.Add(Me.PICComboBox)
         Me.Controls.Add(Me.EntryButton)
-        Me.Controls.Add(Me.TextBox4)
-        Me.Controls.Add(Me.TextBox3)
-        Me.Controls.Add(Me.TextBox1)
-        Me.Controls.Add(Me.TextBox2)
+        Me.Controls.Add(Me.Address2TextBox)
+        Me.Controls.Add(Me.Address1TextBox)
+        Me.Controls.Add(Me.CustomerKanaNameTextBox)
         Me.Controls.Add(Me.CustomerNameTextBox)
         Me.Controls.Add(Me.PaymentConditionLabel)
         Me.Controls.Add(Me.Label4)
@@ -194,8 +210,8 @@ Partial Class CustomerEntry
         Me.Controls.Add(Me.CompanyNameLabel)
         Me.Name = "CustomerEntry"
         Me.Text = "顧客の登録"
-        CType(Me.CustomerInfoErrorProvider, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.CustomerInfoBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ErrorProvider, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.BindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -205,16 +221,16 @@ Partial Class CustomerEntry
     Friend WithEvents PICLabel As Label
     Friend WithEvents PaymentConditionLabel As Label
     Friend WithEvents EntryButton As Button
-    Friend WithEvents CustomerInfoErrorProvider As ErrorProvider
-    Friend WithEvents CustomerInfoBindingSource As BindingSource
-    Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents ErrorProvider As ErrorProvider
+    Friend WithEvents BindingSource As BindingSource
+    Friend WithEvents CustomerKanaNameTextBox As TextBox
     Friend WithEvents Label1 As Label
-    Friend WithEvents ComboBox1 As ComboBox
-    Friend WithEvents ComboBox2 As ComboBox
-    Friend WithEvents TextBox4 As TextBox
-    Friend WithEvents TextBox3 As TextBox
-    Friend WithEvents TextBox2 As TextBox
+    Friend WithEvents PICComboBox As ComboBox
+    Friend WithEvents PaymentConditionComboBox As ComboBox
+    Friend WithEvents Address2TextBox As TextBox
+    Friend WithEvents Address1TextBox As TextBox
     Friend WithEvents Label4 As Label
     Friend WithEvents Label3 As Label
     Friend WithEvents Label2 As Label
+    Friend WithEvents PostalCodeMaskedTextBox As MaskedTextBox
 End Class

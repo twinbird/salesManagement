@@ -26,7 +26,7 @@ Public Class EmployeeRepositoryImpl
     End Function
 
     ''' <summary>
-    ''' 最後に永続化したオブジェクトのIDを返す
+    ''' 最後に新規に永続化したオブジェクトのIDを返す
     ''' </summary>
     ''' <returns></returns>
     Public Function LastInsertID() As Integer Implements IEmployeeRepository.LastInsertID

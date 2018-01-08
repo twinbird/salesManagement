@@ -24,7 +24,7 @@ Public Interface ICustomerRepository
     ''' 顧客名からモデルオブジェクトを取得
     ''' </summary>
     ''' <returns></returns>
-    Function FindByCustomerName(ByVal custName As String) As Customer
+    Function FindByCustomerNameAndAddress(ByVal custName As String, ByVal addr1 As String, ByVal addr2 As String) As Customer
 
     ''' <summary>
     ''' 引数の条件を満たしたすべての顧客を取得

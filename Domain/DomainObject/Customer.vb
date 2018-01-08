@@ -67,7 +67,7 @@ Public Class Customer
     ''' <summary>
     ''' ID(オブジェクトの永続化がされていないものは-1)
     ''' </summary>
-    Public ReadOnly _ID As Integer
+    Public ReadOnly Property ID As Integer
 
     Private _Name As String
     ''' <summary>
@@ -250,8 +250,8 @@ Public Class Customer
         If _Name.Length > 50 Then
             _errors(NameOf(Name)) = NameIsTooLong
         End If
-        '登録済みの名前は利用できない
-        If _CustomerRepo.FindByCustomerName(_Name) IsNot Nothing Then
+        '同一社名が同じ住所で登録済みの場合は利用できない
+        If _CustomerRepo.FindByCustomerNameAndAddress(_Name, _Address1, _Address2) IsNot Nothing Then
             _errors(NameOf(Name)) = NameIsAlreadyExist
         End If
     End Sub
@@ -346,6 +346,12 @@ Public Class Customer
         If _Address1.Length > 50 Then
             _errors(NameOf(_Address1)) = Address1IsTooLong
         End If
+
+        '同一社名が同じ住所で登録済みの場合は利用できない
+        If _CustomerRepo.FindByCustomerNameAndAddress(_Name, _Address1, _Address2) IsNot Nothing Then
+            _errors(NameOf(Name)) = NameIsAlreadyExist
+        End If
+
     End Sub
 
     ''' <summary>
@@ -364,8 +370,31 @@ Public Class Customer
         If _Address2.Length > 50 Then
             _errors(NameOf(_Address2)) = Address2IsTooLong
         End If
+
+        '同一社名が同じ住所で登録済みの場合は利用できない
+        If _CustomerRepo.FindByCustomerNameAndAddress(_Name, _Address1, _Address2) IsNot Nothing Then
+            _errors(NameOf(Name)) = NameIsAlreadyExist
+        End If
+
     End Sub
 
 #End Region
+
+#Region "CRUD"
+
+    ''' <summary>
+    ''' このオブジェクトを永続化する
+    ''' </summary>
+    ''' <returns>登録成功:True 登録失敗:False</returns>
+    Public Function Save() As Boolean
+        If _CustomerRepo.Save(Me) = False Then
+            Return False
+        End If
+        _ID = _CustomerRepo.LastInsertID
+        Return True
+    End Function
+
+#End Region
+
 
 End Class

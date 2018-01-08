@@ -63,17 +63,17 @@ DROP TABLE IF EXISTS customers;
 CREATE TABLE customers (
 	id INTEGER PRIMARY KEY AUTOINCREMENT,           -- ID
 	name VARCHAR(100) NOT NULL,                     -- 名前
-	name_kana VARCHAR(100) NOT NULL,                -- 名前(かな)
-	sales_employee_id INTEGER NOT NULL,             -- 営業担当者ID
+	kana_name VARCHAR(100) NOT NULL,                -- 名前(かな)
+	pic_id INTEGER NOT NULL,                        -- 営業担当者ID
 	payment_id INTEGER NOT NULL,                    -- 支払条件ID
-	postal_code VARCHAR(10) NOT NULL,               -- 郵便番号
+	postal_code VARCHAR(8) NOT NULL,                -- 郵便番号
 	address1 VARCHAR(50) NOT NULL,                  -- 住所1
 	address2 VARCHAR(50) NOT NULL,                  -- 住所2
 	created_at TIMESTAMP NOT NULL,                  -- 登録日時
 	updated_at TIMESTAMP,                           -- 更新日時
 
 	UNIQUE (name, address1, address2),
-	FOREIGN KEY (sales_employee_id) REFERENCES employees(id),
+	FOREIGN KEY (pic_id) REFERENCES employees(id),
 	FOREIGN KEY (payment_id) REFERENCES payment_conditions(id)
 );
 

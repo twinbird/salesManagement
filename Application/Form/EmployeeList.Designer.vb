@@ -50,6 +50,7 @@ Partial Class EmployeeList
         Me.NewEmployeeEntryButton.Size = New System.Drawing.Size(136, 23)
         Me.NewEmployeeEntryButton.TabIndex = 0
         Me.NewEmployeeEntryButton.Text = "新しい従業員を登録"
+        Me.ToolTip.SetToolTip(Me.NewEmployeeEntryButton, "新しい従業員を登録する画面を開きます。")
         Me.NewEmployeeEntryButton.UseVisualStyleBackColor = True
         '
         'SearchGroupBox
@@ -76,6 +77,7 @@ Partial Class EmployeeList
         Me.ClearSearchConditionButton.Size = New System.Drawing.Size(75, 23)
         Me.ClearSearchConditionButton.TabIndex = 3
         Me.ClearSearchConditionButton.Text = "クリア"
+        Me.ToolTip.SetToolTip(Me.ClearSearchConditionButton, "検索条件をクリアします。")
         Me.ClearSearchConditionButton.UseVisualStyleBackColor = True
         '
         'SearchEmployeeNameKanaLabel
@@ -112,6 +114,7 @@ Partial Class EmployeeList
         Me.SearchButton.Size = New System.Drawing.Size(75, 23)
         Me.SearchButton.TabIndex = 4
         Me.SearchButton.Text = "検索"
+        Me.ToolTip.SetToolTip(Me.SearchButton, "検索して結果を下の表に表示します。")
         Me.SearchButton.UseVisualStyleBackColor = True
         '
         'SearchEmployeeNameKanaTextBox

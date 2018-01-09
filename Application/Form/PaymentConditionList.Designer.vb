@@ -52,6 +52,7 @@ Partial Class PaymentConditionList
         Me.PaymentConditionDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.EditButton, Me.PaymentName, Me.CutOff, Me.PaymentMonth, Me.PaymentDate})
         Me.PaymentConditionDataGridView.Location = New System.Drawing.Point(10, 92)
         Me.PaymentConditionDataGridView.Name = "PaymentConditionDataGridView"
+        Me.PaymentConditionDataGridView.RowHeadersVisible = False
         Me.PaymentConditionDataGridView.RowTemplate.Height = 21
         Me.PaymentConditionDataGridView.Size = New System.Drawing.Size(565, 325)
         Me.PaymentConditionDataGridView.TabIndex = 5
@@ -101,6 +102,7 @@ Partial Class PaymentConditionList
         Me.SearchButton.Size = New System.Drawing.Size(75, 23)
         Me.SearchButton.TabIndex = 8
         Me.SearchButton.Text = "検索"
+        Me.ToolTip.SetToolTip(Me.SearchButton, "検索して結果を下の表に表示します。")
         Me.SearchButton.UseVisualStyleBackColor = True
         '
         'ClearSearchConditionButton
@@ -110,6 +112,7 @@ Partial Class PaymentConditionList
         Me.ClearSearchConditionButton.Size = New System.Drawing.Size(75, 23)
         Me.ClearSearchConditionButton.TabIndex = 8
         Me.ClearSearchConditionButton.Text = "クリア"
+        Me.ToolTip.SetToolTip(Me.ClearSearchConditionButton, "検索条件をクリアします。")
         Me.ClearSearchConditionButton.UseVisualStyleBackColor = True
         '
         'Label1
@@ -137,6 +140,7 @@ Partial Class PaymentConditionList
         Me.NewPaymentConditionEntryButton.Size = New System.Drawing.Size(136, 23)
         Me.NewPaymentConditionEntryButton.TabIndex = 3
         Me.NewPaymentConditionEntryButton.Text = "新しい支払条件を登録"
+        Me.ToolTip.SetToolTip(Me.NewPaymentConditionEntryButton, "新しい支払条件を登録する画面を開きます。")
         Me.NewPaymentConditionEntryButton.UseVisualStyleBackColor = True
         '
         'StatusStrip

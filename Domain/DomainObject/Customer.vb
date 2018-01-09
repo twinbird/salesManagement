@@ -22,7 +22,7 @@ Public Class Customer
     Const PaymentConditionDoNotEmpty As String = "支払条件は必ず指定してください"
     Const PaymentConditionIsNotFound As String = "未登録の支払条件は利用できません"
     Const PostalCodeDoNotNothing As String = "郵便番号の入力内容が不正です"
-    Const PostalCodeLengthMustBeSeven As String = "郵便番号は7桁で入力してください"
+    Const PostalCodeLengthMustBeSeven As String = "郵便番号は8桁で入力してください"
     Const Address1IsTooLong As String = "住所1は50文字以内で入力してください"
     Const Address1DoNotEmpty As String = "住所1は必ず入力してください"
     Const Address2DoNotNothing As String = "住所2の入力内容が不正です"
@@ -366,7 +366,7 @@ Public Class Customer
         End If
 
         '郵便番号は必ず7桁
-        If _PostalCode.Length <> 7 Then
+        If _PostalCode.Length <> 8 Then
             _errors(NameOf(PostalCode)) = PostalCodeLengthMustBeSeven
         End If
     End Sub

@@ -38,6 +38,7 @@ Partial Class CompanyInformationEntry
         Me.PostalCodeMaskedTextBox = New System.Windows.Forms.MaskedTextBox()
         Me.TellMaskedTextBox = New System.Windows.Forms.MaskedTextBox()
         Me.FaxMaskedTextBox = New System.Windows.Forms.MaskedTextBox()
+        Me.ToolTip = New System.Windows.Forms.ToolTip(Me.components)
         CType(Me.BindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ErrorProvider, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -45,27 +46,29 @@ Partial Class CompanyInformationEntry
         'EntryButton
         '
         Me.EntryButton.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.EntryButton.Location = New System.Drawing.Point(322, 171)
+        Me.EntryButton.Location = New System.Drawing.Point(322, 152)
         Me.EntryButton.Name = "EntryButton"
         Me.EntryButton.Size = New System.Drawing.Size(75, 23)
         Me.EntryButton.TabIndex = 8
         Me.EntryButton.Text = "更新"
+        Me.ToolTip.SetToolTip(Me.EntryButton, "表示中の内容で自社情報を更新します。")
         Me.EntryButton.UseVisualStyleBackColor = True
         '
         'NameTextBox
         '
         Me.NameTextBox.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.NameTextBox.Location = New System.Drawing.Point(83, 17)
+        Me.NameTextBox.Location = New System.Drawing.Point(83, 9)
         Me.NameTextBox.MaxLength = 50
         Me.NameTextBox.Name = "NameTextBox"
         Me.NameTextBox.Size = New System.Drawing.Size(314, 19)
         Me.NameTextBox.TabIndex = 1
+        Me.ToolTip.SetToolTip(Me.NameTextBox, "自社名を入力します。" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "100文字まで入力できます。" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "見積書などの書類に印刷されます。")
         '
         'NameLabel
         '
         Me.NameLabel.AutoSize = True
-        Me.NameLabel.Location = New System.Drawing.Point(12, 20)
+        Me.NameLabel.Location = New System.Drawing.Point(12, 12)
         Me.NameLabel.Name = "NameLabel"
         Me.NameLabel.Size = New System.Drawing.Size(41, 12)
         Me.NameLabel.TabIndex = 2
@@ -74,7 +77,7 @@ Partial Class CompanyInformationEntry
         'PostalCodeLabel
         '
         Me.PostalCodeLabel.AutoSize = True
-        Me.PostalCodeLabel.Location = New System.Drawing.Point(12, 44)
+        Me.PostalCodeLabel.Location = New System.Drawing.Point(12, 36)
         Me.PostalCodeLabel.Name = "PostalCodeLabel"
         Me.PostalCodeLabel.Size = New System.Drawing.Size(53, 12)
         Me.PostalCodeLabel.TabIndex = 2
@@ -84,16 +87,17 @@ Partial Class CompanyInformationEntry
         '
         Me.Address1TextBox.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Address1TextBox.Location = New System.Drawing.Point(83, 64)
+        Me.Address1TextBox.Location = New System.Drawing.Point(83, 56)
         Me.Address1TextBox.MaxLength = 50
         Me.Address1TextBox.Name = "Address1TextBox"
         Me.Address1TextBox.Size = New System.Drawing.Size(314, 19)
         Me.Address1TextBox.TabIndex = 3
+        Me.ToolTip.SetToolTip(Me.Address1TextBox, "住所を入力します。" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "50文字まで入力できます。" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "見積書などの書類で上の段に表示されます。")
         '
         'Address1Label
         '
         Me.Address1Label.AutoSize = True
-        Me.Address1Label.Location = New System.Drawing.Point(12, 68)
+        Me.Address1Label.Location = New System.Drawing.Point(12, 60)
         Me.Address1Label.Name = "Address1Label"
         Me.Address1Label.Size = New System.Drawing.Size(35, 12)
         Me.Address1Label.TabIndex = 2
@@ -102,7 +106,7 @@ Partial Class CompanyInformationEntry
         'TelLabel
         '
         Me.TelLabel.AutoSize = True
-        Me.TelLabel.Location = New System.Drawing.Point(12, 118)
+        Me.TelLabel.Location = New System.Drawing.Point(12, 110)
         Me.TelLabel.Name = "TelLabel"
         Me.TelLabel.Size = New System.Drawing.Size(53, 12)
         Me.TelLabel.TabIndex = 2
@@ -112,16 +116,17 @@ Partial Class CompanyInformationEntry
         '
         Me.Address2TextBox.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Address2TextBox.Location = New System.Drawing.Point(83, 89)
+        Me.Address2TextBox.Location = New System.Drawing.Point(83, 81)
         Me.Address2TextBox.MaxLength = 50
         Me.Address2TextBox.Name = "Address2TextBox"
         Me.Address2TextBox.Size = New System.Drawing.Size(314, 19)
         Me.Address2TextBox.TabIndex = 4
+        Me.ToolTip.SetToolTip(Me.Address2TextBox, "住所を入力します。" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "50文字まで入力できます。" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "見積書などの書類で下の段に表示されます。")
         '
         'Address2Label
         '
         Me.Address2Label.AutoSize = True
-        Me.Address2Label.Location = New System.Drawing.Point(12, 94)
+        Me.Address2Label.Location = New System.Drawing.Point(12, 86)
         Me.Address2Label.Name = "Address2Label"
         Me.Address2Label.Size = New System.Drawing.Size(35, 12)
         Me.Address2Label.TabIndex = 2
@@ -130,7 +135,7 @@ Partial Class CompanyInformationEntry
         'FaxLabel
         '
         Me.FaxLabel.AutoSize = True
-        Me.FaxLabel.Location = New System.Drawing.Point(12, 143)
+        Me.FaxLabel.Location = New System.Drawing.Point(12, 135)
         Me.FaxLabel.Name = "FaxLabel"
         Me.FaxLabel.Size = New System.Drawing.Size(51, 12)
         Me.FaxLabel.TabIndex = 2
@@ -144,37 +149,40 @@ Partial Class CompanyInformationEntry
         '
         Me.PostalCodeMaskedTextBox.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.PostalCodeMaskedTextBox.Location = New System.Drawing.Point(83, 40)
+        Me.PostalCodeMaskedTextBox.Location = New System.Drawing.Point(83, 32)
         Me.PostalCodeMaskedTextBox.Mask = "000-0000"
         Me.PostalCodeMaskedTextBox.Name = "PostalCodeMaskedTextBox"
         Me.PostalCodeMaskedTextBox.Size = New System.Drawing.Size(55, 19)
         Me.PostalCodeMaskedTextBox.TabIndex = 9
+        Me.ToolTip.SetToolTip(Me.PostalCodeMaskedTextBox, "郵便番号を入力します。")
         '
         'TellMaskedTextBox
         '
         Me.TellMaskedTextBox.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.TellMaskedTextBox.Location = New System.Drawing.Point(83, 114)
+        Me.TellMaskedTextBox.Location = New System.Drawing.Point(83, 106)
         Me.TellMaskedTextBox.Mask = "99900-9990-0000"
         Me.TellMaskedTextBox.Name = "TellMaskedTextBox"
         Me.TellMaskedTextBox.Size = New System.Drawing.Size(100, 19)
         Me.TellMaskedTextBox.TabIndex = 10
+        Me.ToolTip.SetToolTip(Me.TellMaskedTextBox, "電話番号をハイフン付きで入力します。")
         '
         'FaxMaskedTextBox
         '
         Me.FaxMaskedTextBox.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.FaxMaskedTextBox.Location = New System.Drawing.Point(83, 136)
+        Me.FaxMaskedTextBox.Location = New System.Drawing.Point(83, 128)
         Me.FaxMaskedTextBox.Mask = "99900-9990-0000"
         Me.FaxMaskedTextBox.Name = "FaxMaskedTextBox"
         Me.FaxMaskedTextBox.Size = New System.Drawing.Size(100, 19)
         Me.FaxMaskedTextBox.TabIndex = 10
+        Me.ToolTip.SetToolTip(Me.FaxMaskedTextBox, "FAX番号をハイフン付きで入力します。")
         '
         'CompanyInformationEntry
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(413, 209)
+        Me.ClientSize = New System.Drawing.Size(413, 187)
         Me.Controls.Add(Me.FaxMaskedTextBox)
         Me.Controls.Add(Me.TellMaskedTextBox)
         Me.Controls.Add(Me.PostalCodeMaskedTextBox)
@@ -212,4 +220,5 @@ Partial Class CompanyInformationEntry
     Friend WithEvents PostalCodeMaskedTextBox As MaskedTextBox
     Friend WithEvents FaxMaskedTextBox As MaskedTextBox
     Friend WithEvents TellMaskedTextBox As MaskedTextBox
+    Friend WithEvents ToolTip As ToolTip
 End Class

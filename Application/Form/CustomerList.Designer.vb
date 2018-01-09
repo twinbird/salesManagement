@@ -22,6 +22,7 @@ Partial Class CustomerList
     'コード エディターを使って変更しないでください。
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.CustomerDataGridView = New System.Windows.Forms.DataGridView()
         Me.NewCustomerEntryButton = New System.Windows.Forms.Button()
         Me.SearchCustomerNameTextBox = New System.Windows.Forms.TextBox()
@@ -37,6 +38,7 @@ Partial Class CustomerList
         Me.ClearSearchConditionButton = New System.Windows.Forms.Button()
         Me.StatusStrip = New System.Windows.Forms.StatusStrip()
         Me.ToolStripStatusLabel = New System.Windows.Forms.ToolStripStatusLabel()
+        Me.ToolTip = New System.Windows.Forms.ToolTip(Me.components)
         CType(Me.CustomerDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SearchGroupBox.SuspendLayout()
         Me.StatusStrip.SuspendLayout()
@@ -63,6 +65,7 @@ Partial Class CustomerList
         Me.NewCustomerEntryButton.Size = New System.Drawing.Size(132, 23)
         Me.NewCustomerEntryButton.TabIndex = 0
         Me.NewCustomerEntryButton.Text = "新しい顧客を追加"
+        Me.ToolTip.SetToolTip(Me.NewCustomerEntryButton, "新しい顧客を登録する画面を開きます。")
         Me.NewCustomerEntryButton.UseVisualStyleBackColor = True
         '
         'SearchCustomerNameTextBox
@@ -71,6 +74,7 @@ Partial Class CustomerList
         Me.SearchCustomerNameTextBox.Name = "SearchCustomerNameTextBox"
         Me.SearchCustomerNameTextBox.Size = New System.Drawing.Size(250, 19)
         Me.SearchCustomerNameTextBox.TabIndex = 0
+        Me.ToolTip.SetToolTip(Me.SearchCustomerNameTextBox, "顧客名を検索条件に指定します。" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "この条件は前方一致です。")
         '
         'SearchGroupBox
         '
@@ -98,6 +102,7 @@ Partial Class CustomerList
         Me.SearchPICComboBox.Name = "SearchPICComboBox"
         Me.SearchPICComboBox.Size = New System.Drawing.Size(138, 20)
         Me.SearchPICComboBox.TabIndex = 2
+        Me.ToolTip.SetToolTip(Me.SearchPICComboBox, "営業担当者を検索条件に指定します。")
         '
         'SearchAddressLabel
         '
@@ -142,6 +147,7 @@ Partial Class CustomerList
         Me.SearchButton.Size = New System.Drawing.Size(75, 23)
         Me.SearchButton.TabIndex = 5
         Me.SearchButton.Text = "検索"
+        Me.ToolTip.SetToolTip(Me.SearchButton, "検索して結果を下の表に表示します。")
         Me.SearchButton.UseVisualStyleBackColor = True
         '
         'SearchAddressTextBox
@@ -150,6 +156,7 @@ Partial Class CustomerList
         Me.SearchAddressTextBox.Name = "SearchAddressTextBox"
         Me.SearchAddressTextBox.Size = New System.Drawing.Size(250, 19)
         Me.SearchAddressTextBox.TabIndex = 3
+        Me.ToolTip.SetToolTip(Me.SearchAddressTextBox, "住所を検索条件に指定します。" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "この条件は住所1と住所2をつなげた文字に対する前方一致です。")
         '
         'SearchCustomerKanaNameTextBox
         '
@@ -157,6 +164,7 @@ Partial Class CustomerList
         Me.SearchCustomerKanaNameTextBox.Name = "SearchCustomerKanaNameTextBox"
         Me.SearchCustomerKanaNameTextBox.Size = New System.Drawing.Size(250, 19)
         Me.SearchCustomerKanaNameTextBox.TabIndex = 1
+        Me.ToolTip.SetToolTip(Me.SearchCustomerKanaNameTextBox, "顧客名(かな)を検索条件に指定します。" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "この条件は前方一致です。")
         '
         'ClearSearchConditionButton
         '
@@ -165,6 +173,7 @@ Partial Class CustomerList
         Me.ClearSearchConditionButton.Size = New System.Drawing.Size(75, 23)
         Me.ClearSearchConditionButton.TabIndex = 4
         Me.ClearSearchConditionButton.Text = "クリア"
+        Me.ToolTip.SetToolTip(Me.ClearSearchConditionButton, "検索条件をクリアします。")
         Me.ClearSearchConditionButton.UseVisualStyleBackColor = True
         '
         'StatusStrip
@@ -218,4 +227,5 @@ Partial Class CustomerList
     Friend WithEvents SearchPICComboBox As ComboBox
     Friend WithEvents StatusStrip As StatusStrip
     Friend WithEvents ToolStripStatusLabel As ToolStripStatusLabel
+    Friend WithEvents ToolTip As ToolTip
 End Class

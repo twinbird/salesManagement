@@ -40,6 +40,7 @@ Partial Class CustomerEntry
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Address2TextBox = New System.Windows.Forms.TextBox()
         Me.PostalCodeMaskedTextBox = New System.Windows.Forms.MaskedTextBox()
+        Me.ToolTip = New System.Windows.Forms.ToolTip(Me.components)
         CType(Me.ErrorProvider, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -51,7 +52,7 @@ Partial Class CustomerEntry
         Me.CompanyNameLabel.Name = "CompanyNameLabel"
         Me.CompanyNameLabel.Size = New System.Drawing.Size(41, 12)
         Me.CompanyNameLabel.TabIndex = 1
-        Me.CompanyNameLabel.Text = "会社名"
+        Me.CompanyNameLabel.Text = "顧客名"
         '
         'CustomerNameTextBox
         '
@@ -61,6 +62,7 @@ Partial Class CustomerEntry
         Me.CustomerNameTextBox.Name = "CustomerNameTextBox"
         Me.CustomerNameTextBox.Size = New System.Drawing.Size(261, 19)
         Me.CustomerNameTextBox.TabIndex = 0
+        Me.ToolTip.SetToolTip(Me.CustomerNameTextBox, "顧客名を入力します。" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "最大100文字まで入力できます。")
         '
         'PICLabel
         '
@@ -103,7 +105,7 @@ Partial Class CustomerEntry
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(69, 12)
         Me.Label1.TabIndex = 1
-        Me.Label1.Text = "会社名(かな)"
+        Me.Label1.Text = "顧客名(かな)"
         '
         'CustomerKanaNameTextBox
         '
@@ -113,6 +115,7 @@ Partial Class CustomerEntry
         Me.CustomerKanaNameTextBox.Name = "CustomerKanaNameTextBox"
         Me.CustomerKanaNameTextBox.Size = New System.Drawing.Size(261, 19)
         Me.CustomerKanaNameTextBox.TabIndex = 1
+        Me.ToolTip.SetToolTip(Me.CustomerKanaNameTextBox, "顧客名(かな)を入力します。" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "最大100文字まで入力できます。")
         '
         'PICComboBox
         '
@@ -123,6 +126,7 @@ Partial Class CustomerEntry
         Me.PICComboBox.Name = "PICComboBox"
         Me.PICComboBox.Size = New System.Drawing.Size(112, 20)
         Me.PICComboBox.TabIndex = 2
+        Me.ToolTip.SetToolTip(Me.PICComboBox, "営業担当者を選びます。" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "選択肢に無い場合は「従業員台帳」へ新しい従業員を登録してください。")
         '
         'PaymentConditionComboBox
         '
@@ -133,6 +137,7 @@ Partial Class CustomerEntry
         Me.PaymentConditionComboBox.Name = "PaymentConditionComboBox"
         Me.PaymentConditionComboBox.Size = New System.Drawing.Size(261, 20)
         Me.PaymentConditionComboBox.TabIndex = 3
+        Me.ToolTip.SetToolTip(Me.PaymentConditionComboBox, "この顧客の標準の支払条件を選びます。" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "選択肢に無い場合は「支払条件の管理」から新しい支払条件を追加してください。")
         '
         'Label2
         '
@@ -160,6 +165,7 @@ Partial Class CustomerEntry
         Me.Address1TextBox.Name = "Address1TextBox"
         Me.Address1TextBox.Size = New System.Drawing.Size(261, 19)
         Me.Address1TextBox.TabIndex = 5
+        Me.ToolTip.SetToolTip(Me.Address1TextBox, "この顧客の住所を入力します。" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "50文字まで入力できます。" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "この住所は見積書などで1段目に表示されます。")
         '
         'Label4
         '
@@ -178,6 +184,7 @@ Partial Class CustomerEntry
         Me.Address2TextBox.Name = "Address2TextBox"
         Me.Address2TextBox.Size = New System.Drawing.Size(261, 19)
         Me.Address2TextBox.TabIndex = 6
+        Me.ToolTip.SetToolTip(Me.Address2TextBox, "この顧客の住所を入力します。" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "50文字まで入力できます。" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "この住所は見積書などで2段目に表示されます。" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10))
         '
         'PostalCodeMaskedTextBox
         '
@@ -188,6 +195,7 @@ Partial Class CustomerEntry
         Me.PostalCodeMaskedTextBox.Name = "PostalCodeMaskedTextBox"
         Me.PostalCodeMaskedTextBox.Size = New System.Drawing.Size(100, 19)
         Me.PostalCodeMaskedTextBox.TabIndex = 4
+        Me.ToolTip.SetToolTip(Me.PostalCodeMaskedTextBox, "この顧客の所在地の郵便番号を入力します。")
         '
         'CustomerEntry
         '
@@ -234,4 +242,5 @@ Partial Class CustomerEntry
     Friend WithEvents Label3 As Label
     Friend WithEvents Label2 As Label
     Friend WithEvents PostalCodeMaskedTextBox As MaskedTextBox
+    Friend WithEvents ToolTip As ToolTip
 End Class

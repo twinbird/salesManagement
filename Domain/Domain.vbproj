@@ -62,6 +62,7 @@
     <Compile Include="DomainObject\PaymentCondition.vb" />
     <Compile Include="Repository\CustomerRepositorySearchCondition.vb" />
     <Compile Include="Repository\EmployeeRepositorySearchCondition.vb" />
+    <Compile Include="Repository\ICompanyInformationRepository.vb" />
     <Compile Include="Repository\ICustomerRepository.vb" />
     <Compile Include="Repository\IEmployeeRepository.vb" />
     <Compile Include="Repository\IPaymentConditionRepository.vb" />

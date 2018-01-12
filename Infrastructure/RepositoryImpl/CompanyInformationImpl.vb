@@ -40,6 +40,8 @@ Public Class CompanyInformationImpl
                 .AppendLine("   ,address2 AS address2")
                 .AppendLine("   ,tel AS tel")
                 .AppendLine("   ,fax AS fax")
+                .AppendLine("FROM")
+                .AppendLine("   company_information")
             End With
 
             Dim dt = q.ExecQuery

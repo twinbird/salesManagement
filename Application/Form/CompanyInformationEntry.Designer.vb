@@ -49,7 +49,7 @@ Partial Class CompanyInformationEntry
         Me.EntryButton.Location = New System.Drawing.Point(322, 152)
         Me.EntryButton.Name = "EntryButton"
         Me.EntryButton.Size = New System.Drawing.Size(75, 23)
-        Me.EntryButton.TabIndex = 8
+        Me.EntryButton.TabIndex = 6
         Me.EntryButton.Text = "更新"
         Me.ToolTip.SetToolTip(Me.EntryButton, "表示中の内容で自社情報を更新します。")
         Me.EntryButton.UseVisualStyleBackColor = True
@@ -62,7 +62,7 @@ Partial Class CompanyInformationEntry
         Me.NameTextBox.MaxLength = 50
         Me.NameTextBox.Name = "NameTextBox"
         Me.NameTextBox.Size = New System.Drawing.Size(314, 19)
-        Me.NameTextBox.TabIndex = 1
+        Me.NameTextBox.TabIndex = 0
         Me.ToolTip.SetToolTip(Me.NameTextBox, "自社名を入力します。" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "100文字まで入力できます。" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "見積書などの書類に印刷されます。")
         '
         'NameLabel
@@ -91,7 +91,7 @@ Partial Class CompanyInformationEntry
         Me.Address1TextBox.MaxLength = 50
         Me.Address1TextBox.Name = "Address1TextBox"
         Me.Address1TextBox.Size = New System.Drawing.Size(314, 19)
-        Me.Address1TextBox.TabIndex = 3
+        Me.Address1TextBox.TabIndex = 2
         Me.ToolTip.SetToolTip(Me.Address1TextBox, "住所を入力します。" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "50文字まで入力できます。" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "見積書などの書類で上の段に表示されます。")
         '
         'Address1Label
@@ -120,7 +120,7 @@ Partial Class CompanyInformationEntry
         Me.Address2TextBox.MaxLength = 50
         Me.Address2TextBox.Name = "Address2TextBox"
         Me.Address2TextBox.Size = New System.Drawing.Size(314, 19)
-        Me.Address2TextBox.TabIndex = 4
+        Me.Address2TextBox.TabIndex = 3
         Me.ToolTip.SetToolTip(Me.Address2TextBox, "住所を入力します。" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "50文字まで入力できます。" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "見積書などの書類で下の段に表示されます。")
         '
         'Address2Label
@@ -154,7 +154,7 @@ Partial Class CompanyInformationEntry
         Me.PostalCodeMaskedTextBox.Mask = "000-0000"
         Me.PostalCodeMaskedTextBox.Name = "PostalCodeMaskedTextBox"
         Me.PostalCodeMaskedTextBox.Size = New System.Drawing.Size(55, 19)
-        Me.PostalCodeMaskedTextBox.TabIndex = 9
+        Me.PostalCodeMaskedTextBox.TabIndex = 1
         Me.ToolTip.SetToolTip(Me.PostalCodeMaskedTextBox, "郵便番号を入力します。")
         '
         'TellMaskedTextBox
@@ -165,7 +165,7 @@ Partial Class CompanyInformationEntry
         Me.TellMaskedTextBox.Mask = "99900-9990-0000"
         Me.TellMaskedTextBox.Name = "TellMaskedTextBox"
         Me.TellMaskedTextBox.Size = New System.Drawing.Size(100, 19)
-        Me.TellMaskedTextBox.TabIndex = 10
+        Me.TellMaskedTextBox.TabIndex = 4
         Me.ToolTip.SetToolTip(Me.TellMaskedTextBox, "電話番号をハイフン付きで入力します。")
         '
         'FaxMaskedTextBox
@@ -176,7 +176,7 @@ Partial Class CompanyInformationEntry
         Me.FaxMaskedTextBox.Mask = "99900-9990-0000"
         Me.FaxMaskedTextBox.Name = "FaxMaskedTextBox"
         Me.FaxMaskedTextBox.Size = New System.Drawing.Size(100, 19)
-        Me.FaxMaskedTextBox.TabIndex = 10
+        Me.FaxMaskedTextBox.TabIndex = 5
         Me.ToolTip.SetToolTip(Me.FaxMaskedTextBox, "FAX番号をハイフン付きで入力します。")
         '
         'CompanyInformationEntry

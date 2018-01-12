@@ -242,6 +242,11 @@ Public Class CompanyInformation
             Return
         End If
 
+        '未入力ならチェック打ち切り
+        If _PostalCode = String.Empty Then
+            Return
+        End If
+
         '郵便番号の形式を確認
         If Text.RegularExpressions.Regex.IsMatch(
             _PostalCode,

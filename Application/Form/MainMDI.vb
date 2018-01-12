@@ -101,6 +101,14 @@ Public Class MainMDI
         ChildForm.Show()
     End Sub
 
+    Private Sub 自社情報の設定SToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles 自社情報の設定SToolStripMenuItem.Click
+        ' 子フォームの新しいインスタンスを作成します
+        Dim ChildForm As New CompanyInformationEntry
+        ' 表示する前に、この MDI フォームの子に設定します
+        ChildForm.MdiParent = Me
+        ChildForm.Show()
+    End Sub
+
 
 #End Region
 

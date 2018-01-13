@@ -65,14 +65,14 @@ Public Class EmployeeList
     ''' <param name="e"></param>
     Private Sub EmployeeDataGridView_EditButtonClick(sender As Object, e As DataGridViewCellEventArgs)
         Dim gridview = DirectCast(sender, DataGridView)
-        Dim empDTO As EmployeeGridViewDTO = DirectCast(gridview.CurrentRow.DataBoundItem, EmployeeGridViewDTO)
+        Dim empPres As EmployeeGridViewPresentation = DirectCast(gridview.CurrentRow.DataBoundItem, EmployeeGridViewPresentation)
 
         Dim form As New EmployeeEntry
         form.MdiParent = Me.MdiParent
         '画面を閉じた際のコールバックを設定
         AddHandler form.FormClosed, AddressOf UpdateEmployeeListGridView
         '編集するモデルを設定
-        form.EditEmployee = empDTO.GetEmployee
+        form.EditEmployee = empPres.GetEmployee
         form.Show()
     End Sub
 
@@ -204,19 +204,19 @@ Public Class EmployeeList
         Dim emps = repo.FindEmployeeByCondition(cond)
 
         'データバインディング用オブジェクトへ変換
-        Dim dtos = New List(Of EmployeeGridViewDTO)
+        Dim presentation = New List(Of EmployeeGridViewPresentation)
         For Each emp As Domain.Employee In emps
-            dtos.Add(New EmployeeGridViewDTO(emp))
+            presentation.Add(New EmployeeGridViewPresentation(emp))
         Next
         'GridViewへデータを設定
-        Dim bindList = New SortableBindingList(Of EmployeeGridViewDTO)(dtos)
+        Dim bindList = New SortableBindingList(Of EmployeeGridViewPresentation)(presentation)
         EmployeeDataGridView.DataSource = bindList
     End Sub
 
     ''' <summary>
     ''' DataGridView表示用オブジェクト
     ''' </summary>
-    Private Class EmployeeGridViewDTO
+    Private Class EmployeeGridViewPresentation
 
         Private ReadOnly _Employee As Domain.Employee
 

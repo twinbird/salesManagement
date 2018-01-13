@@ -8,6 +8,12 @@ Imports System.Collections.Generic
 Public Interface ISalesTaxRepository
 
     ''' <summary>
+    ''' 最後に新規追加したIDを返す
+    ''' </summary>
+    ''' <returns></returns>
+    Function LastInsertID() As Integer
+
+    ''' <summary>
     ''' 引数を永続化する
     ''' </summary>
     ''' <param name="tax"></param>

@@ -60,12 +60,14 @@
     <Compile Include="DomainObject\Customer.vb" />
     <Compile Include="DomainObject\Employee.vb" />
     <Compile Include="DomainObject\PaymentCondition.vb" />
+    <Compile Include="DomainObject\SalesTax.vb" />
     <Compile Include="Repository\CustomerRepositorySearchCondition.vb" />
     <Compile Include="Repository\EmployeeRepositorySearchCondition.vb" />
     <Compile Include="Repository\ICompanyInformationRepository.vb" />
     <Compile Include="Repository\ICustomerRepository.vb" />
     <Compile Include="Repository\IEmployeeRepository.vb" />
     <Compile Include="Repository\IPaymentConditionRepository.vb" />
+    <Compile Include="Repository\ISalesTaxRepository.vb" />
     <Compile Include="Repository\PaymentConditionRepositorySearchCondition.vb" />
   </ItemGroup>
   <ItemGroup>

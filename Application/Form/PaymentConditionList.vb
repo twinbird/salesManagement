@@ -65,14 +65,14 @@ Public Class PaymentConditionList
     ''' <param name="e"></param>
     Private Sub PaymentConditionDataGridView_EditButtonClick(sender As Object, e As DataGridViewCellEventArgs)
         Dim gridview = DirectCast(sender, DataGridView)
-        Dim payDTO As PaymentConditionGridViewDTO = DirectCast(gridview.CurrentRow.DataBoundItem, PaymentConditionGridViewDTO)
+        Dim payPres As PaymentConditionGridViewPresentation = DirectCast(gridview.CurrentRow.DataBoundItem, PaymentConditionGridViewPresentation)
 
         Dim form As New PaymentConditionEntry
         form.MdiParent = Me.MdiParent
         '画面を閉じた際のコールバックを設定
         AddHandler form.FormClosed, AddressOf UpdatePaymentConditionListGridView
         '編集するモデルを設定
-        form.EditPaymentCondition = payDTO.GetPaymentCondition
+        form.EditPaymentCondition = payPres.GetPaymentCondition
         form.Show()
     End Sub
 
@@ -209,19 +209,19 @@ Public Class PaymentConditionList
         Dim pays = repo.FindPaymentConditionByCondition(cond)
 
         'データバインディング用オブジェクトへ変換
-        Dim dtos = New List(Of PaymentConditionGridViewDTO)
+        Dim presentation = New List(Of PaymentConditionGridViewPresentation)
         For Each pay As Domain.PaymentCondition In pays
-            dtos.Add(New PaymentConditionGridViewDTO(pay))
+            presentation.Add(New PaymentConditionGridViewPresentation(pay))
         Next
         'GridViewへデータを設定
-        Dim bindList = New SortableBindingList(Of PaymentConditionGridViewDTO)(dtos)
+        Dim bindList = New SortableBindingList(Of PaymentConditionGridViewPresentation)(presentation)
         PaymentConditionDataGridView.DataSource = bindList
     End Sub
 
     ''' <summary>
     ''' DataGridView表示用オブジェクト
     ''' </summary>
-    Private Class PaymentConditionGridViewDTO
+    Private Class PaymentConditionGridViewPresentation
 
         Private ReadOnly _PaymentCondition As Domain.PaymentCondition
 

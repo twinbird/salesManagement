@@ -249,6 +249,8 @@ Public Class CustomerRepositoryImpl
     ''' <returns></returns>
     Private Function Create(c As Customer) As Boolean
         Using accessor As New ADOWrapper.DBAccessor()
+            accessor.BeginTransaction()
+
             Dim q = accessor.CreateQuery
             With q.Query
                 .AppendLine("INSERT INTO customers(")
@@ -287,8 +289,21 @@ Public Class CustomerRepositoryImpl
             Dim ret = q.ExecNonQuery
 
             If ret <> 1 Then
+                accessor.RollBack()
                 Return False
             End If
+
+            Dim check_q = accessor.CreateQuery
+            With check_q.Query
+                .AppendLine("SELECT")
+                .AppendLine("   last_insert_rowid()")
+            End With
+
+            Dim check_ret = check_q.ExecScalar
+            _LastInsertId = CType(check_ret, Integer)
+
+            accessor.Commit()
+
             Return True
         End Using
     End Function

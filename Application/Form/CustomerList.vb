@@ -65,14 +65,14 @@ Public Class CustomerList
     ''' <param name="e"></param>
     Private Sub CustomerDataGridView_EditButtonClick(sender As Object, e As DataGridViewCellEventArgs)
         Dim gridview = DirectCast(sender, DataGridView)
-        Dim custDTO As CustomerGridViewDTO = DirectCast(gridview.CurrentRow.DataBoundItem, CustomerGridViewDTO)
+        Dim custPres As CustomerGridViewPresentation = DirectCast(gridview.CurrentRow.DataBoundItem, CustomerGridViewPresentation)
 
         Dim form As New CustomerEntry
         form.MdiParent = Me.MdiParent
         '画面を閉じた際のコールバックを設定
         AddHandler form.FormClosed, AddressOf UpdateCustomerListGridView
         '編集するモデルを設定
-        form.EditCustomer = custDTO.GetCustomer
+        form.EditCustomer = custPres.GetCustomer
         form.Show()
     End Sub
 
@@ -276,19 +276,19 @@ Public Class CustomerList
         Dim custs = repo.FindCustomerByCondition(cond)
 
         'データバインディング用オブジェクトへ変換
-        Dim dtos = New List(Of CustomerGridViewDTO)
+        Dim presentation = New List(Of CustomerGridViewPresentation)
         For Each cust As Domain.Customer In custs
-            dtos.Add(New CustomerGridViewDTO(cust))
+            presentation.Add(New CustomerGridViewPresentation(cust))
         Next
         'GridViewへデータを設定
-        Dim bindList = New SortableBindingList(Of CustomerGridViewDTO)(dtos)
+        Dim bindList = New SortableBindingList(Of CustomerGridViewPresentation)(presentation)
         CustomerDataGridView.DataSource = bindList
     End Sub
 
     ''' <summary>
     ''' DataGridView表示用オブジェクト
     ''' </summary>
-    Private Class CustomerGridViewDTO
+    Private Class CustomerGridViewPresentation
 
         Private ReadOnly _Customer As Domain.Customer
 

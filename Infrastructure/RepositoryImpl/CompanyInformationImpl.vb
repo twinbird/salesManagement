@@ -169,7 +169,7 @@ Public Class CompanyInformationImpl
                 .AppendLine(",address2 = @address2")
                 .AppendLine(",tel = @tel")
                 .AppendLine(",fax = @fax")
-                .AppendLine(",created_at = @created_at")
+                .AppendLine(",updated_at = @updated_at")
             End With
 
             With q.Parameters
@@ -179,7 +179,7 @@ Public Class CompanyInformationImpl
                 .Add("@address2", c.Address2)
                 .Add("@tel", c.TEL)
                 .Add("@fax", c.FAX)
-                .Add("@created_at", DateTime.Now)
+                .Add("@updated_at", DateTime.Now)
             End With
 
             Dim ret = q.ExecNonQuery

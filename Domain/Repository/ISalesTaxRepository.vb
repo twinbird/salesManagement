@@ -21,6 +21,13 @@ Public Interface ISalesTaxRepository
     Function Save(ByVal tax As SalesTax) As Boolean
 
     ''' <summary>
+    ''' 引数を永続化する
+    ''' </summary>
+    ''' <param name="taxes"></param>
+    ''' <returns></returns>
+    Function Save(ByVal taxes As List(Of SalesTax)) As Boolean
+
+    ''' <summary>
     ''' 指定日付の適用税率を取得する
     ''' </summary>
     ''' <param name="d"></param>

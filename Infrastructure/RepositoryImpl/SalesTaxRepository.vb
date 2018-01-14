@@ -21,12 +21,53 @@ Public Class SalesTaxRepository
     ''' <param name="tax"></param>
     ''' <returns></returns>
     Public Function Save(tax As SalesTax) As Boolean Implements ISalesTaxRepository.Save
-        '登録済みなら更新/そうでなければ新規登録
-        If IsExist(tax) = True Then
-            Return Update(tax)
-        Else
-            Return Create(tax)
-        End If
+        Using accessor As New ADOWrapper.DBAccessor
+            accessor.BeginTransaction()
+            '登録済みなら更新/そうでなければ新規登録
+            If IsExist(accessor, tax) = True Then
+                If Update(accessor, tax) = False Then
+                    accessor.RollBack()
+                    Return False
+                End If
+            Else
+                If Create(accessor, tax) = False Then
+                    accessor.RollBack()
+                    Return False
+                End If
+            End If
+            accessor.Commit()
+        End Using
+    End Function
+
+    ''' <summary>
+    ''' 引数を永続化する
+    ''' </summary>
+    ''' <param name="taxes"></param>
+    ''' <returns></returns>
+    Public Function Save(taxes As List(Of SalesTax)) As Boolean Implements ISalesTaxRepository.Save
+        Using accessor As New ADOWrapper.DBAccessor
+
+            accessor.BeginTransaction()
+
+            For Each t As SalesTax In taxes
+                '登録済みなら更新/そうでなければ新規登録
+                If IsExist(accessor, t) = True Then
+                    If Update(accessor, t) = False Then
+                        accessor.RollBack()
+                        Return False
+                    End If
+                Else
+                    If Create(accessor, t) = False Then
+                        accessor.RollBack()
+                        Return False
+                    End If
+                End If
+            Next
+
+            accessor.Commit()
+
+        End Using
+        Return True
     End Function
 
     ''' <summary>
@@ -150,50 +191,43 @@ Public Class SalesTaxRepository
     ''' </summary>
     ''' <param name="t"></param>
     ''' <returns></returns>
-    Private Function Create(ByVal t As SalesTax) As Boolean
-        Using accessor As New ADOWrapper.DBAccessor()
-            accessor.BeginTransaction()
+    Private Function Create(ByVal accessor As ADOWrapper.DBAccessor, ByVal t As SalesTax) As Boolean
+        Dim q = accessor.CreateQuery
+        With q.Query
+            .AppendLine("INSERT INTO sales_taxes(")
+            .AppendLine(" apply_start_date")
+            .AppendLine(",rate")
+            .AppendLine(",created_at")
+            .AppendLine(")")
+            .AppendLine("VALUES(")
+            .AppendLine(" @apply_start_date")
+            .AppendLine(",@rate")
+            .AppendLine(",@created_at")
+            .AppendLine(")")
+        End With
 
-            Dim q = accessor.CreateQuery
-            With q.Query
-                .AppendLine("INSERT INTO sales_taxes(")
-                .AppendLine(" apply_start_date")
-                .AppendLine(",rate")
-                .AppendLine(",created_at")
-                .AppendLine(")")
-                .AppendLine("VALUES(")
-                .AppendLine(" @apply_start_date")
-                .AppendLine(",@rate")
-                .AppendLine(",@created_at")
-                .AppendLine(")")
-            End With
+        With q.Parameters
+            .Add("@apply_start_date", t.ApplyStartDate)
+            .Add("@rate", t.TaxRate)
+            .Add("@created_at", DateTime.Now)
+        End With
 
-            With q.Parameters
-                .Add("@name", t.ApplyStartDate)
-                .Add("@rate", t.TaxRate)
-                .Add("@created_at", DateTime.Now)
-            End With
-
-            Dim ret = q.ExecNonQuery
-            If ret <> 1 Then
-                accessor.RollBack()
-                Return False
-            End If
+        Dim ret = q.ExecNonQuery
+        If ret <> 1 Then
+            Return False
+        End If
 
 
-            Dim check_q = accessor.CreateQuery
-            With check_q.Query
-                .AppendLine("SELECT")
-                .AppendLine("   last_insert_rowid()")
-            End With
+        Dim check_q = accessor.CreateQuery
+        With check_q.Query
+            .AppendLine("SELECT")
+            .AppendLine("   last_insert_rowid()")
+        End With
 
-            Dim check_ret = check_q.ExecScalar
-            _LastInsertID = CType(check_ret, Integer)
+        Dim check_ret = check_q.ExecScalar
+        _LastInsertID = CType(check_ret, Integer)
 
-            accessor.Commit()
-
-            Return True
-        End Using
+        Return True
     End Function
 
 #End Region
@@ -205,33 +239,31 @@ Public Class SalesTaxRepository
     ''' </summary>
     ''' <param name="c"></param>
     ''' <returns></returns>
-    Private Function IsExist(ByVal t As SalesTax) As Boolean
-        Using accessor As New ADOWrapper.DBAccessor
-            Dim q = accessor.CreateQuery
-            With q.Query
-                .AppendLine("SELECT")
-                .AppendLine("    COUNT(id) AS count")
-                .AppendLine("FROM")
-                .AppendLine("   sales_taxes")
-                .AppendLine("WHERE")
-                .AppendLine("   id = @id")
-            End With
+    Private Function IsExist(ByVal accessor As ADOWrapper.DBAccessor, ByVal t As SalesTax) As Boolean
+        Dim q = accessor.CreateQuery
+        With q.Query
+            .AppendLine("SELECT")
+            .AppendLine("    COUNT(id) AS count")
+            .AppendLine("FROM")
+            .AppendLine("   sales_taxes")
+            .AppendLine("WHERE")
+            .AppendLine("   id = @id")
+        End With
 
-            With q.Parameters
-                .Add("@id", t.ID)
-            End With
+        With q.Parameters
+            .Add("@id", t.ID)
+        End With
 
-            Dim count = q.ExecScalar
-            If count Is Nothing Then
-                Return False
-            End If
+        Dim count = q.ExecScalar
+        If count Is Nothing Then
+            Return False
+        End If
 
-            If CInt(count) = 0 Then
-                Return False
-            End If
+        If CInt(count) = 0 Then
+            Return False
+        End If
 
-            Return True
-        End Using
+        Return True
     End Function
 
 #End Region
@@ -243,31 +275,29 @@ Public Class SalesTaxRepository
     ''' </summary>
     ''' <param name="t"></param>
     ''' <returns></returns>
-    Private Function Update(ByVal t As SalesTax) As Boolean
-        Using accessor As New ADOWrapper.DBAccessor()
-            Dim q = accessor.CreateQuery
-            With q.Query
-                .AppendLine("UPDATE")
-                .AppendLine("    sales_taxes")
-                .AppendLine("SET")
-                .AppendLine(" apply_start_date = @apply_start_date")
-                .AppendLine(",rate = @rate")
-                .AppendLine(",updated_at = @updated_at")
-            End With
+    Private Function Update(ByVal accessor As ADOWrapper.DBAccessor, ByVal t As SalesTax) As Boolean
+        Dim q = accessor.CreateQuery
+        With q.Query
+            .AppendLine("UPDATE")
+            .AppendLine("    sales_taxes")
+            .AppendLine("SET")
+            .AppendLine(" apply_start_date = @apply_start_date")
+            .AppendLine(",rate = @rate")
+            .AppendLine(",updated_at = @updated_at")
+        End With
 
-            With q.Parameters
-                .Add("@apply_start_date", t.ApplyStartDate)
-                .Add("@rate", t.TaxRate)
-                .Add("@updated_at", DateTime.Now)
-            End With
+        With q.Parameters
+            .Add("@apply_start_date", t.ApplyStartDate)
+            .Add("@rate", t.TaxRate)
+            .Add("@updated_at", DateTime.Now)
+        End With
 
-            Dim ret = q.ExecNonQuery
+        Dim ret = q.ExecNonQuery
 
-            If ret <> 1 Then
-                Return False
-            End If
-            Return True
-        End Using
+        If ret <> 1 Then
+            Return False
+        End If
+        Return True
 
     End Function
 

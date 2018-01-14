@@ -22,25 +22,29 @@ Partial Class SalesTaxRateEntry
     'コード エディターを使って変更しないでください。
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.components = New System.ComponentModel.Container()
+        Me.SalesTaxDataGridView = New System.Windows.Forms.DataGridView()
         Me.ApplyDate = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Rate = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.EntryButton = New System.Windows.Forms.Button()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.ErrorProvider = New System.Windows.Forms.ErrorProvider(Me.components)
+        Me.NewRowAddButton = New System.Windows.Forms.Button()
+        CType(Me.SalesTaxDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ErrorProvider, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
-        'DataGridView1
+        'SalesTaxDataGridView
         '
-        Me.DataGridView1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+        Me.SalesTaxDataGridView.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.ApplyDate, Me.Rate})
-        Me.DataGridView1.Location = New System.Drawing.Point(12, 9)
-        Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.RowTemplate.Height = 21
-        Me.DataGridView1.Size = New System.Drawing.Size(265, 298)
-        Me.DataGridView1.TabIndex = 0
+        Me.SalesTaxDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.SalesTaxDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.ApplyDate, Me.Rate})
+        Me.SalesTaxDataGridView.Location = New System.Drawing.Point(12, 9)
+        Me.SalesTaxDataGridView.Name = "SalesTaxDataGridView"
+        Me.SalesTaxDataGridView.RowTemplate.Height = 21
+        Me.SalesTaxDataGridView.Size = New System.Drawing.Size(265, 298)
+        Me.SalesTaxDataGridView.TabIndex = 0
         '
         'ApplyDate
         '
@@ -62,22 +66,40 @@ Partial Class SalesTaxRateEntry
         Me.EntryButton.Text = "登録"
         Me.EntryButton.UseVisualStyleBackColor = True
         '
+        'ErrorProvider
+        '
+        Me.ErrorProvider.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink
+        Me.ErrorProvider.ContainerControl = Me
+        '
+        'NewRowAddButton
+        '
+        Me.NewRowAddButton.Location = New System.Drawing.Point(98, 313)
+        Me.NewRowAddButton.Name = "NewRowAddButton"
+        Me.NewRowAddButton.Size = New System.Drawing.Size(86, 26)
+        Me.NewRowAddButton.TabIndex = 2
+        Me.NewRowAddButton.Text = "行を追加"
+        Me.NewRowAddButton.UseVisualStyleBackColor = True
+        '
         'SalesTaxRateEntry
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(289, 350)
+        Me.Controls.Add(Me.NewRowAddButton)
         Me.Controls.Add(Me.EntryButton)
-        Me.Controls.Add(Me.DataGridView1)
+        Me.Controls.Add(Me.SalesTaxDataGridView)
         Me.Name = "SalesTaxRateEntry"
         Me.Text = "消費税の設定"
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.SalesTaxDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ErrorProvider, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
 
-    Friend WithEvents DataGridView1 As DataGridView
+    Friend WithEvents SalesTaxDataGridView As DataGridView
     Friend WithEvents ApplyDate As DataGridViewTextBoxColumn
     Friend WithEvents Rate As DataGridViewTextBoxColumn
     Friend WithEvents EntryButton As Button
+    Friend WithEvents ErrorProvider As ErrorProvider
+    Friend WithEvents NewRowAddButton As Button
 End Class

@@ -109,6 +109,13 @@ Public Class MainMDI
         ChildForm.Show()
     End Sub
 
+    Private Sub 消費税の設定TToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles 消費税の設定TToolStripMenuItem.Click
+        ' 子フォームの新しいインスタンスを作成します
+        Dim ChildForm As New SalesTaxRateEntry
+        ' 表示する前に、この MDI フォームの子に設定します
+        ChildForm.MdiParent = Me
+        ChildForm.Show()
+    End Sub
 
 #End Region
 

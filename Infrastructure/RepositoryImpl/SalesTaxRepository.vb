@@ -207,9 +207,9 @@ Public Class SalesTaxRepository
         End With
 
         With q.Parameters
-            .Add("@apply_start_date", t.ApplyStartDate)
+            .Add("@apply_start_date", t.ApplyStartDate.ToString("yyyy-MM-dd HH:mm:ss"))
             .Add("@rate", t.TaxRate)
-            .Add("@created_at", DateTime.Now)
+            .Add("@created_at", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"))
         End With
 
         Dim ret = q.ExecNonQuery
@@ -287,9 +287,9 @@ Public Class SalesTaxRepository
         End With
 
         With q.Parameters
-            .Add("@apply_start_date", t.ApplyStartDate)
+            .Add("@apply_start_date", t.ApplyStartDate.ToString("yyyy-MM-dd HH:mm:ss"))
             .Add("@rate", t.TaxRate)
-            .Add("@updated_at", DateTime.Now)
+            .Add("@updated_at", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"))
         End With
 
         Dim ret = q.ExecNonQuery

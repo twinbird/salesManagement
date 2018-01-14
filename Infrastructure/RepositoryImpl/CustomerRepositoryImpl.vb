@@ -283,7 +283,7 @@ Public Class CustomerRepositoryImpl
                 .Add("@postal_code", c.PostalCode)
                 .Add("@address1", c.Address1)
                 .Add("@address2", c.Address2)
-                .Add("@created_at", DateTime.Now)
+                .Add("@created_at", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"))
             End With
 
             Dim ret = q.ExecNonQuery
@@ -377,7 +377,7 @@ Public Class CustomerRepositoryImpl
                 .Add("@postal_code", c.PostalCode)
                 .Add("@address1", c.Address1)
                 .Add("@address2", c.Address2)
-                .Add("@updated_at", DateTime.Now)
+                .Add("@updated_at", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"))
                 .Add("@id", c.ID)
             End With
 

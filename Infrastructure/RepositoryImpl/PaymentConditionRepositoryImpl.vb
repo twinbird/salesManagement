@@ -286,7 +286,7 @@ Public Class PaymentConditionRepositoryImpl
                 .Add("@cut_off", pc.CutOff)
                 .Add("@due_date", pc.DueDate)
                 .Add("@month_offset", pc.MonthOffset)
-                .Add("@created_at", DateTime.Now)
+                .Add("@created_at", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"))
             End With
 
             Dim ret = q.ExecNonQuery
@@ -376,7 +376,7 @@ Public Class PaymentConditionRepositoryImpl
                 .Add("@cut_off", e.CutOff)
                 .Add("@due_date", e.DueDate)
                 .Add("@month_offset", e.MonthOffset)
-                .Add("@updated_at", DateTime.Now)
+                .Add("@updated_at", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"))
                 .Add("@id", e.ID)
             End With
 

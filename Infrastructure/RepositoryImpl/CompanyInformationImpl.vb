@@ -101,7 +101,7 @@ Public Class CompanyInformationImpl
                 .Add("@address2", c.Address2)
                 .Add("@tel", c.TEL)
                 .Add("@fax", c.FAX)
-                .Add("@created_at", DateTime.Now)
+                .Add("@created_at", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"))
             End With
 
             Dim ret = q.ExecNonQuery
@@ -179,7 +179,7 @@ Public Class CompanyInformationImpl
                 .Add("@address2", c.Address2)
                 .Add("@tel", c.TEL)
                 .Add("@fax", c.FAX)
-                .Add("@updated_at", DateTime.Now)
+                .Add("@updated_at", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"))
             End With
 
             Dim ret = q.ExecNonQuery

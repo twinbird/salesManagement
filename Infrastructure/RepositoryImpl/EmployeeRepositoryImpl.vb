@@ -301,7 +301,7 @@ Public Class EmployeeRepositoryImpl
                 .Add("@employee_number", e.EmployeeNo)
                 .Add("@name", e.Name)
                 .Add("@name_kana", e.NameKana)
-                .Add("@created_at", DateTime.Now)
+                .Add("@created_at", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"))
             End With
 
             Dim ret = q.ExecNonQuery
@@ -389,7 +389,7 @@ Public Class EmployeeRepositoryImpl
                 .Add("@employee_number", e.EmployeeNo)
                 .Add("@name", e.Name)
                 .Add("@name_kana", e.NameKana)
-                .Add("@updated_at", DateTime.Now)
+                .Add("@updated_at", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"))
                 .Add("@id", e.ID)
             End With
 

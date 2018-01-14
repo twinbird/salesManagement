@@ -21,6 +21,10 @@ Public Class SalesTaxRepository
     ''' <param name="tax"></param>
     ''' <returns></returns>
     Public Function Save(tax As SalesTax) As Boolean Implements ISalesTaxRepository.Save
+        '登録前にバリデーションする
+        If tax.Validate = False Then
+            Return False
+        End If
         Using accessor As New ADOWrapper.DBAccessor
             accessor.BeginTransaction()
             '登録済みなら更新/そうでなければ新規登録
@@ -50,6 +54,11 @@ Public Class SalesTaxRepository
             accessor.BeginTransaction()
 
             For Each t As SalesTax In taxes
+                '登録前にバリデーションする
+                If t.Validate = False Then
+                    accessor.RollBack()
+                    Return False
+                End If
                 '登録済みなら更新/そうでなければ新規登録
                 If IsExist(accessor, t) = True Then
                     If Update(accessor, t) = False Then

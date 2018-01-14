@@ -17,6 +17,10 @@ Public Class EmployeeRepositoryImpl
     ''' <param name="e"></param>
     ''' <returns></returns>
     Public Function Save(e As Employee) As Boolean Implements IEmployeeRepository.Save
+        '登録前にバリデーションする
+        If e.Validate = False Then
+            Return False
+        End If
         '登録済みなら更新/そうでなければ新規登録
         If IsExist(e) = True Then
             Return Update(e)

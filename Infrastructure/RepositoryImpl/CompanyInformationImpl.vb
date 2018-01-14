@@ -16,6 +16,10 @@ Public Class CompanyInformationImpl
     ''' <param name="c"></param>
     ''' <returns></returns>
     Public Function Save(c As CompanyInformation) As Boolean Implements ICompanyInformationRepository.Save
+        '登録前にバリデーションする
+        If c.Validate = False Then
+            Return False
+        End If
         '登録済みなら更新/そうでなければ新規登録
         If IsExist() = True Then
             Return Update(c)

@@ -16,6 +16,10 @@ Public Class PaymentConditionRepositoryImpl
     ''' <param name="pc"></param>
     ''' <returns></returns>
     Public Function Save(pc As PaymentCondition) As Boolean Implements IPaymentConditionRepository.Save
+        '登録前にバリデーションする
+        If pc.Validate = False Then
+            Return False
+        End If
         '登録済みなら更新/そうでなければ新規登録
         If IsExist(pc) = True Then
             Return Update(pc)

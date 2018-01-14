@@ -125,6 +125,12 @@ Public Class SalesTaxRateEntry
     ''' <param name="sender"></param>
     ''' <param name="e"></param>
     Private Sub EntryButton_Click(sender As Object, e As EventArgs) Handles EntryButton.Click
+        '入力チェックして問題がなければ登録
+        For Each t In _rows
+            If t.Validate = False Then
+                Return
+            End If
+        Next
         SaveGridData()
     End Sub
 

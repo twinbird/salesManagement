@@ -74,7 +74,7 @@ Public Class SalesTaxRateEntry
         SalesTaxDataGridView.AllowUserToAddRows = True
 
         '適用開始日列を作成
-        Dim applyStartDateCol = New DataGridViewTextBoxColumn
+        Dim applyStartDateCol = New DataGridViewCalendarColumn
         With applyStartDateCol
             .Name = "ApplyStartDate"
             .HeaderText = "適用開始日"

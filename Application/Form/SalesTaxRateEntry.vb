@@ -84,7 +84,7 @@ Public Class SalesTaxRateEntry
         SalesTaxDataGridView.Columns.Add(applyStartDateCol)
 
         '税率列を作成
-        Dim rateCol = New DataGridViewTextBoxColumn
+        Dim rateCol = New DataGridViewNumericUpDownColumn
         With rateCol
             .Name = "Rage"
             .HeaderText = "税率(%)"

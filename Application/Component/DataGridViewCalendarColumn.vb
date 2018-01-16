@@ -18,9 +18,6 @@
 Option Strict On
 Option Infer On
 
-Imports System
-Imports System.Windows.Forms
-
 ''' <summary>
 ''' データグリッドビューのカレンダーカラム
 ''' </summary>

@@ -143,6 +143,7 @@ Public Class SalesTax
     Public Function Validate() As Boolean
         ValidateApplyStartDate()
         ValidateTaxRate()
+        ValidaateTotal()
 
         Return Me.HasError = False
     End Function
@@ -151,14 +152,8 @@ Public Class SalesTax
     ''' 適用開始日の検証
     ''' </summary>
     Private Sub ValidateApplyStartDate()
-        'エラーを一度クリア
+        '今はチェックがないのでエラーをクリアするだけ
         _errors.Remove(NameOf(ApplyStartDate))
-
-        '登録済みの日付は重複して登録できない
-        Dim tax = _repo.FindByApplyDate(_ApplyStartDate)
-        If tax IsNot Nothing AndAlso tax.ID <> _ID Then
-            _errors(NameOf(ApplyStartDate)) = ApplyStartDateDoNotDuplicate
-        End If
     End Sub
 
     ''' <summary>
@@ -171,6 +166,17 @@ Public Class SalesTax
         '消費税率は0～100%までしか指定できない
         If _TaxRate < 0.0 OrElse 1.0 < _TaxRate Then
             _errors(NameOf(TaxRate)) = TaxRateOutOfRange
+        End If
+    End Sub
+
+    ''' <summary>
+    ''' オブジェクト全体での整合性検証
+    ''' </summary>
+    Private Sub ValidaateTotal()
+        '登録済みの日付は重複して登録できない
+        Dim tax = _repo.FindByApplyDate(_ApplyStartDate)
+        If tax IsNot Nothing AndAlso tax.ID <> _ID Then
+            _errors(NameOf(ApplyStartDate)) = ApplyStartDateDoNotDuplicate
         End If
     End Sub
 

@@ -72,6 +72,8 @@ Public Class SalesTaxRateEntry
         SalesTaxDataGridView.AutoGenerateColumns = False
         'GridView内での新規行追加許可
         SalesTaxDataGridView.AllowUserToAddRows = True
+        'エラーテキストが表示されるようにする
+        SalesTaxDataGridView.ShowCellErrors = True
 
         '適用開始日列を作成
         Dim applyStartDateCol = New DataGridViewCalendarColumn
@@ -128,6 +130,8 @@ Public Class SalesTaxRateEntry
         '入力チェックして問題がなければ登録
         For Each t In _rows
             If t.Validate = False Then
+                'メッセージ表示のために再描画
+                SalesTaxDataGridView.Invalidate()
                 Return
             End If
         Next

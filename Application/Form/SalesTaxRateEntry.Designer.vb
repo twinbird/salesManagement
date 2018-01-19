@@ -22,15 +22,12 @@ Partial Class SalesTaxRateEntry
     'コード エディターを使って変更しないでください。
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Me.components = New System.ComponentModel.Container()
         Me.SalesTaxDataGridView = New System.Windows.Forms.DataGridView()
         Me.ApplyDate = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Rate = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.EntryButton = New System.Windows.Forms.Button()
-        Me.ErrorProvider = New System.Windows.Forms.ErrorProvider(Me.components)
         Me.NewRowAddButton = New System.Windows.Forms.Button()
         CType(Me.SalesTaxDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.ErrorProvider, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'SalesTaxDataGridView
@@ -66,11 +63,6 @@ Partial Class SalesTaxRateEntry
         Me.EntryButton.Text = "登録"
         Me.EntryButton.UseVisualStyleBackColor = True
         '
-        'ErrorProvider
-        '
-        Me.ErrorProvider.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink
-        Me.ErrorProvider.ContainerControl = Me
-        '
         'NewRowAddButton
         '
         Me.NewRowAddButton.Location = New System.Drawing.Point(98, 313)
@@ -91,7 +83,6 @@ Partial Class SalesTaxRateEntry
         Me.Name = "SalesTaxRateEntry"
         Me.Text = "消費税の設定"
         CType(Me.SalesTaxDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.ErrorProvider, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -100,6 +91,5 @@ Partial Class SalesTaxRateEntry
     Friend WithEvents ApplyDate As DataGridViewTextBoxColumn
     Friend WithEvents Rate As DataGridViewTextBoxColumn
     Friend WithEvents EntryButton As Button
-    Friend WithEvents ErrorProvider As ErrorProvider
     Friend WithEvents NewRowAddButton As Button
 End Class

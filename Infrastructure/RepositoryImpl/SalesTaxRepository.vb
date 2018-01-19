@@ -160,16 +160,22 @@ Public Class SalesTaxRepository
             Dim q = accessor.CreateQuery
             With q.Query
                 .AppendLine("SELECT")
-                .AppendLine("    apply_start_date AS apply_start_date")
+                .AppendLine("    id AS id")
+                .AppendLine("   ,apply_start_date AS apply_start_date")
                 .AppendLine("   ,rate AS tax_rate")
                 .AppendLine("FROM")
                 .AppendLine("   sales_taxes")
                 .AppendLine("WHERE")
-                .AppendLine("   apply_start_date = @apply_start_date")
+                .AppendLine("   apply_start_date >= strftime(@start_date)")
+                .AppendLine("AND")
+                .AppendLine("   apply_start_date <= strftime(@end_date)")
             End With
 
             With q.Parameters
-                .Add("@apply_start_date", d)
+                Dim std = New DateTime(d.Year, d.Month, d.Day, 0, 0, 0)
+                .Add("@start_date", std.ToString("yyyy-MM-dd HH:mm:ss"))
+                Dim edd = New DateTime(d.Year, d.Month, d.Day, 23, 59, 59)
+                .Add("@end_date", edd.ToString("yyyy-MM-dd HH:mm:ss"))
             End With
 
             Dim dt = q.ExecQuery
@@ -177,7 +183,7 @@ Public Class SalesTaxRepository
                 Return Nothing
             End If
 
-            Dim tax = New SalesTax(Me)
+            Dim tax = New SalesTax(CInt(dt.Rows(0)("id")), Me)
             tax.ApplyStartDate = CDate(dt.Rows(0)("apply_start_date"))
             tax.TaxRate = CDec(dt.Rows(0)("tax_rate"))
 

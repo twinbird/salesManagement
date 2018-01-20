@@ -32,15 +32,15 @@ Public Class MainMDI
 
 #Region "メニュー(編集)"
 
-    Private Sub CutToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) Handles CutToolStripMenuItem.Click
+    Private Sub CutToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) 
         ' My.Computer.Clipboard を使用して、選択されたテキストまたはイメージをクリップボードに挿入します
     End Sub
 
-    Private Sub CopyToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) Handles CopyToolStripMenuItem.Click
+    Private Sub CopyToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) 
         ' My.Computer.Clipboard を使用して、選択されたテキストまたはイメージをクリップボードに挿入します
     End Sub
 
-    Private Sub PasteToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) Handles PasteToolStripMenuItem.Click
+    Private Sub PasteToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) 
         'My.Computer.Clipboard.GetText() または My.Computer.Clipboard.GetData を使用して、クリップボードから情報を取得します
     End Sub
 

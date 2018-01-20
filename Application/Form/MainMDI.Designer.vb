@@ -31,15 +31,6 @@ Partial Class MainMDI
         Me.バックアップのインポートToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator4 = New System.Windows.Forms.ToolStripSeparator()
         Me.ExitToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.EditMenu = New System.Windows.Forms.ToolStripMenuItem()
-        Me.UndoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.RedoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ToolStripSeparator6 = New System.Windows.Forms.ToolStripSeparator()
-        Me.CutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.CopyToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.PasteToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ToolStripSeparator7 = New System.Windows.Forms.ToolStripSeparator()
-        Me.SelectAllToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.日常業務ToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.見積台帳EToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.受注台帳OToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -87,7 +78,7 @@ Partial Class MainMDI
         '
         'MenuStrip
         '
-        Me.MenuStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FileMenu, Me.EditMenu, Me.日常業務ToolStripMenuItem, Me.月次業務ToolStripMenuItem, Me.マスタToolStripMenuItem, Me.WindowsMenu, Me.HelpMenu})
+        Me.MenuStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FileMenu, Me.日常業務ToolStripMenuItem, Me.月次業務ToolStripMenuItem, Me.マスタToolStripMenuItem, Me.WindowsMenu, Me.HelpMenu})
         Me.MenuStrip.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip.MdiWindowListItem = Me.WindowsMenu
         Me.MenuStrip.Name = "MenuStrip"
@@ -126,75 +117,6 @@ Partial Class MainMDI
         Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(192, 22)
         Me.ExitToolStripMenuItem.Text = "アプリケーションの終了(&X)"
         '
-        'EditMenu
-        '
-        Me.EditMenu.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.UndoToolStripMenuItem, Me.RedoToolStripMenuItem, Me.ToolStripSeparator6, Me.CutToolStripMenuItem, Me.CopyToolStripMenuItem, Me.PasteToolStripMenuItem, Me.ToolStripSeparator7, Me.SelectAllToolStripMenuItem})
-        Me.EditMenu.Name = "EditMenu"
-        Me.EditMenu.Size = New System.Drawing.Size(57, 20)
-        Me.EditMenu.Text = "編集(&E)"
-        '
-        'UndoToolStripMenuItem
-        '
-        Me.UndoToolStripMenuItem.Image = CType(resources.GetObject("UndoToolStripMenuItem.Image"), System.Drawing.Image)
-        Me.UndoToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Black
-        Me.UndoToolStripMenuItem.Name = "UndoToolStripMenuItem"
-        Me.UndoToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.Z), System.Windows.Forms.Keys)
-        Me.UndoToolStripMenuItem.Size = New System.Drawing.Size(184, 22)
-        Me.UndoToolStripMenuItem.Text = "元に戻す(&U)"
-        '
-        'RedoToolStripMenuItem
-        '
-        Me.RedoToolStripMenuItem.Image = CType(resources.GetObject("RedoToolStripMenuItem.Image"), System.Drawing.Image)
-        Me.RedoToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Black
-        Me.RedoToolStripMenuItem.Name = "RedoToolStripMenuItem"
-        Me.RedoToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.Y), System.Windows.Forms.Keys)
-        Me.RedoToolStripMenuItem.Size = New System.Drawing.Size(184, 22)
-        Me.RedoToolStripMenuItem.Text = "やり直し(&R)"
-        '
-        'ToolStripSeparator6
-        '
-        Me.ToolStripSeparator6.Name = "ToolStripSeparator6"
-        Me.ToolStripSeparator6.Size = New System.Drawing.Size(181, 6)
-        '
-        'CutToolStripMenuItem
-        '
-        Me.CutToolStripMenuItem.Image = CType(resources.GetObject("CutToolStripMenuItem.Image"), System.Drawing.Image)
-        Me.CutToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Black
-        Me.CutToolStripMenuItem.Name = "CutToolStripMenuItem"
-        Me.CutToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.X), System.Windows.Forms.Keys)
-        Me.CutToolStripMenuItem.Size = New System.Drawing.Size(184, 22)
-        Me.CutToolStripMenuItem.Text = "切り取り(&T)"
-        '
-        'CopyToolStripMenuItem
-        '
-        Me.CopyToolStripMenuItem.Image = CType(resources.GetObject("CopyToolStripMenuItem.Image"), System.Drawing.Image)
-        Me.CopyToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Black
-        Me.CopyToolStripMenuItem.Name = "CopyToolStripMenuItem"
-        Me.CopyToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.C), System.Windows.Forms.Keys)
-        Me.CopyToolStripMenuItem.Size = New System.Drawing.Size(184, 22)
-        Me.CopyToolStripMenuItem.Text = "コピー(&C)"
-        '
-        'PasteToolStripMenuItem
-        '
-        Me.PasteToolStripMenuItem.Image = CType(resources.GetObject("PasteToolStripMenuItem.Image"), System.Drawing.Image)
-        Me.PasteToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Black
-        Me.PasteToolStripMenuItem.Name = "PasteToolStripMenuItem"
-        Me.PasteToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.V), System.Windows.Forms.Keys)
-        Me.PasteToolStripMenuItem.Size = New System.Drawing.Size(184, 22)
-        Me.PasteToolStripMenuItem.Text = "貼り付け(&P)"
-        '
-        'ToolStripSeparator7
-        '
-        Me.ToolStripSeparator7.Name = "ToolStripSeparator7"
-        Me.ToolStripSeparator7.Size = New System.Drawing.Size(181, 6)
-        '
-        'SelectAllToolStripMenuItem
-        '
-        Me.SelectAllToolStripMenuItem.Name = "SelectAllToolStripMenuItem"
-        Me.SelectAllToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.A), System.Windows.Forms.Keys)
-        Me.SelectAllToolStripMenuItem.Size = New System.Drawing.Size(184, 22)
-        Me.SelectAllToolStripMenuItem.Text = "すべて選択(&A)"
-        '
         '日常業務ToolStripMenuItem
         '
         Me.日常業務ToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.見積台帳EToolStripMenuItem, Me.受注台帳OToolStripMenuItem, Me.売上台帳SToolStripMenuItem, Me.入金台帳AToolStripMenuItem})
@@ -205,25 +127,25 @@ Partial Class MainMDI
         '見積台帳EToolStripMenuItem
         '
         Me.見積台帳EToolStripMenuItem.Name = "見積台帳EToolStripMenuItem"
-        Me.見積台帳EToolStripMenuItem.Size = New System.Drawing.Size(139, 22)
+        Me.見積台帳EToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.見積台帳EToolStripMenuItem.Text = "見積管理(&E)"
         '
         '受注台帳OToolStripMenuItem
         '
         Me.受注台帳OToolStripMenuItem.Name = "受注台帳OToolStripMenuItem"
-        Me.受注台帳OToolStripMenuItem.Size = New System.Drawing.Size(139, 22)
+        Me.受注台帳OToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.受注台帳OToolStripMenuItem.Text = "受注管理(&O)"
         '
         '売上台帳SToolStripMenuItem
         '
         Me.売上台帳SToolStripMenuItem.Name = "売上台帳SToolStripMenuItem"
-        Me.売上台帳SToolStripMenuItem.Size = New System.Drawing.Size(139, 22)
+        Me.売上台帳SToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.売上台帳SToolStripMenuItem.Text = "売上管理(&S)"
         '
         '入金台帳AToolStripMenuItem
         '
         Me.入金台帳AToolStripMenuItem.Name = "入金台帳AToolStripMenuItem"
-        Me.入金台帳AToolStripMenuItem.Size = New System.Drawing.Size(139, 22)
+        Me.入金台帳AToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.入金台帳AToolStripMenuItem.Text = "入金管理(&A)"
         '
         '月次業務ToolStripMenuItem
@@ -511,15 +433,6 @@ Partial Class MainMDI
     Friend WithEvents ExitToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents FileMenu As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents MenuStrip As System.Windows.Forms.MenuStrip
-    Friend WithEvents EditMenu As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents UndoToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents RedoToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents ToolStripSeparator6 As System.Windows.Forms.ToolStripSeparator
-    Friend WithEvents CutToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents CopyToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents PasteToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents ToolStripSeparator7 As System.Windows.Forms.ToolStripSeparator
-    Friend WithEvents SelectAllToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents マスタToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents 顧客マスタToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents 従業員ToolStripMenuItem As ToolStripMenuItem

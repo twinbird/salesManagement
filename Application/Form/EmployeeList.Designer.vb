@@ -37,6 +37,7 @@ Partial Class EmployeeList
         Me.StatusStrip = New System.Windows.Forms.StatusStrip()
         Me.ToolStripStatusLabel = New System.Windows.Forms.ToolStripStatusLabel()
         Me.ToolTip = New System.Windows.Forms.ToolTip(Me.components)
+        Me.FocusEmphasizeProvider = New Application.FocusEmphasizeProvider()
         Me.SearchGroupBox.SuspendLayout()
         CType(Me.EmployeeDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.StatusStrip.SuspendLayout()
@@ -173,6 +174,10 @@ Partial Class EmployeeList
         Me.ToolStripStatusLabel.Size = New System.Drawing.Size(113, 17)
         Me.ToolStripStatusLabel.Text = "ToolStripStatusLabel"
         '
+        'FocusEmphasizeProvider
+        '
+        Me.FocusEmphasizeProvider.Target = Me
+        '
         'EmployeeList
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
@@ -208,4 +213,5 @@ Partial Class EmployeeList
     Friend WithEvents SearchEmployeeNameKanaTextBox As TextBox
     Friend WithEvents ClearSearchConditionButton As Button
     Friend WithEvents ToolTip As ToolTip
+    Friend WithEvents FocusEmphasizeProvider As FocusEmphasizeProvider
 End Class

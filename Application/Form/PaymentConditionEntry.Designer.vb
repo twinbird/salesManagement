@@ -35,6 +35,7 @@ Partial Class PaymentConditionEntry
         Me.ErrorProvider = New System.Windows.Forms.ErrorProvider(Me.components)
         Me.BindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.ToolTip = New System.Windows.Forms.ToolTip(Me.components)
+        Me.FocusEmphasizeProvider = New Application.FocusEmphasizeProvider()
         CType(Me.ErrorProvider, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -125,6 +126,10 @@ Partial Class PaymentConditionEntry
         Me.ErrorProvider.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink
         Me.ErrorProvider.ContainerControl = Me
         '
+        'FocusEmphasizeProvider
+        '
+        Me.FocusEmphasizeProvider.Target = Me
+        '
         'PaymentConditionEntry
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
@@ -160,4 +165,5 @@ Partial Class PaymentConditionEntry
     Friend WithEvents ErrorProvider As ErrorProvider
     Friend WithEvents BindingSource As BindingSource
     Friend WithEvents ToolTip As ToolTip
+    Friend WithEvents FocusEmphasizeProvider As FocusEmphasizeProvider
 End Class

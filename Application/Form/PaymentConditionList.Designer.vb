@@ -38,6 +38,7 @@ Partial Class PaymentConditionList
         Me.StatusStrip = New System.Windows.Forms.StatusStrip()
         Me.ToolStripStatusLabel = New System.Windows.Forms.ToolStripStatusLabel()
         Me.ToolTip = New System.Windows.Forms.ToolTip(Me.components)
+        Me.FocusEmphasizeProvider = New Application.FocusEmphasizeProvider()
         CType(Me.PaymentConditionDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SearchGroupBox.SuspendLayout()
         Me.StatusStrip.SuspendLayout()
@@ -158,6 +159,10 @@ Partial Class PaymentConditionList
         Me.ToolStripStatusLabel.Size = New System.Drawing.Size(113, 17)
         Me.ToolStripStatusLabel.Text = "ToolStripStatusLabel"
         '
+        'FocusEmphasizeProvider
+        '
+        Me.FocusEmphasizeProvider.Target = Me
+        '
         'PaymentConditionList
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
@@ -194,4 +199,5 @@ Partial Class PaymentConditionList
     Friend WithEvents Label1 As Label
     Friend WithEvents ClearSearchConditionButton As Button
     Friend WithEvents SearchButton As Button
+    Friend WithEvents FocusEmphasizeProvider As FocusEmphasizeProvider
 End Class

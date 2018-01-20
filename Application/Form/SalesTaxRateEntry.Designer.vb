@@ -27,6 +27,7 @@ Partial Class SalesTaxRateEntry
         Me.Rate = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.EntryButton = New System.Windows.Forms.Button()
         Me.NewRowAddButton = New System.Windows.Forms.Button()
+        Me.FocusEmphasizeProvider = New Application.FocusEmphasizeProvider()
         CType(Me.SalesTaxDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -72,6 +73,10 @@ Partial Class SalesTaxRateEntry
         Me.NewRowAddButton.Text = "行を追加"
         Me.NewRowAddButton.UseVisualStyleBackColor = True
         '
+        'FocusEmphasizeProvider
+        '
+        Me.FocusEmphasizeProvider.Target = Me
+        '
         'SalesTaxRateEntry
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
@@ -92,4 +97,5 @@ Partial Class SalesTaxRateEntry
     Friend WithEvents Rate As DataGridViewTextBoxColumn
     Friend WithEvents EntryButton As Button
     Friend WithEvents NewRowAddButton As Button
+    Friend WithEvents FocusEmphasizeProvider As FocusEmphasizeProvider
 End Class

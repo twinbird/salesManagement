@@ -39,6 +39,7 @@ Partial Class CompanyInformationEntry
         Me.TellMaskedTextBox = New System.Windows.Forms.MaskedTextBox()
         Me.FaxMaskedTextBox = New System.Windows.Forms.MaskedTextBox()
         Me.ToolTip = New System.Windows.Forms.ToolTip(Me.components)
+        Me.FocusEmphasizeProvider = New Application.FocusEmphasizeProvider()
         CType(Me.BindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ErrorProvider, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -179,6 +180,10 @@ Partial Class CompanyInformationEntry
         Me.FaxMaskedTextBox.TabIndex = 5
         Me.ToolTip.SetToolTip(Me.FaxMaskedTextBox, "FAX番号をハイフン付きで入力します。")
         '
+        'FocusEmphasizeProvider
+        '
+        Me.FocusEmphasizeProvider.Target = Me
+        '
         'CompanyInformationEntry
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
@@ -222,4 +227,5 @@ Partial Class CompanyInformationEntry
     Friend WithEvents FaxMaskedTextBox As MaskedTextBox
     Friend WithEvents TellMaskedTextBox As MaskedTextBox
     Friend WithEvents ToolTip As ToolTip
+    Friend WithEvents FocusEmphasizeProvider As FocusEmphasizeProvider
 End Class

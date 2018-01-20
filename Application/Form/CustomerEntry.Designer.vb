@@ -41,6 +41,7 @@ Partial Class CustomerEntry
         Me.Address2TextBox = New System.Windows.Forms.TextBox()
         Me.PostalCodeMaskedTextBox = New System.Windows.Forms.MaskedTextBox()
         Me.ToolTip = New System.Windows.Forms.ToolTip(Me.components)
+        Me.FocusEmphasizeProvider = New Application.FocusEmphasizeProvider()
         CType(Me.ErrorProvider, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -197,6 +198,10 @@ Partial Class CustomerEntry
         Me.PostalCodeMaskedTextBox.TabIndex = 4
         Me.ToolTip.SetToolTip(Me.PostalCodeMaskedTextBox, "この顧客の所在地の郵便番号を入力します。")
         '
+        'FocusEmphasizeProvider
+        '
+        Me.FocusEmphasizeProvider.Target = Me
+        '
         'CustomerEntry
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
@@ -243,4 +248,5 @@ Partial Class CustomerEntry
     Friend WithEvents Label2 As Label
     Friend WithEvents PostalCodeMaskedTextBox As MaskedTextBox
     Friend WithEvents ToolTip As ToolTip
+    Friend WithEvents FocusEmphasizeProvider As FocusEmphasizeProvider
 End Class

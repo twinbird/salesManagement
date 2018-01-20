@@ -36,6 +36,10 @@ Public Class FocusEmphasizeProvider
         End Get
         Set(value As Form)
             _target = value
+            If _target Is Nothing Then
+                'Nothingなら何もしない
+                Return
+            End If
             'ターゲットフォームに対してコントロール追加時に発生するイベントを追加する
             AddHandler _target.ControlAdded, AddressOf AddEventOnAttachControl
         End Set

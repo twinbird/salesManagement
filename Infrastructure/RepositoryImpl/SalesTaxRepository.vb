@@ -41,6 +41,7 @@ Public Class SalesTaxRepository
             End If
             accessor.Commit()
         End Using
+        Return True
     End Function
 
     ''' <summary>

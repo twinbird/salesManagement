@@ -109,6 +109,63 @@ Public Class CustomerRepositoryImpl
     End Function
 
     ''' <summary>
+    ''' IDから顧客を探す
+    ''' </summary>
+    ''' <param name="id"></param>
+    ''' <returns></returns>
+    Public Function FindByID(ByVal id As Integer) As Customer Implements ICustomerRepository.FindByID
+        Using accessor As New ADOWrapper.DBAccessor
+            Dim q = accessor.CreateQuery
+            With q.Query
+                .AppendLine("SELECT")
+                .AppendLine("    id AS id")
+                .AppendLine("   ,name AS name")
+                .AppendLine("   ,kana_name AS kana_name")
+                .AppendLine("   ,pic_id AS pic_id")
+                .AppendLine("   ,payment_id AS payment_id")
+                .AppendLine("   ,postal_code AS postal_code")
+                .AppendLine("   ,address1 AS address1")
+                .AppendLine("   ,address2 AS address2")
+                .AppendLine("FROM")
+                .AppendLine("   customers")
+                .AppendLine("WHERE")
+                .AppendLine("   id = @id")
+            End With
+
+            With q.Parameters
+                .Add("@id", id)
+            End With
+
+            '===============================================
+            'クエリ発行
+            '===============================================
+            Dim dt = q.ExecQuery
+            If dt Is Nothing Then
+                Return Nothing
+            End If
+
+            '===============================================
+            'データをモデルに設定して返す
+            '===============================================
+            Dim empRepo = New EmployeeRepositoryImpl
+            Dim payRepo = New PaymentConditionRepositoryImpl
+
+            Dim r = dt.Rows(0)
+
+            Dim c = New Domain.Customer(CInt(r("id").ToString), Me, payRepo, empRepo)
+            c.Name = r("name").ToString
+            c.KanaName = r("kana_name").ToString
+            c.PIC = empRepo.FindByID(CInt(r("pic_id")))
+            c.PaymentCondition = payRepo.FindByID(CInt(r("payment_id")))
+            c.PostalCode = r("postal_code").ToString
+            c.Address1 = r("address1").ToString
+            c.Address2 = r("address2").ToString
+
+            Return c
+        End Using
+    End Function
+
+    ''' <summary>
     ''' 引数の条件を満たしたすべての顧客を取得
     ''' </summary>
     ''' <param name="cond"></param>

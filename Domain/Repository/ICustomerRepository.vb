@@ -38,4 +38,11 @@ Public Interface ICustomerRepository
     ''' <returns></returns>
     Function CountAllCustomer() As Integer
 
+    ''' <summary>
+    ''' iDから顧客を取得する
+    ''' </summary>
+    ''' <param name="id"></param>
+    ''' <returns></returns>
+    Function FindByID(ByVal id As Integer) As Customer
+
 End Interface

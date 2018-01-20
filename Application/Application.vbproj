@@ -80,6 +80,9 @@
   <ItemGroup>
     <Compile Include="Component\DataGridViewCalendarColumn.vb" />
     <Compile Include="Component\DataGridViewNumericUpDownColumn.vb" />
+    <Compile Include="Component\FocusEmphasizeProvider.vb">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Component\SortableBindingList.vb" />
     <Compile Include="Form\CompanyInformationEntry.Designer.vb">
       <DependentUpon>CompanyInformationEntry.vb</DependentUpon>

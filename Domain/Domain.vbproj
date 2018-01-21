@@ -59,6 +59,8 @@
     <Compile Include="DomainObject\CompanyInformation.vb" />
     <Compile Include="DomainObject\Customer.vb" />
     <Compile Include="DomainObject\Employee.vb" />
+    <Compile Include="DomainObject\Estimate.vb" />
+    <Compile Include="DomainObject\EstimateDetail.vb" />
     <Compile Include="DomainObject\PaymentCondition.vb" />
     <Compile Include="DomainObject\SalesTax.vb" />
     <Compile Include="DomainObject\SalesTaxes.vb" />
@@ -67,6 +69,7 @@
     <Compile Include="Repository\ICompanyInformationRepository.vb" />
     <Compile Include="Repository\ICustomerRepository.vb" />
     <Compile Include="Repository\IEmployeeRepository.vb" />
+    <Compile Include="Repository\IEstimateRepository.vb" />
     <Compile Include="Repository\IPaymentConditionRepository.vb" />
     <Compile Include="Repository\ISalesTaxRepository.vb" />
     <Compile Include="Repository\PaymentConditionRepositorySearchCondition.vb" />

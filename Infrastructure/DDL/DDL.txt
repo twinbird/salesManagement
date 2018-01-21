@@ -78,14 +78,13 @@ DROP TABLE IF EXISTS estimates;
 -- 見積
 CREATE TABLE estimates (
 	id INTEGER PRIMARY KEY AUTOINCREMENT,           -- ID
-	estimate_number INTEGER NOT NULL,               -- 見積番号
+	estimate_number VARCHAR(20) NOT NULL,           -- 見積番号
 	customer_id INTEGER NOT NULL,                   -- 顧客ID
 	title VARCHAR(50) NOT NULL,                     -- 件名
 	due_date DATE NOT NULL,                         -- 納期
 	payment_id INTEGER NOT NULL,                    -- 支払条件ID
 	pic_employee_id INTEGER NOT NULL,               -- 発行担当者ID
 	apply_tax_id INTEGER NOT NULL,                  -- 適用消費税ID
-	apply_company_id INTEGER NOT NULL,              -- 適用会社情報ID
 	print_date DATE NOT NULL,                       -- 発行日
 	effective_date DATE NOT NULL,                   -- 見積有効期限
 	remarks VARCHAR(500) NOT NULL,                  -- 備考

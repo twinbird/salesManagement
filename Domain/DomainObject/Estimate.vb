@@ -11,6 +11,11 @@ Public Class Estimate
 
 #Region "定数"
 
+    ''' <summary>
+    ''' 見積の最大行数
+    ''' </summary>
+    Public Const MAX_ESTIMATE_DETAIL_SIZE As Integer = 20
+
     Const EstimateNoDoNotEmpty As String = "見積番号は必ず入力が必要です"
     Const EstimateNoIsTooLong As String = "見積番号は20文字以内で入力してください"
     Const CustomerDoNotNothing As String = "顧客は必ず入力が必要です"
@@ -256,14 +261,45 @@ Public Class Estimate
     ''' 明細
     ''' </summary>
     ''' <returns></returns>
-    Public Property Details As List(Of EstimateDetail)
+    Public ReadOnly Property Details As List(Of EstimateDetail)
         Get
             Return _Details
         End Get
-        Set(value As List(Of EstimateDetail))
-            _Details = value
-        End Set
     End Property
+
+    ''' <summary>
+    ''' 明細に新しい行を追加する
+    ''' </summary>
+    ''' <param name="d"></param>
+    ''' <returns></returns>
+    Public Function AddDetail(ByVal d As EstimateDetail) As Boolean
+        '最大件数に達していたら失敗
+        If _Details.Count >= MAX_ESTIMATE_DETAIL_SIZE Then
+            Return False
+        End If
+
+        _Details.Add(d)
+
+        Return True
+    End Function
+
+    ''' <summary>
+    ''' 指定行の明細を削除する
+    ''' idxは0から
+    ''' </summary>
+    ''' <returns></returns>
+    Public Function RemoveDetail(ByVal idx As Integer) As Boolean
+        If idx < 0 Then
+            Return False
+        End If
+        If idx < _Details.Count - 1 Then
+            Return False
+        End If
+
+        _Details.RemoveAt(idx)
+
+        Return True
+    End Function
 
 #End Region
 

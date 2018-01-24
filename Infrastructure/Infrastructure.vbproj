@@ -75,6 +75,7 @@
     <Compile Include="RepositoryImpl\CompanyInformationImpl.vb" />
     <Compile Include="RepositoryImpl\CustomerRepositoryImpl.vb" />
     <Compile Include="RepositoryImpl\EmployeeRepositoryImpl.vb" />
+    <Compile Include="RepositoryImpl\EstimateRepositoryImpl.vb" />
     <Compile Include="RepositoryImpl\PaymentConditionRepositoryImpl.vb" />
     <Compile Include="RepositoryImpl\SalesTaxRepository.vb" />
   </ItemGroup>

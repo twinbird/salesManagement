@@ -22,111 +22,265 @@ Partial Class EstimateList
     'コード エディターを使って変更しないでください。
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.EstimateDataGridView = New System.Windows.Forms.DataGridView()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
-        Me.Button1 = New System.Windows.Forms.Button()
-        Me.RevisionButton = New System.Windows.Forms.DataGridViewButtonColumn()
-        Me.EditButton = New System.Windows.Forms.DataGridViewButtonColumn()
-        Me.EstimateNo = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Title = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.CustomerName = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.PrintDate = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.SearchIssueDateEndDateTimePicker = New System.Windows.Forms.DateTimePicker()
+        Me.SearchIssueDateStartDateTimePicker = New System.Windows.Forms.DateTimePicker()
+        Me.SearchCustomerComboBox = New System.Windows.Forms.ComboBox()
+        Me.IssueDateDuaringLabel = New System.Windows.Forms.Label()
+        Me.SearchIssueDateLabel = New System.Windows.Forms.Label()
+        Me.SearchCustomerLabel = New System.Windows.Forms.Label()
+        Me.SearchTitleLabel = New System.Windows.Forms.Label()
+        Me.SearchEstimateNoLabel = New System.Windows.Forms.Label()
+        Me.ClearSearchConditionButton = New System.Windows.Forms.Button()
+        Me.SearchTitleTextBox = New System.Windows.Forms.TextBox()
+        Me.SearchButton = New System.Windows.Forms.Button()
+        Me.SearchEstimateNoTextBox = New System.Windows.Forms.TextBox()
+        Me.NewEstimateEntryButton = New System.Windows.Forms.Button()
+        Me.SearchPICEmployeeLabel = New System.Windows.Forms.Label()
+        Me.SearchPICEmployeeComboBox = New System.Windows.Forms.ComboBox()
+        Me.SearchEffectiveDateLabel = New System.Windows.Forms.Label()
+        Me.EffectiveDateDuaringLabel = New System.Windows.Forms.Label()
+        Me.SearchEffectiveDateStartDateTimePicker = New System.Windows.Forms.DateTimePicker()
+        Me.SearchEffectiveDateEndDateTimePicker = New System.Windows.Forms.DateTimePicker()
+        CType(Me.EstimateDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
         '
-        'DataGridView1
+        'EstimateDataGridView
         '
-        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.RevisionButton, Me.EditButton, Me.EstimateNo, Me.Title, Me.CustomerName, Me.PrintDate})
-        Me.DataGridView1.Location = New System.Drawing.Point(12, 71)
-        Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.RowTemplate.Height = 21
-        Me.DataGridView1.Size = New System.Drawing.Size(745, 186)
-        Me.DataGridView1.TabIndex = 5
+        Me.EstimateDataGridView.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.EstimateDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.EstimateDataGridView.Location = New System.Drawing.Point(12, 142)
+        Me.EstimateDataGridView.Name = "EstimateDataGridView"
+        Me.EstimateDataGridView.RowHeadersVisible = False
+        Me.EstimateDataGridView.RowTemplate.Height = 21
+        Me.EstimateDataGridView.Size = New System.Drawing.Size(745, 211)
+        Me.EstimateDataGridView.TabIndex = 5
         '
         'GroupBox1
         '
-        Me.GroupBox1.Controls.Add(Me.TextBox1)
-        Me.GroupBox1.Location = New System.Drawing.Point(31, 20)
+        Me.GroupBox1.Controls.Add(Me.SearchEffectiveDateEndDateTimePicker)
+        Me.GroupBox1.Controls.Add(Me.SearchIssueDateEndDateTimePicker)
+        Me.GroupBox1.Controls.Add(Me.SearchEffectiveDateStartDateTimePicker)
+        Me.GroupBox1.Controls.Add(Me.SearchIssueDateStartDateTimePicker)
+        Me.GroupBox1.Controls.Add(Me.SearchPICEmployeeComboBox)
+        Me.GroupBox1.Controls.Add(Me.SearchCustomerComboBox)
+        Me.GroupBox1.Controls.Add(Me.EffectiveDateDuaringLabel)
+        Me.GroupBox1.Controls.Add(Me.IssueDateDuaringLabel)
+        Me.GroupBox1.Controls.Add(Me.SearchPICEmployeeLabel)
+        Me.GroupBox1.Controls.Add(Me.SearchEffectiveDateLabel)
+        Me.GroupBox1.Controls.Add(Me.SearchIssueDateLabel)
+        Me.GroupBox1.Controls.Add(Me.SearchCustomerLabel)
+        Me.GroupBox1.Controls.Add(Me.SearchTitleLabel)
+        Me.GroupBox1.Controls.Add(Me.SearchEstimateNoLabel)
+        Me.GroupBox1.Controls.Add(Me.ClearSearchConditionButton)
+        Me.GroupBox1.Controls.Add(Me.SearchTitleTextBox)
+        Me.GroupBox1.Controls.Add(Me.SearchButton)
+        Me.GroupBox1.Controls.Add(Me.SearchEstimateNoTextBox)
+        Me.GroupBox1.Location = New System.Drawing.Point(31, 13)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(305, 45)
+        Me.GroupBox1.Size = New System.Drawing.Size(584, 123)
         Me.GroupBox1.TabIndex = 4
         Me.GroupBox1.TabStop = False
-        Me.GroupBox1.Text = "フィルタ"
+        Me.GroupBox1.Text = "検索"
         '
-        'TextBox1
+        'SearchIssueDateEndDateTimePicker
         '
-        Me.TextBox1.Location = New System.Drawing.Point(16, 17)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(278, 19)
-        Me.TextBox1.TabIndex = 2
+        Me.SearchIssueDateEndDateTimePicker.Location = New System.Drawing.Point(246, 62)
+        Me.SearchIssueDateEndDateTimePicker.Name = "SearchIssueDateEndDateTimePicker"
+        Me.SearchIssueDateEndDateTimePicker.Size = New System.Drawing.Size(121, 19)
+        Me.SearchIssueDateEndDateTimePicker.TabIndex = 9
         '
-        'Button1
+        'SearchIssueDateStartDateTimePicker
         '
-        Me.Button1.Location = New System.Drawing.Point(621, 35)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(136, 23)
-        Me.Button1.TabIndex = 3
-        Me.Button1.Text = "新しい見積書を作成"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.SearchIssueDateStartDateTimePicker.Location = New System.Drawing.Point(96, 62)
+        Me.SearchIssueDateStartDateTimePicker.Name = "SearchIssueDateStartDateTimePicker"
+        Me.SearchIssueDateStartDateTimePicker.Size = New System.Drawing.Size(121, 19)
+        Me.SearchIssueDateStartDateTimePicker.TabIndex = 9
         '
-        'RevisionButton
+        'SearchCustomerComboBox
         '
-        Me.RevisionButton.HeaderText = ""
-        Me.RevisionButton.Name = "RevisionButton"
+        Me.SearchCustomerComboBox.FormattingEnabled = True
+        Me.SearchCustomerComboBox.Location = New System.Drawing.Point(443, 35)
+        Me.SearchCustomerComboBox.Name = "SearchCustomerComboBox"
+        Me.SearchCustomerComboBox.Size = New System.Drawing.Size(121, 20)
+        Me.SearchCustomerComboBox.TabIndex = 8
         '
-        'EditButton
+        'IssueDateDuaringLabel
         '
-        Me.EditButton.HeaderText = ""
-        Me.EditButton.Name = "EditButton"
+        Me.IssueDateDuaringLabel.AutoSize = True
+        Me.IssueDateDuaringLabel.Location = New System.Drawing.Point(223, 67)
+        Me.IssueDateDuaringLabel.Name = "IssueDateDuaringLabel"
+        Me.IssueDateDuaringLabel.Size = New System.Drawing.Size(17, 12)
+        Me.IssueDateDuaringLabel.TabIndex = 7
+        Me.IssueDateDuaringLabel.Text = "～"
         '
-        'EstimateNo
+        'SearchIssueDateLabel
         '
-        Me.EstimateNo.HeaderText = "見積番号"
-        Me.EstimateNo.Name = "EstimateNo"
+        Me.SearchIssueDateLabel.AutoSize = True
+        Me.SearchIssueDateLabel.Location = New System.Drawing.Point(13, 66)
+        Me.SearchIssueDateLabel.Name = "SearchIssueDateLabel"
+        Me.SearchIssueDateLabel.Size = New System.Drawing.Size(41, 12)
+        Me.SearchIssueDateLabel.TabIndex = 7
+        Me.SearchIssueDateLabel.Text = "発行日"
         '
-        'Title
+        'SearchCustomerLabel
         '
-        Me.Title.HeaderText = "件名"
-        Me.Title.Name = "Title"
+        Me.SearchCustomerLabel.AutoSize = True
+        Me.SearchCustomerLabel.Location = New System.Drawing.Point(380, 38)
+        Me.SearchCustomerLabel.Name = "SearchCustomerLabel"
+        Me.SearchCustomerLabel.Size = New System.Drawing.Size(41, 12)
+        Me.SearchCustomerLabel.TabIndex = 7
+        Me.SearchCustomerLabel.Text = "顧客名"
         '
-        'CustomerName
+        'SearchTitleLabel
         '
-        Me.CustomerName.HeaderText = "顧客名"
-        Me.CustomerName.Name = "CustomerName"
+        Me.SearchTitleLabel.AutoSize = True
+        Me.SearchTitleLabel.Location = New System.Drawing.Point(13, 41)
+        Me.SearchTitleLabel.Name = "SearchTitleLabel"
+        Me.SearchTitleLabel.Size = New System.Drawing.Size(29, 12)
+        Me.SearchTitleLabel.TabIndex = 7
+        Me.SearchTitleLabel.Text = "件名"
         '
-        'PrintDate
+        'SearchEstimateNoLabel
         '
-        Me.PrintDate.HeaderText = "発行日"
-        Me.PrintDate.Name = "PrintDate"
+        Me.SearchEstimateNoLabel.AutoSize = True
+        Me.SearchEstimateNoLabel.Location = New System.Drawing.Point(13, 20)
+        Me.SearchEstimateNoLabel.Name = "SearchEstimateNoLabel"
+        Me.SearchEstimateNoLabel.Size = New System.Drawing.Size(53, 12)
+        Me.SearchEstimateNoLabel.TabIndex = 7
+        Me.SearchEstimateNoLabel.Text = "見積番号"
+        '
+        'ClearSearchConditionButton
+        '
+        Me.ClearSearchConditionButton.Location = New System.Drawing.Point(503, 66)
+        Me.ClearSearchConditionButton.Name = "ClearSearchConditionButton"
+        Me.ClearSearchConditionButton.Size = New System.Drawing.Size(75, 23)
+        Me.ClearSearchConditionButton.TabIndex = 5
+        Me.ClearSearchConditionButton.Text = "クリア"
+        Me.ClearSearchConditionButton.UseVisualStyleBackColor = True
+        '
+        'SearchTitleTextBox
+        '
+        Me.SearchTitleTextBox.Location = New System.Drawing.Point(96, 38)
+        Me.SearchTitleTextBox.Name = "SearchTitleTextBox"
+        Me.SearchTitleTextBox.Size = New System.Drawing.Size(193, 19)
+        Me.SearchTitleTextBox.TabIndex = 2
+        '
+        'SearchButton
+        '
+        Me.SearchButton.Location = New System.Drawing.Point(503, 91)
+        Me.SearchButton.Name = "SearchButton"
+        Me.SearchButton.Size = New System.Drawing.Size(75, 23)
+        Me.SearchButton.TabIndex = 6
+        Me.SearchButton.Text = "検索"
+        Me.SearchButton.UseVisualStyleBackColor = True
+        '
+        'SearchEstimateNoTextBox
+        '
+        Me.SearchEstimateNoTextBox.Location = New System.Drawing.Point(96, 15)
+        Me.SearchEstimateNoTextBox.Name = "SearchEstimateNoTextBox"
+        Me.SearchEstimateNoTextBox.Size = New System.Drawing.Size(110, 19)
+        Me.SearchEstimateNoTextBox.TabIndex = 2
+        '
+        'NewEstimateEntryButton
+        '
+        Me.NewEstimateEntryButton.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.NewEstimateEntryButton.Location = New System.Drawing.Point(621, 24)
+        Me.NewEstimateEntryButton.Name = "NewEstimateEntryButton"
+        Me.NewEstimateEntryButton.Size = New System.Drawing.Size(136, 23)
+        Me.NewEstimateEntryButton.TabIndex = 3
+        Me.NewEstimateEntryButton.Text = "新しい見積書を作成"
+        Me.NewEstimateEntryButton.UseVisualStyleBackColor = True
+        '
+        'SearchPICEmployeeLabel
+        '
+        Me.SearchPICEmployeeLabel.AutoSize = True
+        Me.SearchPICEmployeeLabel.Location = New System.Drawing.Point(380, 15)
+        Me.SearchPICEmployeeLabel.Name = "SearchPICEmployeeLabel"
+        Me.SearchPICEmployeeLabel.Size = New System.Drawing.Size(53, 12)
+        Me.SearchPICEmployeeLabel.TabIndex = 7
+        Me.SearchPICEmployeeLabel.Text = "営業担当"
+        '
+        'SearchPICEmployeeComboBox
+        '
+        Me.SearchPICEmployeeComboBox.FormattingEnabled = True
+        Me.SearchPICEmployeeComboBox.Location = New System.Drawing.Point(443, 12)
+        Me.SearchPICEmployeeComboBox.Name = "SearchPICEmployeeComboBox"
+        Me.SearchPICEmployeeComboBox.Size = New System.Drawing.Size(121, 20)
+        Me.SearchPICEmployeeComboBox.TabIndex = 8
+        '
+        'SearchEffectiveDateLabel
+        '
+        Me.SearchEffectiveDateLabel.AutoSize = True
+        Me.SearchEffectiveDateLabel.Location = New System.Drawing.Point(13, 91)
+        Me.SearchEffectiveDateLabel.Name = "SearchEffectiveDateLabel"
+        Me.SearchEffectiveDateLabel.Size = New System.Drawing.Size(77, 12)
+        Me.SearchEffectiveDateLabel.TabIndex = 7
+        Me.SearchEffectiveDateLabel.Text = "見積有効期限"
+        '
+        'EffectiveDateDuaringLabel
+        '
+        Me.EffectiveDateDuaringLabel.AutoSize = True
+        Me.EffectiveDateDuaringLabel.Location = New System.Drawing.Point(223, 92)
+        Me.EffectiveDateDuaringLabel.Name = "EffectiveDateDuaringLabel"
+        Me.EffectiveDateDuaringLabel.Size = New System.Drawing.Size(17, 12)
+        Me.EffectiveDateDuaringLabel.TabIndex = 7
+        Me.EffectiveDateDuaringLabel.Text = "～"
+        '
+        'SearchEffectiveDateStartDateTimePicker
+        '
+        Me.SearchEffectiveDateStartDateTimePicker.Location = New System.Drawing.Point(96, 87)
+        Me.SearchEffectiveDateStartDateTimePicker.Name = "SearchEffectiveDateStartDateTimePicker"
+        Me.SearchEffectiveDateStartDateTimePicker.Size = New System.Drawing.Size(121, 19)
+        Me.SearchEffectiveDateStartDateTimePicker.TabIndex = 9
+        '
+        'SearchEffectiveDateEndDateTimePicker
+        '
+        Me.SearchEffectiveDateEndDateTimePicker.Location = New System.Drawing.Point(246, 87)
+        Me.SearchEffectiveDateEndDateTimePicker.Name = "SearchEffectiveDateEndDateTimePicker"
+        Me.SearchEffectiveDateEndDateTimePicker.Size = New System.Drawing.Size(121, 19)
+        Me.SearchEffectiveDateEndDateTimePicker.TabIndex = 9
         '
         'EstimateList
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(769, 272)
-        Me.Controls.Add(Me.DataGridView1)
+        Me.ClientSize = New System.Drawing.Size(769, 365)
+        Me.Controls.Add(Me.EstimateDataGridView)
         Me.Controls.Add(Me.GroupBox1)
-        Me.Controls.Add(Me.Button1)
+        Me.Controls.Add(Me.NewEstimateEntryButton)
         Me.Name = "EstimateList"
         Me.Text = "見積書の管理"
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.EstimateDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
 
-    Friend WithEvents DataGridView1 As DataGridView
+    Friend WithEvents EstimateDataGridView As DataGridView
     Friend WithEvents GroupBox1 As GroupBox
-    Friend WithEvents TextBox1 As TextBox
-    Friend WithEvents Button1 As Button
-    Friend WithEvents RevisionButton As DataGridViewButtonColumn
-    Friend WithEvents EditButton As DataGridViewButtonColumn
-    Friend WithEvents EstimateNo As DataGridViewTextBoxColumn
-    Friend WithEvents Title As DataGridViewTextBoxColumn
-    Friend WithEvents CustomerName As DataGridViewTextBoxColumn
-    Friend WithEvents PrintDate As DataGridViewTextBoxColumn
+    Friend WithEvents SearchEstimateNoTextBox As TextBox
+    Friend WithEvents NewEstimateEntryButton As Button
+    Friend WithEvents ClearSearchConditionButton As Button
+    Friend WithEvents SearchButton As Button
+    Friend WithEvents SearchEstimateNoLabel As Label
+    Friend WithEvents SearchTitleLabel As Label
+    Friend WithEvents SearchTitleTextBox As TextBox
+    Friend WithEvents SearchCustomerLabel As Label
+    Friend WithEvents SearchCustomerComboBox As ComboBox
+    Friend WithEvents SearchIssueDateLabel As Label
+    Friend WithEvents SearchIssueDateEndDateTimePicker As DateTimePicker
+    Friend WithEvents SearchIssueDateStartDateTimePicker As DateTimePicker
+    Friend WithEvents IssueDateDuaringLabel As Label
+    Friend WithEvents SearchPICEmployeeComboBox As ComboBox
+    Friend WithEvents SearchPICEmployeeLabel As Label
+    Friend WithEvents SearchEffectiveDateEndDateTimePicker As DateTimePicker
+    Friend WithEvents SearchEffectiveDateStartDateTimePicker As DateTimePicker
+    Friend WithEvents EffectiveDateDuaringLabel As Label
+    Friend WithEvents SearchEffectiveDateLabel As Label
 End Class

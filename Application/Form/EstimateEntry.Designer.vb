@@ -22,287 +22,268 @@ Partial Class EstimateEntry
     'コード エディターを使って変更しないでください。
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.Label4 = New System.Windows.Forms.Label()
-        Me.Button1 = New System.Windows.Forms.Button()
-        Me.Button2 = New System.Windows.Forms.Button()
-        Me.Label5 = New System.Windows.Forms.Label()
-        Me.Button3 = New System.Windows.Forms.Button()
-        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
-        Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
-        Me.Label6 = New System.Windows.Forms.Label()
-        Me.Label7 = New System.Windows.Forms.Label()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
-        Me.Label8 = New System.Windows.Forms.Label()
-        Me.ComboBox2 = New System.Windows.Forms.ComboBox()
-        Me.Label9 = New System.Windows.Forms.Label()
-        Me.DateTimePicker2 = New System.Windows.Forms.DateTimePicker()
-        Me.Label10 = New System.Windows.Forms.Label()
-        Me.TextBox2 = New System.Windows.Forms.TextBox()
-        Me.Indent = New System.Windows.Forms.DataGridViewButtonColumn()
-        Me.No = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Item = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Quantity = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Price = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.TitleLabel = New System.Windows.Forms.Label()
+        Me.TitleTextBox = New System.Windows.Forms.TextBox()
+        Me.EstimateNoLabel = New System.Windows.Forms.Label()
+        Me.IssueDateLabel = New System.Windows.Forms.Label()
+        Me.CustomerLabel = New System.Windows.Forms.Label()
+        Me.EntryButton = New System.Windows.Forms.Button()
+        Me.PrintPreviewButton = New System.Windows.Forms.Button()
+        Me.DetailsDataGridView = New System.Windows.Forms.DataGridView()
+        Me.DueDateDateTimePicker = New System.Windows.Forms.DateTimePicker()
+        Me.DueDateLabel = New System.Windows.Forms.Label()
+        Me.PaymentConditionLabel = New System.Windows.Forms.Label()
+        Me.PaymentConditionComboBox = New System.Windows.Forms.ComboBox()
+        Me.PICEmployeeLabel = New System.Windows.Forms.Label()
+        Me.PICEmployeeComboBox = New System.Windows.Forms.ComboBox()
+        Me.EffectiveDateLabel = New System.Windows.Forms.Label()
+        Me.EffectiveDateDateTimePicker = New System.Windows.Forms.DateTimePicker()
+        Me.RemarksLabel = New System.Windows.Forms.Label()
+        Me.RemarksTextBox = New System.Windows.Forms.TextBox()
+        Me.CustomerComboBox = New System.Windows.Forms.ComboBox()
+        Me.EstimateNoTextBox = New System.Windows.Forms.TextBox()
+        Me.IssueDateDateTimePicker = New System.Windows.Forms.DateTimePicker()
+        CType(Me.DetailsDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
-        'Label1
+        'TitleLabel
         '
-        Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(17, 15)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(29, 12)
-        Me.Label1.TabIndex = 0
-        Me.Label1.Text = "件名"
+        Me.TitleLabel.AutoSize = True
+        Me.TitleLabel.Location = New System.Drawing.Point(14, 39)
+        Me.TitleLabel.Name = "TitleLabel"
+        Me.TitleLabel.Size = New System.Drawing.Size(29, 12)
+        Me.TitleLabel.TabIndex = 0
+        Me.TitleLabel.Text = "件名"
         '
-        'TextBox1
+        'TitleTextBox
         '
-        Me.TextBox1.Location = New System.Drawing.Point(52, 12)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(391, 19)
-        Me.TextBox1.TabIndex = 1
+        Me.TitleTextBox.Location = New System.Drawing.Point(71, 35)
+        Me.TitleTextBox.Name = "TitleTextBox"
+        Me.TitleTextBox.Size = New System.Drawing.Size(311, 19)
+        Me.TitleTextBox.TabIndex = 1
         '
-        'Label2
+        'EstimateNoLabel
         '
-        Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(487, 9)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(53, 12)
-        Me.Label2.TabIndex = 0
-        Me.Label2.Text = "見積番号"
+        Me.EstimateNoLabel.AutoSize = True
+        Me.EstimateNoLabel.Location = New System.Drawing.Point(14, 16)
+        Me.EstimateNoLabel.Name = "EstimateNoLabel"
+        Me.EstimateNoLabel.Size = New System.Drawing.Size(53, 12)
+        Me.EstimateNoLabel.TabIndex = 0
+        Me.EstimateNoLabel.Text = "見積番号"
         '
-        'Label3
+        'IssueDateLabel
         '
-        Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(591, 9)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(41, 12)
-        Me.Label3.TabIndex = 0
-        Me.Label3.Text = "発行日"
+        Me.IssueDateLabel.AutoSize = True
+        Me.IssueDateLabel.Location = New System.Drawing.Point(446, 16)
+        Me.IssueDateLabel.Name = "IssueDateLabel"
+        Me.IssueDateLabel.Size = New System.Drawing.Size(41, 12)
+        Me.IssueDateLabel.TabIndex = 0
+        Me.IssueDateLabel.Text = "発行日"
         '
-        'Label4
+        'CustomerLabel
         '
-        Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(24, 50)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(41, 12)
-        Me.Label4.TabIndex = 0
-        Me.Label4.Text = "顧客名"
+        Me.CustomerLabel.AutoSize = True
+        Me.CustomerLabel.Location = New System.Drawing.Point(12, 62)
+        Me.CustomerLabel.Name = "CustomerLabel"
+        Me.CustomerLabel.Size = New System.Drawing.Size(41, 12)
+        Me.CustomerLabel.TabIndex = 0
+        Me.CustomerLabel.Text = "顧客名"
         '
-        'Button1
+        'EntryButton
         '
-        Me.Button1.Location = New System.Drawing.Point(674, 434)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(75, 23)
-        Me.Button1.TabIndex = 2
-        Me.Button1.Text = "登録"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.EntryButton.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.EntryButton.Location = New System.Drawing.Point(674, 434)
+        Me.EntryButton.Name = "EntryButton"
+        Me.EntryButton.Size = New System.Drawing.Size(75, 23)
+        Me.EntryButton.TabIndex = 2
+        Me.EntryButton.Text = "登録"
+        Me.EntryButton.UseVisualStyleBackColor = True
         '
-        'Button2
+        'PrintPreviewButton
         '
-        Me.Button2.Location = New System.Drawing.Point(557, 434)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(111, 23)
-        Me.Button2.TabIndex = 2
-        Me.Button2.Text = "見積書プレビュー"
-        Me.Button2.UseVisualStyleBackColor = True
+        Me.PrintPreviewButton.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.PrintPreviewButton.Location = New System.Drawing.Point(557, 434)
+        Me.PrintPreviewButton.Name = "PrintPreviewButton"
+        Me.PrintPreviewButton.Size = New System.Drawing.Size(111, 23)
+        Me.PrintPreviewButton.TabIndex = 2
+        Me.PrintPreviewButton.Text = "見積書プレビュー"
+        Me.PrintPreviewButton.UseVisualStyleBackColor = True
         '
-        'Label5
+        'DetailsDataGridView
         '
-        Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(71, 50)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(41, 12)
-        Me.Label5.TabIndex = 0
-        Me.Label5.Text = "顧客名"
+        Me.DetailsDataGridView.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.DetailsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DetailsDataGridView.Location = New System.Drawing.Point(12, 125)
+        Me.DetailsDataGridView.Name = "DetailsDataGridView"
+        Me.DetailsDataGridView.RowHeadersVisible = False
+        Me.DetailsDataGridView.RowTemplate.Height = 21
+        Me.DetailsDataGridView.Size = New System.Drawing.Size(737, 187)
+        Me.DetailsDataGridView.TabIndex = 4
         '
-        'Button3
+        'DueDateDateTimePicker
         '
-        Me.Button3.Location = New System.Drawing.Point(289, 50)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(99, 26)
-        Me.Button3.TabIndex = 3
-        Me.Button3.Text = "台帳から探す"
-        Me.Button3.UseVisualStyleBackColor = True
+        Me.DueDateDateTimePicker.Location = New System.Drawing.Point(496, 35)
+        Me.DueDateDateTimePicker.Name = "DueDateDateTimePicker"
+        Me.DueDateDateTimePicker.Size = New System.Drawing.Size(132, 19)
+        Me.DueDateDateTimePicker.TabIndex = 5
         '
-        'DataGridView1
+        'DueDateLabel
         '
-        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Indent, Me.No, Me.Item, Me.Quantity, Me.Price})
-        Me.DataGridView1.Location = New System.Drawing.Point(12, 125)
-        Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.RowTemplate.Height = 21
-        Me.DataGridView1.Size = New System.Drawing.Size(737, 187)
-        Me.DataGridView1.TabIndex = 4
+        Me.DueDateLabel.AutoSize = True
+        Me.DueDateLabel.Location = New System.Drawing.Point(458, 38)
+        Me.DueDateLabel.Name = "DueDateLabel"
+        Me.DueDateLabel.Size = New System.Drawing.Size(29, 12)
+        Me.DueDateLabel.TabIndex = 0
+        Me.DueDateLabel.Text = "納期"
         '
-        'DateTimePicker1
+        'PaymentConditionLabel
         '
-        Me.DateTimePicker1.Location = New System.Drawing.Point(549, 38)
-        Me.DateTimePicker1.Name = "DateTimePicker1"
-        Me.DateTimePicker1.Size = New System.Drawing.Size(122, 19)
-        Me.DateTimePicker1.TabIndex = 5
+        Me.PaymentConditionLabel.AutoSize = True
+        Me.PaymentConditionLabel.Location = New System.Drawing.Point(12, 88)
+        Me.PaymentConditionLabel.Name = "PaymentConditionLabel"
+        Me.PaymentConditionLabel.Size = New System.Drawing.Size(53, 12)
+        Me.PaymentConditionLabel.TabIndex = 0
+        Me.PaymentConditionLabel.Text = "支払条件"
         '
-        'Label6
+        'PaymentConditionComboBox
         '
-        Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(511, 43)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(29, 12)
-        Me.Label6.TabIndex = 0
-        Me.Label6.Text = "納期"
+        Me.PaymentConditionComboBox.FormattingEnabled = True
+        Me.PaymentConditionComboBox.Location = New System.Drawing.Point(71, 85)
+        Me.PaymentConditionComboBox.Name = "PaymentConditionComboBox"
+        Me.PaymentConditionComboBox.Size = New System.Drawing.Size(206, 20)
+        Me.PaymentConditionComboBox.TabIndex = 6
         '
-        'Label7
+        'PICEmployeeLabel
         '
-        Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(12, 85)
-        Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(53, 12)
-        Me.Label7.TabIndex = 0
-        Me.Label7.Text = "支払条件"
+        Me.PICEmployeeLabel.AutoSize = True
+        Me.PICEmployeeLabel.Location = New System.Drawing.Point(434, 85)
+        Me.PICEmployeeLabel.Name = "PICEmployeeLabel"
+        Me.PICEmployeeLabel.Size = New System.Drawing.Size(53, 12)
+        Me.PICEmployeeLabel.TabIndex = 0
+        Me.PICEmployeeLabel.Text = "担当営業"
         '
-        'ComboBox1
+        'PICEmployeeComboBox
         '
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Location = New System.Drawing.Point(71, 82)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(206, 20)
-        Me.ComboBox1.TabIndex = 6
+        Me.PICEmployeeComboBox.FormattingEnabled = True
+        Me.PICEmployeeComboBox.Location = New System.Drawing.Point(496, 82)
+        Me.PICEmployeeComboBox.Name = "PICEmployeeComboBox"
+        Me.PICEmployeeComboBox.Size = New System.Drawing.Size(132, 20)
+        Me.PICEmployeeComboBox.TabIndex = 6
         '
-        'Label8
+        'EffectiveDateLabel
         '
-        Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(487, 92)
-        Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(53, 12)
-        Me.Label8.TabIndex = 0
-        Me.Label8.Text = "担当営業"
+        Me.EffectiveDateLabel.AutoSize = True
+        Me.EffectiveDateLabel.Location = New System.Drawing.Point(410, 62)
+        Me.EffectiveDateLabel.Name = "EffectiveDateLabel"
+        Me.EffectiveDateLabel.Size = New System.Drawing.Size(77, 12)
+        Me.EffectiveDateLabel.TabIndex = 0
+        Me.EffectiveDateLabel.Text = "見積有効期限"
         '
-        'ComboBox2
+        'EffectiveDateDateTimePicker
         '
-        Me.ComboBox2.FormattingEnabled = True
-        Me.ComboBox2.Location = New System.Drawing.Point(548, 89)
-        Me.ComboBox2.Name = "ComboBox2"
-        Me.ComboBox2.Size = New System.Drawing.Size(132, 20)
-        Me.ComboBox2.TabIndex = 6
+        Me.EffectiveDateDateTimePicker.Location = New System.Drawing.Point(496, 59)
+        Me.EffectiveDateDateTimePicker.Name = "EffectiveDateDateTimePicker"
+        Me.EffectiveDateDateTimePicker.Size = New System.Drawing.Size(132, 19)
+        Me.EffectiveDateDateTimePicker.TabIndex = 5
         '
-        'Label9
+        'RemarksLabel
         '
-        Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(463, 69)
-        Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(77, 12)
-        Me.Label9.TabIndex = 0
-        Me.Label9.Text = "見積有効期限"
+        Me.RemarksLabel.AutoSize = True
+        Me.RemarksLabel.Location = New System.Drawing.Point(12, 315)
+        Me.RemarksLabel.Name = "RemarksLabel"
+        Me.RemarksLabel.Size = New System.Drawing.Size(29, 12)
+        Me.RemarksLabel.TabIndex = 7
+        Me.RemarksLabel.Text = "備考"
         '
-        'DateTimePicker2
+        'RemarksTextBox
         '
-        Me.DateTimePicker2.Location = New System.Drawing.Point(549, 64)
-        Me.DateTimePicker2.Name = "DateTimePicker2"
-        Me.DateTimePicker2.Size = New System.Drawing.Size(131, 19)
-        Me.DateTimePicker2.TabIndex = 5
+        Me.RemarksTextBox.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.RemarksTextBox.Location = New System.Drawing.Point(14, 330)
+        Me.RemarksTextBox.Multiline = True
+        Me.RemarksTextBox.Name = "RemarksTextBox"
+        Me.RemarksTextBox.Size = New System.Drawing.Size(735, 98)
+        Me.RemarksTextBox.TabIndex = 8
         '
-        'Label10
+        'CustomerComboBox
         '
-        Me.Label10.AutoSize = True
-        Me.Label10.Location = New System.Drawing.Point(12, 315)
-        Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(29, 12)
-        Me.Label10.TabIndex = 7
-        Me.Label10.Text = "備考"
+        Me.CustomerComboBox.FormattingEnabled = True
+        Me.CustomerComboBox.Location = New System.Drawing.Point(71, 59)
+        Me.CustomerComboBox.Name = "CustomerComboBox"
+        Me.CustomerComboBox.Size = New System.Drawing.Size(206, 20)
+        Me.CustomerComboBox.TabIndex = 6
         '
-        'TextBox2
+        'EstimateNoTextBox
         '
-        Me.TextBox2.Location = New System.Drawing.Point(14, 330)
-        Me.TextBox2.Multiline = True
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(735, 98)
-        Me.TextBox2.TabIndex = 8
+        Me.EstimateNoTextBox.Location = New System.Drawing.Point(71, 13)
+        Me.EstimateNoTextBox.Name = "EstimateNoTextBox"
+        Me.EstimateNoTextBox.ReadOnly = True
+        Me.EstimateNoTextBox.Size = New System.Drawing.Size(206, 19)
+        Me.EstimateNoTextBox.TabIndex = 1
         '
-        'Indent
+        'IssueDateDateTimePicker
         '
-        Me.Indent.HeaderText = ""
-        Me.Indent.Name = "Indent"
-        '
-        'No
-        '
-        Me.No.HeaderText = "No"
-        Me.No.Name = "No"
-        '
-        'Item
-        '
-        Me.Item.HeaderText = "品名"
-        Me.Item.Name = "Item"
-        '
-        'Quantity
-        '
-        Me.Quantity.HeaderText = "数量"
-        Me.Quantity.Name = "Quantity"
-        '
-        'Price
-        '
-        Me.Price.HeaderText = "単価"
-        Me.Price.Name = "Price"
+        Me.IssueDateDateTimePicker.Location = New System.Drawing.Point(496, 13)
+        Me.IssueDateDateTimePicker.Name = "IssueDateDateTimePicker"
+        Me.IssueDateDateTimePicker.Size = New System.Drawing.Size(132, 19)
+        Me.IssueDateDateTimePicker.TabIndex = 5
         '
         'EstimateEntry
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(761, 461)
-        Me.Controls.Add(Me.TextBox2)
-        Me.Controls.Add(Me.Label10)
-        Me.Controls.Add(Me.ComboBox2)
-        Me.Controls.Add(Me.ComboBox1)
-        Me.Controls.Add(Me.DateTimePicker2)
-        Me.Controls.Add(Me.DateTimePicker1)
-        Me.Controls.Add(Me.DataGridView1)
-        Me.Controls.Add(Me.Button3)
-        Me.Controls.Add(Me.Button2)
-        Me.Controls.Add(Me.Button1)
-        Me.Controls.Add(Me.TextBox1)
-        Me.Controls.Add(Me.Label3)
-        Me.Controls.Add(Me.Label2)
-        Me.Controls.Add(Me.Label8)
-        Me.Controls.Add(Me.Label5)
-        Me.Controls.Add(Me.Label9)
-        Me.Controls.Add(Me.Label7)
-        Me.Controls.Add(Me.Label6)
-        Me.Controls.Add(Me.Label4)
-        Me.Controls.Add(Me.Label1)
+        Me.Controls.Add(Me.RemarksTextBox)
+        Me.Controls.Add(Me.RemarksLabel)
+        Me.Controls.Add(Me.PICEmployeeComboBox)
+        Me.Controls.Add(Me.CustomerComboBox)
+        Me.Controls.Add(Me.PaymentConditionComboBox)
+        Me.Controls.Add(Me.EffectiveDateDateTimePicker)
+        Me.Controls.Add(Me.IssueDateDateTimePicker)
+        Me.Controls.Add(Me.DueDateDateTimePicker)
+        Me.Controls.Add(Me.DetailsDataGridView)
+        Me.Controls.Add(Me.PrintPreviewButton)
+        Me.Controls.Add(Me.EntryButton)
+        Me.Controls.Add(Me.EstimateNoTextBox)
+        Me.Controls.Add(Me.TitleTextBox)
+        Me.Controls.Add(Me.IssueDateLabel)
+        Me.Controls.Add(Me.EstimateNoLabel)
+        Me.Controls.Add(Me.PICEmployeeLabel)
+        Me.Controls.Add(Me.EffectiveDateLabel)
+        Me.Controls.Add(Me.PaymentConditionLabel)
+        Me.Controls.Add(Me.DueDateLabel)
+        Me.Controls.Add(Me.CustomerLabel)
+        Me.Controls.Add(Me.TitleLabel)
         Me.Name = "EstimateEntry"
         Me.Text = "見積書の作成"
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DetailsDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
 
-    Friend WithEvents Label1 As Label
-    Friend WithEvents TextBox1 As TextBox
-    Friend WithEvents Label2 As Label
-    Friend WithEvents Label3 As Label
-    Friend WithEvents Label4 As Label
-    Friend WithEvents Button1 As Button
-    Friend WithEvents Button2 As Button
-    Friend WithEvents Label5 As Label
-    Friend WithEvents Button3 As Button
-    Friend WithEvents DataGridView1 As DataGridView
-    Friend WithEvents DateTimePicker1 As DateTimePicker
-    Friend WithEvents Label6 As Label
-    Friend WithEvents Label7 As Label
-    Friend WithEvents ComboBox1 As ComboBox
-    Friend WithEvents Label8 As Label
-    Friend WithEvents ComboBox2 As ComboBox
-    Friend WithEvents Label9 As Label
-    Friend WithEvents DateTimePicker2 As DateTimePicker
-    Friend WithEvents Label10 As Label
-    Friend WithEvents TextBox2 As TextBox
-    Friend WithEvents Indent As DataGridViewButtonColumn
-    Friend WithEvents No As DataGridViewTextBoxColumn
-    Friend WithEvents Item As DataGridViewTextBoxColumn
-    Friend WithEvents Quantity As DataGridViewTextBoxColumn
-    Friend WithEvents Price As DataGridViewTextBoxColumn
+    Friend WithEvents TitleLabel As Label
+    Friend WithEvents TitleTextBox As TextBox
+    Friend WithEvents EstimateNoLabel As Label
+    Friend WithEvents IssueDateLabel As Label
+    Friend WithEvents CustomerLabel As Label
+    Friend WithEvents EntryButton As Button
+    Friend WithEvents PrintPreviewButton As Button
+    Friend WithEvents DetailsDataGridView As DataGridView
+    Friend WithEvents DueDateDateTimePicker As DateTimePicker
+    Friend WithEvents DueDateLabel As Label
+    Friend WithEvents PaymentConditionLabel As Label
+    Friend WithEvents PaymentConditionComboBox As ComboBox
+    Friend WithEvents PICEmployeeLabel As Label
+    Friend WithEvents PICEmployeeComboBox As ComboBox
+    Friend WithEvents EffectiveDateLabel As Label
+    Friend WithEvents EffectiveDateDateTimePicker As DateTimePicker
+    Friend WithEvents RemarksLabel As Label
+    Friend WithEvents RemarksTextBox As TextBox
+    Friend WithEvents CustomerComboBox As ComboBox
+    Friend WithEvents EstimateNoTextBox As TextBox
+    Friend WithEvents IssueDateDateTimePicker As DateTimePicker
 End Class

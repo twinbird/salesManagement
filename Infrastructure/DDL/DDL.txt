@@ -95,8 +95,7 @@ CREATE TABLE estimates (
 	FOREIGN KEY (customer_id) REFERENCES customers(id),
 	FOREIGN KEY (payment_id) REFERENCES payment_conditions(id),
 	FOREIGN KEY (pic_employee_id) REFERENCES employees(id),
-	FOREIGN KEY (apply_tax_id) REFERENCES sales_taxes(id),
-	FOREIGN KEY (apply_company_id) REFERENCES company_information(id)
+	FOREIGN KEY (apply_tax_id) REFERENCES sales_taxes(id)
 );
 
 DROP TABLE IF EXISTS estimate_details;

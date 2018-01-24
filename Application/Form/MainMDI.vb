@@ -75,6 +75,18 @@ Public Class MainMDI
 
 #End Region
 
+#Region "日常業務"
+
+    Private Sub 見積台帳EToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles 見積台帳EToolStripMenuItem.Click
+        ' 子フォームの新しいインスタンスを作成します
+        Dim ChildForm As New EstimateList
+        ' 表示する前に、この MDI フォームの子に設定します
+        ChildForm.MdiParent = Me
+        ChildForm.Show()
+    End Sub
+
+#End Region
+
 #Region "メニュー(設定)"
 
     Private Sub 顧客マスタToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles 顧客マスタToolStripMenuItem.Click

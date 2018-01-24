@@ -33,12 +33,6 @@ Partial Class MainMDI
         Me.ExitToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.日常業務ToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.見積台帳EToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.受注台帳OToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.売上台帳SToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.入金台帳AToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.月次業務ToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.締め処理CToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.請求処理IToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.マスタToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.顧客マスタToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.従業員ToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -71,6 +65,7 @@ Partial Class MainMDI
         Me.StatusStrip = New System.Windows.Forms.StatusStrip()
         Me.ToolStripStatusLabel = New System.Windows.Forms.ToolStripStatusLabel()
         Me.ToolTip = New System.Windows.Forms.ToolTip(Me.components)
+        Me.見積作成MToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip.SuspendLayout()
         Me.ToolStrip.SuspendLayout()
         Me.StatusStrip.SuspendLayout()
@@ -78,7 +73,7 @@ Partial Class MainMDI
         '
         'MenuStrip
         '
-        Me.MenuStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FileMenu, Me.日常業務ToolStripMenuItem, Me.月次業務ToolStripMenuItem, Me.マスタToolStripMenuItem, Me.WindowsMenu, Me.HelpMenu})
+        Me.MenuStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FileMenu, Me.日常業務ToolStripMenuItem, Me.マスタToolStripMenuItem, Me.WindowsMenu, Me.HelpMenu})
         Me.MenuStrip.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip.MdiWindowListItem = Me.WindowsMenu
         Me.MenuStrip.Name = "MenuStrip"
@@ -119,53 +114,16 @@ Partial Class MainMDI
         '
         '日常業務ToolStripMenuItem
         '
-        Me.日常業務ToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.見積台帳EToolStripMenuItem, Me.受注台帳OToolStripMenuItem, Me.売上台帳SToolStripMenuItem, Me.入金台帳AToolStripMenuItem})
+        Me.日常業務ToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.見積台帳EToolStripMenuItem, Me.見積作成MToolStripMenuItem})
         Me.日常業務ToolStripMenuItem.Name = "日常業務ToolStripMenuItem"
-        Me.日常業務ToolStripMenuItem.Size = New System.Drawing.Size(83, 20)
-        Me.日常業務ToolStripMenuItem.Text = "日常業務(&D)"
+        Me.日常業務ToolStripMenuItem.Size = New System.Drawing.Size(59, 20)
+        Me.日常業務ToolStripMenuItem.Text = "見積(&D)"
         '
         '見積台帳EToolStripMenuItem
         '
         Me.見積台帳EToolStripMenuItem.Name = "見積台帳EToolStripMenuItem"
         Me.見積台帳EToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.見積台帳EToolStripMenuItem.Text = "見積管理(&E)"
-        '
-        '受注台帳OToolStripMenuItem
-        '
-        Me.受注台帳OToolStripMenuItem.Name = "受注台帳OToolStripMenuItem"
-        Me.受注台帳OToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
-        Me.受注台帳OToolStripMenuItem.Text = "受注管理(&O)"
-        '
-        '売上台帳SToolStripMenuItem
-        '
-        Me.売上台帳SToolStripMenuItem.Name = "売上台帳SToolStripMenuItem"
-        Me.売上台帳SToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
-        Me.売上台帳SToolStripMenuItem.Text = "売上管理(&S)"
-        '
-        '入金台帳AToolStripMenuItem
-        '
-        Me.入金台帳AToolStripMenuItem.Name = "入金台帳AToolStripMenuItem"
-        Me.入金台帳AToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
-        Me.入金台帳AToolStripMenuItem.Text = "入金管理(&A)"
-        '
-        '月次業務ToolStripMenuItem
-        '
-        Me.月次業務ToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.締め処理CToolStripMenuItem, Me.請求処理IToolStripMenuItem})
-        Me.月次業務ToolStripMenuItem.Name = "月次業務ToolStripMenuItem"
-        Me.月次業務ToolStripMenuItem.Size = New System.Drawing.Size(86, 20)
-        Me.月次業務ToolStripMenuItem.Text = "月次業務(&M)"
-        '
-        '締め処理CToolStripMenuItem
-        '
-        Me.締め処理CToolStripMenuItem.Name = "締め処理CToolStripMenuItem"
-        Me.締め処理CToolStripMenuItem.Size = New System.Drawing.Size(135, 22)
-        Me.締め処理CToolStripMenuItem.Text = "締め処理(&C)"
-        '
-        '請求処理IToolStripMenuItem
-        '
-        Me.請求処理IToolStripMenuItem.Name = "請求処理IToolStripMenuItem"
-        Me.請求処理IToolStripMenuItem.Size = New System.Drawing.Size(135, 22)
-        Me.請求処理IToolStripMenuItem.Text = "請求管理(&I)"
         '
         'マスタToolStripMenuItem
         '
@@ -382,6 +340,12 @@ Partial Class MainMDI
         Me.ToolStripStatusLabel.Size = New System.Drawing.Size(31, 17)
         Me.ToolStripStatusLabel.Text = "状態"
         '
+        '見積作成MToolStripMenuItem
+        '
+        Me.見積作成MToolStripMenuItem.Name = "見積作成MToolStripMenuItem"
+        Me.見積作成MToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.見積作成MToolStripMenuItem.Text = "見積作成(&M)"
+        '
         'MainMDI
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
@@ -393,7 +357,7 @@ Partial Class MainMDI
         Me.IsMdiContainer = True
         Me.MainMenuStrip = Me.MenuStrip
         Me.Name = "MainMDI"
-        Me.Text = "販売管理システム"
+        Me.Text = "見積管理システム"
         Me.MenuStrip.ResumeLayout(False)
         Me.MenuStrip.PerformLayout()
         Me.ToolStrip.ResumeLayout(False)
@@ -437,17 +401,12 @@ Partial Class MainMDI
     Friend WithEvents 顧客マスタToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents 従業員ToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents 日常業務ToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents 月次業務ToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents バックアップの作成ToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents バックアップのインポートToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents 見積台帳EToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents 受注台帳OToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents 売上台帳SToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents 入金台帳AToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents 締め処理CToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents 請求処理IToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents 支払条件の設定PToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents 消費税の設定TToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents 自社情報の設定SToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents 保守契約の管理SToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents 見積作成MToolStripMenuItem As ToolStripMenuItem
 End Class

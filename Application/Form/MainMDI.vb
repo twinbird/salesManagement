@@ -1,8 +1,6 @@
 ﻿Option Strict On
 Option Infer On
 
-Imports System.Windows.Forms
-
 ''' <summary>
 ''' メインMDIフォーム
 ''' </summary>
@@ -27,23 +25,6 @@ Public Class MainMDI
     Private Sub ExitToolsStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) Handles ExitToolStripMenuItem.Click
         Me.Close()
     End Sub
-
-#End Region
-
-#Region "メニュー(編集)"
-
-    Private Sub CutToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) 
-        ' My.Computer.Clipboard を使用して、選択されたテキストまたはイメージをクリップボードに挿入します
-    End Sub
-
-    Private Sub CopyToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) 
-        ' My.Computer.Clipboard を使用して、選択されたテキストまたはイメージをクリップボードに挿入します
-    End Sub
-
-    Private Sub PasteToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) 
-        'My.Computer.Clipboard.GetText() または My.Computer.Clipboard.GetData を使用して、クリップボードから情報を取得します
-    End Sub
-
 
 #End Region
 
@@ -75,11 +56,19 @@ Public Class MainMDI
 
 #End Region
 
-#Region "日常業務"
+#Region "見積"
 
     Private Sub 見積台帳EToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles 見積台帳EToolStripMenuItem.Click
         ' 子フォームの新しいインスタンスを作成します
         Dim ChildForm As New EstimateList
+        ' 表示する前に、この MDI フォームの子に設定します
+        ChildForm.MdiParent = Me
+        ChildForm.Show()
+    End Sub
+
+    Private Sub 見積作成MToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles 見積作成MToolStripMenuItem.Click
+        ' 子フォームの新しいインスタンスを作成します
+        Dim ChildForm As New EstimateEntry
         ' 表示する前に、この MDI フォームの子に設定します
         ChildForm.MdiParent = Me
         ChildForm.Show()

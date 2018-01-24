@@ -1,5 +1,6 @@
 ﻿Option Strict On
 Option Infer On
+Imports System.Collections.Generic
 Imports System.Diagnostics
 Imports Domain
 
@@ -52,54 +53,131 @@ Public Class EstimateRepositoryImpl
     ''' <param name="e"></param>
     ''' <returns></returns>
     Private Function Create(e As Estimate) As Boolean
-        'Debug.Assert(e.ID < 0)
+        Debug.Assert(e.ID < 0)
 
-        'Using accessor As New ADOWrapper.DBAccessor()
-        '    accessor.BeginTransaction()
+        Using accessor As New ADOWrapper.DBAccessor()
+            accessor.BeginTransaction()
 
-        '    Dim q = accessor.CreateQuery
-        '    With q.Query
-        '        .AppendLine("INSERT INTO employees(")
-        '        .AppendLine(" employee_number")
-        '        .AppendLine(",name")
-        '        .AppendLine(",name_kana")
-        '        .AppendLine(",created_at")
-        '        .AppendLine(")")
-        '        .AppendLine("VALUES(")
-        '        .AppendLine(" @employee_number")
-        '        .AppendLine(",@name")
-        '        .AppendLine(",@name_kana")
-        '        .AppendLine(",@created_at")
-        '        .AppendLine(")")
-        '    End With
+            Dim q = accessor.CreateQuery
+            With q.Query
+                .AppendLine("INSERT INTO estimates(")
+                .AppendLine(" estimate_number")
+                .AppendLine(",customer_id")
+                .AppendLine(",title")
+                .AppendLine(",due_date")
+                .AppendLine(",payment_id")
+                .AppendLine(",pic_employee_id")
+                .AppendLine(",apply_tax_id")
+                .AppendLine(",print_date")
+                .AppendLine(",effective_date")
+                .AppendLine(",remarks")
+                .AppendLine(",created_at")
+                .AppendLine(")")
+                .AppendLine("VALUES(")
+                .AppendLine(" @estimate_number")
+                .AppendLine(",@customer_id")
+                .AppendLine(",@title")
+                .AppendLine(",@due_date")
+                .AppendLine(",@payment_id")
+                .AppendLine(",@pic_employee_id")
+                .AppendLine(",@apply_tax_id")
+                .AppendLine(",@print_date")
+                .AppendLine(",@effective_date")
+                .AppendLine(",@remarks")
+                .AppendLine(",@created_at")
+                .AppendLine(")")
+            End With
 
-        '    With q.Parameters
-        '        .Add("@employee_number", e.EmployeeNo)
-        '        .Add("@name", e.Name)
-        '        .Add("@name_kana", e.NameKana)
-        '        .Add("@created_at", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"))
-        '    End With
+            With q.Parameters
+                .Add("@estimate_number", e.EstimateNo)
+                .Add("@customer_id", e.Customer.ID)
+                .Add("@title", e.Title)
+                .Add("@due_date", e.DueDate.ToString("yyyy-MM-dd HH:mm:ss"))
+                .Add("@payment_id", e.PaymentCondition.ID)
+                .Add("@pic_employee_id", e.PICEmployee.ID)
+                .Add("@apply_tax_id", e.SalesTax.ID)
+                .Add("@print_date", e.IssueDate.ToString("yyyy-MM-dd HH:mm:ss"))
+                .Add("@effective_date", e.EffectiveDate.ToString("yyyy-MM-dd HH:mm:ss"))
+                .Add("@remarks", e.Remarks)
+                .Add("@created_at", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"))
+            End With
 
-        '    Dim ret = q.ExecNonQuery
+            Dim ret = q.ExecNonQuery
 
-        '    If ret <> 1 Then
-        '        accessor.RollBack()
-        '        Return False
-        '    End If
+            If ret <> 1 Then
+                accessor.RollBack()
+                Return False
+            End If
 
-        '    Dim check_q = accessor.CreateQuery
-        '    With check_q.Query
-        '        .AppendLine("SELECT")
-        '        .AppendLine("   last_insert_rowid()")
-        '    End With
+            Dim check_q = accessor.CreateQuery
+            With check_q.Query
+                .AppendLine("SELECT")
+                .AppendLine("   last_insert_rowid()")
+            End With
 
-        '    Dim check_ret = check_q.ExecScalar
-        '    _LastInsertId = CType(check_ret, Integer)
+            Dim check_ret = check_q.ExecScalar
+            Dim inserted_id = CType(check_ret, Integer)
 
-        '    accessor.Commit()
+            '=========================================
+            '明細を登録
+            '=========================================
+            For Each d As EstimateDetail In e.Details
+                CreateDetail(accessor, d, inserted_id)
+            Next
 
-        '    Return True
-        'End Using
+            _LastInsertId = inserted_id
+
+            accessor.Commit()
+
+            Return True
+        End Using
+    End Function
+
+    ''' <summary>
+    ''' 明細レコードを新規作成
+    ''' </summary>
+    ''' <param name="accessor"></param>
+    ''' <returns>ロールバックが必要ならfalse</returns>
+    Private Function CreateDetail(ByVal accessor As ADOWrapper.DBAccessor, d As EstimateDetail, eid As Integer) As Boolean
+        Debug.Assert(d.ID < 0)
+
+        Dim q = accessor.CreateQuery
+        With q.Query
+            .AppendLine("INSERT INTO estimate_details(")
+            .AppendLine(" estimate_id")
+            .AppendLine(",display_order")
+            .AppendLine(",item_name")
+            .AppendLine(",quantity")
+            .AppendLine(",unit_price")
+            .AppendLine(",created_at")
+            .AppendLine(")")
+            .AppendLine("VALUES(")
+            .AppendLine(" @estimate_id")
+            .AppendLine(",@display_order")
+            .AppendLine(",@item_name")
+            .AppendLine(",@quantity")
+            .AppendLine(",@unit_price")
+            .AppendLine(",@created_at")
+            .AppendLine(")")
+        End With
+
+        With q.Parameters
+            .Add("@estimate_id", eid)
+            .Add("@display_order", d.DisplayOrder)
+            .Add("@item_name", d.ItemName)
+            .Add("@quantity", d.Quantity)
+            .Add("@unit_price", d.UnitPrice)
+            .Add("@created_at", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"))
+        End With
+
+        Dim ret = q.ExecNonQuery
+
+        If ret <> 1 Then
+            Return False
+        End If
+
+        Return True
+
     End Function
 
 #End Region
@@ -145,44 +223,143 @@ Public Class EstimateRepositoryImpl
     ''' <param name="e"></param>
     ''' <returns></returns>
     Private Function Update(e As Estimate) As Boolean
-        'Using accessor As New ADOWrapper.DBAccessor
-        '    accessor.BeginTransaction()
+        Using accessor As New ADOWrapper.DBAccessor
+            accessor.BeginTransaction()
 
-        '    Dim q = accessor.CreateQuery
-        '    With q.Query
-        '        .AppendLine("UPDATE")
-        '        .AppendLine("   employees")
-        '        .AppendLine("SET")
-        '        .AppendLine("    employee_number = @employee_number")
-        '        .AppendLine("   ,name = @name")
-        '        .AppendLine("   ,name_kana = @name_kana")
-        '        .AppendLine("   ,updated_at = @updated_at")
-        '        .AppendLine("WHERE")
-        '        .AppendLine("   id = @id")
-        '    End With
+            Dim q = accessor.CreateQuery
+            With q.Query
+                .AppendLine("UPDATE")
+                .AppendLine("   estimates")
+                .AppendLine("SET")
+                .AppendLine(" estimate_number = @estimate_number")
+                .AppendLine(",customer_id = @customer_id")
+                .AppendLine(",title = @title")
+                .AppendLine(",due_date = @due_date")
+                .AppendLine(",payment_id = payment_id")
+                .AppendLine(",pic_employee_id = @pic_employee_id")
+                .AppendLine(",apply_tax_id = @apply_tax_id")
+                .AppendLine(",print_date = @print_date")
+                .AppendLine(",effective_date = @effective_date")
+                .AppendLine(",remarks = @remarks")
+                .AppendLine(",updated_at = @updated_at")
+                .AppendLine("WHERE")
+                .AppendLine("   id = @id")
+            End With
 
-        '    With q.Parameters
-        '        .Add("@employee_number", e.EmployeeNo)
-        '        .Add("@name", e.Name)
-        '        .Add("@name_kana", e.NameKana)
-        '        .Add("@updated_at", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"))
-        '        .Add("@id", e.ID)
-        '    End With
+            With q.Parameters
+                .Add("@estimate_number", e.EstimateNo)
+                .Add("@customer_id", e.Customer.ID)
+                .Add("@title", e.Title)
+                .Add("@due_date", e.DueDate.ToString("yyyy-MM-dd HH:mm:ss"))
+                .Add("@payment_id", e.PaymentCondition.ID)
+                .Add("@pic_employee_id", e.PICEmployee.ID)
+                .Add("@apply_tax_id", e.SalesTax.ID)
+                .Add("@print_date", e.IssueDate.ToString("yyyy-MM-dd HH:mm:ss"))
+                .Add("@effective_date", e.EffectiveDate.ToString("yyyy-MM-dd HH:mm:ss"))
+                .Add("@remarks", e.Remarks)
+                .Add("@updated_at", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"))
+            End With
 
-        '    Dim ret = q.ExecNonQuery
+            Dim ret = q.ExecNonQuery
 
-        '    If ret <> 1 Then
-        '        accessor.RollBack()
-        '        Return False
-        '    End If
+            If ret <> 1 Then
+                accessor.RollBack()
+                Return False
+            End If
 
-        '    accessor.Commit()
-        '    Return True
+            '=========================================
+            '明細を更新
+            '=========================================
+            For Each d As EstimateDetail In e.Details
+                UpdateDetail(accessor, d, e.ID)
+            Next
+            '=========================================
+            '明細を削除
+            '=========================================
+            DeleteDetail(accessor, e.Details, e.ID)
 
-        'End Using
+            accessor.Commit()
+            Return True
+
+        End Using
+    End Function
+
+    ''' <summary>
+    ''' 明細レコードを更新
+    ''' </summary>
+    ''' <param name="accessor"></param>
+    ''' <returns>ロールバックが必要ならfalse</returns>
+    Private Function UpdateDetail(ByVal accessor As ADOWrapper.DBAccessor, d As EstimateDetail, eid As Integer) As Boolean
+        Debug.Assert(d.ID >= 0)
+
+        Dim q = accessor.CreateQuery
+        With q.Query
+            .AppendLine("UPDATE")
+            .AppendLine("   estimate_details")
+            .AppendLine("SET")
+            .AppendLine(" estimate_id = @estimate_id")
+            .AppendLine(",display_order = @display_order")
+            .AppendLine(",item_name = @item_name")
+            .AppendLine(",quantity = @quantity")
+            .AppendLine(",unit_price = @unit_price")
+            .AppendLine(",updated_at = @updated_at")
+            .AppendLine("WHERE")
+            .AppendLine("   id = @id")
+        End With
+
+        With q.Parameters
+            .Add("@id", d.ID)
+            .Add("@estimate_id", eid)
+            .Add("@display_order", d.DisplayOrder)
+            .Add("@item_name", d.ItemName)
+            .Add("@quantity", d.Quantity)
+            .Add("@unit_price", d.UnitPrice)
+            .Add("@updated_at", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"))
+        End With
+
+        Dim ret = q.ExecNonQuery
+
+        If ret <> 1 Then
+            Return False
+        End If
+
+        Return True
+
     End Function
 
 #End Region
 
+#Region "Delete"
+
+    ''' <summary>
+    ''' 明細レコードを削除
+    ''' </summary>
+    ''' <returns>ロールバックが必要ならfalse</returns>
+    Private Function DeleteDetail(ByVal accessor As ADOWrapper.DBAccessor, ByVal details As List(Of EstimateDetail), eid As Integer) As Boolean
+        Dim q = accessor.CreateQuery
+        With q.Query
+            .AppendLine("DELETE")
+            .AppendLine("   estimate_details")
+            .AppendLine("WHERE")
+            .AppendLine("   id NOT IN(")
+            For Each d As EstimateDetail In details
+                .AppendLine("@" + d.ID.ToString)
+            Next
+            .AppendLine("   )")
+        End With
+
+        With q.Parameters
+            For Each d As EstimateDetail In details
+                .Add("@" + d.ID.ToString, d.ID)
+            Next
+        End With
+
+        Dim ret = q.ExecNonQuery
+
+        Return True
+
+    End Function
+
+#End Region
 
 End Class

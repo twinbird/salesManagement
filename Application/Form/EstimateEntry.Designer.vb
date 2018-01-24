@@ -43,6 +43,12 @@ Partial Class EstimateEntry
         Me.CustomerComboBox = New System.Windows.Forms.ComboBox()
         Me.EstimateNoTextBox = New System.Windows.Forms.TextBox()
         Me.IssueDateDateTimePicker = New System.Windows.Forms.DateTimePicker()
+        Me.TaxRateLabel = New System.Windows.Forms.Label()
+        Me.TaxRateTextBox = New System.Windows.Forms.TextBox()
+        Me.EstimatePriceLabel = New System.Windows.Forms.Label()
+        Me.EstimatePriceTextBox = New System.Windows.Forms.TextBox()
+        Me.EstimatePriceIncludeTaxLabel = New System.Windows.Forms.Label()
+        Me.EstimatePriceIncludeTaxTextBox = New System.Windows.Forms.TextBox()
         CType(Me.DetailsDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -191,7 +197,7 @@ Partial Class EstimateEntry
         'RemarksLabel
         '
         Me.RemarksLabel.AutoSize = True
-        Me.RemarksLabel.Location = New System.Drawing.Point(12, 315)
+        Me.RemarksLabel.Location = New System.Drawing.Point(14, 345)
         Me.RemarksLabel.Name = "RemarksLabel"
         Me.RemarksLabel.Size = New System.Drawing.Size(29, 12)
         Me.RemarksLabel.TabIndex = 7
@@ -202,10 +208,10 @@ Partial Class EstimateEntry
         Me.RemarksTextBox.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.RemarksTextBox.Location = New System.Drawing.Point(14, 330)
+        Me.RemarksTextBox.Location = New System.Drawing.Point(14, 360)
         Me.RemarksTextBox.Multiline = True
         Me.RemarksTextBox.Name = "RemarksTextBox"
-        Me.RemarksTextBox.Size = New System.Drawing.Size(735, 98)
+        Me.RemarksTextBox.Size = New System.Drawing.Size(735, 68)
         Me.RemarksTextBox.TabIndex = 8
         '
         'CustomerComboBox
@@ -231,6 +237,57 @@ Partial Class EstimateEntry
         Me.IssueDateDateTimePicker.Size = New System.Drawing.Size(132, 19)
         Me.IssueDateDateTimePicker.TabIndex = 5
         '
+        'TaxRateLabel
+        '
+        Me.TaxRateLabel.AutoSize = True
+        Me.TaxRateLabel.Location = New System.Drawing.Point(426, 324)
+        Me.TaxRateLabel.Name = "TaxRateLabel"
+        Me.TaxRateLabel.Size = New System.Drawing.Size(29, 12)
+        Me.TaxRateLabel.TabIndex = 0
+        Me.TaxRateLabel.Text = "税率"
+        '
+        'TaxRateTextBox
+        '
+        Me.TaxRateTextBox.Location = New System.Drawing.Point(458, 321)
+        Me.TaxRateTextBox.Name = "TaxRateTextBox"
+        Me.TaxRateTextBox.ReadOnly = True
+        Me.TaxRateTextBox.Size = New System.Drawing.Size(46, 19)
+        Me.TaxRateTextBox.TabIndex = 1
+        '
+        'EstimatePriceLabel
+        '
+        Me.EstimatePriceLabel.AutoSize = True
+        Me.EstimatePriceLabel.Location = New System.Drawing.Point(205, 324)
+        Me.EstimatePriceLabel.Name = "EstimatePriceLabel"
+        Me.EstimatePriceLabel.Size = New System.Drawing.Size(65, 12)
+        Me.EstimatePriceLabel.TabIndex = 0
+        Me.EstimatePriceLabel.Text = "御見積金額"
+        '
+        'EstimatePriceTextBox
+        '
+        Me.EstimatePriceTextBox.Location = New System.Drawing.Point(276, 321)
+        Me.EstimatePriceTextBox.Name = "EstimatePriceTextBox"
+        Me.EstimatePriceTextBox.ReadOnly = True
+        Me.EstimatePriceTextBox.Size = New System.Drawing.Size(139, 19)
+        Me.EstimatePriceTextBox.TabIndex = 1
+        '
+        'EstimatePriceIncludeTaxLabel
+        '
+        Me.EstimatePriceIncludeTaxLabel.AutoSize = True
+        Me.EstimatePriceIncludeTaxLabel.Location = New System.Drawing.Point(510, 324)
+        Me.EstimatePriceIncludeTaxLabel.Name = "EstimatePriceIncludeTaxLabel"
+        Me.EstimatePriceIncludeTaxLabel.Size = New System.Drawing.Size(97, 12)
+        Me.EstimatePriceIncludeTaxLabel.TabIndex = 0
+        Me.EstimatePriceIncludeTaxLabel.Text = "御見積金額(税込)"
+        '
+        'EstimatePriceIncludeTaxTextBox
+        '
+        Me.EstimatePriceIncludeTaxTextBox.Location = New System.Drawing.Point(612, 321)
+        Me.EstimatePriceIncludeTaxTextBox.Name = "EstimatePriceIncludeTaxTextBox"
+        Me.EstimatePriceIncludeTaxTextBox.ReadOnly = True
+        Me.EstimatePriceIncludeTaxTextBox.Size = New System.Drawing.Size(139, 19)
+        Me.EstimatePriceIncludeTaxTextBox.TabIndex = 1
+        '
         'EstimateEntry
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
@@ -247,9 +304,15 @@ Partial Class EstimateEntry
         Me.Controls.Add(Me.DetailsDataGridView)
         Me.Controls.Add(Me.PrintPreviewButton)
         Me.Controls.Add(Me.EntryButton)
+        Me.Controls.Add(Me.TaxRateTextBox)
+        Me.Controls.Add(Me.EstimatePriceTextBox)
+        Me.Controls.Add(Me.EstimatePriceIncludeTaxTextBox)
         Me.Controls.Add(Me.EstimateNoTextBox)
         Me.Controls.Add(Me.TitleTextBox)
         Me.Controls.Add(Me.IssueDateLabel)
+        Me.Controls.Add(Me.TaxRateLabel)
+        Me.Controls.Add(Me.EstimatePriceLabel)
+        Me.Controls.Add(Me.EstimatePriceIncludeTaxLabel)
         Me.Controls.Add(Me.EstimateNoLabel)
         Me.Controls.Add(Me.PICEmployeeLabel)
         Me.Controls.Add(Me.EffectiveDateLabel)
@@ -286,4 +349,10 @@ Partial Class EstimateEntry
     Friend WithEvents CustomerComboBox As ComboBox
     Friend WithEvents EstimateNoTextBox As TextBox
     Friend WithEvents IssueDateDateTimePicker As DateTimePicker
+    Friend WithEvents TaxRateLabel As Label
+    Friend WithEvents TaxRateTextBox As TextBox
+    Friend WithEvents EstimatePriceLabel As Label
+    Friend WithEvents EstimatePriceTextBox As TextBox
+    Friend WithEvents EstimatePriceIncludeTaxLabel As Label
+    Friend WithEvents EstimatePriceIncludeTaxTextBox As TextBox
 End Class

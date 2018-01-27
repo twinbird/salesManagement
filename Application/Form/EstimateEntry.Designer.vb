@@ -22,6 +22,7 @@ Partial Class EstimateEntry
     'コード エディターを使って変更しないでください。
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.TitleLabel = New System.Windows.Forms.Label()
         Me.TitleTextBox = New System.Windows.Forms.TextBox()
         Me.EstimateNoLabel = New System.Windows.Forms.Label()
@@ -49,7 +50,12 @@ Partial Class EstimateEntry
         Me.EstimatePriceTextBox = New System.Windows.Forms.TextBox()
         Me.EstimatePriceIncludeTaxLabel = New System.Windows.Forms.Label()
         Me.EstimatePriceIncludeTaxTextBox = New System.Windows.Forms.TextBox()
+        Me.ErrorProvider = New System.Windows.Forms.ErrorProvider(Me.components)
+        Me.FocusEmphasizeProvider = New Application.FocusEmphasizeProvider()
+        Me.BindingSource = New System.Windows.Forms.BindingSource(Me.components)
         CType(Me.DetailsDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ErrorProvider, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.BindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'TitleLabel
@@ -288,6 +294,15 @@ Partial Class EstimateEntry
         Me.EstimatePriceIncludeTaxTextBox.Size = New System.Drawing.Size(139, 19)
         Me.EstimatePriceIncludeTaxTextBox.TabIndex = 1
         '
+        'ErrorProvider
+        '
+        Me.ErrorProvider.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink
+        Me.ErrorProvider.ContainerControl = Me
+        '
+        'FocusEmphasizeProvider
+        '
+        Me.FocusEmphasizeProvider.Target = Me
+        '
         'EstimateEntry
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
@@ -323,6 +338,8 @@ Partial Class EstimateEntry
         Me.Name = "EstimateEntry"
         Me.Text = "見積書の作成"
         CType(Me.DetailsDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ErrorProvider, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.BindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -355,4 +372,7 @@ Partial Class EstimateEntry
     Friend WithEvents EstimatePriceTextBox As TextBox
     Friend WithEvents EstimatePriceIncludeTaxLabel As Label
     Friend WithEvents EstimatePriceIncludeTaxTextBox As TextBox
+    Friend WithEvents ErrorProvider As ErrorProvider
+    Friend WithEvents FocusEmphasizeProvider As FocusEmphasizeProvider
+    Friend WithEvents BindingSource As BindingSource
 End Class

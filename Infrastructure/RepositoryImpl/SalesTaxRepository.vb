@@ -6,7 +6,7 @@ Imports Domain
 ''' <summary>
 ''' 消費税率の永続化機能
 ''' </summary>
-Public Class SalesTaxRepository
+Public Class SalesTaxRepositoryImpl
     Implements ISalesTaxRepository
 
 #Region "インスタンス変数"

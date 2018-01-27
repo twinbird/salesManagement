@@ -11,7 +11,7 @@ Public Class SalesTaxRateEntry
 
     Private _rows As List(Of Domain.SalesTax)
     Private _bindingList As SortableBindingList(Of Domain.SalesTax)
-    Private _repo As Infrastructure.SalesTaxRepository
+    Private _repo As Infrastructure.SalesTaxRepositoryImpl
 
 #End Region
 
@@ -22,7 +22,7 @@ Public Class SalesTaxRateEntry
     ''' </summary>
     Private Sub Setup()
         'データ取得用のリポジトリを作成
-        _repo = New Infrastructure.SalesTaxRepository
+        _repo = New Infrastructure.SalesTaxRepositoryImpl
         'データグリッドビューの設定
         SetupDataGridView()
     End Sub

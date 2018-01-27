@@ -98,6 +98,8 @@ Public Class EstimateEntry
         '=============================================================================
         '各コントロールとバインディングオブジェクトを紐づけ
         '=============================================================================
+        '見積番号
+        EstimateNoTextBox.DataBindings.Add(NameOf(EstimateNoTextBox.Text), BindingSource, NameOf(_Estimate.EstimateNo))
         '件名
         TitleTextBox.DataBindings.Add(NameOf(TitleTextBox.Text), BindingSource, NameOf(_Estimate.Title))
         '顧客

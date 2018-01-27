@@ -51,8 +51,12 @@ Partial Class EstimateEntry
         Me.EstimatePriceIncludeTaxLabel = New System.Windows.Forms.Label()
         Me.EstimatePriceIncludeTaxTextBox = New System.Windows.Forms.TextBox()
         Me.ErrorProvider = New System.Windows.Forms.ErrorProvider(Me.components)
-        Me.BindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.FocusEmphasizeProvider = New Application.FocusEmphasizeProvider()
+        Me.RowDownButton = New System.Windows.Forms.Button()
+        Me.RowUpButton = New System.Windows.Forms.Button()
+        Me.RowRemoveButton = New System.Windows.Forms.Button()
+        Me.RowAddButton = New System.Windows.Forms.Button()
+        Me.BindingSource = New System.Windows.Forms.BindingSource(Me.components)
         CType(Me.DetailsDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ErrorProvider, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -131,7 +135,7 @@ Partial Class EstimateEntry
         Me.DetailsDataGridView.Name = "DetailsDataGridView"
         Me.DetailsDataGridView.RowHeadersVisible = False
         Me.DetailsDataGridView.RowTemplate.Height = 21
-        Me.DetailsDataGridView.Size = New System.Drawing.Size(737, 187)
+        Me.DetailsDataGridView.Size = New System.Drawing.Size(700, 187)
         Me.DetailsDataGridView.TabIndex = 8
         '
         'DueDateDateTimePicker
@@ -303,11 +307,51 @@ Partial Class EstimateEntry
         '
         Me.FocusEmphasizeProvider.Target = Me
         '
+        'RowDownButton
+        '
+        Me.RowDownButton.Image = Global.Application.My.Resources.Resources.Download_grey_16x
+        Me.RowDownButton.Location = New System.Drawing.Point(718, 181)
+        Me.RowDownButton.Name = "RowDownButton"
+        Me.RowDownButton.Size = New System.Drawing.Size(33, 23)
+        Me.RowDownButton.TabIndex = 16
+        Me.RowDownButton.UseVisualStyleBackColor = True
+        '
+        'RowUpButton
+        '
+        Me.RowUpButton.Image = Global.Application.My.Resources.Resources.Upload_gray_16x
+        Me.RowUpButton.Location = New System.Drawing.Point(718, 152)
+        Me.RowUpButton.Name = "RowUpButton"
+        Me.RowUpButton.Size = New System.Drawing.Size(33, 23)
+        Me.RowUpButton.TabIndex = 16
+        Me.RowUpButton.UseVisualStyleBackColor = True
+        '
+        'RowRemoveButton
+        '
+        Me.RowRemoveButton.Image = Global.Application.My.Resources.Resources.RemoveRow_16x
+        Me.RowRemoveButton.Location = New System.Drawing.Point(718, 265)
+        Me.RowRemoveButton.Name = "RowRemoveButton"
+        Me.RowRemoveButton.Size = New System.Drawing.Size(33, 23)
+        Me.RowRemoveButton.TabIndex = 15
+        Me.RowRemoveButton.UseVisualStyleBackColor = True
+        '
+        'RowAddButton
+        '
+        Me.RowAddButton.Image = Global.Application.My.Resources.Resources.AddRow_16x
+        Me.RowAddButton.Location = New System.Drawing.Point(718, 236)
+        Me.RowAddButton.Name = "RowAddButton"
+        Me.RowAddButton.Size = New System.Drawing.Size(33, 23)
+        Me.RowAddButton.TabIndex = 15
+        Me.RowAddButton.UseVisualStyleBackColor = True
+        '
         'EstimateEntry
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(761, 461)
+        Me.Controls.Add(Me.RowDownButton)
+        Me.Controls.Add(Me.RowUpButton)
+        Me.Controls.Add(Me.RowRemoveButton)
+        Me.Controls.Add(Me.RowAddButton)
         Me.Controls.Add(Me.RemarksTextBox)
         Me.Controls.Add(Me.RemarksLabel)
         Me.Controls.Add(Me.PICEmployeeComboBox)
@@ -375,4 +419,8 @@ Partial Class EstimateEntry
     Friend WithEvents ErrorProvider As ErrorProvider
     Friend WithEvents FocusEmphasizeProvider As FocusEmphasizeProvider
     Friend WithEvents BindingSource As BindingSource
+    Friend WithEvents RowRemoveButton As Button
+    Friend WithEvents RowAddButton As Button
+    Friend WithEvents RowDownButton As Button
+    Friend WithEvents RowUpButton As Button
 End Class

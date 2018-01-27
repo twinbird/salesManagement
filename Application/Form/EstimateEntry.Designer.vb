@@ -51,8 +51,8 @@ Partial Class EstimateEntry
         Me.EstimatePriceIncludeTaxLabel = New System.Windows.Forms.Label()
         Me.EstimatePriceIncludeTaxTextBox = New System.Windows.Forms.TextBox()
         Me.ErrorProvider = New System.Windows.Forms.ErrorProvider(Me.components)
-        Me.FocusEmphasizeProvider = New Application.FocusEmphasizeProvider()
         Me.BindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.FocusEmphasizeProvider = New Application.FocusEmphasizeProvider()
         CType(Me.DetailsDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ErrorProvider, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -107,7 +107,7 @@ Partial Class EstimateEntry
         Me.EntryButton.Location = New System.Drawing.Point(674, 434)
         Me.EntryButton.Name = "EntryButton"
         Me.EntryButton.Size = New System.Drawing.Size(75, 23)
-        Me.EntryButton.TabIndex = 2
+        Me.EntryButton.TabIndex = 14
         Me.EntryButton.Text = "登録"
         Me.EntryButton.UseVisualStyleBackColor = True
         '
@@ -117,7 +117,7 @@ Partial Class EstimateEntry
         Me.PrintPreviewButton.Location = New System.Drawing.Point(557, 434)
         Me.PrintPreviewButton.Name = "PrintPreviewButton"
         Me.PrintPreviewButton.Size = New System.Drawing.Size(111, 23)
-        Me.PrintPreviewButton.TabIndex = 2
+        Me.PrintPreviewButton.TabIndex = 13
         Me.PrintPreviewButton.Text = "見積書プレビュー"
         Me.PrintPreviewButton.UseVisualStyleBackColor = True
         '
@@ -132,7 +132,7 @@ Partial Class EstimateEntry
         Me.DetailsDataGridView.RowHeadersVisible = False
         Me.DetailsDataGridView.RowTemplate.Height = 21
         Me.DetailsDataGridView.Size = New System.Drawing.Size(737, 187)
-        Me.DetailsDataGridView.TabIndex = 4
+        Me.DetailsDataGridView.TabIndex = 8
         '
         'DueDateDateTimePicker
         '
@@ -165,7 +165,7 @@ Partial Class EstimateEntry
         Me.PaymentConditionComboBox.Location = New System.Drawing.Point(71, 85)
         Me.PaymentConditionComboBox.Name = "PaymentConditionComboBox"
         Me.PaymentConditionComboBox.Size = New System.Drawing.Size(206, 20)
-        Me.PaymentConditionComboBox.TabIndex = 6
+        Me.PaymentConditionComboBox.TabIndex = 3
         '
         'PICEmployeeLabel
         '
@@ -182,7 +182,7 @@ Partial Class EstimateEntry
         Me.PICEmployeeComboBox.Location = New System.Drawing.Point(496, 82)
         Me.PICEmployeeComboBox.Name = "PICEmployeeComboBox"
         Me.PICEmployeeComboBox.Size = New System.Drawing.Size(132, 20)
-        Me.PICEmployeeComboBox.TabIndex = 6
+        Me.PICEmployeeComboBox.TabIndex = 7
         '
         'EffectiveDateLabel
         '
@@ -198,7 +198,7 @@ Partial Class EstimateEntry
         Me.EffectiveDateDateTimePicker.Location = New System.Drawing.Point(496, 59)
         Me.EffectiveDateDateTimePicker.Name = "EffectiveDateDateTimePicker"
         Me.EffectiveDateDateTimePicker.Size = New System.Drawing.Size(132, 19)
-        Me.EffectiveDateDateTimePicker.TabIndex = 5
+        Me.EffectiveDateDateTimePicker.TabIndex = 6
         '
         'RemarksLabel
         '
@@ -218,7 +218,7 @@ Partial Class EstimateEntry
         Me.RemarksTextBox.Multiline = True
         Me.RemarksTextBox.Name = "RemarksTextBox"
         Me.RemarksTextBox.Size = New System.Drawing.Size(735, 68)
-        Me.RemarksTextBox.TabIndex = 8
+        Me.RemarksTextBox.TabIndex = 12
         '
         'CustomerComboBox
         '
@@ -226,7 +226,7 @@ Partial Class EstimateEntry
         Me.CustomerComboBox.Location = New System.Drawing.Point(71, 59)
         Me.CustomerComboBox.Name = "CustomerComboBox"
         Me.CustomerComboBox.Size = New System.Drawing.Size(206, 20)
-        Me.CustomerComboBox.TabIndex = 6
+        Me.CustomerComboBox.TabIndex = 2
         '
         'EstimateNoTextBox
         '
@@ -234,14 +234,14 @@ Partial Class EstimateEntry
         Me.EstimateNoTextBox.Name = "EstimateNoTextBox"
         Me.EstimateNoTextBox.ReadOnly = True
         Me.EstimateNoTextBox.Size = New System.Drawing.Size(206, 19)
-        Me.EstimateNoTextBox.TabIndex = 1
+        Me.EstimateNoTextBox.TabIndex = 0
         '
         'IssueDateDateTimePicker
         '
         Me.IssueDateDateTimePicker.Location = New System.Drawing.Point(496, 13)
         Me.IssueDateDateTimePicker.Name = "IssueDateDateTimePicker"
         Me.IssueDateDateTimePicker.Size = New System.Drawing.Size(132, 19)
-        Me.IssueDateDateTimePicker.TabIndex = 5
+        Me.IssueDateDateTimePicker.TabIndex = 4
         '
         'TaxRateLabel
         '
@@ -258,7 +258,7 @@ Partial Class EstimateEntry
         Me.TaxRateTextBox.Name = "TaxRateTextBox"
         Me.TaxRateTextBox.ReadOnly = True
         Me.TaxRateTextBox.Size = New System.Drawing.Size(46, 19)
-        Me.TaxRateTextBox.TabIndex = 1
+        Me.TaxRateTextBox.TabIndex = 10
         '
         'EstimatePriceLabel
         '
@@ -275,7 +275,7 @@ Partial Class EstimateEntry
         Me.EstimatePriceTextBox.Name = "EstimatePriceTextBox"
         Me.EstimatePriceTextBox.ReadOnly = True
         Me.EstimatePriceTextBox.Size = New System.Drawing.Size(139, 19)
-        Me.EstimatePriceTextBox.TabIndex = 1
+        Me.EstimatePriceTextBox.TabIndex = 9
         '
         'EstimatePriceIncludeTaxLabel
         '
@@ -292,7 +292,7 @@ Partial Class EstimateEntry
         Me.EstimatePriceIncludeTaxTextBox.Name = "EstimatePriceIncludeTaxTextBox"
         Me.EstimatePriceIncludeTaxTextBox.ReadOnly = True
         Me.EstimatePriceIncludeTaxTextBox.Size = New System.Drawing.Size(139, 19)
-        Me.EstimatePriceIncludeTaxTextBox.TabIndex = 1
+        Me.EstimatePriceIncludeTaxTextBox.TabIndex = 11
         '
         'ErrorProvider
         '

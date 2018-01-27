@@ -324,7 +324,7 @@ Public Class Estimate
         If idx < 0 Then
             Return False
         End If
-        If idx < _Details.Count - 1 Then
+        If idx > _Details.Count - 1 Then
             Return False
         End If
 

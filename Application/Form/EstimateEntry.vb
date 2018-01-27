@@ -1,10 +1,21 @@
 ﻿Option Strict On
 Option Infer On
 
+Imports System.ComponentModel
+
 ''' <summary>
 ''' 見積作成
 ''' </summary>
 Public Class EstimateEntry
+
+#Region "インスタンス変数"
+
+    ''' <summary>
+    ''' 明細のBindingList
+    ''' </summary>
+    Private _DetailsBindingList As BindingList(Of Domain.EstimateDetail)
+
+#End Region
 
 #Region "プロパティ"
 
@@ -57,6 +68,40 @@ Public Class EstimateEntry
     Private Sub EstimateEntry_Activated(sender As Object, e As EventArgs) Handles Me.Activated
         'コントロールのデータソースを更新
         UpdateControlDataSource()
+    End Sub
+
+    ''' <summary>
+    ''' 行追加ボタンクリック
+    ''' </summary>
+    ''' <param name="sender"></param>
+    ''' <param name="e"></param>
+    Private Sub RowAddButton_Click(sender As Object, e As EventArgs) Handles RowAddButton.Click
+        AddRowToDetail()
+    End Sub
+
+    ''' <summary>
+    ''' 行削除ボタンクリック
+    ''' </summary>
+    ''' <param name="sender"></param>
+    ''' <param name="e"></param>
+    Private Sub RowRemoveButton_Click(sender As Object, e As EventArgs) Handles RowRemoveButton.Click
+        Dim cr = DetailsDataGridView.CurrentRow
+        If cr Is Nothing Then
+            Return
+        End If
+        RemoveRowFromDetail(cr.Index)
+    End Sub
+
+    ''' <summary>
+    ''' データグリッドビューのデータエラーイベント
+    ''' </summary>
+    ''' <param name="sender"></param>
+    ''' <param name="e"></param>
+    Private Sub DetailsDataGridView_DataError(sender As Object, e As DataGridViewDataErrorEventArgs) Handles DetailsDataGridView.DataError
+        '問題のあったセルをクリアしてしまう
+        Dim view As DataGridView = CType(sender, DataGridView)
+        view.CancelEdit()
+        e.ThrowException = False
     End Sub
 
 #End Region
@@ -122,6 +167,11 @@ Public Class EstimateEntry
         EstimatePriceTextBox.DataBindings.Add(NameOf(EstimatePriceTextBox.Text), BindingSource, NameOf(_Estimate.EstimatePrice))
         '見積金額税込
         EstimatePriceIncludeTaxTextBox.DataBindings.Add(NameOf(EstimatePriceIncludeTaxTextBox.Text), BindingSource, NameOf(_Estimate.EstimatePriceIncludeTax))
+
+        '明細
+        SetupDataGridView()
+        _DetailsBindingList = New BindingList(Of Domain.EstimateDetail)(_Estimate.Details)
+        DetailsDataGridView.DataSource = _DetailsBindingList
 
         '=============================================================================
         'エラープロバイダのデータソースにフォームを紐づけたバインディングソースを割り当て
@@ -200,6 +250,80 @@ Public Class EstimateEntry
 
 #End Region
 
+#Region "DataGridView制御"
+
+    ''' <summary>
+    ''' DataGridViewのコントロール設定
+    ''' </summary>
+    Private Sub SetupDataGridView()
+        '一度列全体をクリア
+        DetailsDataGridView.Columns.Clear()
+        '列の自動生成を行わない
+        DetailsDataGridView.AutoGenerateColumns = False
+        'GridView内での新規行追加不可
+        DetailsDataGridView.AllowUserToAddRows = False
+
+        '表示順列を作成
+        Dim displayNoCol = New DataGridViewTextBoxColumn
+        With displayNoCol
+            .Name = "DisplayNoCol"
+            .HeaderText = "No."
+            .ReadOnly = True
+            .DataPropertyName = "DisplayNo"
+        End With
+        DetailsDataGridView.Columns.Add(displayNoCol)
+
+        '品名列を作成
+        Dim itemNameCol = New DataGridViewTextBoxColumn
+        With itemNameCol
+            .Name = "ItemNameCol"
+            .HeaderText = "品名"
+            .ReadOnly = False
+            .DataPropertyName = "ItemName"
+        End With
+        DetailsDataGridView.Columns.Add(itemNameCol)
+
+        '数量列を作成
+        Dim quantityCol = New DataGridViewTextBoxColumn
+        With quantityCol
+            .Name = "Quantity"
+            .HeaderText = "数量"
+            .DataPropertyName = "Quantity"
+        End With
+        DetailsDataGridView.Columns.Add(quantityCol)
+
+        '単価列を作成
+        Dim unitPriceCol = New DataGridViewTextBoxColumn
+        With unitPriceCol
+            .Name = "UnitPrice"
+            .HeaderText = "単価"
+            .DataPropertyName = "UnitPrice"
+        End With
+        DetailsDataGridView.Columns.Add(unitPriceCol)
+
+        '明細をクリア
+        DetailsDataGridView.DataSource = Nothing
+    End Sub
+
+    ''' <summary>
+    ''' 指定行の上の行に明細へ行を追加
+    ''' </summary>
+    Private Sub AddRowToDetail()
+        Dim d = New Domain.EstimateDetail
+        _Estimate.AddDetail(d)
+        _DetailsBindingList.ResetBindings()
+    End Sub
+
+    ''' <summary>
+    ''' 指定行を削除
+    ''' </summary>
+    Private Sub RemoveRowFromDetail(ByVal idx As Integer)
+        _Estimate.RemoveDetail(idx)
+        _DetailsBindingList.ResetBindings()
+    End Sub
+
+#End Region
+
 #Region "永続化"
 
     ''' <summary>
@@ -221,6 +345,5 @@ Public Class EstimateEntry
     End Function
 
 #End Region
-
 
 End Class

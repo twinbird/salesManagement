@@ -262,7 +262,11 @@ Public Class Estimate
     ''' <returns></returns>
     Public ReadOnly Property EstimatePrice As Decimal
         Get
-            Return 0
+            Dim sum As Decimal = 0
+            For Each d In _Details
+                sum += d.UnitPrice
+            Next
+            Return sum
         End Get
     End Property
 
@@ -272,7 +276,15 @@ Public Class Estimate
     ''' <returns></returns>
     Public ReadOnly Property EstimatePriceIncludeTax As Decimal
         Get
-            Return 0
+            Dim sum As Decimal = 0
+            For Each d In _Details
+                sum += d.UnitPrice
+            Next
+            If _SalesTax Is Nothing Then
+                Return sum
+            End If
+            Dim rate = _SalesTax.TaxRate
+            Return sum + (sum * (rate / 100))
         End Get
     End Property
 

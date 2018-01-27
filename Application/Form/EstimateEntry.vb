@@ -116,6 +116,12 @@ Public Class EstimateEntry
         PICEmployeeComboBox.DataBindings.Add(NameOf(PICEmployeeComboBox.SelectedValue), BindingSource, NameOf(_Estimate.PICEmployee))
         '備考
         RemarksTextBox.DataBindings.Add(NameOf(RemarksTextBox.Text), BindingSource, NameOf(_Estimate.Remarks))
+        '消費税
+        'TaxRateTextBox.DataBindings.Add(NameOf(TaxRateTextBox.Text), BindingSource, NameOf(_Estimate.SalesTax.TaxRate))
+        '見積金額
+        EstimatePriceTextBox.DataBindings.Add(NameOf(EstimatePriceTextBox.Text), BindingSource, NameOf(_Estimate.EstimatePrice))
+        '見積金額税込
+        EstimatePriceIncludeTaxTextBox.DataBindings.Add(NameOf(EstimatePriceIncludeTaxTextBox.Text), BindingSource, NameOf(_Estimate.EstimatePriceIncludeTax))
 
         '=============================================================================
         'エラープロバイダのデータソースにフォームを紐づけたバインディングソースを割り当て

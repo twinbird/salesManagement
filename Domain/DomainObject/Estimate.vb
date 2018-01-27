@@ -256,6 +256,26 @@ Public Class Estimate
         End Set
     End Property
 
+    ''' <summary>
+    ''' 見積金額
+    ''' </summary>
+    ''' <returns></returns>
+    Public ReadOnly Property EstimatePrice As Decimal
+        Get
+            Return 0
+        End Get
+    End Property
+
+    ''' <summary>
+    ''' 見積金額(税込)
+    ''' </summary>
+    ''' <returns></returns>
+    Public ReadOnly Property EstimatePriceIncludeTax As Decimal
+        Get
+            Return 0
+        End Get
+    End Property
+
     Private _Details As List(Of EstimateDetail)
     ''' <summary>
     ''' 明細

@@ -40,7 +40,6 @@ Partial Class MainMDI
         Me.支払条件の設定PToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.消費税の設定TToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.自社情報の設定SToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.保守契約の管理SToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.WindowsMenu = New System.Windows.Forms.ToolStripMenuItem()
         Me.NewWindowToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CascadeToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -123,7 +122,7 @@ Partial Class MainMDI
         '
         'マスタToolStripMenuItem
         '
-        Me.マスタToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.顧客マスタToolStripMenuItem, Me.従業員ToolStripMenuItem, Me.支払条件の設定PToolStripMenuItem, Me.消費税の設定TToolStripMenuItem, Me.自社情報の設定SToolStripMenuItem, Me.保守契約の管理SToolStripMenuItem})
+        Me.マスタToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.顧客マスタToolStripMenuItem, Me.従業員ToolStripMenuItem, Me.支払条件の設定PToolStripMenuItem, Me.消費税の設定TToolStripMenuItem, Me.自社情報の設定SToolStripMenuItem})
         Me.マスタToolStripMenuItem.Name = "マスタToolStripMenuItem"
         Me.マスタToolStripMenuItem.Size = New System.Drawing.Size(58, 20)
         Me.マスタToolStripMenuItem.Text = "設定(&C)"
@@ -157,12 +156,6 @@ Partial Class MainMDI
         Me.自社情報の設定SToolStripMenuItem.Name = "自社情報の設定SToolStripMenuItem"
         Me.自社情報の設定SToolStripMenuItem.Size = New System.Drawing.Size(175, 22)
         Me.自社情報の設定SToolStripMenuItem.Text = "自社情報の設定(&M)"
-        '
-        '保守契約の管理SToolStripMenuItem
-        '
-        Me.保守契約の管理SToolStripMenuItem.Name = "保守契約の管理SToolStripMenuItem"
-        Me.保守契約の管理SToolStripMenuItem.Size = New System.Drawing.Size(175, 22)
-        Me.保守契約の管理SToolStripMenuItem.Text = "保守契約の管理(&S)"
         '
         'WindowsMenu
         '
@@ -312,6 +305,5 @@ Partial Class MainMDI
     Friend WithEvents 支払条件の設定PToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents 消費税の設定TToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents 自社情報の設定SToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents 保守契約の管理SToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents 見積作成MToolStripMenuItem As ToolStripMenuItem
 End Class

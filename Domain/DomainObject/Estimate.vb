@@ -264,7 +264,7 @@ Public Class Estimate
         Get
             Dim sum As Decimal = 0
             For Each d In _Details
-                sum += d.UnitPrice
+                sum += d.UnitPrice * d.Quantity
             Next
             Return sum
         End Get
@@ -278,7 +278,7 @@ Public Class Estimate
         Get
             Dim sum As Decimal = 0
             For Each d In _Details
-                sum += d.UnitPrice
+                sum += d.UnitPrice * d.Quantity
             Next
             If _SalesTax Is Nothing Then
                 Return sum

@@ -104,6 +104,24 @@ Public Class EstimateEntry
         e.ThrowException = False
     End Sub
 
+    ''' <summary>
+    ''' データグリッドビューの検証後に発生するイベント
+    ''' </summary>
+    ''' <param name="sender"></param>
+    ''' <param name="e"></param>
+    Private Sub DetailsDataGridView_Validated(sender As Object, e As EventArgs) Handles DetailsDataGridView.Validated
+        UpdateSummary()
+    End Sub
+
+    ''' <summary>
+    ''' データグリッドビューのセルの検証後に発生するイベント
+    ''' </summary>
+    ''' <param name="sender"></param>
+    ''' <param name="e"></param>
+    Private Sub DetailsDataGridView_CellValidated(sender As Object, e As DataGridViewCellEventArgs) Handles DetailsDataGridView.CellValidated
+        UpdateSummary()
+    End Sub
+
 #End Region
 
 #Region "コントロール制御"
@@ -246,6 +264,17 @@ Public Class EstimateEntry
         SetupPICComboBox()
         SetupPaymentConditionComboBox()
         SetupCustomerComboBox()
+    End Sub
+
+    ''' <summary>
+    ''' 見積金額等の集計欄のデータを更新
+    ''' </summary>
+    Private Sub UpdateSummary()
+        EstimatePriceTextBox.DataBindings.Item(0).ReadValue()
+        If TaxRateTextBox.DataBindings.Count > 0 Then
+            TaxRateTextBox.DataBindings.Item(0).ReadValue()
+        End If
+        EstimatePriceIncludeTaxTextBox.DataBindings.Item(0).ReadValue()
     End Sub
 
 #End Region

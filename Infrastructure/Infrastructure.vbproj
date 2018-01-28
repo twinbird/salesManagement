@@ -71,6 +71,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="InfrastractureBackup.vb" />
     <Compile Include="InfrastructureSetting.vb" />
     <Compile Include="RepositoryImpl\CompanyInformationImpl.vb" />
     <Compile Include="RepositoryImpl\CustomerRepositoryImpl.vb" />

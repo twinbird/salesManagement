@@ -18,6 +18,30 @@ Public Class MainMDI
 #Region "メニュー(ファイル)"
 
     ''' <summary>
+    ''' バックアップの作成
+    ''' </summary>
+    ''' <param name="sender"></param>
+    ''' <param name="e"></param>
+    Private Sub バックアップの作成ToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles バックアップの作成ToolStripMenuItem.Click
+        Using form As New SaveFileDialog
+            form.ShowDialog()
+            Infrastructure.InfrastractureBackup.BackupToFile(form.FileName)
+        End Using
+    End Sub
+
+    ''' <summary>
+    ''' バックアップのインポート
+    ''' </summary>
+    ''' <param name="sender"></param>
+    ''' <param name="e"></param>
+    Private Sub バックアップのインポートToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles バックアップのインポートToolStripMenuItem.Click
+        Using form As New SaveFileDialog
+            form.ShowDialog()
+            Infrastructure.InfrastractureBackup.RestoreFromFile(form.FileName)
+        End Using
+    End Sub
+
+    ''' <summary>
     ''' アプリケーションの終了
     ''' </summary>
     ''' <param name="sender"></param>

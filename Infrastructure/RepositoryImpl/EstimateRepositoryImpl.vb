@@ -36,6 +36,43 @@ Public Class EstimateRepositoryImpl
         Return _LastInsertId
     End Function
 
+    ''' <summary>
+    ''' 指定日付に作られた見積の数を返す
+    ''' </summary>
+    ''' <param name="d"></param>
+    ''' <returns></returns>
+    Public Function CountEstimateOnDay(d As Date) As Integer Implements IEstimateRepository.CountEstimateOnDay
+        Using accessor As New ADOWrapper.DBAccessor()
+            Dim q = accessor.CreateQuery
+            With q.Query
+                .AppendLine("SELECT")
+                .AppendLine("   COUNT(id) AS COUNT")
+                .AppendLine("FROM")
+                .AppendLine("   estimates")
+                .AppendLine("WHERE")
+                .AppendLine("   created_at > strftime(@created_at_start)")
+                .AppendLine("AND")
+                .AppendLine("   created_at < strftime(@created_at_end)")
+            End With
+
+            '翌日の開始時刻
+            Dim next_day = d.AddDays(1)
+            Dim next_start = New Date(next_day.Year, next_day.Month, next_day.Day, 0, 0, 0)
+            '前日の終了時刻
+            Dim prev_day = d.AddDays(-1)
+            Dim prev_end = New Date(prev_day.Year, prev_day.Month, prev_day.Day, 23, 59, 59)
+
+            With q.Parameters
+                .Add("@created_at_start", next_start.ToString("yyyy-MM-dd HH:mm:ss"))
+                .Add("@created_at_end", prev_end.ToString("yyyy-MM-dd HH:mm:ss"))
+            End With
+
+            Dim n = q.ExecScalar()
+            Return CInt(n)
+        End Using
+    End Function
+
+
 #Region "インスタンス変数"
 
     ''' <summary>

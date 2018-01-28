@@ -439,6 +439,11 @@ Public Class Estimate
         '一度エラーをクリア
         _errors.Remove(NameOf(EstimateNo))
 
+        '新規の見積の場合は永続化時に採番するのでチェックしない
+        If ID = -1 Then
+            Return
+        End If
+
         '見積番号はNothing不可
         If _EstimateNo Is Nothing Then
             _errors(NameOf(EstimateNo)) = EstimateNoDoNotEmpty
@@ -596,11 +601,30 @@ Public Class Estimate
     ''' </summary>
     ''' <returns>登録成功:True 登録失敗:False</returns>
     Public Function Save() As Boolean
+        '新規作成の場合は見積番号を採番
+        If ID = -1 Then
+            _EstimateNo = CreateEstimateNo()
+        End If
+
+        '保存
         If _EstimateRepo.Save(Me) = False Then
             Return False
         End If
+
+        'IDを入れておく
         _ID = _EstimateRepo.LastInsertID
         Return True
+    End Function
+
+    ''' <summary>
+    ''' 見積番号を採番する
+    ''' </summary>
+    ''' <returns></returns>
+    Private Function CreateEstimateNo() As String
+        Dim tday = Date.Today
+        '今日の日付(yyyyMMdd) + その日に作られた見積全体での連番3桁(001)
+        Dim c = _EstimateRepo.CountEstimateOnDay(tday) + 1
+        Return tday.ToString("yyyyMMdd") & c.ToString("000")
     End Function
 
 #End Region

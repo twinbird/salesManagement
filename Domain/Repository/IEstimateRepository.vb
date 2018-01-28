@@ -19,4 +19,10 @@ Public Interface IEstimateRepository
     ''' <returns></returns>
     Function LastInsertID() As Integer
 
+    ''' <summary>
+    ''' 指定日付に作られた見積の数を返す
+    ''' </summary>
+    ''' <returns></returns>
+    Function CountEstimateOnDay(ByVal d As Date) As Integer
+
 End Interface

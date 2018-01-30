@@ -90,7 +90,8 @@ Public Class SalesTaxRepositoryImpl
             Dim q = accessor.CreateQuery
             With q.Query
                 .AppendLine("SELECT")
-                .AppendLine("    apply_start_date AS apply_start_date")
+                .AppendLine("    id AS id")
+                .AppendLine("   ,apply_start_date AS apply_start_date")
                 .AppendLine("   ,rate AS tax_rate")
                 .AppendLine("FROM")
                 .AppendLine("   sales_taxes")
@@ -128,7 +129,8 @@ Public Class SalesTaxRepositoryImpl
             Dim q = accessor.CreateQuery
             With q.Query
                 .AppendLine("SELECT")
-                .AppendLine("    apply_start_date AS apply_start_date")
+                .AppendLine("    id AS id")
+                .AppendLine("   ,apply_start_date AS apply_start_date")
                 .AppendLine("   ,rate AS tax_rate")
                 .AppendLine("FROM")
                 .AppendLine("   sales_taxes")

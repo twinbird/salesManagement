@@ -111,7 +111,7 @@ Public Class SalesTaxRepositoryImpl
                 Return Nothing
             End If
 
-            Dim tax = New SalesTax(Me)
+            Dim tax = New SalesTax(CInt(dt.Rows(0)("id")), Me)
             tax.ApplyStartDate = CDate(dt.Rows(0)("apply_start_date"))
             tax.TaxRate = CDec(dt.Rows(0)("tax_rate"))
 
@@ -141,7 +141,7 @@ Public Class SalesTaxRepositoryImpl
 
             Dim ret As New List(Of SalesTax)
             For Each r As Data.DataRow In dt.Rows
-                Dim tax = New SalesTax(Me)
+                Dim tax = New SalesTax(CInt(r("id")), Me)
                 tax.ApplyStartDate = CDate(r("apply_start_date"))
                 tax.TaxRate = CDec(r("tax_rate"))
                 ret.Add(tax)

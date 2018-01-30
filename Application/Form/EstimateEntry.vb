@@ -154,6 +154,8 @@ Public Class EstimateEntry
             Dim taxRepo = New Infrastructure.SalesTaxRepositoryImpl
             'ドメインオブジェクトを生成
             _Estimate = New Domain.Estimate(estRepo, custRepo, payRepo, empRepo, taxRepo)
+            '今日の税率を設定しておく
+            _Estimate.SalesTax = taxRepo.TaxOn(Date.Today)
         End If
         'バインディング
         Me.BindingSource.DataSource = _Estimate
@@ -180,7 +182,7 @@ Public Class EstimateEntry
         '備考
         RemarksTextBox.DataBindings.Add(NameOf(RemarksTextBox.Text), BindingSource, NameOf(_Estimate.Remarks))
         '消費税
-        'TaxRateTextBox.DataBindings.Add(NameOf(TaxRateTextBox.Text), BindingSource, NameOf(_Estimate.SalesTax.TaxRate))
+        TaxRateTextBox.DataBindings.Add(NameOf(TaxRateTextBox.Text), BindingSource, "SalesTax.TaxRate")
         '見積金額
         EstimatePriceTextBox.DataBindings.Add(NameOf(EstimatePriceTextBox.Text), BindingSource, NameOf(_Estimate.EstimatePrice))
         '見積金額税込

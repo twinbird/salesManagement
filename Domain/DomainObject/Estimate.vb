@@ -238,6 +238,7 @@ Public Class Estimate
         Set(value As Date)
             _IssueDate = value
             ValidateIssueDate()
+            GetTaxByIssueDate()
         End Set
     End Property
 
@@ -309,7 +310,13 @@ Public Class Estimate
         If _Details.Count >= MAX_ESTIMATE_DETAIL_SIZE Then
             Return False
         End If
-
+        Dim max_display_order = 0
+        For Each item As EstimateDetail In _Details
+            If item.DisplayOrder > max_display_order Then
+                max_display_order = item.DisplayOrder
+            End If
+        Next
+        d.DisplayOrder = max_display_order + 1
         _Details.Add(d)
 
         Return True
@@ -626,6 +633,15 @@ Public Class Estimate
         Dim c = _EstimateRepo.CountEstimateOnDay(tday) + 1
         Return tday.ToString("yyyyMMdd") & c.ToString("000")
     End Function
+
+    ''' <summary>
+    ''' 発行日から消費税率を設定する
+    ''' </summary>
+    ''' <returns></returns>
+    Private Sub GetTaxByIssueDate()
+        Dim tax = _TaxRepo.TaxOn(_IssueDate)
+        _SalesTax = tax
+    End Sub
 
 #End Region
 

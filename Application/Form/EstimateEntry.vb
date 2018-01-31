@@ -156,6 +156,12 @@ Public Class EstimateEntry
             _Estimate = New Domain.Estimate(estRepo, custRepo, payRepo, empRepo, taxRepo)
             '今日の税率を設定しておく
             _Estimate.SalesTax = taxRepo.TaxOn(Date.Today)
+            '選択中の顧客を設定しておく
+            _Estimate.Customer = TryCast(CustomerComboBox.SelectedValue, Domain.Customer)
+            '選択中の支払条件を設定しておく
+            _Estimate.PaymentCondition = TryCast(PaymentConditionComboBox.SelectedValue, Domain.PaymentCondition)
+            '選択中の営業担当者を設定しておく
+            _Estimate.PICEmployee = TryCast(PICEmployeeComboBox.SelectedValue, Domain.Employee)
         End If
         'バインディング
         Me.BindingSource.DataSource = _Estimate

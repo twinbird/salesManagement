@@ -354,6 +354,11 @@ Public Class Estimate
     ''' </summary>
     ''' <returns></returns>
     Public Function HasError() As Boolean
+        For Each d As EstimateDetail In _Details
+            If d.HasError = True Then
+                Return True
+            End If
+        Next
         Return _errors.Count <> 0
     End Function
 
@@ -400,6 +405,7 @@ Public Class Estimate
         ValidateSalesTax()
         ValidateIssueDate()
         ValidateRemarks()
+        ValidateDetails()
 
         '永続化も含めた項目全体の整合性チェックを実施
         'エラーリストのクリアのため他の要素の後に実施しないとならない
@@ -597,6 +603,15 @@ Public Class Estimate
         If _Remarks.Length > 500 Then
             _errors(NameOf(Remarks)) = RemarksIsTooLong
         End If
+    End Sub
+
+    ''' <summary>
+    ''' 明細を検証
+    ''' </summary>
+    Private Sub ValidateDetails()
+        For Each d As EstimateDetail In _Details
+            d.Validate()
+        Next
     End Sub
 
 #End Region

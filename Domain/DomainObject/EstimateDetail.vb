@@ -191,8 +191,8 @@ Public Class EstimateDetail
         'エラーを一度クリア
         _errors.Remove(NameOf(Quantity))
 
-        '数量は1から999まで
-        If _Quantity < 1 Then
+        '数量は0から999まで
+        If _Quantity < 0 Then
             _errors(NameOf(Quantity)) = QuantityOutOfRange
         End If
 

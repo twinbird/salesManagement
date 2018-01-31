@@ -303,10 +303,10 @@ Public Class EstimateEntry
         '表示順列を作成
         Dim displayNoCol = New DataGridViewTextBoxColumn
         With displayNoCol
-            .Name = "DisplayNoCol"
+            .Name = "DisplayOrderCol"
             .HeaderText = "No."
             .ReadOnly = True
-            .DataPropertyName = "DisplayNo"
+            .DataPropertyName = "DisplayOrder"
         End With
         DetailsDataGridView.Columns.Add(displayNoCol)
 

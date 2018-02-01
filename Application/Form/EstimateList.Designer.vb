@@ -24,10 +24,16 @@ Partial Class EstimateList
     Private Sub InitializeComponent()
         Me.EstimateDataGridView = New System.Windows.Forms.DataGridView()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.SearchEffectiveDateEndDateTimePicker = New System.Windows.Forms.DateTimePicker()
         Me.SearchIssueDateEndDateTimePicker = New System.Windows.Forms.DateTimePicker()
+        Me.SearchEffectiveDateStartDateTimePicker = New System.Windows.Forms.DateTimePicker()
         Me.SearchIssueDateStartDateTimePicker = New System.Windows.Forms.DateTimePicker()
+        Me.SearchPICEmployeeComboBox = New System.Windows.Forms.ComboBox()
         Me.SearchCustomerComboBox = New System.Windows.Forms.ComboBox()
+        Me.EffectiveDateDuaringLabel = New System.Windows.Forms.Label()
         Me.IssueDateDuaringLabel = New System.Windows.Forms.Label()
+        Me.SearchPICEmployeeLabel = New System.Windows.Forms.Label()
+        Me.SearchEffectiveDateLabel = New System.Windows.Forms.Label()
         Me.SearchIssueDateLabel = New System.Windows.Forms.Label()
         Me.SearchCustomerLabel = New System.Windows.Forms.Label()
         Me.SearchTitleLabel = New System.Windows.Forms.Label()
@@ -37,14 +43,11 @@ Partial Class EstimateList
         Me.SearchButton = New System.Windows.Forms.Button()
         Me.SearchEstimateNoTextBox = New System.Windows.Forms.TextBox()
         Me.NewEstimateEntryButton = New System.Windows.Forms.Button()
-        Me.SearchPICEmployeeLabel = New System.Windows.Forms.Label()
-        Me.SearchPICEmployeeComboBox = New System.Windows.Forms.ComboBox()
-        Me.SearchEffectiveDateLabel = New System.Windows.Forms.Label()
-        Me.EffectiveDateDuaringLabel = New System.Windows.Forms.Label()
-        Me.SearchEffectiveDateStartDateTimePicker = New System.Windows.Forms.DateTimePicker()
-        Me.SearchEffectiveDateEndDateTimePicker = New System.Windows.Forms.DateTimePicker()
+        Me.StatusStrip = New System.Windows.Forms.StatusStrip()
+        Me.ToolStripStatusLabel = New System.Windows.Forms.ToolStripStatusLabel()
         CType(Me.EstimateDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
+        Me.StatusStrip.SuspendLayout()
         Me.SuspendLayout()
         '
         'EstimateDataGridView
@@ -87,6 +90,13 @@ Partial Class EstimateList
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "検索"
         '
+        'SearchEffectiveDateEndDateTimePicker
+        '
+        Me.SearchEffectiveDateEndDateTimePicker.Location = New System.Drawing.Point(246, 87)
+        Me.SearchEffectiveDateEndDateTimePicker.Name = "SearchEffectiveDateEndDateTimePicker"
+        Me.SearchEffectiveDateEndDateTimePicker.Size = New System.Drawing.Size(121, 19)
+        Me.SearchEffectiveDateEndDateTimePicker.TabIndex = 9
+        '
         'SearchIssueDateEndDateTimePicker
         '
         Me.SearchIssueDateEndDateTimePicker.Location = New System.Drawing.Point(246, 62)
@@ -94,12 +104,27 @@ Partial Class EstimateList
         Me.SearchIssueDateEndDateTimePicker.Size = New System.Drawing.Size(121, 19)
         Me.SearchIssueDateEndDateTimePicker.TabIndex = 9
         '
+        'SearchEffectiveDateStartDateTimePicker
+        '
+        Me.SearchEffectiveDateStartDateTimePicker.Location = New System.Drawing.Point(96, 87)
+        Me.SearchEffectiveDateStartDateTimePicker.Name = "SearchEffectiveDateStartDateTimePicker"
+        Me.SearchEffectiveDateStartDateTimePicker.Size = New System.Drawing.Size(121, 19)
+        Me.SearchEffectiveDateStartDateTimePicker.TabIndex = 9
+        '
         'SearchIssueDateStartDateTimePicker
         '
         Me.SearchIssueDateStartDateTimePicker.Location = New System.Drawing.Point(96, 62)
         Me.SearchIssueDateStartDateTimePicker.Name = "SearchIssueDateStartDateTimePicker"
         Me.SearchIssueDateStartDateTimePicker.Size = New System.Drawing.Size(121, 19)
         Me.SearchIssueDateStartDateTimePicker.TabIndex = 9
+        '
+        'SearchPICEmployeeComboBox
+        '
+        Me.SearchPICEmployeeComboBox.FormattingEnabled = True
+        Me.SearchPICEmployeeComboBox.Location = New System.Drawing.Point(443, 12)
+        Me.SearchPICEmployeeComboBox.Name = "SearchPICEmployeeComboBox"
+        Me.SearchPICEmployeeComboBox.Size = New System.Drawing.Size(121, 20)
+        Me.SearchPICEmployeeComboBox.TabIndex = 8
         '
         'SearchCustomerComboBox
         '
@@ -109,6 +134,15 @@ Partial Class EstimateList
         Me.SearchCustomerComboBox.Size = New System.Drawing.Size(121, 20)
         Me.SearchCustomerComboBox.TabIndex = 8
         '
+        'EffectiveDateDuaringLabel
+        '
+        Me.EffectiveDateDuaringLabel.AutoSize = True
+        Me.EffectiveDateDuaringLabel.Location = New System.Drawing.Point(223, 92)
+        Me.EffectiveDateDuaringLabel.Name = "EffectiveDateDuaringLabel"
+        Me.EffectiveDateDuaringLabel.Size = New System.Drawing.Size(17, 12)
+        Me.EffectiveDateDuaringLabel.TabIndex = 7
+        Me.EffectiveDateDuaringLabel.Text = "～"
+        '
         'IssueDateDuaringLabel
         '
         Me.IssueDateDuaringLabel.AutoSize = True
@@ -117,6 +151,24 @@ Partial Class EstimateList
         Me.IssueDateDuaringLabel.Size = New System.Drawing.Size(17, 12)
         Me.IssueDateDuaringLabel.TabIndex = 7
         Me.IssueDateDuaringLabel.Text = "～"
+        '
+        'SearchPICEmployeeLabel
+        '
+        Me.SearchPICEmployeeLabel.AutoSize = True
+        Me.SearchPICEmployeeLabel.Location = New System.Drawing.Point(380, 15)
+        Me.SearchPICEmployeeLabel.Name = "SearchPICEmployeeLabel"
+        Me.SearchPICEmployeeLabel.Size = New System.Drawing.Size(53, 12)
+        Me.SearchPICEmployeeLabel.TabIndex = 7
+        Me.SearchPICEmployeeLabel.Text = "営業担当"
+        '
+        'SearchEffectiveDateLabel
+        '
+        Me.SearchEffectiveDateLabel.AutoSize = True
+        Me.SearchEffectiveDateLabel.Location = New System.Drawing.Point(13, 91)
+        Me.SearchEffectiveDateLabel.Name = "SearchEffectiveDateLabel"
+        Me.SearchEffectiveDateLabel.Size = New System.Drawing.Size(77, 12)
+        Me.SearchEffectiveDateLabel.TabIndex = 7
+        Me.SearchEffectiveDateLabel.Text = "見積有効期限"
         '
         'SearchIssueDateLabel
         '
@@ -196,60 +248,27 @@ Partial Class EstimateList
         Me.NewEstimateEntryButton.Text = "新しい見積書を作成"
         Me.NewEstimateEntryButton.UseVisualStyleBackColor = True
         '
-        'SearchPICEmployeeLabel
+        'StatusStrip
         '
-        Me.SearchPICEmployeeLabel.AutoSize = True
-        Me.SearchPICEmployeeLabel.Location = New System.Drawing.Point(380, 15)
-        Me.SearchPICEmployeeLabel.Name = "SearchPICEmployeeLabel"
-        Me.SearchPICEmployeeLabel.Size = New System.Drawing.Size(53, 12)
-        Me.SearchPICEmployeeLabel.TabIndex = 7
-        Me.SearchPICEmployeeLabel.Text = "営業担当"
+        Me.StatusStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripStatusLabel})
+        Me.StatusStrip.Location = New System.Drawing.Point(0, 343)
+        Me.StatusStrip.Name = "StatusStrip"
+        Me.StatusStrip.Size = New System.Drawing.Size(769, 22)
+        Me.StatusStrip.TabIndex = 6
+        Me.StatusStrip.Text = "StatusStrip1"
         '
-        'SearchPICEmployeeComboBox
+        'ToolStripStatusLabel
         '
-        Me.SearchPICEmployeeComboBox.FormattingEnabled = True
-        Me.SearchPICEmployeeComboBox.Location = New System.Drawing.Point(443, 12)
-        Me.SearchPICEmployeeComboBox.Name = "SearchPICEmployeeComboBox"
-        Me.SearchPICEmployeeComboBox.Size = New System.Drawing.Size(121, 20)
-        Me.SearchPICEmployeeComboBox.TabIndex = 8
-        '
-        'SearchEffectiveDateLabel
-        '
-        Me.SearchEffectiveDateLabel.AutoSize = True
-        Me.SearchEffectiveDateLabel.Location = New System.Drawing.Point(13, 91)
-        Me.SearchEffectiveDateLabel.Name = "SearchEffectiveDateLabel"
-        Me.SearchEffectiveDateLabel.Size = New System.Drawing.Size(77, 12)
-        Me.SearchEffectiveDateLabel.TabIndex = 7
-        Me.SearchEffectiveDateLabel.Text = "見積有効期限"
-        '
-        'EffectiveDateDuaringLabel
-        '
-        Me.EffectiveDateDuaringLabel.AutoSize = True
-        Me.EffectiveDateDuaringLabel.Location = New System.Drawing.Point(223, 92)
-        Me.EffectiveDateDuaringLabel.Name = "EffectiveDateDuaringLabel"
-        Me.EffectiveDateDuaringLabel.Size = New System.Drawing.Size(17, 12)
-        Me.EffectiveDateDuaringLabel.TabIndex = 7
-        Me.EffectiveDateDuaringLabel.Text = "～"
-        '
-        'SearchEffectiveDateStartDateTimePicker
-        '
-        Me.SearchEffectiveDateStartDateTimePicker.Location = New System.Drawing.Point(96, 87)
-        Me.SearchEffectiveDateStartDateTimePicker.Name = "SearchEffectiveDateStartDateTimePicker"
-        Me.SearchEffectiveDateStartDateTimePicker.Size = New System.Drawing.Size(121, 19)
-        Me.SearchEffectiveDateStartDateTimePicker.TabIndex = 9
-        '
-        'SearchEffectiveDateEndDateTimePicker
-        '
-        Me.SearchEffectiveDateEndDateTimePicker.Location = New System.Drawing.Point(246, 87)
-        Me.SearchEffectiveDateEndDateTimePicker.Name = "SearchEffectiveDateEndDateTimePicker"
-        Me.SearchEffectiveDateEndDateTimePicker.Size = New System.Drawing.Size(121, 19)
-        Me.SearchEffectiveDateEndDateTimePicker.TabIndex = 9
+        Me.ToolStripStatusLabel.Name = "ToolStripStatusLabel"
+        Me.ToolStripStatusLabel.Size = New System.Drawing.Size(113, 17)
+        Me.ToolStripStatusLabel.Text = "ToolStripStatusLabel"
         '
         'EstimateList
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(769, 365)
+        Me.Controls.Add(Me.StatusStrip)
         Me.Controls.Add(Me.EstimateDataGridView)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.NewEstimateEntryButton)
@@ -258,7 +277,10 @@ Partial Class EstimateList
         CType(Me.EstimateDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
+        Me.StatusStrip.ResumeLayout(False)
+        Me.StatusStrip.PerformLayout()
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
 
@@ -283,4 +305,6 @@ Partial Class EstimateList
     Friend WithEvents SearchEffectiveDateStartDateTimePicker As DateTimePicker
     Friend WithEvents EffectiveDateDuaringLabel As Label
     Friend WithEvents SearchEffectiveDateLabel As Label
+    Friend WithEvents StatusStrip As StatusStrip
+    Friend WithEvents ToolStripStatusLabel As ToolStripStatusLabel
 End Class

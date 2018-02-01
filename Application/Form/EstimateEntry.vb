@@ -122,6 +122,35 @@ Public Class EstimateEntry
         UpdateSummary()
     End Sub
 
+    ''' <summary>
+    ''' 行を1つ上へボタンをクリック
+    ''' </summary>
+    ''' <param name="sender"></param>
+    ''' <param name="e"></param>
+    Private Sub RowUpButton_Click(sender As Object, e As EventArgs) Handles RowUpButton.Click
+        Dim cr = DetailsDataGridView.CurrentRow
+        If cr Is Nothing Then
+            Return
+        End If
+        UpToDetail(cr.Index)
+        SortByDisplayOrder()
+    End Sub
+
+    ''' <summary>
+    ''' 行を1つ下へボタンをクリック
+    ''' </summary>
+    ''' <param name="sender"></param>
+    ''' <param name="e"></param>
+    Private Sub RowDownButton_Click(sender As Object, e As EventArgs) Handles RowDownButton.Click
+        Dim cr = DetailsDataGridView.CurrentRow
+        If cr Is Nothing Then
+            Return
+        End If
+        DownToDetail(cr.Index)
+        SortByDisplayOrder()
+    End Sub
+
+
 #End Region
 
 #Region "コントロール制御"
@@ -357,6 +386,33 @@ Public Class EstimateEntry
     Private Sub RemoveRowFromDetail(ByVal idx As Integer)
         _Estimate.RemoveDetail(idx)
         _DetailsBindingList.ResetBindings()
+    End Sub
+
+    ''' <summary>
+    ''' 指定行を上へ1つ移動
+    ''' </summary>
+    Private Sub UpToDetail(ByVal idx As Integer)
+        Dim d = _Estimate.Details(idx)
+        _Estimate.UpToDisplayOrder(d.DisplayOrder)
+        _DetailsBindingList.ResetBindings()
+    End Sub
+
+    ''' <summary>
+    ''' 指定行を下へ1つ移動
+    ''' </summary>
+    ''' <param name="idx"></param>
+    Private Sub DownToDetail(ByVal idx As Integer)
+        Dim d = _Estimate.Details(idx)
+        _Estimate.DownToDisplayOrder(d.DisplayOrder)
+        _DetailsBindingList.ResetBindings()
+    End Sub
+
+    ''' <summary>
+    ''' 表示順でグリッドビューをソートする
+    ''' </summary>
+    Private Sub SortByDisplayOrder()
+        Dim sortCol = DetailsDataGridView.Columns("DisplayOrderCol")
+        DetailsDataGridView.Sort(sortCol, ListSortDirection.Ascending)
     End Sub
 
 #End Region

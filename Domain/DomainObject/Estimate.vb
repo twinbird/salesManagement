@@ -296,6 +296,7 @@ Public Class Estimate
     ''' <returns></returns>
     Public ReadOnly Property Details As List(Of EstimateDetail)
         Get
+            _Details.Sort(Function(a, b) a.DisplayOrder - b.DisplayOrder)
             Return _Details
         End Get
     End Property
@@ -323,21 +324,70 @@ Public Class Estimate
     End Function
 
     ''' <summary>
-    ''' 指定行の明細を削除する
-    ''' idxは0から
+    ''' 指定した表示順の明細を削除する
     ''' </summary>
     ''' <returns></returns>
-    Public Function RemoveDetail(ByVal idx As Integer) As Boolean
-        If idx < 0 Then
+    Public Function RemoveDetail(ByVal display_order As Integer) As Boolean
+        Try
+            Dim idx = _Details.FindIndex(Function(x) x.DisplayOrder = display_order)
+            _Details.RemoveAt(idx)
+        Catch ex As Exception
             Return False
-        End If
-        If idx > _Details.Count - 1 Then
-            Return False
-        End If
-
-        _Details.RemoveAt(idx)
+        End Try
 
         Return True
+    End Function
+
+    ''' <summary>
+    ''' 明細の表示順を1つ上にする
+    ''' </summary>
+    ''' <param name="display_order"></param>
+    ''' <returns></returns>
+    Public Function UpToDisplayOrder(ByVal display_order As Integer) As Integer
+        Dim min = MAX_ESTIMATE_DETAIL_SIZE + 1
+        For Each d In _Details
+            If d.DisplayOrder < min Then
+                min = d.DisplayOrder
+            End If
+        Next
+
+        If display_order - 1 < min Then
+            Return -1
+        End If
+
+        Dim dest = _Details.Find(Function(x) x.DisplayOrder = (display_order - 1))
+        Dim src = _Details.Find(Function(x) x.DisplayOrder = display_order)
+
+        dest.DisplayOrder = display_order
+        src.DisplayOrder = display_order - 1
+
+        Return src.DisplayOrder
+    End Function
+
+    ''' <summary>
+    ''' 明細の表示順を1つ下にする
+    ''' </summary>
+    ''' <param name="display_order"></param>
+    ''' <returns></returns>
+    Public Function DownToDisplayOrder(ByVal display_order As Integer) As Integer
+        Dim max = 0
+        For Each d In _Details
+            If max < d.DisplayOrder Then
+                max = d.DisplayOrder
+            End If
+        Next
+
+        If display_order + 1 > max Then
+            Return -1
+        End If
+
+        Dim dest = _Details.Find(Function(x) x.DisplayOrder = (display_order + 1))
+        Dim src = _Details.Find(Function(x) x.DisplayOrder = display_order)
+
+        dest.DisplayOrder = display_order
+        src.DisplayOrder = display_order + 1
+
+        Return src.DisplayOrder
     End Function
 
 #End Region

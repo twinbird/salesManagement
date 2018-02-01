@@ -72,6 +72,25 @@ Public Class EstimateRepositoryImpl
         End Using
     End Function
 
+    ''' <summary>
+    ''' 登録済みの見積の件数を返す
+    ''' </summary>
+    ''' <returns></returns>
+    Public Function CountAllEstimate() As Integer Implements IEstimateRepository.CountAllEstimate
+        Using accessor As New ADOWrapper.DBAccessor
+            Dim q = accessor.CreateQuery
+            With q.Query
+                .AppendLine("SELECT")
+                .AppendLine("   COUNT(id) AS COUNT")
+                .AppendLine("FROM")
+                .AppendLine("   estimates")
+            End With
+
+            Dim n = q.ExecScalar()
+            Return CInt(n)
+
+        End Using
+    End Function
 
 #Region "インスタンス変数"
 

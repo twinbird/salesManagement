@@ -25,4 +25,10 @@ Public Interface IEstimateRepository
     ''' <returns></returns>
     Function CountEstimateOnDay(ByVal d As Date) As Integer
 
+    ''' <summary>
+    ''' 登録済みの見積すべての件数を返す
+    ''' </summary>
+    ''' <returns></returns>
+    Function CountAllEstimate() As Integer
+
 End Interface

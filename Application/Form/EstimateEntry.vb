@@ -225,7 +225,7 @@ Public Class EstimateEntry
 
         '明細
         SetupDataGridView()
-        _DetailsBindingList = New BindingList(Of Domain.EstimateDetail)(_Estimate.Details)
+        _DetailsBindingList = New SortableBindingList(Of Domain.EstimateDetail)(_Estimate.Details)
         DetailsDataGridView.DataSource = _DetailsBindingList
 
         '=============================================================================

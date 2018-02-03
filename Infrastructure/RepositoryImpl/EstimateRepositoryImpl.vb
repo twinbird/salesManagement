@@ -220,6 +220,11 @@ Public Class EstimateRepositoryImpl
                 e.EffectiveDate = CDate(r("effective_date"))
                 e.Remarks = CStr(r("remarks"))
 
+                Dim details = find_details(id)
+                For Each d As EstimateDetail In details
+                    e.AddDetail(d)
+                Next
+
                 ret.Add(e)
             Next
 
@@ -402,6 +407,53 @@ Public Class EstimateRepositoryImpl
                 Return False
             End If
             Return True
+        End Using
+    End Function
+
+    ''' <summary>
+    ''' 見積IDから明細のリストを得る
+    ''' </summary>
+    ''' <param name="estimate_id"></param>
+    ''' <returns></returns>
+    Private Function find_details(estimate_id As Integer) As List(Of EstimateDetail)
+        Using accessor As New ADOWrapper.DBAccessor
+            Dim q = accessor.CreateQuery
+            With q.Query
+                .AppendLine("SELECT")
+                .AppendLine("    id AS id")
+                .AppendLine("   ,estimate_id AS estimate_id")
+                .AppendLine("   ,display_order AS display_order")
+                .AppendLine("   ,item_name AS item_name")
+                .AppendLine("   ,quantity AS quantity")
+                .AppendLine("   ,unit_price AS unit_price")
+                .AppendLine("FROM")
+                .AppendLine("   estimate_details")
+                .AppendLine("WHERE")
+                .AppendLine("   estimate_id = @estimate_id")
+            End With
+
+            With q.Parameters
+                .Add("@estimate_id", estimate_id)
+            End With
+
+            Dim ret = New List(Of EstimateDetail)
+            Dim dt = q.ExecQuery
+            If dt Is Nothing OrElse dt.Rows.Count = 0 Then
+                Return ret
+            End If
+
+            For Each r As Data.DataRow In dt.Rows
+                Dim d = New EstimateDetail(CInt(r("id")))
+                d.DisplayOrder = CInt(r("display_order"))
+                d.ItemName = CStr(r("item_name"))
+                d.Quantity = CInt(r("quantity"))
+                d.UnitPrice = CDec(r("unit_price"))
+
+                ret.Add(d)
+            Next
+
+            Return ret
+
         End Using
     End Function
 

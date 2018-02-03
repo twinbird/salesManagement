@@ -26,6 +26,14 @@ Public Class EstimateDetail
         _ID = -1
     End Sub
 
+    ''' <summary>
+    ''' コンストラクタ
+    ''' </summary>
+    ''' <param name="id"></param>
+    Public Sub New(ByVal id As Integer)
+        _ID = id
+    End Sub
+
 #Region "値プロパティ"
 
     Public ReadOnly Property ID As Integer

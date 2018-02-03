@@ -92,6 +92,142 @@ Public Class EstimateRepositoryImpl
         End Using
     End Function
 
+    ''' <summary>
+    ''' 条件に合致した見積のリストを返す
+    ''' </summary>
+    ''' <param name="c"></param>
+    ''' <returns></returns>
+    Public Function FindEstimateByCondition(ByVal c As EstimateRepositorySearchCondition) As List(Of Estimate) Implements IEstimateRepository.FindEstimateByCondition
+        Using accessor As New ADOWrapper.DBAccessor
+            Dim q = accessor.CreateQuery
+            With q.Query
+                .AppendLine("SELECT")
+                .AppendLine("    id AS id")
+                .AppendLine("   ,estimate_number AS estimate_number")
+                .AppendLine("   ,customer_id AS customer_id")
+                .AppendLine("   ,title AS title")
+                .AppendLine("   ,due_date AS due_date")
+                .AppendLine("   ,payment_id AS payment_id")
+                .AppendLine("   ,pic_employee_id AS pic_employee_id")
+                .AppendLine("   ,apply_tax_id AS apply_tax_id")
+                .AppendLine("   ,print_date AS print_date")
+                .AppendLine("   ,effective_date AS effective_date")
+                .AppendLine("   ,remarks AS remarks")
+                .AppendLine("FROM")
+                .AppendLine("   estimates")
+                .AppendLine("WHERE")
+                .AppendLine("   1 = 1")
+
+                '見積番号
+                If c.EstimateNoForwardMatch <> "" Then
+                    .AppendLine("AND")
+                    .AppendLine("   estimate_number LIKE '@estimate_number%'")
+                End If
+
+                '件名
+                If c.TitleForwardMatch <> "" Then
+                    .AppendLine("AND")
+                    .AppendLine("   title LIKE '%@title%'")
+                End If
+
+                '発行日(区間開始)
+                .AppendLine("AND")
+                .AppendLine("   print_date >= strftime(@print_date_start)")
+
+                '発行日(区間終了)
+                .AppendLine("AND")
+                .AppendLine("   print_date <= strftime(@print_date_end)")
+
+                '見積有効期限(区間開始)
+                .AppendLine("AND")
+                .AppendLine("   effective_date >= strftime(@effective_date_start)")
+
+                '見積有効期限(区間終了)
+                .AppendLine("AND")
+                .AppendLine("   effective_date <= strftime(@effective_date_end)")
+
+                '営業担当
+                If c.PICEmployee IsNot Nothing Then
+                    .AppendLine("AND")
+                    .AppendLine("   pic_employee_id = @pic_employee_id")
+                End If
+
+                '顧客
+                If c.Customer IsNot Nothing Then
+                    .AppendLine("AND")
+                    .AppendLine("   customer_id = @customer_id")
+                End If
+
+            End With
+
+            With q.Parameters
+                '見積番号
+                If c.EstimateNoForwardMatch <> "" Then
+                    .Add("@estimate_number", c.EstimateNoForwardMatch)
+                End If
+
+                '件名
+                If c.TitleForwardMatch <> "" Then
+                    .Add("@title", c.TitleForwardMatch)
+                End If
+
+                '発行日(区間開始)
+                .Add("@print_date_start", c.IssueDateRangeStart)
+
+                '発行日(区間終了)
+                .Add("@print_date_end", c.IssueDateRangeEnd)
+
+                '見積有効期限(区間開始)
+                .Add("@effective_date_start", c.EffectiveDateRangeStart)
+
+                '見積有効期限(区間終了)
+                .Add("@effective_date_end", c.EffectiveDateRangeEnd)
+
+                '営業担当
+                If c.PICEmployee IsNot Nothing Then
+                    .Add("@pic_employee_id", c.PICEmployee.ID)
+                End If
+
+                '顧客
+                If c.Customer IsNot Nothing Then
+                    .Add("@customer_id", c.Customer.ID)
+                End If
+
+            End With
+
+            Dim ret As New List(Of Estimate)
+            Dim custRepo As New CustomerRepositoryImpl
+            Dim payRepo As New PaymentConditionRepositoryImpl
+            Dim empRepo As New EmployeeRepositoryImpl
+            Dim taxRepo As New SalesTaxRepositoryImpl
+
+            Dim dt = q.ExecQuery()
+            If dt Is Nothing OrElse dt.Rows.Count = 0 Then
+                Return ret
+            End If
+
+            For Each r As Data.DataRow In dt.Rows
+                Dim id = CInt(r("id"))
+                Dim e = New Estimate(id, Me, custRepo, payRepo, empRepo, taxRepo)
+                e.EstimateNo = CStr(r("estimate_number"))
+                e.Customer = custRepo.FindByID(CInt(r("customer_id")))
+                e.Title = CStr(r("title"))
+                e.DueDate = CDate(r("due_date"))
+                e.PaymentCondition = payRepo.FindByID(CInt(r("payment_id")))
+                e.PICEmployee = empRepo.FindByID(CInt(r("pic_employee_id")))
+                e.SalesTax = taxRepo.FindByID(CInt(r("apply_tax_id")))
+                e.IssueDate = CDate(r("print_date"))
+                e.EffectiveDate = CDate(r("effective_date"))
+                e.Remarks = CStr(r("remarks"))
+
+                ret.Add(e)
+            Next
+
+            Return ret
+
+        End Using
+    End Function
+
 #Region "インスタンス変数"
 
     ''' <summary>

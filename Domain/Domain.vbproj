@@ -66,6 +66,7 @@
     <Compile Include="DomainObject\SalesTaxes.vb" />
     <Compile Include="Repository\CustomerRepositorySearchCondition.vb" />
     <Compile Include="Repository\EmployeeRepositorySearchCondition.vb" />
+    <Compile Include="Repository\EstimateRepositorySearchCondition.vb" />
     <Compile Include="Repository\ICompanyInformationRepository.vb" />
     <Compile Include="Repository\ICustomerRepository.vb" />
     <Compile Include="Repository\IEmployeeRepository.vb" />

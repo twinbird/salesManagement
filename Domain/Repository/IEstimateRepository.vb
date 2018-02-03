@@ -1,5 +1,6 @@
 ﻿Option Strict On
 Option Infer On
+Imports System.Collections.Generic
 
 ''' <summary>
 ''' 見積永続化のインターフェース
@@ -30,5 +31,11 @@ Public Interface IEstimateRepository
     ''' </summary>
     ''' <returns></returns>
     Function CountAllEstimate() As Integer
+
+    ''' <summary>
+    ''' 条件に合致した見積のリストを返す
+    ''' </summary>
+    ''' <returns></returns>
+    Function FindEstimateByCondition(ByVal c As EstimateRepositorySearchCondition) As List(Of Estimate)
 
 End Interface

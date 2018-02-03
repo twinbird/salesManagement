@@ -302,27 +302,31 @@ Public Class EstimateList
     ''' DataGridView用のbindingSourceのデータを更新する
     ''' </summary>
     Private Sub UpdateBindingSource()
-        ''データ取得用のリポジトリを作成
-        'Dim repo = New Infrastructure.EstimateRepositoryImpl
+        'データ取得用のリポジトリを作成
+        Dim repo = New Infrastructure.EstimateRepositoryImpl
 
-        ''リポジトリから顧客情報を取得
-        'Dim cond = New Domain.CustomerRepositorySearchCondition
-        'With cond
-        '    .NameForwardMatch = Me.SearchCustomerNameTextBox.Text
-        '    .KanaNameForwardMatch = Me.SearchCustomerKanaNameTextBox.Text
-        '    .PIC = TryCast(Me.SearchPICComboBox.SelectedValue, Domain.Employee)
-        '    .AddressForwardMatch = Me.SearchAddressTextBox.Text
-        'End With
-        'Dim custs = repo.FindCustomerByCondition(cond)
+        'リポジトリから顧客情報を取得
+        Dim cond = New Domain.EstimateRepositorySearchCondition
+        With cond
+            .EstimateNoForwardMatch = Me.SearchEstimateNoTextBox.Text
+            .TitleForwardMatch = Me.SearchTitleTextBox.Text
+            .IssueDateRangeStart = Me.SearchIssueDateStartDateTimePicker.Value
+            .IssueDateRangeEnd = Me.SearchIssueDateEndDateTimePicker.Value
+            .EffectiveDateRangeStart = Me.SearchEffectiveDateStartDateTimePicker.Value
+            .EffectiveDateRangeEnd = Me.SearchEffectiveDateEndDateTimePicker.Value
+            .PICEmployee = TryCast(Me.SearchPICEmployeeComboBox.SelectedValue, Domain.Employee)
+            .Customer = TryCast(Me.SearchCustomerComboBox.SelectedValue, Domain.Customer)
+        End With
+        Dim estimates = repo.FindEstimateByCondition(cond)
 
-        ''データバインディング用オブジェクトへ変換
-        'Dim presentation = New List(Of EstimateGridViewPresentation)
-        'For Each cust As Domain.Customer In custs
-        '    presentation.Add(New EstimateGridViewPresentation(cust))
-        'Next
-        ''GridViewへデータを設定
-        'Dim bindList = New SortableBindingList(Of EstimateGridViewPresentation)(presentation)
-        'EstimateDataGridView.DataSource = bindList
+        'データバインディング用オブジェクトへ変換
+        Dim presentation = New List(Of EstimateGridViewPresentation)
+        For Each est As Domain.Estimate In estimates
+            presentation.Add(New EstimateGridViewPresentation(est))
+        Next
+        'GridViewへデータを設定
+        Dim bindList = New SortableBindingList(Of EstimateGridViewPresentation)(presentation)
+        EstimateDataGridView.DataSource = bindList
     End Sub
 
     ''' <summary>

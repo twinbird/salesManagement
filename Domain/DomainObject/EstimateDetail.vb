@@ -19,6 +19,13 @@ Public Class EstimateDetail
 
 #End Region
 
+    ''' <summary>
+    ''' コンストラクタ
+    ''' </summary>
+    Public Sub New()
+        _ID = -1
+    End Sub
+
 #Region "値プロパティ"
 
     Public ReadOnly Property ID As Integer

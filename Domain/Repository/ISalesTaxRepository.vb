@@ -46,4 +46,11 @@ Public Interface ISalesTaxRepository
     ''' <returns></returns>
     Function FindByApplyDate(ByVal d As Date) As SalesTax
 
+    ''' <summary>
+    ''' IDから消費税を取得する
+    ''' </summary>
+    ''' <param name="id"></param>
+    ''' <returns></returns>
+    Function FindByID(ByVal id As Integer) As SalesTax
+
 End Interface

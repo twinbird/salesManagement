@@ -202,6 +202,42 @@ Public Class SalesTaxRepositoryImpl
         Return _LastInsertID
     End Function
 
+    ''' <summary>
+    ''' IDから消費税を得る
+    ''' </summary>
+    ''' <param name="id"></param>
+    ''' <returns></returns>
+    Public Function FindByID(id As Integer) As SalesTax Implements ISalesTaxRepository.FindByID
+        Using accessor As New ADOWrapper.DBAccessor
+            Dim q = accessor.CreateQuery
+            With q.Query
+                .AppendLine("SELECT")
+                .AppendLine("    id AS id")
+                .AppendLine("   ,apply_start_date AS apply_start_date")
+                .AppendLine("   ,rate AS tax_rate")
+                .AppendLine("FROM")
+                .AppendLine("   sales_taxes")
+                .AppendLine("WHERE")
+                .AppendLine("   id = @id")
+            End With
+
+            With q.Parameters
+                .Add("@id", id)
+            End With
+
+            Dim dt = q.ExecQuery
+            If dt Is Nothing OrElse dt.Rows.Count = 0 Then
+                Return Nothing
+            End If
+
+            Dim tax = New SalesTax(CInt(dt.Rows(0)("id")), Me)
+            tax.ApplyStartDate = CDate(dt.Rows(0)("apply_start_date"))
+            tax.TaxRate = CDec(dt.Rows(0)("tax_rate"))
+
+            Return tax
+        End Using
+    End Function
+
 #Region "Create"
 
     ''' <summary>

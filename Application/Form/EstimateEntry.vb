@@ -150,6 +150,16 @@ Public Class EstimateEntry
         SortByDisplayOrder()
     End Sub
 
+    ''' <summary>
+    ''' 見積書プレビュークリック
+    ''' </summary>
+    ''' <param name="sender"></param>
+    ''' <param name="e"></param>
+    Private Sub PrintPreviewButton_Click(sender As Object, e As EventArgs) Handles PrintPreviewButton.Click
+        Dim form = New EstimateReportViewer
+        form.ShowDialog()
+    End Sub
+
 
 #End Region
 

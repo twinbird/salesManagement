@@ -27,10 +27,10 @@ Partial Class EstimateReportViewer
         '
         'ReportViewer
         '
-        Me.ReportViewer.Location = New System.Drawing.Point(0, 0)
+        Me.ReportViewer.Location = New System.Drawing.Point(12, 12)
         Me.ReportViewer.Name = "ReportViewer"
         Me.ReportViewer.ServerReport.BearerToken = Nothing
-        Me.ReportViewer.Size = New System.Drawing.Size(396, 246)
+        Me.ReportViewer.Size = New System.Drawing.Size(650, 504)
         Me.ReportViewer.TabIndex = 0
         '
         'EstimateReportViewer
@@ -38,6 +38,7 @@ Partial Class EstimateReportViewer
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(674, 528)
+        Me.Controls.Add(Me.ReportViewer)
         Me.Name = "EstimateReportViewer"
         Me.Text = "見積書プレビュー"
         Me.ResumeLayout(False)

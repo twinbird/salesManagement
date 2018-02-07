@@ -11,6 +11,7 @@
               <TextRun>
                 <Value>=Fields!ReportNameTextBox.Value</Value>
                 <Style>
+                  <FontFamily>Meiryo UI</FontFamily>
                   <FontSize>15pt</FontSize>
                   <Language>ja-JP</Language>
                 </Style>

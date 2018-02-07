@@ -156,7 +156,13 @@ Public Class EstimateEntry
     ''' <param name="sender"></param>
     ''' <param name="e"></param>
     Private Sub PrintPreviewButton_Click(sender As Object, e As EventArgs) Handles PrintPreviewButton.Click
+        'プレビューに入る前に検証
+        If _Estimate.Validate = False Then
+            Return
+        End If
+
         Dim form = New EstimateReportViewer
+        form.PreviewEstimate = _Estimate
         form.ShowDialog()
     End Sub
 

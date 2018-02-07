@@ -22,7 +22,10 @@ Partial Class EstimateReportViewer
     'コード エディターを使って変更しないでください。
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.ReportViewer = New Microsoft.Reporting.WinForms.ReportViewer()
+        Me.BindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        CType(Me.BindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'ReportViewer
@@ -42,9 +45,11 @@ Partial Class EstimateReportViewer
         Me.Controls.Add(Me.ReportViewer)
         Me.Name = "EstimateReportViewer"
         Me.Text = "見積書プレビュー"
+        CType(Me.BindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
 
     Friend WithEvents ReportViewer As Microsoft.Reporting.WinForms.ReportViewer
+    Friend WithEvents BindingSource As BindingSource
 End Class

@@ -27,10 +27,11 @@ Partial Class EstimateReportViewer
         '
         'ReportViewer
         '
-        Me.ReportViewer.Location = New System.Drawing.Point(12, 12)
+        Me.ReportViewer.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.ReportViewer.Location = New System.Drawing.Point(0, 0)
         Me.ReportViewer.Name = "ReportViewer"
         Me.ReportViewer.ServerReport.BearerToken = Nothing
-        Me.ReportViewer.Size = New System.Drawing.Size(650, 504)
+        Me.ReportViewer.Size = New System.Drawing.Size(674, 528)
         Me.ReportViewer.TabIndex = 0
         '
         'EstimateReportViewer

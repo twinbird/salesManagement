@@ -193,6 +193,7 @@
     <Compile Include="Form\MainMDI.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Report\EstimateReportPresenter.vb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Form\CompanyInformationEntry.resx">
@@ -245,6 +246,7 @@
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
     </None>
     <None Include="My Project\DataSources\Domain.Employee.datasource" />
+    <None Include="My Project\DataSources\EstimateReportViewer.ReportDataPresenter.datasource" />
     <None Include="My Project\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <CustomToolNamespace>My</CustomToolNamespace>

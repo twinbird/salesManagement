@@ -96,7 +96,7 @@ Public Class SalesTaxRepositoryImpl
                 .AppendLine("FROM")
                 .AppendLine("   sales_taxes")
                 .AppendLine("WHERE")
-                .AppendLine("   apply_start_date <= @apply_start_date")
+                .AppendLine("   apply_start_date <= strftime(@apply_start_date)")
                 .AppendLine("GROUP BY")
                 .AppendLine("   apply_start_date")
                 .AppendLine("HAVING")
@@ -104,7 +104,7 @@ Public Class SalesTaxRepositoryImpl
             End With
 
             With q.Parameters
-                .Add("@apply_start_date", d)
+                .Add("@apply_start_date", d.ToString("yyyy-MM-dd HH:mm:ss"))
             End With
 
             Dim dt = q.ExecQuery

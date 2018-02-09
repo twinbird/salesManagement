@@ -172,16 +172,16 @@ Public Class EstimateRepositoryImpl
                 End If
 
                 '発行日(区間開始)
-                .Add("@print_date_start", c.IssueDateRangeStart.ToString("yyyy-MM-dd HH:mm:ss"))
+                .Add("@print_date_start", Helper.StartOfDate(c.IssueDateRangeStart).ToString("yyyy-MM-dd HH:mm:ss"))
 
                 '発行日(区間終了)
-                .Add("@print_date_end", c.IssueDateRangeEnd.ToString("yyyy-MM-dd HH:mm:ss"))
+                .Add("@print_date_end", Helper.EndOfDate(c.IssueDateRangeEnd).ToString("yyyy-MM-dd HH:mm:ss"))
 
                 '見積有効期限(区間開始)
-                .Add("@effective_date_start", c.EffectiveDateRangeStart.ToString("yyyy-MM-dd HH:mm:ss"))
+                .Add("@effective_date_start", Helper.StartOfDate(c.EffectiveDateRangeStart).ToString("yyyy-MM-dd HH:mm:ss"))
 
                 '見積有効期限(区間終了)
-                .Add("@effective_date_end", c.EffectiveDateRangeEnd.ToString("yyyy-MM-dd HH:mm:ss"))
+                .Add("@effective_date_end", Helper.EndOfDate(c.EffectiveDateRangeEnd).ToString("yyyy-MM-dd HH:mm:ss"))
 
                 '営業担当
                 If c.PICEmployee IsNot Nothing Then

@@ -223,7 +223,14 @@ Public Class EstimateReportPresenter
     ''' </summary>
     Private Sub InitializeDefaultValue()
         _ReportNameTextBox = "御見積書"
-
+        _Honorific = "御中"
+        _TitleLabel = "件名"
+        _TotalPriceLabel = "御見積金額"
+        _GreetingMessage = "御照会賜りました件、下記の通りお見積致しました。" & "ご検討の程、何卒よろしくお願い申し上げます。"
+        _DueDateLabel = "納期"
+        _PaymentConditionLabel = "支払条件"
+        _EffectiveDateLabel = "見積有効期限"
+        _RemarksLabel = "備考"
     End Sub
 
 #End Region

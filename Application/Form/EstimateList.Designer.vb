@@ -60,7 +60,7 @@ Partial Class EstimateList
         Me.EstimateDataGridView.Name = "EstimateDataGridView"
         Me.EstimateDataGridView.RowHeadersVisible = False
         Me.EstimateDataGridView.RowTemplate.Height = 21
-        Me.EstimateDataGridView.Size = New System.Drawing.Size(745, 211)
+        Me.EstimateDataGridView.Size = New System.Drawing.Size(745, 216)
         Me.EstimateDataGridView.TabIndex = 5
         '
         'GroupBox1
@@ -251,7 +251,7 @@ Partial Class EstimateList
         'StatusStrip
         '
         Me.StatusStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripStatusLabel})
-        Me.StatusStrip.Location = New System.Drawing.Point(0, 343)
+        Me.StatusStrip.Location = New System.Drawing.Point(0, 361)
         Me.StatusStrip.Name = "StatusStrip"
         Me.StatusStrip.Size = New System.Drawing.Size(769, 22)
         Me.StatusStrip.TabIndex = 6
@@ -267,7 +267,7 @@ Partial Class EstimateList
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(769, 365)
+        Me.ClientSize = New System.Drawing.Size(769, 383)
         Me.Controls.Add(Me.StatusStrip)
         Me.Controls.Add(Me.EstimateDataGridView)
         Me.Controls.Add(Me.GroupBox1)

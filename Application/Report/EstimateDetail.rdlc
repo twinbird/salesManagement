@@ -217,7 +217,7 @@
                               <Value>=Fields!DisplayNo.Value</Value>
                               <Style>
                                 <FontFamily>Meiryo UI</FontFamily>
-                                <Format>0.00;(0.00)</Format>
+                                <Format>0;(0)</Format>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -286,7 +286,7 @@
                               <Value>=Fields!UnitPrice.Value</Value>
                               <Style>
                                 <FontFamily>Meiryo UI</FontFamily>
-                                <Format>'¥'0.00;('¥'0.00)</Format>
+                                <Format>'¥'0;('¥'0)</Format>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -322,7 +322,7 @@
                               <Value>=Fields!Quantity.Value</Value>
                               <Style>
                                 <FontFamily>Meiryo UI</FontFamily>
-                                <Format>'¥'0.00;('¥'0.00)</Format>
+                                <Format>0;(0)</Format>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -341,7 +341,6 @@
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
                         <PaddingBottom>2pt</PaddingBottom>
-                        <rd:FormatSymbolCulture>ja-JP</rd:FormatSymbolCulture>
                       </Style>
                     </Textbox>
                   </CellContents>
@@ -358,7 +357,7 @@
                               <Value>=Fields!Price.Value</Value>
                               <Style>
                                 <FontFamily>Meiryo UI</FontFamily>
-                                <Format>'¥'0.00;('¥'0.00)</Format>
+                                <Format>'¥'0;('¥'0)</Format>
                               </Style>
                             </TextRun>
                           </TextRuns>

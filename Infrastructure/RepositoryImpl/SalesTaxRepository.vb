@@ -97,10 +97,8 @@ Public Class SalesTaxRepositoryImpl
                 .AppendLine("   sales_taxes")
                 .AppendLine("WHERE")
                 .AppendLine("   apply_start_date <= strftime(@apply_start_date)")
-                .AppendLine("GROUP BY")
-                .AppendLine("   apply_start_date")
-                .AppendLine("HAVING")
-                .AppendLine("   apply_start_date = MIN(apply_start_date)")
+                .AppendLine("ORDER BY")
+                .AppendLine("   apply_start_date desc")
             End With
 
             With q.Parameters

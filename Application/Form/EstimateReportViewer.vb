@@ -31,9 +31,26 @@ Public Class EstimateReportViewer
 
 #Region "イベント"
 
+    ''' <summary>
+    ''' ビュワーロード時
+    ''' </summary>
+    ''' <param name="sender"></param>
+    ''' <param name="e"></param>
     Private Sub EstimateReportViewer_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         UpdateReport()
         Me.ReportViewer.RefreshReport()
+        'SubReportProcessingEventHandlerを追加する。
+        AddHandler Me.ReportViewer.LocalReport.SubreportProcessing, AddressOf SubReportProcessingEventHandler
+    End Sub
+
+    ''' <summary>
+    ''' サブレポート処理時に呼び出されるイベント
+    ''' サブレポートで使用するデータソースにデータを指定する
+    ''' </summary>
+    ''' <param name="sender"></param>
+    ''' <param name="e"></param>
+    Public Sub SubReportProcessingEventHandler(ByVal sender As Object, ByVal e As SubreportProcessingEventArgs)
+        e.DataSources.Add(New ReportDataSource("EstimateDetailDataSet", _PreviewEstimate.Details))
     End Sub
 
 #End Region

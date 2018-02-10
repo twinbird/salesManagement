@@ -825,6 +825,19 @@
           </Border>
         </Style>
       </Image>
+      <Subreport Name="Subreport1">
+        <ReportName>EstimateDetail</ReportName>
+        <Top>8.38579cm</Top>
+        <Left>0.63182cm</Left>
+        <Height>6.02479cm</Height>
+        <Width>15.43813cm</Width>
+        <ZIndex>25</ZIndex>
+        <Style>
+          <Border>
+            <Style>Solid</Style>
+          </Border>
+        </Style>
+      </Subreport>
     </ReportItems>
     <Height>6.91667in</Height>
     <Style />

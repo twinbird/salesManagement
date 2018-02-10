@@ -175,47 +175,6 @@ Public Class EstimateReportPresenter
 
 #End Region
 
-#Region "明細用のクラス"
-
-    ''' <summary>
-    ''' 見積書レポート用(明細)のデータ転送用クラス
-    ''' </summary>
-    Public Class EstimateDetailReportPresenter
-
-        ''' <summary>
-        ''' 項番
-        ''' </summary>
-        ''' <returns></returns>
-        Public Property DisplayNo As String
-
-        ''' <summary>
-        ''' 品名
-        ''' </summary>
-        ''' <returns></returns>
-        Public Property ItemName As String
-
-        ''' <summary>
-        ''' 数量
-        ''' </summary>
-        ''' <returns></returns>
-        Public Property Quantity As String
-
-        ''' <summary>
-        ''' 単価
-        ''' </summary>
-        ''' <returns></returns>
-        Public Property UnitPrice As String
-
-        ''' <summary>
-        ''' 金額
-        ''' </summary>
-        ''' <returns></returns>
-        Public Property Price As String
-
-    End Class
-
-#End Region
-
 #Region "プライベートメソッド"
 
     ''' <summary>

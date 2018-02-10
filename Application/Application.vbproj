@@ -193,6 +193,7 @@
     <Compile Include="Form\MainMDI.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Report\EstimateDetailReportPresenter.vb" />
     <Compile Include="Report\EstimateReportPresenter.vb" />
   </ItemGroup>
   <ItemGroup>

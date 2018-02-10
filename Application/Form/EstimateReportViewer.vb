@@ -50,12 +50,27 @@ Public Class EstimateReportViewer
     ''' <param name="sender"></param>
     ''' <param name="e"></param>
     Public Sub SubReportProcessingEventHandler(ByVal sender As Object, ByVal e As SubreportProcessingEventArgs)
-        e.DataSources.Add(New ReportDataSource("EstimateDetailDataSet", _PreviewEstimate.Details))
+        e.DataSources.Add(New ReportDataSource("EstimateDetailDataSet", MakeDetailsList))
     End Sub
 
 #End Region
 
 #Region "レポート制御"
+
+    ''' <summary>
+    ''' 明細のサブレポート用にリストを構成する
+    ''' </summary>
+    ''' <returns></returns>
+    Private Function MakeDetailsList() As List(Of EstimateDetailReportPresenter)
+        Dim ret As New List(Of EstimateDetailReportPresenter)
+
+        For Each d In _PreviewEstimate.Details
+            Dim p = New EstimateDetailReportPresenter(d)
+            ret.Add(p)
+        Next
+
+        Return ret
+    End Function
 
     ''' <summary>
     ''' レポートを表示する

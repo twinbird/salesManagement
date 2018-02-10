@@ -286,7 +286,7 @@
                               <Value>=Fields!UnitPrice.Value</Value>
                               <Style>
                                 <FontFamily>Meiryo UI</FontFamily>
-                                <Format>'¥'0;('¥'0)</Format>
+                                <Format>'¥'#,0;('¥'#,0)</Format>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -308,6 +308,7 @@
                         <rd:FormatSymbolCulture>ja-JP</rd:FormatSymbolCulture>
                       </Style>
                     </Textbox>
+                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
                 <TablixCell>
@@ -357,7 +358,7 @@
                               <Value>=Fields!Price.Value</Value>
                               <Style>
                                 <FontFamily>Meiryo UI</FontFamily>
-                                <Format>'¥'0;('¥'0)</Format>
+                                <Format>'¥'#,0;('¥'#,0)</Format>
                               </Style>
                             </TextRun>
                           </TextRuns>

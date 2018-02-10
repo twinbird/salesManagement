@@ -285,6 +285,7 @@
                 <Value>=Fields!TotalPrice.Value</Value>
                 <Style>
                   <FontFamily>Meiryo UI</FontFamily>
+                  <Format>'¥'#,0;('¥'#,0)</Format>
                 </Style>
               </TextRun>
             </TextRuns>
@@ -308,6 +309,7 @@
           <PaddingRight>2pt</PaddingRight>
           <PaddingTop>2pt</PaddingTop>
           <PaddingBottom>2pt</PaddingBottom>
+          <rd:FormatSymbolCulture>ja-JP</rd:FormatSymbolCulture>
         </Style>
       </Textbox>
       <Textbox Name="Textbox4">

@@ -11,7 +11,7 @@ Public Class InfrastractureBackup
     ''' </summary>
     ''' <returns></returns>
     Public Shared Function BackupToFile(ByVal path As String) As Boolean
-        IO.File.Copy("myDb.db", path)
+        IO.File.Copy("myDb.db", path, True)
         Return True
     End Function
 

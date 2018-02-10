@@ -35,7 +35,7 @@ Public Class MainMDI
     ''' <param name="sender"></param>
     ''' <param name="e"></param>
     Private Sub バックアップのインポートToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles バックアップのインポートToolStripMenuItem.Click
-        Using form As New SaveFileDialog
+        Using form As New OpenFileDialog
             form.ShowDialog()
             Infrastructure.InfrastractureBackup.RestoreFromFile(form.FileName)
         End Using

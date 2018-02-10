@@ -80,7 +80,7 @@ Public Class MainMDI
 
 #End Region
 
-#Region "見積"
+#Region "メニュー(見積管理)"
 
     Private Sub 見積台帳EToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles 見積台帳EToolStripMenuItem.Click
         ' 子フォームの新しいインスタンスを作成します
@@ -140,6 +140,21 @@ Public Class MainMDI
         ' 表示する前に、この MDI フォームの子に設定します
         ChildForm.MdiParent = Me
         ChildForm.Show()
+    End Sub
+
+#End Region
+
+#Region "メニュー(ヘルプ)"
+
+    ''' <summary>
+    ''' バージョン情報メニューをクリック
+    ''' </summary>
+    ''' <param name="sender"></param>
+    ''' <param name="e"></param>
+    Private Sub AboutToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AboutToolStripMenuItem.Click
+        Dim title = "バージョン情報"
+        Dim body = "Sales Management " & My.Application.Info.Version.ToString & vbCrLf & "hosting:" & vbCrLf & "https://github.com/twinbird/salesManagement"
+        MessageBox.Show(Me, body, title)
     End Sub
 
 #End Region

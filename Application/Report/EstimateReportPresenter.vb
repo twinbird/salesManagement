@@ -8,15 +8,15 @@ Public Class EstimateReportPresenter
 
 #Region "コンストラクタ"
 
-    ''' <summary>
-    ''' コンストラクタ
-    ''' </summary>
-    Public Sub New()
-        InitializeDefaultValue()
-    End Sub
-
     Public Sub New(ByVal estimate As Domain.Estimate)
         InitializeDefaultValue()
+        InitializeByEstimate(estimate)
+
+        '自社情報を取得
+        Dim repo = New Infrastructure.CompanyInformationImpl
+        Dim c = repo.Find
+
+        InitializeByCompany(c)
     End Sub
 
 #End Region
@@ -102,7 +102,7 @@ Public Class EstimateReportPresenter
     Public Property PaymentConditionLabel As String
 
     ''' <summary>
-    ''' 見積条件
+    ''' 支払条件
     ''' </summary>
     ''' <returns></returns>
     Public Property PaymentCondition As String
@@ -225,12 +225,56 @@ Public Class EstimateReportPresenter
         _ReportName = "御見積書"
         _Honorific = "御中"
         _TitleLabel = "件名"
-        _TotalPriceLabel = "御見積金額"
+        _TotalPriceLabel = "御見積金額(税別)"
         _GreetingMessage = "御照会賜りました件、下記の通りお見積致しました。" & "ご検討の程、何卒よろしくお願い申し上げます。"
         _DueDateLabel = "納期"
         _PaymentConditionLabel = "支払条件"
         _EffectiveDateLabel = "見積有効期限"
         _RemarksLabel = "備考"
+    End Sub
+
+    ''' <summary>
+    ''' 見積エンティティを利用して初期化
+    ''' </summary>
+    ''' <param name="e"></param>
+    Private Sub InitializeByEstimate(ByVal e As Domain.Estimate)
+        '見積番号
+        _EstimateNo = e.EstimateNo
+        '発行日
+        _IssueDate = e.IssueDate.ToString("yyyy/MM/dd")
+        '顧客名
+        _CustomerName = e.Customer.Name
+        '件名
+        _Title = e.Title
+        '御見積金額
+        _TotalPrice = e.EstimatePrice.ToString("C")
+        '納期
+        _DueDate = e.DueDate.ToString("yyyy/MM/dd")
+        '支払条件
+        _PaymentCondition = e.PaymentCondition.Name
+        '見積有効期限
+        _EffectiveDate = e.EffectiveDate.ToString("yyyy/MM/dd")
+        '備考
+        _Remarks = e.Remarks
+    End Sub
+
+    ''' <summary>
+    ''' 自社情報を利用して初期化
+    ''' </summary>
+    ''' <param name="c"></param>
+    Private Sub InitializeByCompany(ByVal c As Domain.CompanyInformation)
+        '会社名
+        _CompanyName = c.Name
+        '会社郵便番号
+        _CompanyPostalCode = c.PostalCode
+        '会社住所1
+        _CompanyAddress1 = c.Address1
+        '会社住所2
+        _CompanyAddress2 = c.Address2
+        'TEL
+        _CompanyTEL = c.TEL
+        'FAX
+        _CompanyFAX = c.FAX
     End Sub
 
 #End Region

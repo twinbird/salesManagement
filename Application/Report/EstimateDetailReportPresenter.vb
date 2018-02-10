@@ -24,7 +24,7 @@ Public Class EstimateDetailReportPresenter
     ''' 項番
     ''' </summary>
     ''' <returns></returns>
-    Public Property DisplayNo As String
+    Public Property DisplayNo As Decimal
 
     ''' <summary>
     ''' 品名
@@ -36,19 +36,19 @@ Public Class EstimateDetailReportPresenter
     ''' 数量
     ''' </summary>
     ''' <returns></returns>
-    Public Property Quantity As String
+    Public Property Quantity As Decimal
 
     ''' <summary>
     ''' 単価
     ''' </summary>
     ''' <returns></returns>
-    Public Property UnitPrice As String
+    Public Property UnitPrice As Decimal
 
     ''' <summary>
     ''' 金額
     ''' </summary>
     ''' <returns></returns>
-    Public Property Price As String
+    Public Property Price As Decimal
 
 
 #End Region
@@ -60,15 +60,15 @@ Public Class EstimateDetailReportPresenter
     ''' </summary>
     Private Sub InitializeByEstimateDetail(ByVal d As Domain.EstimateDetail)
         '項番
-        _DisplayNo = d.DisplayOrder.ToString
+        _DisplayNo = d.DisplayOrder
         '品名
         _ItemName = d.ItemName
         '数量
-        _Quantity = d.Quantity.ToString
+        _Quantity = d.Quantity
         '単価
-        _UnitPrice = d.UnitPrice.ToString
+        _UnitPrice = d.UnitPrice
         '金額
-        _Price = (d.Quantity * d.UnitPrice).ToString
+        _Price = (d.Quantity * d.UnitPrice)
     End Sub
 
 #End Region

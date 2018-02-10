@@ -27,7 +27,7 @@ Public Class EstimateReportPresenter
     ''' 表題
     ''' </summary>
     ''' <returns></returns>
-    Public Property ReportNameTextBox As String
+    Public Property ReportName As String
 
     ''' <summary>
     ''' 見積番号
@@ -222,7 +222,7 @@ Public Class EstimateReportPresenter
     ''' 各プロパティのデフォルト初期値を設定
     ''' </summary>
     Private Sub InitializeDefaultValue()
-        _ReportNameTextBox = "御見積書"
+        _ReportName = "御見積書"
         _Honorific = "御中"
         _TitleLabel = "件名"
         _TotalPriceLabel = "御見積金額"

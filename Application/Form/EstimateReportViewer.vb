@@ -53,7 +53,7 @@ Public Class EstimateReportViewer
 
         'レポートのデータソースを準備
         BindingSource.DataSource = New EstimateReportPresenter(_PreviewEstimate)
-        Dim rds = New ReportDataSource("EstimateReportPresenterDataSet", BindingSource)
+        Dim rds = New ReportDataSource("EstimateDataSet", BindingSource)
 
         'レポートへデータソースを設定
         ReportViewer.LocalReport.DataSources.Add(rds)

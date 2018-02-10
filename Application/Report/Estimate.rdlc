@@ -12,12 +12,14 @@
                 <Value>=Fields!ReportName.Value</Value>
                 <Style>
                   <FontFamily>Meiryo UI</FontFamily>
-                  <FontSize>15pt</FontSize>
+                  <FontSize>28pt</FontSize>
                   <Language>ja-JP</Language>
                 </Style>
               </TextRun>
             </TextRuns>
-            <Style />
+            <Style>
+              <TextAlign>Center</TextAlign>
+            </Style>
           </Paragraph>
         </Paragraphs>
         <Top>0.31432cm</Top>
@@ -31,6 +33,7 @@
           <BottomBorder>
             <Style>Solid</Style>
           </BottomBorder>
+          <VerticalAlign>Middle</VerticalAlign>
           <PaddingLeft>2pt</PaddingLeft>
           <PaddingRight>2pt</PaddingRight>
           <PaddingTop>2pt</PaddingTop>
@@ -48,13 +51,15 @@
                 <Style />
               </TextRun>
             </TextRuns>
-            <Style />
+            <Style>
+              <TextAlign>Right</TextAlign>
+            </Style>
           </Paragraph>
         </Paragraphs>
         <Top>2.01676cm</Top>
-        <Left>12.72328cm</Left>
+        <Left>14.20495cm</Left>
         <Height>0.6cm</Height>
-        <Width>3.34667cm</Width>
+        <Width>1.865cm</Width>
         <ZIndex>1</ZIndex>
         <Style>
           <Border>
@@ -79,13 +84,15 @@
                 </Style>
               </TextRun>
             </TextRuns>
-            <Style />
+            <Style>
+              <TextAlign>Right</TextAlign>
+            </Style>
           </Paragraph>
         </Paragraphs>
         <Top>1.24037cm</Top>
-        <Left>12.72328cm</Left>
+        <Left>13.5964cm</Left>
         <Height>0.6cm</Height>
-        <Width>3.34667cm</Width>
+        <Width>2.47355cm</Width>
         <ZIndex>2</ZIndex>
         <Style>
           <Border>
@@ -253,7 +260,7 @@
         <Top>3.7812cm</Top>
         <Left>0.63182cm</Left>
         <Height>0.6cm</Height>
-        <Width>2.60584cm</Width>
+        <Width>3.82292cm</Width>
         <ZIndex>7</ZIndex>
         <Style>
           <Border>
@@ -286,9 +293,9 @@
         </Paragraphs>
         <rd:DefaultName>Textbox3</rd:DefaultName>
         <Top>3.81593cm</Top>
-        <Left>3.41405cm</Left>
-        <Height>0.6cm</Height>
-        <Width>7.5759cm</Width>
+        <Left>4.59585cm</Left>
+        <Height>0.56527cm</Height>
+        <Width>6.35882cm</Width>
         <ZIndex>8</ZIndex>
         <Style>
           <Border>
@@ -561,7 +568,9 @@
                 </Style>
               </TextRun>
             </TextRuns>
-            <Style />
+            <Style>
+              <TextAlign>Right</TextAlign>
+            </Style>
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox11</rd:DefaultName>
@@ -590,18 +599,20 @@
                 <Value>=Fields!CompanyPostalCode.Value</Value>
                 <Style>
                   <FontFamily>Meiryo UI</FontFamily>
-                  <FontSize>5pt</FontSize>
+                  <FontSize>8pt</FontSize>
                 </Style>
               </TextRun>
             </TextRuns>
-            <Style />
+            <Style>
+              <TextAlign>Right</TextAlign>
+            </Style>
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox12</rd:DefaultName>
-        <Top>4.90981cm</Top>
-        <Left>12.19412cm</Left>
-        <Height>0.30896cm</Height>
-        <Width>3.87583cm</Width>
+        <Top>4.90982cm</Top>
+        <Left>11.63849cm</Left>
+        <Height>0.49417cm</Height>
+        <Width>4.43146cm</Width>
         <ZIndex>17</ZIndex>
         <Style>
           <Border>
@@ -623,18 +634,20 @@
                 <Value>=Fields!CompanyAddress1.Value</Value>
                 <Style>
                   <FontFamily>Meiryo UI</FontFamily>
-                  <FontSize>5pt</FontSize>
+                  <FontSize>8pt</FontSize>
                 </Style>
               </TextRun>
             </TextRuns>
-            <Style />
+            <Style>
+              <TextAlign>Right</TextAlign>
+            </Style>
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox13</rd:DefaultName>
-        <Top>5.33343cm</Top>
-        <Left>12.19412cm</Left>
-        <Height>0.30896cm</Height>
-        <Width>3.87583cm</Width>
+        <Top>5.50982cm</Top>
+        <Left>11.63849cm</Left>
+        <Height>0.49417cm</Height>
+        <Width>4.43146cm</Width>
         <ZIndex>18</ZIndex>
         <Style>
           <Border>
@@ -656,18 +669,20 @@
                 <Value>=Fields!CompanyAddress2.Value</Value>
                 <Style>
                   <FontFamily>Meiryo UI</FontFamily>
-                  <FontSize>5pt</FontSize>
+                  <FontSize>8pt</FontSize>
                 </Style>
               </TextRun>
             </TextRuns>
-            <Style />
+            <Style>
+              <TextAlign>Right</TextAlign>
+            </Style>
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox14</rd:DefaultName>
-        <Top>5.71295cm</Top>
-        <Left>12.19412cm</Left>
-        <Height>0.30896cm</Height>
-        <Width>3.87583cm</Width>
+        <Top>6.1451cm</Top>
+        <Left>11.63849cm</Left>
+        <Height>0.49417cm</Height>
+        <Width>4.43146cm</Width>
         <ZIndex>19</ZIndex>
         <Style>
           <Border>
@@ -689,18 +704,20 @@
                 <Value>=Fields!CompanyTEL.Value</Value>
                 <Style>
                   <FontFamily>Meiryo UI</FontFamily>
-                  <FontSize>5pt</FontSize>
+                  <FontSize>8pt</FontSize>
                 </Style>
               </TextRun>
             </TextRuns>
-            <Style />
+            <Style>
+              <TextAlign>Right</TextAlign>
+            </Style>
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox15</rd:DefaultName>
-        <Top>6.16301cm</Top>
-        <Left>12.19412cm</Left>
-        <Height>0.30896cm</Height>
-        <Width>3.87583cm</Width>
+        <Top>6.74511cm</Top>
+        <Left>11.63849cm</Left>
+        <Height>0.49417cm</Height>
+        <Width>4.43146cm</Width>
         <ZIndex>20</ZIndex>
         <Style>
           <Border>
@@ -722,18 +739,20 @@
                 <Value>=Fields!CompanyFAX.Value</Value>
                 <Style>
                   <FontFamily>Meiryo UI</FontFamily>
-                  <FontSize>5pt</FontSize>
+                  <FontSize>8pt</FontSize>
                 </Style>
               </TextRun>
             </TextRuns>
-            <Style />
+            <Style>
+              <TextAlign>Right</TextAlign>
+            </Style>
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox16</rd:DefaultName>
-        <Top>6.5778cm</Top>
-        <Left>12.19412cm</Left>
-        <Height>0.30896cm</Height>
-        <Width>3.87583cm</Width>
+        <Top>7.34511cm</Top>
+        <Left>11.63849cm</Left>
+        <Height>0.49417cm</Height>
+        <Width>4.43146cm</Width>
         <ZIndex>21</ZIndex>
         <Style>
           <Border>
@@ -755,7 +774,6 @@
                 <Value>=Fields!RemarksLabel.Value</Value>
                 <Style>
                   <FontFamily>Meiryo UI</FontFamily>
-                  <FontSize>7pt</FontSize>
                 </Style>
               </TextRun>
             </TextRuns>
@@ -763,9 +781,9 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox47</rd:DefaultName>
-        <Top>14.6928cm</Top>
+        <Top>14.58697cm</Top>
         <Left>0.63182cm</Left>
-        <Height>0.38833cm</Height>
+        <Height>0.52944cm</Height>
         <Width>1.81208cm</Width>
         <ZIndex>22</ZIndex>
         <Style>
@@ -802,7 +820,7 @@
         <ZIndex>23</ZIndex>
         <Style>
           <Border>
-            <Style>None</Style>
+            <Style>Solid</Style>
           </Border>
           <PaddingLeft>2pt</PaddingLeft>
           <PaddingRight>2pt</PaddingRight>
@@ -838,6 +856,72 @@
           </Border>
         </Style>
       </Subreport>
+      <Textbox Name="Textbox1">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>発行日</Value>
+                <Style>
+                  <FontFamily>Meiryo UI</FontFamily>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style>
+              <TextAlign>Right</TextAlign>
+            </Style>
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox1</rd:DefaultName>
+        <Top>2.01676cm</Top>
+        <Left>12.80328cm</Left>
+        <Height>0.6cm</Height>
+        <Width>1.40167cm</Width>
+        <ZIndex>26</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox17">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>No</Value>
+                <Style />
+              </TextRun>
+            </TextRuns>
+            <Style>
+              <TextAlign>Right</TextAlign>
+            </Style>
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox17</rd:DefaultName>
+        <Top>1.24037cm</Top>
+        <Left>12.40106cm</Left>
+        <Height>0.6cm</Height>
+        <Width>1.05771cm</Width>
+        <ZIndex>27</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
     </ReportItems>
     <Height>6.91667in</Height>
     <Style />

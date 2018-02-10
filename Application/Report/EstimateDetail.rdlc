@@ -6,19 +6,19 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>1.6316cm</Width>
+              <Width>1.10243cm</Width>
             </TablixColumn>
             <TablixColumn>
               <Width>6.49993cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.44771cm</Width>
+              <Width>2.15667cm</Width>
             </TablixColumn>
             <TablixColumn>
               <Width>1.75917cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>3.93347cm</Width>
+              <Width>3.95993cm</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
@@ -406,7 +406,7 @@
         </TablixRowHierarchy>
         <DataSetName>EstimateDetailDataSet</DataSetName>
         <Height>1.12062cm</Height>
-        <Width>16.27188cm</Width>
+        <Width>15.47813cm</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -417,14 +417,14 @@
     <Height>2in</Height>
     <Style />
   </Body>
-  <Width>6.42708in</Width>
+  <Width>15.47813cm</Width>
   <Page>
-    <PageHeight>29.7cm</PageHeight>
-    <PageWidth>21cm</PageWidth>
-    <LeftMargin>2cm</LeftMargin>
-    <RightMargin>2cm</RightMargin>
-    <TopMargin>2cm</TopMargin>
-    <BottomMargin>2cm</BottomMargin>
+    <PageHeight>6.02479cm</PageHeight>
+    <PageWidth>15.43813cm</PageWidth>
+    <LeftMargin>0cm</LeftMargin>
+    <RightMargin>0cm</RightMargin>
+    <TopMargin>0cm</TopMargin>
+    <BottomMargin>0cm</BottomMargin>
     <ColumnSpacing>0.13cm</ColumnSpacing>
     <Style />
   </Page>

@@ -75,7 +75,7 @@ Public Class EstimateReportPresenter
     ''' 御見積金額
     ''' </summary>
     ''' <returns></returns>
-    Public Property TotalPrice As String
+    Public Property TotalPrice As Decimal
 
     ''' <summary>
     ''' あいさつ文
@@ -185,7 +185,7 @@ Public Class EstimateReportPresenter
         _Honorific = "御中"
         _TitleLabel = "件名"
         _TotalPriceLabel = "御見積金額(税別)"
-        _GreetingMessage = "御照会賜りました件、下記の通りお見積致しました。" & "ご検討の程、何卒よろしくお願い申し上げます。"
+        _GreetingMessage = "御照会賜りました件、下記の通りお見積致しました。" & vbCrLf & "ご検討の程、何卒よろしくお願い申し上げます。"
         _DueDateLabel = "納期"
         _PaymentConditionLabel = "支払条件"
         _EffectiveDateLabel = "見積有効期限"
@@ -206,7 +206,7 @@ Public Class EstimateReportPresenter
         '件名
         _Title = e.Title
         '御見積金額
-        _TotalPrice = e.EstimatePrice.ToString("C")
+        _TotalPrice = e.EstimatePrice
         '納期
         _DueDate = e.DueDate.ToString("yyyy/MM/dd")
         '支払条件

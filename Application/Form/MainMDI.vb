@@ -169,8 +169,7 @@ Public Class MainMDI
     ''' <param name="sender"></param>
     ''' <param name="e"></param>
     Private Sub MainMDI_Load(sender As Object, e As EventArgs) Handles Me.Load
-        Dim conStr = Configuration.ConfigurationManager.AppSettings("ConnectionString")
-        _InfrastructureSetting = New Infrastructure.InfrastructureSetting(conStr)
+        _InfrastructureSetting = New Infrastructure.InfrastructureSetting()
         If _InfrastructureSetting.InitializeDB() = False Then
             MessageBox.Show("アプリケーションの初期化でエラーが発生しました。")
             Me.Close()

@@ -37,6 +37,7 @@ Public Class DBAccessor
     Public Sub New()
         m_ADOWrapperType = "SQLite3"
         m_connectionString = System.Configuration.ConfigurationManager.ConnectionStrings.Item("mainDB").ConnectionString
+        m_connectionString = MakeConnectionString(m_connectionString)
         connectDB()
     End Sub
 
@@ -93,6 +94,21 @@ Public Class DBAccessor
         m_connection.Open()
 
     End Sub
+
+    ''' <summary>
+    ''' AppConfigのconnectionStringからConnectionStringを作成する
+    ''' </summary>
+    ''' <param name="c"></param>
+    ''' <returns></returns>
+    Private Function MakeConnectionString(ByVal c As String) As String
+#If DEBUG Then
+        Dim path = "."
+#Else
+        Dim path = System.Environment.GetFolderPath(Environment.SpecialFolder.Personal)
+#End If
+        Dim ret = c.Replace("{AppDir}", path)
+        Return ret
+    End Function
 
 #End Region
 

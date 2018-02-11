@@ -6,12 +6,6 @@ Option Infer On
 ''' </summary>
 Public Class InfrastructureSetting
 
-    Private _ConnectionString As String
-
-    Public Sub New(ByVal connectionString As String)
-        _ConnectionString = connectionString
-    End Sub
-
     ''' <summary>
     ''' データベースを初期化する
     ''' </summary>

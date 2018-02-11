@@ -235,9 +235,20 @@ Public Class EstimateEntry
         '消費税
         TaxRateTextBox.DataBindings.Add(NameOf(TaxRateTextBox.Text), BindingSource, "SalesTax.TaxRate")
         '見積金額
-        EstimatePriceTextBox.DataBindings.Add(NameOf(EstimatePriceTextBox.Text), BindingSource, NameOf(_Estimate.EstimatePrice))
+        '金額表示フォーマットに合わせたバインディングを作成
+        Dim priceBinding = New Binding(NameOf(EstimatePriceTextBox.Text), BindingSource, NameOf(_Estimate.EstimatePrice))
+        priceBinding.FormatString = "C"
+        priceBinding.FormattingEnabled = True
+        'バインディング
+        EstimatePriceTextBox.DataBindings.Add(priceBinding)
+
         '見積金額税込
-        EstimatePriceIncludeTaxTextBox.DataBindings.Add(NameOf(EstimatePriceIncludeTaxTextBox.Text), BindingSource, NameOf(_Estimate.EstimatePriceIncludeTax))
+        Dim priceTaxBinding = New Binding(NameOf(EstimatePriceIncludeTaxTextBox.Text), BindingSource, NameOf(_Estimate.EstimatePriceIncludeTax))
+        '金額表示フォーマットに合わせたバインディングを作成
+        priceTaxBinding.FormatString = "C"
+        priceTaxBinding.FormattingEnabled = True
+        'バインディング
+        EstimatePriceIncludeTaxTextBox.DataBindings.Add(priceTaxBinding)
 
         '明細
         SetupDataGridView()

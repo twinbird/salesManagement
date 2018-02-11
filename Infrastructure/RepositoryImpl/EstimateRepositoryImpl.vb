@@ -576,11 +576,16 @@ Public Class EstimateRepositoryImpl
     Private Function DeleteDetail(ByVal accessor As ADOWrapper.DBAccessor, ByVal details As List(Of EstimateDetail), eid As Integer) As Boolean
         Dim q = accessor.CreateQuery
         With q.Query
-            .AppendLine("DELETE")
+            .AppendLine("DELETE FROM")
             .AppendLine("   estimate_details")
             .AppendLine("WHERE")
             .AppendLine("   id NOT IN(")
-            For Each d As EstimateDetail In details
+            Dim d As EstimateDetail = Nothing
+            For i As Integer = 0 To details.Count - 1
+                d = details(i)
+                If i <> 0 Then
+                    .AppendLine(",")
+                End If
                 .AppendLine("@" + d.ID.ToString)
             Next
             .AppendLine("   )")

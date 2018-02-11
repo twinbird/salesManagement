@@ -18,9 +18,12 @@ Public Class InfrastructureSetting
     ''' <returns></returns>
     Public Function InitializeDB() As Boolean
 #If DEBUG Then
-        initializeDebugDB()
+        InitializeDebugDB()
 #End If
-        execDDL()
+        If IsExistDB() = False Then
+            execDDL()
+        End If
+
         Return True
     End Function
 
@@ -42,9 +45,21 @@ Public Class InfrastructureSetting
     ''' <summary>
     ''' デバッグ用にデータベースを初期化する
     ''' </summary>
-    Private Sub initializeDebugDB()
+    Private Sub InitializeDebugDB()
         'SQLiteファイルを削除
         System.IO.File.Delete("myDb.db")
     End Sub
+
+    ''' <summary>
+    ''' DBが既に存在している場合はTrue
+    ''' </summary>
+    ''' <param name="path"></param>
+    ''' <returns></returns>
+    Private Function IsExistDB() As Boolean
+        If System.IO.File.Exists("./myDb.db") = True Then
+            Return True
+        End If
+        Return False
+    End Function
 
 End Class

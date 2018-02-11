@@ -32,7 +32,12 @@ Public Class InfrastructureSetting
     ''' </summary>
     Private Sub execDDL()
         'DDLを読み込み
+#If DEBUG Then
         Dim ddl = IO.File.ReadAllText("../../../Infrastructure/DDL/DDL.txt")
+#Else
+        Dim ddl = IO.File.ReadAllText("DDL.txt")
+#End If
+
 
         'DDLを実行
         Using accessor As New ADOWrapper.DBAccessor

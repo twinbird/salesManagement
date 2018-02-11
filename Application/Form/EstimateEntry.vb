@@ -158,6 +158,7 @@ Public Class EstimateEntry
     Private Sub PrintPreviewButton_Click(sender As Object, e As EventArgs) Handles PrintPreviewButton.Click
         'プレビューに入る前に検証
         If _Estimate.Validate = False Then
+            MessageBox.Show("無効な項目があります")
             Return
         End If
 

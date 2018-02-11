@@ -24,8 +24,9 @@ Public Class MainMDI
     ''' <param name="e"></param>
     Private Sub バックアップの作成ToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles バックアップの作成ToolStripMenuItem.Click
         Using form As New SaveFileDialog
-            form.ShowDialog()
-            Infrastructure.InfrastractureBackup.BackupToFile(form.FileName)
+            If form.ShowDialog() = DialogResult.OK Then
+                Infrastructure.InfrastractureBackup.BackupToFile(form.FileName)
+            End If
         End Using
     End Sub
 
@@ -36,8 +37,9 @@ Public Class MainMDI
     ''' <param name="e"></param>
     Private Sub バックアップのインポートToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles バックアップのインポートToolStripMenuItem.Click
         Using form As New OpenFileDialog
-            form.ShowDialog()
-            Infrastructure.InfrastractureBackup.RestoreFromFile(form.FileName)
+            If form.ShowDialog() = DialogResult.OK Then
+                Infrastructure.InfrastractureBackup.RestoreFromFile(form.FileName)
+            End If
         End Using
     End Sub
 

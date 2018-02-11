@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27130.0
+VisualStudioVersion = 15.0.27130.2027
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "Application", "Application\Application.vbproj", "{4E15C995-93BA-4B47-90B2-68FF3A8D5C52}"
 EndProject
@@ -12,6 +12,8 @@ EndProject
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "ADOWrapper", "ADOWrapper\ADOWrapper.vbproj", "{2D71EB0C-CBD9-474D-8084-82A5DB06EEDC}"
 EndProject
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "TestADOWrapper", "TestADOWrapper\TestADOWrapper.vbproj", "{B34D0D44-C1A3-436A-AC96-97D76EA969AD}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Setup", "Setup\Setup.vdproj", "{02667DFF-AECD-46BC-83E4-78E2EA1D31BD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,9 @@ Global
 		{B34D0D44-C1A3-436A-AC96-97D76EA969AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B34D0D44-C1A3-436A-AC96-97D76EA969AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B34D0D44-C1A3-436A-AC96-97D76EA969AD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{02667DFF-AECD-46BC-83E4-78E2EA1D31BD}.Debug|Any CPU.ActiveCfg = Debug
+		{02667DFF-AECD-46BC-83E4-78E2EA1D31BD}.Release|Any CPU.ActiveCfg = Release
+		{02667DFF-AECD-46BC-83E4-78E2EA1D31BD}.Release|Any CPU.Build.0 = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

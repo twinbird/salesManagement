@@ -285,7 +285,7 @@ Public Class Estimate
                 Return sum
             End If
             Dim rate = _SalesTax.TaxRate
-            Return sum + (sum * (rate / 100))
+            Return sum + (sum * rate)
         End Get
     End Property
 

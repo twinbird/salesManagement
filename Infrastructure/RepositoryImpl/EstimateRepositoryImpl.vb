@@ -50,21 +50,14 @@ Public Class EstimateRepositoryImpl
                 .AppendLine("FROM")
                 .AppendLine("   estimates")
                 .AppendLine("WHERE")
-                .AppendLine("   created_at > strftime(@created_at_start)")
+                .AppendLine("   created_at >= strftime(@created_at_start)")
                 .AppendLine("AND")
-                .AppendLine("   created_at < strftime(@created_at_end)")
+                .AppendLine("   created_at <= strftime(@created_at_end)")
             End With
 
-            '翌日の開始時刻
-            Dim next_day = d.AddDays(1)
-            Dim next_start = New Date(next_day.Year, next_day.Month, next_day.Day, 0, 0, 0)
-            '前日の終了時刻
-            Dim prev_day = d.AddDays(-1)
-            Dim prev_end = New Date(prev_day.Year, prev_day.Month, prev_day.Day, 23, 59, 59)
-
             With q.Parameters
-                .Add("@created_at_start", next_start.ToString("yyyy-MM-dd HH:mm:ss"))
-                .Add("@created_at_end", prev_end.ToString("yyyy-MM-dd HH:mm:ss"))
+                .Add("@created_at_start", Helper.StartOfDate(d).ToString("yyyy-MM-dd HH:mm:ss"))
+                .Add("@created_at_end", Helper.EndOfDate(d).ToString("yyyy-MM-dd HH:mm:ss"))
             End With
 
             Dim n = q.ExecScalar()
@@ -479,7 +472,7 @@ Public Class EstimateRepositoryImpl
                 .AppendLine(",customer_id = @customer_id")
                 .AppendLine(",title = @title")
                 .AppendLine(",due_date = @due_date")
-                .AppendLine(",payment_id = payment_id")
+                .AppendLine(",payment_id = @payment_id")
                 .AppendLine(",pic_employee_id = @pic_employee_id")
                 .AppendLine(",apply_tax_id = @apply_tax_id")
                 .AppendLine(",print_date = @print_date")
@@ -502,6 +495,7 @@ Public Class EstimateRepositoryImpl
                 .Add("@effective_date", e.EffectiveDate.ToString("yyyy-MM-dd HH:mm:ss"))
                 .Add("@remarks", e.Remarks)
                 .Add("@updated_at", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"))
+                .Add("@id", e.ID)
             End With
 
             Dim ret = q.ExecNonQuery
@@ -552,13 +546,13 @@ Public Class EstimateRepositoryImpl
         End With
 
         With q.Parameters
-            .Add("@id", d.ID)
             .Add("@estimate_id", eid)
             .Add("@display_order", d.DisplayOrder)
             .Add("@item_name", d.ItemName)
             .Add("@quantity", d.Quantity)
             .Add("@unit_price", d.UnitPrice)
             .Add("@updated_at", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"))
+            .Add("@id", d.ID)
         End With
 
         Dim ret = q.ExecNonQuery

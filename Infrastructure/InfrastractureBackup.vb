@@ -11,7 +11,7 @@ Public Class InfrastractureBackup
     ''' </summary>
     ''' <returns></returns>
     Public Shared Function BackupToFile(ByVal path As String) As Boolean
-        IO.File.Copy("myDb.db", path, True)
+        IO.File.Copy(GetDBPath(), path, True)
         Return True
     End Function
 
@@ -20,8 +20,21 @@ Public Class InfrastractureBackup
     ''' </summary>
     ''' <returns></returns>
     Public Shared Function RestoreFromFile(ByVal path As String) As Boolean
-        IO.File.Copy(path, "myDb.db", True)
+        IO.File.Copy(path, GetDBPath(), True)
         Return True
+    End Function
+
+    ''' <summary>
+    ''' SQLite3のDBファイルパスを取得
+    ''' </summary>
+    ''' <returns></returns>
+    Private Shared Function GetDBPath() As String
+#If DEBUG Then
+        Dim path = "."
+#Else
+        Dim path = System.Environment.GetFolderPath(Environment.SpecialFolder.Personal)
+#End If
+        Return System.IO.Path.Combine(path, "myDb.db")
     End Function
 
 End Class

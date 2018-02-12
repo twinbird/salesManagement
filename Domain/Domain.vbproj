@@ -63,7 +63,6 @@
     <Compile Include="DomainObject\EstimateDetail.vb" />
     <Compile Include="DomainObject\PaymentCondition.vb" />
     <Compile Include="DomainObject\SalesTax.vb" />
-    <Compile Include="DomainObject\SalesTaxes.vb" />
     <Compile Include="Repository\CustomerRepositorySearchCondition.vb" />
     <Compile Include="Repository\EmployeeRepositorySearchCondition.vb" />
     <Compile Include="Repository\EstimateRepositorySearchCondition.vb" />

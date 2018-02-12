@@ -352,4 +352,19 @@ Public Class CompanyInformation
 
 #End Region
 
+#Region "オーバーライド"
+
+    Public Overrides Function Equals(obj As Object) As Boolean
+        '型が異なれば異なる
+        If obj.GetType <> GetType(CompanyInformation) Then
+            Return False
+        End If
+        Dim c = DirectCast(obj, CompanyInformation)
+
+        'ID値が同じなら同じ
+        Return Me.ID = c.ID
+    End Function
+
+#End Region
+
 End Class

@@ -315,4 +315,20 @@ Public Class PaymentCondition
 
 #End Region
 
+#Region "オーバーライド"
+
+    Public Overrides Function Equals(obj As Object) As Boolean
+        '型が異なれば異なる
+        If obj.GetType <> GetType(PaymentCondition) Then
+            Return False
+        End If
+        Dim c = DirectCast(obj, PaymentCondition)
+
+        'ID値が同じなら同じ
+        Return Me.ID = c.ID
+    End Function
+
+#End Region
+
+
 End Class

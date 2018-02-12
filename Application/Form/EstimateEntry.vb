@@ -456,6 +456,8 @@ Public Class EstimateEntry
         If _Estimate.Validate() = False Then
             'エラー情報を更新
             Me.ErrorProvider.UpdateBinding()
+            'エラーアイコンが見えるようにselectしておく
+            DetailsDataGridView.Select()
             Return False
         End If
         '登録

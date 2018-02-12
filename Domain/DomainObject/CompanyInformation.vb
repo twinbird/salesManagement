@@ -317,7 +317,7 @@ Public Class CompanyInformation
         '電話番号っぽいかチェック
         If _TEL <> String.Empty AndAlso Text.RegularExpressions.Regex.IsMatch(
             _TEL,
-            "\A0\d{1,4}-\d{1,4}-\d{4}\z") Then
+            "\A\s*0\d{1,5}\s*-\s*\d{1,4}\s*-\s*\d{4}\s*\z") = False Then
             _errors(NameOf(TEL)) = TELIsWrongFormat
         End If
 
@@ -344,7 +344,7 @@ Public Class CompanyInformation
         'FAX番号っぽいかチェック
         If _FAX <> String.Empty AndAlso Text.RegularExpressions.Regex.IsMatch(
             _FAX,
-            "\A0\d{1,4}-\d{1,4}-\d{4}\z") Then
+            "\A\s*0\d{1,5}\s*-\s*\d{1,4}\s*-\s*\d{4}\s*\z") = False Then
             _errors(NameOf(FAX)) = FAXIsWrongFormat
         End If
 

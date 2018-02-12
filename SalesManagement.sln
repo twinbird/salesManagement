@@ -15,6 +15,10 @@ Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "TestADOWrapper", "TestADOWr
 EndProject
 Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Setup", "Setup\Setup.vdproj", "{02667DFF-AECD-46BC-83E4-78E2EA1D31BD}"
 EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "TestDomain", "TestDomain\TestDomain.vbproj", "{916E4381-A33A-48AD-98B7-CD46DBB5DE2B}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "TestInfrastructure", "TestInfrastructure\TestInfrastructure.vbproj", "{07E76425-A21B-4981-9DBF-818D0A2E50C7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -44,6 +48,14 @@ Global
 		{02667DFF-AECD-46BC-83E4-78E2EA1D31BD}.Debug|Any CPU.ActiveCfg = Debug
 		{02667DFF-AECD-46BC-83E4-78E2EA1D31BD}.Release|Any CPU.ActiveCfg = Release
 		{02667DFF-AECD-46BC-83E4-78E2EA1D31BD}.Release|Any CPU.Build.0 = Release
+		{916E4381-A33A-48AD-98B7-CD46DBB5DE2B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{916E4381-A33A-48AD-98B7-CD46DBB5DE2B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{916E4381-A33A-48AD-98B7-CD46DBB5DE2B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{916E4381-A33A-48AD-98B7-CD46DBB5DE2B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{07E76425-A21B-4981-9DBF-818D0A2E50C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{07E76425-A21B-4981-9DBF-818D0A2E50C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{07E76425-A21B-4981-9DBF-818D0A2E50C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{07E76425-A21B-4981-9DBF-818D0A2E50C7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

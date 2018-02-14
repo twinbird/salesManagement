@@ -28,7 +28,7 @@ Public Class InfrastractureBackup
     ''' SQLite3のDBファイルパスを取得
     ''' </summary>
     ''' <returns></returns>
-    Private Shared Function GetDBPath() As String
+    Public Shared Function GetDBPath() As String
 #If DEBUG Then
         Dim path = "."
 #Else

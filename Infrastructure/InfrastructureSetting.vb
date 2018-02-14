@@ -55,7 +55,7 @@ Public Class InfrastructureSetting
     ''' <param name="path"></param>
     ''' <returns></returns>
     Private Function IsExistDB() As Boolean
-        If System.IO.File.Exists("./myDb.db") = True Then
+        If System.IO.File.Exists(InfrastractureBackup.GetDBPath()) = True Then
             Return True
         End If
         Return False

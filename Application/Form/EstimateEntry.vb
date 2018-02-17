@@ -266,6 +266,9 @@ Public Class EstimateEntry
     ''' 営業担当者のコンボボックスを設定
     ''' </summary>
     Private Sub SetupPICComboBox()
+        '現状の値を退避
+        Dim tmp = PICEmployeeComboBox.SelectedValue
+
         Dim displayValues As New List(Of KeyValuePair(Of String, Domain.Employee))
 
         '従業員情報を取得してコンボボックスメンバに利用
@@ -280,12 +283,20 @@ Public Class EstimateEntry
         PICEmployeeComboBox.ValueMember = "Value"
         PICEmployeeComboBox.DisplayMember = "Key"
         PICEmployeeComboBox.DataSource = displayValues
+
+        '退避した値を戻しておく
+        If tmp IsNot Nothing Then
+            PICEmployeeComboBox.SelectedValue = tmp
+        End If
     End Sub
 
     ''' <summary>
     ''' 支払条件のコンボボックスを設定
     ''' </summary>
     Private Sub SetupPaymentConditionComboBox()
+        '現状の値を退避
+        Dim tmp = PaymentConditionComboBox.SelectedValue
+
         Dim displayValues As New List(Of KeyValuePair(Of String, Domain.PaymentCondition))
 
         '支払条件情報を取得してコンボボックスメンバに利用
@@ -300,12 +311,20 @@ Public Class EstimateEntry
         PaymentConditionComboBox.ValueMember = "Value"
         PaymentConditionComboBox.DisplayMember = "Key"
         PaymentConditionComboBox.DataSource = displayValues
+
+        '退避した値を戻しておく
+        If tmp IsNot Nothing Then
+            PaymentConditionComboBox.SelectedValue = tmp
+        End If
     End Sub
 
     ''' <summary>
     ''' 顧客のコンボボックスを設定
     ''' </summary>
     Private Sub SetupCustomerComboBox()
+        '現状の値を退避
+        Dim tmp = CustomerComboBox.SelectedValue
+
         Dim displayValues As New List(Of KeyValuePair(Of String, Domain.Customer))
 
         '顧客情報を取得してコンボボックスメンバに利用
@@ -320,6 +339,11 @@ Public Class EstimateEntry
         CustomerComboBox.ValueMember = "Value"
         CustomerComboBox.DisplayMember = "Key"
         CustomerComboBox.DataSource = displayValues
+
+        '退避した値を戻しておく
+        If tmp IsNot Nothing Then
+            CustomerComboBox.SelectedValue = tmp
+        End If
     End Sub
 
     ''' <summary>

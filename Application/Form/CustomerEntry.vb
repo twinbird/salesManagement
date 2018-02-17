@@ -119,6 +119,9 @@ Public Class CustomerEntry
     ''' 営業担当者のコンボボックスを設定
     ''' </summary>
     Private Sub SetupPICComboBox()
+        '現状のコンボボックスの値を退避
+        Dim tmp = PICComboBox.SelectedValue
+
         Dim displayValues As New List(Of KeyValuePair(Of String, Domain.Employee))
 
         '従業員情報を取得してコンボボックスメンバに利用
@@ -133,12 +136,20 @@ Public Class CustomerEntry
         PICComboBox.ValueMember = "Value"
         PICComboBox.DisplayMember = "Key"
         PICComboBox.DataSource = displayValues
+
+        '退避した値を戻す
+        If tmp IsNot Nothing Then
+            PICComboBox.SelectedValue = tmp
+        End If
     End Sub
 
     ''' <summary>
     ''' 支払条件のコンボボックスを設定
     ''' </summary>
     Private Sub SetupPaymentConditionComboBox()
+        '現状の値を退避
+        Dim tmp = PaymentConditionComboBox.SelectedValue
+
         Dim displayValues As New List(Of KeyValuePair(Of String, Domain.PaymentCondition))
 
         '支払条件情報を取得してコンボボックスメンバに利用
@@ -153,6 +164,11 @@ Public Class CustomerEntry
         PaymentConditionComboBox.ValueMember = "Value"
         PaymentConditionComboBox.DisplayMember = "Key"
         PaymentConditionComboBox.DataSource = displayValues
+
+        '退避した値を戻す
+        If tmp IsNot Nothing Then
+            PaymentConditionComboBox.SelectedValue = tmp
+        End If
     End Sub
 
     ''' <summary>
